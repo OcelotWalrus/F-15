@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <sim>
+        <model>
+            <livery>
+                <name type="string">75th Anniversary</name>
+                <index type="int">0</index>
+                <texture>Liveries/livery.AF79-041.jpg</texture>
+            </livery>
+
+            <livery-patch>
+                <name type="string">75th Anniversary</name>
+                <index type="int">0</index>
+                <texture>Liveries/patch.173th.png</texture>
+            </livery-patch>
+
+            <f15>
+                <cft type="int">0</cft>
+            </f15>
+        </model>
+    </sim>
+</PropertyList>

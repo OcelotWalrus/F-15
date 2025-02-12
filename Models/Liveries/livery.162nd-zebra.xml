@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <sim>
+        <model>
+            <livery>
+                <name type="string">162nd Fighter Wing (Zebra)</name>
+                <index type="int">0</index>
+                <texture>Liveries/livery.162nd-zebra.jpg</texture>
+            </livery>
+
+            <livery-patch>
+                <name type="string">162nd Fighter Wing (Zebra)</name>
+                <index type="int">0</index>
+                <texture>Liveries/patch.162nd-zebra.png</texture>
+            </livery-patch>
+
+            <f15>
+                <cft type="int">1</cft>
+            </f15>
+        </model>
+    </sim>
+</PropertyList>
