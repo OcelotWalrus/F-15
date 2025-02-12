@@ -1,3 +1,28 @@
+---
+CROMHⒶ'S HERE
+---
+
+NOTE: **This repository is simply for myself so stay out, unless you're interested in my dookie F-15.**
+
+My project is to add more of nice shit, by inspiring from other flight gear aircraft cuz I ain't very productive at making shit from myself that I don't really know a thing about so it's mainly copying and tweaking. This has for goal to add more effects to the model, and cleaner it (if to cleaner even exists as a word), but mainly add the F-15E (maybe it'll keep the same cockpit model idk) variant so air/ground actually works, add more rounds capacity to the gun (current is 675 and F-15E is 940), make so that MK-84s can be stocked in three, so that the bombs capacity is tripled (from 3 to 9). Probably some other shit too as upgrading the engines.
+
+So what's actually been done for now?
+* Added a personal livery: 162nd fighter wing Arizona (fictional, comes in three variants, they're kinda funky so beware). The livery(ies) has the CFTs.
+* Added the F-229 to the F-15 (for now the whole variant for testing, but in the future it'll be installed only on the F-15E, maybe the engine could be a custom setting like CFTs could be?)
+* Added mach cone, strake and G vortex vapor effects (taken from the dear flight gear F-16 model) (may be up for some tweaking (some day))
+* Added some more cool preview screenshots cuz why not (TO BE IMPLEMENTED)
+
+So I've got in my small mind:
+* Make the CFT a parameter instead of it being controlled by the selected livery.
+* Add the F-15E variant
+* Make triple MK-84s model shit and implementation
+* Add some more ground services cuz why not
+* Add even more funky and cool liveries
+
+---
+ORIGINAL TEXT
+---
+
 Realistic windtunnel based aerodynamic model of an F-15 (C,D) version. See http://zaretto.com/f-15
 
 Models an F-15 with F-100 engines.
