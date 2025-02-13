@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <sim>
+        <model>
+            <livery>
+                <name type="string">JASDF 305th Nyutabaru Air Show</name>
+                <index type="int">0</index>
+                <texture>Liveries/livery.JASDF 305th Nyutabaru Air Show.jpg</texture>
+            </livery>
+
+            <livery-patch>
+                <name type="string">JASDF 305th Nyutabaru Air Show</name>
+                <index type="int">0</index>
+                <texture>Liveries/patch.JASDF 305th Nyutabaru Air Show.jpg</texture>
+            </livery-patch>
+
+            <f15>
+                <cft type="int">0</cft>
+            </f15>
+        </model>
+    </sim>
+</PropertyList>
