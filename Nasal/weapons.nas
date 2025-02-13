@@ -178,6 +178,7 @@ var fire_gun = func {
 			return;
 		}
 		GunCount.setValue(new_gcount);
+		print(new_gcount);
 		settimer(fire_gun, 0.1);
 	}
 }

@@ -1316,18 +1316,30 @@
             <mode>looped</mode>
             <path>Sounds/M61A1.wav</path>
             <condition>
-                <property>sim/model/f15/systems/gun/running</property>
+                <and>
+                    <property>controls/armament/trigger</property>
+                </and>
+                <greater-than>
+                    <property>ai/submodels/submodel[3]/count</property>
+                    <value>0</value>
+                </greater-than>
             </condition>
             <volume>
                 <value>1</value>
             </volume>
         </gun>
         <gun>
-            <name>gun</name>
+            <name>gun-outta-ammo</name>
             <mode>once</mode>
             <path>Sounds/M61A1-out-of-ammo.wav</path>
             <condition>
-                <property>sim/model/f15/systems/gun/running</property>
+                <and>
+                    <property>controls/armament/trigger</property>
+                </and>
+                <less-than>
+                    <property>ai/submodels/submodel[3]/count</property>
+                    <value>5</value>
+                </less-than>
             </condition>
             <volume>
                 <value>1</value>
@@ -1864,7 +1876,6 @@
             <path>Aircraft/F-15/Sounds/flare.wav</path>
             <condition>
                 <property>ai/submodels/submodel[5]/flare-release-snd</property>
-                <property>sim/current-view/internal</property>
             </condition>
             <volume>
                 <factor>1</factor>
@@ -1879,7 +1890,6 @@
             <path>Aircraft/F-15/Sounds/flareOut.wav</path>
             <condition>
                 <property>ai/submodels/submodel[5]/flare-release-out-snd</property>
-                <property>sim/current-view/internal</property>
             </condition>
             <volume>
                 <factor>1</factor>

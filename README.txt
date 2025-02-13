@@ -24,6 +24,8 @@ So what's actually been done for now?
 * Modified the "reload gun" button in fuel and storage to make it also reload flares and chaffs
 * Made the release flare/chaff keybind toggle release instead of just releasing once
 * Display the amount of gun rounds and countermeasures in the fuel and payload dialog crap
+* Added a gun outta-ammo sound effect
+* Replaced the sound effects for the flare, so it's no longer a voice saying "flare", and reused the gun outta-ammo sound effect for the flare outta-ammo sound effect
 
 So I've got in my small mind:
 * As it was done for the CFTs, make the engine choice a parameter (make so that you can get the F-100 EMD engine only through the NASA livery)
