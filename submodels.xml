@@ -161,6 +161,7 @@
         <speed>700.0</speed>        <!-- ft/sec -->
         <repeat>true</repeat>
         <delay>0.50</delay>
+        <reloaded>0</reloaded>
         <count>100</count>        <!-- was 40 -->
         <x-offset>14.3578</x-offset><!-- in feet -->
         <y-offset>2.56</y-offset>
@@ -183,6 +184,7 @@
         <speed>700.0</speed>        <!-- ft/sec -->
         <repeat>true</repeat>
         <delay>0.50</delay>
+        <reloaded>0</reloaded>
         <count>100</count>        <!-- was 40 -->
         <x-offset>14.3578</x-offset><!-- in feet -->
         <y-offset>-2.56</y-offset>

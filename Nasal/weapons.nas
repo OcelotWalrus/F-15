@@ -581,7 +581,6 @@ var flareLoop = func {
       and getprop("ai/submodels/submodel[5]/flare-release-snd") == 0) {
     flareCount = getprop("ai/submodels/submodel[5]/count");
     flareStart = getprop("sim/time/elapsed-sec");
-    setprop("ai/submodels/submodel[5]/flare-release-cmd", 0);
     if (flareCount > 0) {
       # release a flare
       setprop("ai/submodels/submodel[5]/flare-release-snd", 1);

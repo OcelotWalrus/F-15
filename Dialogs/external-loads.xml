@@ -741,13 +741,19 @@
                     </binding>
                 </button>
                 <button>
-                    <legend>Reload gun</legend>
+                    <legend>Reload Ammunitions</legend>
                     <equal>true</equal>
                     <binding>
                         <command>nasal</command>
                         <script>
+                            <!-- gun ammos -->
                             setprop("/ai/submodels/submodel[3]/count",188);
                             setprop("sim/model/f15/systems/gun/rounds",940);
+                            <!-- flares and chaffs -->
+                            setprop("/ai/submodels/submodel[5]/count",100);
+                            setprop("/ai/submodels/submodel[6]/count",100);
+                            <!-- force to update the displays -->
+                            setprop("/ai/submodels/submodel[5]/reloaded",1);
                         </script>
                     </binding>
                 </button>
@@ -893,6 +899,43 @@
                             <label>xxxxxxxxxxxxxx</label>
                             <live>true</live>
                             <property>payload/weight[10]/selected</property>
+                        </text>
+                    </group>
+                    <hrule/>
+                    <group>
+                        <layout>hbox</layout>
+                        <default-padding>0</default-padding>
+                        <text>
+                            <label>Gun Rounds : </label>
+                        </text>
+                        <text>
+                            <label>xxxxxxxxxxxxxx</label>
+                            <live>true</live>
+                            <property>sim/model/f15/systems/gun/rounds</property>
+                        </text>
+                    </group>
+                    <group>
+                        <layout>hbox</layout>
+                        <default-padding>0</default-padding>
+                        <text>
+                            <label>Flares Count : </label>
+                        </text>
+                        <text>
+                            <label>xxxxxxxxxxxxxx</label>
+                            <live>true</live>
+                            <property>ai/submodels/submodel[5]/count</property>
+                        </text>
+                    </group>
+                    <group>
+                        <layout>hbox</layout>
+                        <default-padding>0</default-padding>
+                        <text>
+                            <label>Chaffs Count : </label>
+                        </text>
+                        <text>
+                            <label>xxxxxxxxxxxxxx</label>
+                            <live>true</live>
+                            <property>ai/submodels/submodel[6]/count</property>
                         </text>
                     </group>
                 </group>

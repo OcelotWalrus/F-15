@@ -21,6 +21,9 @@ So what's actually been done for now?
 * Made the CFTs a parameter instead of it being controlled by the selected livery.
 * Added the ability to change the smoke generator's color
 * Fixed the gun smoke's offset (was in the nose of the plane, and not actually where the gatling gun is)
+* Modified the "reload gun" button in fuel and storage to make it also reload flares and chaffs
+* Made the release flare/chaff keybind toggle release instead of just releasing once
+* Display the amount of gun rounds and countermeasures in the fuel and payload dialog crap
 
 So I've got in my small mind:
 * As it was done for the CFTs, make the engine choice a parameter (make so that you can get the F-100 EMD engine only through the NASA livery)

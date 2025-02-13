@@ -970,6 +970,10 @@ var MPCD_Device =
         setlistener("ai/submodels/submodel[5]/flare-release", func {
             update_flares(oo);
         });
+        setlistener("ai/submodels/submodel[5]/reloaded", func {
+            update_flares(oo);
+            setprop("/ai/submodels/submodel[5]/reloaded",0);
+        });
 
 
         me.pjitds_1 =  PFD_NavDisplay.new(me.PFD,"Situation", "mpcd-sit", "pjitds_1", "jtids_main");
