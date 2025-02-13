@@ -8,13 +8,13 @@ My project is to add more of nice shit, by inspiring from other flight gear airc
 
 So what's actually been done for now?
 * Added a personal livery: 162nd fighter wing Arizona (fictional, comes in three variants, they're kinda funky so beware). The livery(ies) has the CFTs.
-* Added the F-229 to the F-15 (for now the whole variant for testing, but in the future it'll be installed only on the F-15E, maybe the engine could be a custom setting like CFTs could be?)
+* Added the F-100-PW-229 to the F-15 (for now the whole variant for testing, but in the future it'll be installed only on the F-15E, maybe the engine could be a custom setting like CFTs could be?)
 * Added mach cone, strake and G vortex vapor effects (taken from the dear flight gear F-16 model) (may be up for some tweaking (some day))
 * Updated the flares' effect (using F-16's ones)
 * Added some more cool preview screenshots cuz why not (TO BE IMPLEMENTED)
+* Made the CFTs a parameter instead of it being controlled by the selected livery.
 
 So I've got in my small mind:
-* Make the CFT a parameter instead of it being controlled by the selected livery.
 * Add the F-15E variant
 * Make triple MK-84s model shit and implementation
 * Add some more ground services cuz why not

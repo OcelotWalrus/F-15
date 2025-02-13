@@ -86,6 +86,22 @@
                     </binding>
                 </checkbox>
 			</group>
+            <group>
+                <layout>vbox</layout>
+                
+                <text>
+                    <label> Conformal Tanks</label>
+                </text>
+                
+                <checkbox>
+                    <property>fdm/jsbsim/propulsion/cft</property>
+                    <live>true</live>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>fdm/jsbsim/propulsion/cft</property>
+                    </binding>
+                </checkbox>
+            </group>
 			</group>
             <group>
                 <layout>hbox</layout>
@@ -103,7 +119,7 @@
                     </binding>
                 </checkbox>
                 <text>
-                    <label> Fuel Freeze:</label>
+                    <label> Fuel Freeze</label>
                 </text>
             </group>
             <button>
@@ -138,14 +154,14 @@
           </binding>
         </button>
         <button>
-          <legend>7000</legend>
+          <legend>7,000</legend>
           <binding>
             <command>nasal</command>
             <script>aircraft.set_fuel(7000)</script>
           </binding>
         </button>
         <button>
-          <legend>11000</legend>
+          <legend>11,000</legend>
           <binding>
             <command>nasal</command>
             <script>aircraft.set_fuel(11000)</script>

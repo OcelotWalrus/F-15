@@ -653,7 +653,7 @@
             </location>
             <type>JP-6</type>
             <!--<capacity unit="LBS">4720</capacity>-->
-            <capacity unit="LBS">5200</capacity>
+            <capacity unit="LBS">5000</capacity>
             <standpipe unit="LBS">100</standpipe>
             <contents unit="LBS">0</contents>
             <priority>6</priority>
@@ -667,7 +667,7 @@
             </location>
             <type>JP-6</type>
             <!--<capacity unit="LBS">4720</capacity>-->
-            <capacity unit="LBS">5200</capacity>
+            <capacity unit="LBS">5000</capacity>
             <contents unit="LBS">0</contents>
             <priority>6</priority>
         </tank>

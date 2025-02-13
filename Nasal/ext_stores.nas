@@ -247,6 +247,7 @@ var ext_loads_set = func(s)
         setprop("payload/weight[8]/selected","none");
         setprop("payload/weight[9]/selected","none");
         setprop("payload/weight[10]/selected","none");
+        setprop("fdm/jsbsim/propulsion/cft", 0);
 
         setprop("consumables/fuel/tank[5]/selected",false);
         setprop("consumables/fuel/tank[6]/selected",false);
@@ -325,6 +326,7 @@ var ext_loads_set = func(s)
         setprop("payload/weight[8]/selected","none");
         setprop("payload/weight[9]/selected","Droptank");
         setprop("payload/weight[10]/selected","none");
+        setprop("fdm/jsbsim/propulsion/cft", 1);
         setprop("consumables/fuel/tank[5]/selected",true);
         setprop("consumables/fuel/tank[6]/selected",true);
         setprop("consumables/fuel/tank[7]/selected",true);
