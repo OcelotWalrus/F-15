@@ -908,10 +908,17 @@
                         <drag type="double">0</drag>
                     </fdm>
                     <gun>
-                        <rounds type="int">1350</rounds>
+                        <rounds type="int">940</rounds>
                         <running type="bool">false</running>
                         <ready type="bool">false</ready>
                     </gun>
+                    
+                    <smoke-generator>
+                        <red type="float">1.0</red>
+                        <green type="float">1.0</green>
+                        <blue type="float">1.0</blue>
+                    </smoke-generator>
+                    
                     <utilities>
                         <numeral-1 type="int">1</numeral-1>
                     </utilities>

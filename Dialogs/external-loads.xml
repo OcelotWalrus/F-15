@@ -570,6 +570,103 @@
                     </text>
                 </group>
 			</group>
+		
+		    <hrule/>
+		
+		    <group>
+				<layout>hbox</layout>
+			
+				<group><!-- Labels -->
+					<layout>vbox</layout>
+					<halign>left</halign>
+					<text>
+						<label>Smoke Color</label>
+					</text>
+					<text>
+                        <halign>left</halign>
+                        <live>true</live>
+                        <label>Red</label>
+                    </text>
+					<text>
+                        <halign>left</halign>
+                        <live>true</live>
+                        <label>Green</label>
+                    </text>
+					<text>
+                        <halign>left</halign>
+                        <live>true</live>
+                        <label>Blue</label>
+                    </text>
+                </group>
+				<group> <!-- Sliders -->
+					<layout>vbox</layout>
+					<halign>right</halign>
+					<text>
+						<label>Level</label>
+					</text>
+					<slider>
+						<name>Red</name>
+						<property>systems/smoke-generator/red</property>
+						<live>1</live>
+						<min>0</min>
+						<max>1</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>Red</object-name>
+						</binding>
+					</slider>
+					<slider>
+						<name>Green</name>
+						<property>systems/smoke-generator/green</property>
+						<live>1</live>
+						<min>0</min>
+						<max>1</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>Green</object-name>
+						</binding>
+					</slider>
+					<slider>
+						<name>Blue</name>
+						<property>systems/smoke-generator/blue</property>
+						<live>1</live>
+						<min>0</min>
+						<max>1</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>Blue</object-name>
+						</binding>
+					</slider>
+                </group>
+				<group> <!-- Level -->
+					<layout>vbox</layout>
+					<halign>right</halign>
+					<text>
+						<label>Level</label>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f</format>
+						<property>systems/smoke-generator/red</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f</format>
+						<property>systems/smoke-generator/green</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f</format>
+						<property>systems/smoke-generator/blue</property>
+					</text>
+                </group>
+			</group>
 
 			<empty>
 				<pref-height>96</pref-height>
@@ -649,8 +746,8 @@
                     <binding>
                         <command>nasal</command>
                         <script>
-                            setprop("/ai/submodels/submodel[3]/count",135);
-                            setprop("sim/model/f15/systems/gun/rounds",675);
+                            setprop("/ai/submodels/submodel[3]/count",188);
+                            setprop("sim/model/f15/systems/gun/rounds",940);
                         </script>
                     </binding>
                 </button>

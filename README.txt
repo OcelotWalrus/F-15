@@ -19,6 +19,8 @@ So what's actually been done for now?
 * Updated the flares' effect (using F-16's ones)
 * Added some more cool preview screenshots cuz why not (TO BE IMPLEMENTED)
 * Made the CFTs a parameter instead of it being controlled by the selected livery.
+* Added the ability to change the smoke generator's color
+* Fixed the gun smoke's offset (was in the nose of the plane, and not actually where the gatling gun is)
 
 So I've got in my small mind:
 * As it was done for the CFTs, make the engine choice a parameter (make so that you can get the F-100 EMD engine only through the NASA livery)

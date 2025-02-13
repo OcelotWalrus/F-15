@@ -54,7 +54,7 @@
                     <red>
                         <expression>
                             <product>
-                                <value>1.0</value>
+                                <property>systems/smoke-generator/red</property>
                                 <property>rendering/scene/diffuse/red</property>
                             </product>
                         </expression>
@@ -62,7 +62,7 @@
                     <green>
                         <expression>
                             <product>
-                                <value>1.0</value>
+                                <property>systems/smoke-generator/green</property>
                                 <property>rendering/scene/diffuse/red</property>
                             </product>
                         </expression>
@@ -70,7 +70,7 @@
                     <blue>
                         <expression>
                             <product>
-                                <value>1.0</value>
+                                <property>systems/smoke-generator/blue</property>
                                 <property>rendering/scene/diffuse/red</property>
                             </product>
                         </expression>
@@ -89,7 +89,7 @@
                     <red>
                         <expression>
                             <product>
-                                <value>1.0</value>
+                                <property>systems/smoke-generator/red</property>
                                 <property>rendering/scene/diffuse/red</property>
                             </product>
                         </expression>
@@ -97,7 +97,7 @@
                     <green>
                         <expression>
                             <product>
-                                <value>1.0</value>
+                                <property>systems/smoke-generator/green</property>
                                 <property>rendering/scene/diffuse/red</property>
                             </product>
                         </expression>
@@ -105,17 +105,17 @@
                     <blue>
                         <expression>
                             <product>
-                                <value>1.0</value>
+                                <property>systems/smoke-generator/blue</property>
                                 <property>rendering/scene/diffuse/red</property>
                             </product>
                         </expression>
                     </blue>
                     <alpha>
-                        <value> 0.00000001</value>
+                        <value> 0.000001</value> <!-- -2 -->
                     </alpha>
                 </color>
                 <size>
-                    <value>2.75</value>
+                    <value>1.75</value>
                 </size>
             </end>
 
