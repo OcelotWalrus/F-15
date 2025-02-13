@@ -15,6 +15,7 @@ So what's actually been done for now?
 * Made the CFTs a parameter instead of it being controlled by the selected livery.
 
 So I've got in my small mind:
+* As it was done for the CFTs, make the engine choice a parameter (make so that you can get the F-100 EMD engine only through the NASA livery)
 * Add the F-15E variant
 * Make triple MK-84s model shit and implementation
 * Add some more ground services cuz why not
