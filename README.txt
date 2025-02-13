@@ -34,6 +34,7 @@ So I've got in my small mind:
 * Add some more ground services cuz why not
 * Add even more funky and cool liveries
 * Make ejection possible
+* On the HUD, cross the selected armament if it's outta ammo
 
 ---
 ORIGINAL TEXT
