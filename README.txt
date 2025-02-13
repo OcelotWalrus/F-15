@@ -28,6 +28,7 @@ So I've got in my small mind:
 * Make triple MK-84s model shit and implementation
 * Add some more ground services cuz why not
 * Add even more funky and cool liveries
+* Make ejection possible
 
 ---
 ORIGINAL TEXT
