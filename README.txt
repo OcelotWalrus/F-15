@@ -24,7 +24,7 @@ So what's actually been done for now?
 
 So I've got in my small mind:
 * As it was done for the CFTs, make the engine choice a parameter (make so that you can get the F-100 EMD engine only through the NASA livery)
-* Add the F-15E variant
+* Add the F-15E variant (slightly different model cuz it'll have the targeting pod pylons)
 * Make triple MK-84s model shit and implementation
 * Add some more ground services cuz why not
 * Add even more funky and cool liveries
