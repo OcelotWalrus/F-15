@@ -2887,9 +2887,9 @@
   <name>left-strake-vortex</name>
   <path>Aircraft/F-15/Models/Effects/Vapour/strake-vortex.xml</path>
   <offsets>
-   <x-m>-2.5</x-m>
-   <y-m>-1.0</y-m>
-   <z-m>0.1</z-m>
+   <x-m>-2.0</x-m>
+   <y-m>-0.5</y-m>
+   <z-m>0.4</z-m>
   </offsets>
  </model>
 
@@ -2897,9 +2897,9 @@
   <name>right-strake-vortex</name>
   <path>Aircraft/F-15/Models/Effects/Vapour/strake-vortex.xml</path>
   <offsets>
-   <x-m>-2.5</x-m>
-   <y-m>1.0</y-m>
-   <z-m>0.0</z-m>
+   <x-m>-2.0</x-m>
+   <y-m>0.5</y-m>
+   <z-m>0.4</z-m>
   </offsets>
  </model>
 
