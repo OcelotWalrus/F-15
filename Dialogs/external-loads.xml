@@ -911,6 +911,7 @@
                         <text>
                             <label>xxxxxxxxxxxxxx</label>
                             <live>true</live>
+                            <format>%3d / 940</format>
                             <property>sim/model/f15/systems/gun/rounds</property>
                         </text>
                     </group>
@@ -923,6 +924,7 @@
                         <text>
                             <label>xxxxxxxxxxxxxx</label>
                             <live>true</live>
+                            <format>%3d / 100</format>
                             <property>ai/submodels/submodel[5]/count</property>
                         </text>
                     </group>
@@ -935,6 +937,7 @@
                         <text>
                             <label>xxxxxxxxxxxxxx</label>
                             <live>true</live>
+                            <format>%3d / 100</format>
                             <property>ai/submodels/submodel[6]/count</property>
                         </text>
                     </group>

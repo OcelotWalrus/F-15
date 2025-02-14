@@ -1317,7 +1317,13 @@
             <path>Sounds/M61A1.wav</path>
             <condition>
                 <and>
-                    <property>controls/armament/trigger</property>
+                    <and>
+                        <property>controls/armament/trigger</property>
+                    </and>
+                    <equals>
+                        <property>sim/model/f15/controls/armament/weapon-selector</property>
+                        <value>0</value>
+                    </equals>
                 </and>
                 <greater-than>
                     <property>ai/submodels/submodel[3]/count</property>
@@ -1334,7 +1340,13 @@
             <path>Sounds/M61A1-out-of-ammo.wav</path>
             <condition>
                 <and>
-                    <property>controls/armament/trigger</property>
+                    <and>
+                        <property>controls/armament/trigger</property>
+                    </and>
+                    <equals>
+                        <property>sim/model/f15/controls/armament/weapon-selector</property>
+                        <value>0</value>
+                    </equals>g
                 </and>
                 <less-than>
                     <property>ai/submodels/submodel[3]/count</property>

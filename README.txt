@@ -26,6 +26,7 @@ So what's actually been done for now?
 * Display the amount of gun rounds and countermeasures in the fuel and payload dialog crap
 * Added a gun outta-ammo sound effect
 * Replaced the sound effects for the flare, so it's no longer a voice saying "flare", and reused the gun outta-ammo sound effect for the flare outta-ammo sound effect
+* On the HUD, cross the selected armament if it's outta ammo
 
 So I've got in my small mind:
 * As it was done for the CFTs, make the engine choice a parameter (make so that you can get the F-100 EMD engine only through the NASA livery)
@@ -34,7 +35,6 @@ So I've got in my small mind:
 * Add some more ground services cuz why not
 * Add even more funky and cool liveries
 * Make ejection possible
-* On the HUD, cross the selected armament if it's outta ammo
 
 ---
 ORIGINAL TEXT

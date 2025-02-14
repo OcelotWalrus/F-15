@@ -124,8 +124,10 @@ var F15HUD = {
         obj.window6 = obj.get_text("window6", "condensed.txf",9,1.4);
         obj.window7 = obj.get_text("window7", "condensed.txf",9,1.4);
         obj.window8 = obj.get_text("window8", "condensed.txf",9,1.4);
+        obj.cross1 = obj.get_text("cross_1", "condensed.txf",9,1.4);
 
         obj.window1.setVisible(0);
+        obj.cross1.setVisible(0);
 
         obj.HudNavRangeDisplay = "";
         obj.HudNavRangeETA = "";
@@ -306,13 +308,41 @@ obj.dlzY = 70;
                                                                              obj.window2.setVisible(1);
                                                                              if (w_s == 0) {
                                                                                  obj.window2.setText(sprintf("%3d",val.ArmamentRounds));
+                                                                                 if (val.ArmamentRounds == 0) {
+                                                                                    obj.cross1.setVisible(1);
+                                                                                    obj.cross1.setText("------");
+                                                                                 }
+                                                                                 else {
+                                                                                    obj.cross1.setVisible(0);
+                                                                                 }
                                                                              } else if (w_s == 1) {
                                                                                  obj.window2.setText(sprintf("S%2dL", val.ArmamentAim9Count));
+                                                                                 if (val.ArmamentAim9Count == 0) {
+                                                                                    obj.cross1.setVisible(1);
+                                                                                    obj.cross1.setText("------");
+                                                                                 }
+                                                                                 else {
+                                                                                    obj.cross1.setVisible(0);
+                                                                                 }
                                                                              } else if (w_s == 2){
                                                                                  obj.window2.setText(sprintf("M%2dF", val.ArmamentAim120Count
                                                                                                              + val.ArmamentAim7Count));
+                                                                                 if (val.ArmamentAim120Count == 0) {
+                                                                                    obj.cross1.setVisible(1);
+                                                                                    obj.cross1.setText("------");
+                                                                                 }
+                                                                                 else {
+                                                                                    obj.cross1.setVisible(0);
+                                                                                 }
                                                                              } else if (w_s == 5){
                                                                                  obj.window2.setText(sprintf("G%2d", val.ArmamentAgmCount));
+                                                                                 if (val.ArmamentAgmCount == 0) {
+                                                                                    obj.cross1.setVisible(1);
+                                                                                    obj.cross1.setText("------");
+                                                                                 }
+                                                                                 else {
+                                                                                    obj.cross1.setVisible(0);
+                                                                                 }
                                                                              }
                                                                              if (val.RadarActiveTargetAvailable or 0) {
                                                                                  obj.window3.setText(val.RadarActiveTargetCallsign);
