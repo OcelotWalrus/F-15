@@ -364,6 +364,7 @@ obj.dlzY = 70;
                                                                              }
                                                                          } else {
                                                                              obj.window2.setVisible(0);
+                                                                             obj.cross1.setVisible(0);
                                                                              if (val.HudNavRangeDisplay != "")
                                                                                obj.window3.setText("NAV");
                                                                              else

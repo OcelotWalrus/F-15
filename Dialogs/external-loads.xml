@@ -729,7 +729,7 @@
                     </binding>
                 </combo>
             <group>
-                <!-- Weapons Sets -->
+                <!-- Ammunitions -->
                 <layout>hbox</layout>
                 <default-padding>1</default-padding>
                 <button>
