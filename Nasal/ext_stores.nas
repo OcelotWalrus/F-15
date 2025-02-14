@@ -438,7 +438,7 @@ var update_weapons_over_mp = func
         var aim9_count = 0;
         var aim7_count = 0;
         var aim120_count = 0;
-        var agm_count = 0;
+        var mk84_count = 0;
 
         update_wp_next = cur_time + update_wp_frequency_s;
         update_wp_requested = false;
@@ -461,13 +461,13 @@ var update_weapons_over_mp = func
             elsif (S.get_type() == "AIM-120")
                 aim120_count = aim120_count+1;
             elsif (S.get_type() == "MK-84")
-                agm_count = agm_count+1;
+                mk84_count = mk84_count+1;
         }
-#    print("count ",aim9_count, aim7_count, aim120_count);
+#        print("count ",aim9_count, aim7_count, aim120_count, mk84_count);
         setprop("sim/model/f15/systems/armament/aim9/count",aim9_count);
         setprop("sim/model/f15/systems/armament/aim7/count",aim7_count);
         setprop("sim/model/f15/systems/armament/aim120/count",aim120_count);
-        setprop("sim/model/f15/systems/armament/agm/count",agm_count);
+        setprop("sim/model/f15/systems/armament/mk84/count",mk84_count);
 
         var set = WeaponsSet.getValue();
         b_wpstring = b_wpstring;

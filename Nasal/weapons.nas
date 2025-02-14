@@ -25,7 +25,7 @@ var SWCoolOn   = AcModel.getNode("controls/armament/acm-panel-lights/sw-cool-on-
 var SWCoolOff  = AcModel.getNode("controls/armament/acm-panel-lights/sw-cool-off-light");
 var SwSoundVol = AcModel.getNode("systems/armament/aim9/sound-volume");
 var Current_srm   = nil;
-var Current_agm   = nil;
+var Current_mk84   = nil;
 var Current_mrm   = nil;
 var Current_missile   = nil;
 var sel_missile_count = 0;
@@ -122,7 +122,7 @@ var armament_update = func {
 	}
 
     if (WeaponSelector.getValue() == 5) {
-        if (Current_agm != nil and Current_agm.status == 1) {
+        if (Current_mk84 != nil and Current_mk84.status == 1) {
             setprop("sim/model/f15/systems/armament/launch-light",1);
         } else {
             setprop("sim/model/f15/systems/armament/launch-light",0);
@@ -202,8 +202,8 @@ var get_sel_missile_count = func()
 {
         if (WeaponSelector.getValue() == 5)
         {
-            Current_missile = Current_agm;
-            return getprop("sim/model/f15/systems/armament/agm/count");
+            Current_missile = Current_mk84;
+            return getprop("sim/model/f15/systems/armament/mk84/count");
         }
         else if (WeaponSelector.getValue() == 1)
         {
@@ -226,7 +226,7 @@ var update_sw_ready = func()
         var pylon = -1;
 		if ( (WeaponSelector.getValue() == 1 and (Current_srm == nil or Current_srm.status == 2)  and sel_missile_count > 0 )
              or (WeaponSelector.getValue() == 2 and (Current_mrm == nil or Current_mrm.status == 2)  and sel_missile_count > 0 )
-             or (WeaponSelector.getValue() == 5 and (Current_agm == nil or Current_agm.status == 2)  and sel_missile_count > 0 ))
+             or (WeaponSelector.getValue() == 5 and (Current_mk84 == nil or Current_mk84.status == 2)  and sel_missile_count > 0 ))
         {
             print("Missile: sel_missile_count = ", sel_missile_count - 1);
             foreach (var S; Station.firing_order)
@@ -253,7 +253,7 @@ var update_sw_ready = func()
                         Current_mrm = armament.AIM.active[pylon];
                     } elsif (WeaponSelector.getValue() == 5) {
                         armament.AIM.new(pylon, S.get_type(), S.get_type());
-                        Current_agm = armament.AIM.active[pylon];
+                        Current_mk84 = armament.AIM.active[pylon];
                     }
                 }
                 else
@@ -289,11 +289,11 @@ var release_aim9 = func()
 			}
 			# Set the pylon empty:
 			var current_pylon = "payload/weight["~Current_missile.ID~"]/selected";
-print("Release ",current_pylon);
+            print("Release ",current_pylon);
 			setprop(current_pylon,"none");
-print("currently ",getprop(current_pylon));
+            print("currently ",getprop(current_pylon));
 			armament_update();
-setprop("sim/model/f15/systems/armament/launch-light",0);
+            setprop("sim/model/f15/systems/armament/launch-light",0);
 			Current_missile.release();
             arm_selector();
 		}
@@ -402,9 +402,9 @@ var arm_selector = func() {
 	} 
     elsif ( weapon_s == 5 ) # AG
     {
-		if (Current_agm != nil and ArmSwitch.getValue() == 2 and sel_missile_count > 0) 
+		if (Current_mk84 != nil and ArmSwitch.getValue() == 2 and sel_missile_count > 0) 
         {
-            Current_missile = Current_agm;
+            Current_missile = Current_mk84;
 			Current_missile.status = 0;	
 			Current_missile.search();	
 		}

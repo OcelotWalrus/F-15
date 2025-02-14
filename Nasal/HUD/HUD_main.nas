@@ -617,7 +617,7 @@ input = {
         AirspeedIndicatorIndicatedMach          : "instrumentation/airspeed-indicator/indicated-mach",
         Alpha                                   : "orientation/alpha-indicated-deg",
         AltimeterIndicatedAltitudeFt            : "instrumentation/altimeter/indicated-altitude-ft",
-        ArmamentAgmCount                        : "sim/model/f15/systems/armament/agm/count",
+        ArmamentAgmCount                        : "sim/model/f15/systems/armament/mk84/count",
         ArmamentAim120Count                     : "sim/model/f15/systems/armament/aim120/count",
         ArmamentAim7Count                       : "sim/model/f15/systems/armament/aim7/count",
         ArmamentAim9Count                       : "sim/model/f15/systems/armament/aim9/count",

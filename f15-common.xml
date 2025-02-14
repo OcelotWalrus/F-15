@@ -885,9 +885,6 @@
                             <target-range-nm type="double">0</target-range-nm>
                             <sound-volume type="double">0.12</sound-volume>
                         </mk84>
-                        <agm>
-                            <count type="int">0</count>
-                        </agm>
 
                         <launch-light type="bool">false</launch-light>
                         <system-running type="bool">false</system-running>
