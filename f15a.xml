@@ -467,7 +467,7 @@
     </ground_reactions>
 
     <propulsion>
-        <engine file="F100-PW-229">
+        <engine file="F100-PW-220">
             <location unit="IN">
                 <x>682</x>
                 <y>-12</y>
@@ -498,7 +498,7 @@
                 </orient>
             </thruster>
         </engine>
-        <engine file="F100-PW-229">
+        <engine file="F100-PW-220">
             <location unit="IN">
                 <x>682</x>
                 <y>12</y>

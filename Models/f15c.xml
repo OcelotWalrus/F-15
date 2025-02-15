@@ -28,6 +28,8 @@
          if (find("F-15D.xml", getprop("sim/model/path")) != -1) {
              setprop("sim/model/f15/variant","D");
              print ("D variant");
+         } else if (find("F-15E.xml", getprop("sim/model/path")) != -1) {
+             setprop("sim/model/f15/variant","E");
          } else {
              setprop("sim/model/f15/variant","C");
          }
@@ -1270,10 +1272,16 @@
         <object-name>Backseater</object-name>
         <condition>
             <and>
-                <equals>
-                    <property>sim/model/f15/variant</property>
-                    <value>D</value>
-                </equals>
+                <or>
+                    <equals>
+                        <property>sim/model/f15/variant</property>
+                        <value>D</value>
+                    </equals>
+                    <equals>
+                        <property>sim/model/f15/variant</property>
+                        <value>E</value>
+                    </equals>
+                </or>
                 <not>
                     <property>sim/model/hide-backseater</property>
                 </not>
@@ -2221,10 +2229,16 @@
         <type>select</type>
         <condition>
             <not>
-                <equals>
-                    <property>sim/model/f15/variant</property>
-                    <value>D</value>
-                </equals>
+                <or>
+                    <equals>
+                        <property>sim/model/f15/variant</property>
+                        <value>D</value>
+                    </equals>
+                    <equals>
+                        <property>sim/model/f15/variant</property>
+                        <value>E</value>
+                    </equals>
+                </or>
             </not>
         </condition>
         <object-name>f15c-canopy</object-name>
@@ -2458,10 +2472,16 @@
    <animation>
         <type>select</type>
         <condition>
-            <equals>
-                <property>sim/model/f15/variant</property>
-                <value>D</value>
-            </equals>
+            <or>
+                <equals>
+                    <property>sim/model/f15/variant</property>
+                    <value>D</value>
+                </equals>
+                <equals>
+                    <property>sim/model/f15/variant</property>
+                    <value>E</value>
+                </equals>
+            </or>
         </condition>
         <object-name>f15d-canopy</object-name>
     </animation>

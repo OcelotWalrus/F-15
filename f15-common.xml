@@ -2492,6 +2492,7 @@
             <file>Aircraft/F-15/Nasal/weapons.nas</file>
             <file>Aircraft/F-15/Nasal/ext_stores.nas</file>
             <file>Aircraft/F-15/Nasal/crash-and-stress.nas</file>
+            <file>Aircraft/F-15/Nasal/MissileView.nas</file>
         </aircraft>
         <environment>
             <file>Nasal/environment.nas</file>
@@ -2502,9 +2503,6 @@
         <armament>
             <file>Aircraft/F-15/Nasal/fox2.nas</file>
         </armament>
-        <reversethrust>
-            <file>Aircraft/F-15/Nasal/reverse-thrust.nas</file>
-        </reversethrust>
     </nasal>
 
 </PropertyList>

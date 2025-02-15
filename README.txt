@@ -14,10 +14,11 @@ So what's actually been done for now?
   - 75th Anniversary
   - 65Th Flanker
   - JASDF 305th Nyutabaru Air Show
+  - 55 23rd Flying Tigers
 * Added the F-100-PW-229 to the F-15 (for now the whole variant for testing, but in the future it'll be installed only on the F-15E, maybe the engine could be a custom setting like CFTs could be?)
 * Added mach cone, strake and G vortex vapor effects (taken from the dear flight gear F-16 model) (may be up for some tweaking (some day))
 * Updated the flares' effect (using F-16's ones)
-* Added some more cool preview screenshots cuz why not (TO BE IMPLEMENTED)
+* Added some more cool preview screenshots cuz why not
 * Made the CFTs a parameter instead of it being controlled by the selected livery.
 * Added the ability to change the smoke generator's color
 * Fixed the gun smoke's offset (was in the nose of the plane, and not actually where the gatling gun is)
@@ -27,9 +28,10 @@ So what's actually been done for now?
 * Added a gun outta-ammo sound effect
 * Replaced the sound effects for the flare, so it's no longer a voice saying "flare", and reused the gun outta-ammo sound effect for the flare outta-ammo sound effect
 * On the HUD, cross the selected armament if it's outta ammo
+* Added the F-15E variant
 
 So I've got in my small mind:
-* Add the F-15E variant (slightly different model cuz it'll have the targeting pod pylons)
+* Develop the F-15E variant (slightly different model cuz it'll have the targeting pod pylons)
 * Make triple MK-84s model shit and implementation
 * Add some more ground services cuz why not
 * Add even more funky and cool liveries
