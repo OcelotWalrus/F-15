@@ -57,6 +57,8 @@ Station =
                         prop.getParent().getNode("weight-lb").setValue(510);
                         elsif (v == "AIM-120")
                         prop.getParent().getNode("weight-lb").setValue(335);
+                        elsif (v == "AIM-120D")
+                        prop.getParent().getNode("weight-lb").setValue(418);
                         elsif (v == "MK-84")
                         prop.getParent().getNode("weight-lb").setValue(2039);
                         elsif (v == "Droptank")
@@ -90,6 +92,11 @@ Station =
         {
 			me.bcode = 3;
             me.xbcode = 3;
+		} 
+		elsif ( t == "AIM-120D" )
+        {
+			me.bcode = 6;
+            me.xbcode = 6;
 		} 
         elsif ( t == "MK-84" )
         {
@@ -438,6 +445,7 @@ var update_weapons_over_mp = func
         var aim9_count = 0;
         var aim7_count = 0;
         var aim120_count = 0;
+        var aim120d_count = 0;
         var mk84_count = 0;
 
         update_wp_next = cur_time + update_wp_frequency_s;
@@ -460,13 +468,16 @@ var update_weapons_over_mp = func
                 aim7_count = aim7_count+1;
             elsif (S.get_type() == "AIM-120")
                 aim120_count = aim120_count+1;
+            elsif (S.get_type() == "AIM-120D")
+                aim120d_count = aim120d_count+1;
             elsif (S.get_type() == "MK-84")
                 mk84_count = mk84_count+1;
         }
-#        print("count ",aim9_count, aim7_count, aim120_count, mk84_count);
+#        print("count ",aim9_count, aim7_count, aim120_count, aim120d_count, mk84_count);
         setprop("sim/model/f15/systems/armament/aim9/count",aim9_count);
         setprop("sim/model/f15/systems/armament/aim7/count",aim7_count);
         setprop("sim/model/f15/systems/armament/aim120/count",aim120_count);
+        setprop("sim/model/f15/systems/armament/aim120d/count",aim120d_count);
         setprop("sim/model/f15/systems/armament/mk84/count",mk84_count);
 
         var set = WeaponsSet.getValue();

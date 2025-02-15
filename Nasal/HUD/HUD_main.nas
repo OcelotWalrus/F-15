@@ -292,6 +292,7 @@ obj.dlzY = 70;
                                                                       "ArmamentRounds",
                                                                       "ArmamentAim9Count",
                                                                       "ArmamentAim120Count",
+                                                                      "ArmamentAim120DCount",
                                                                       "ArmamentAim7Count",
                                                                       "ArmamentAgmCount",
                                                                       "RadarActiveTargetAvailable",
@@ -325,9 +326,8 @@ obj.dlzY = 70;
                                                                                     obj.cross1.setVisible(0);
                                                                                  }
                                                                              } else if (w_s == 2){
-                                                                                 obj.window2.setText(sprintf("M%2dF", val.ArmamentAim120Count
-                                                                                                             + val.ArmamentAim7Count));
-                                                                                 if (val.ArmamentAim120Count == 0) {
+                                                                                 obj.window2.setText(sprintf("M%2dF", val.ArmamentAim120Count + val.ArmamentAim120DCount + val.ArmamentAim7Count));
+                                                                                 if ((val.ArmamentAim120Count + val.ArmamentAim120DCount + val.ArmamentAim7Count) == 0) {
                                                                                     obj.cross1.setVisible(1);
                                                                                     obj.cross1.setText("------");
                                                                                  }
@@ -621,6 +621,7 @@ input = {
         ArmamentAim120Count                     : "sim/model/f15/systems/armament/aim120/count",
         ArmamentAim7Count                       : "sim/model/f15/systems/armament/aim7/count",
         ArmamentAim9Count                       : "sim/model/f15/systems/armament/aim9/count",
+        ArmamentAim120DCount                    : "sim/model/f15/systems/armament/aim120d/count",
         ArmamentRounds                          : "sim/model/f15/systems/gun/rounds",
         AutopilotRouteManagerActive             : "autopilot/route-manager/active",
         AutopilotRouteManagerWpDist             : "autopilot/route-manager/wp/dist",

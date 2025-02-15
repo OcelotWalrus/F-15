@@ -281,6 +281,7 @@
         <object-name>aim-9</object-name>
         <object-name>aim-7</object-name>
         <object-name>aim-120</object-name>
+        <object-name>aim-120d</object-name>
         <object-name>rails</object-name>
         <object-name>radio-call</object-name>
         <property-base>sim/model/livery</property-base>
@@ -294,6 +295,8 @@
         <object-name>aim-7-r4</object-name>
         <object-name>aim120-r3</object-name>
         <object-name>aim120-r4</object-name>
+        <object-name>aim120d-rr</object-name>
+        <object-name>aim120d-r4</object-name>
         <factor>0.36</factor>
         <property>fdm/jsbsim/propulsion/cft</property>
         <axis>
@@ -305,6 +308,8 @@
     <animation>
         <type>translate</type>
 
+        <object-name>aim120d-l3</object-name>
+        <object-name>aim120d-l4</object-name>
         <object-name>aim120-l3</object-name>
         <object-name>aim120-l4</object-name>
         <object-name>aim-7-l3</object-name>
@@ -2506,6 +2511,10 @@
                     <property>payload/weight[0]/selected</property>
                     <value>AIM-120</value>
                 </equals>
+                <equals>
+                    <property>payload/weight[0]/selected</property>
+                    <value>AIM-120D</value>
+                </equals>
             </or>
         </condition>
     </animation>
@@ -2528,6 +2537,17 @@
             <equals>
                 <property>payload/weight[0]/selected</property>
                 <value>AIM-120</value>
+            </equals>
+        </condition>
+    </animation>
+     <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>aim120d-l1</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[0]/selected</property>
+                <value>AIM-120D</value>
             </equals>
         </condition>
     </animation>
@@ -2567,11 +2587,33 @@
     <animation>
         <type>select</type>
         <nopreview/>
+        <object-name>aim120d-l3</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[3]/selected</property>
+                <value>AIM-120D</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
         <object-name>aim120-l4</object-name>
         <condition>
             <equals>
                 <property>payload/weight[4]/selected</property>
                 <value>AIM-120</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>aim120d-l4</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[4]/selected</property>
+                <value>AIM-120D</value>
             </equals>
         </condition>
     </animation>
@@ -2590,6 +2632,10 @@
                 <equals>
                     <property>payload/weight[2]/selected</property>
                     <value>AIM-120</value>
+                </equals>
+                <equals>
+                    <property>payload/weight[2]/selected</property>
+                    <value>AIM-120D</value>
                 </equals>
             </or>
         </condition>
@@ -2613,6 +2659,17 @@
             <equals>
                 <property>payload/weight[2]/selected</property>
                 <value>AIM-120</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>aim120d-l2</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[2]/selected</property>
+                <value>AIM-120D</value>
             </equals>
         </condition>
     </animation>
@@ -2688,6 +2745,10 @@
                     <property>payload/weight[8]/selected</property>
                     <value>AIM-120</value>
                 </equals>
+                <equals>
+                    <property>payload/weight[8]/selected</property>
+                    <value>AIM-120D</value>
+                </equals>
             </or>
         </condition>
     </animation>
@@ -2710,6 +2771,17 @@
             <equals>
                 <property>payload/weight[8]/selected</property>
                 <value>AIM-120</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>aim120d-r1</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[8]/selected</property>
+                <value>AIM-120D</value>
             </equals>
         </condition>
     </animation>
@@ -2757,6 +2829,28 @@
             </equals>
         </condition>
     </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>aim120d-r3</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[6]/selected</property>
+                <value>AIM-120D</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>aim120d-r4</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[7]/selected</property>
+                <value>AIM-120D</value>
+            </equals>
+        </condition>
+    </animation>
 
     <animation>
         <type>select</type>
@@ -2772,6 +2866,10 @@
                 <equals>
                     <property>payload/weight[10]/selected</property>
                     <value>AIM-120</value>
+                </equals>
+                <equals>
+                    <property>payload/weight[10]/selected</property>
+                    <value>AIM-120D</value>
                 </equals>
             </or>
         </condition>
@@ -2795,6 +2893,17 @@
             <equals>
                 <property>payload/weight[10]/selected</property>
                 <value>AIM-120</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>aim120d-r2</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[10]/selected</property>
+                <value>AIM-120D</value>
             </equals>
         </condition>
     </animation>
@@ -2831,26 +2940,6 @@
                 <value>MK-84</value>
             </equals>
         </condition>
-    </animation>
-    <animation>
-        <type>translate</type>
-        <object-name>eng.1.reverser</object-name>
-        <property>/engines/engine[0]/reverser-pos-norm</property>
-        <interpolation>
-            <entry>
-                <ind>0</ind>
-                <dep>0.0</dep>
-            </entry>
-            <entry>
-                <ind>1</ind>
-                <dep>0.6</dep>
-            </entry>
-        </interpolation>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
     </animation>
 
  <!-- smokepods -->

@@ -158,112 +158,147 @@
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_2.png</path>
+                <path>Previews/custom crap/001.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_3.png</path>
+                <path>Previews/custom crap/002.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_4.png</path>
+                <path>Previews/custom crap/003.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_5.png</path>
+                <path>Previews/custom crap/004.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_6.png</path>
+                <path>Previews/custom crap/005.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_7.png</path>
+                <path>Previews/custom crap/006.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_8.png</path>
+                <path>Previews/custom crap/007.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_9.png</path>
+                <path>Previews/custom crap/008.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_10.png</path>
+                <path>Previews/custom crap/009.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_11.png</path>
+                <path>Previews/custom crap/010.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_12.png</path>
+                <path>Previews/custom crap/011.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_13.png</path>
+                <path>Previews/custom crap/012.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_14.png</path>
+                <path>Previews/custom crap/013.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_15.png</path>
+                <path>Previews/custom crap/014.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_16.png</path>
+                <path>Previews/custom crap/015.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_17.png</path>
+                <path>Previews/custom crap/016.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_18.png</path>
+                <path>Previews/custom crap/017.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_19.png</path>
+                <path>Previews/custom crap/018.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_20.png</path>
+                <path>Previews/custom crap/019.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_21.png</path>
+                <path>Previews/custom crap/020.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_22.png</path>
+                <path>Previews/custom crap/021.png</path>
             </preview>
             <preview>
                 <type>exterior</type>
                 <splash type="bool">true</splash>
-                <path>Previews/F-15D_23.png</path>
+                <path>Previews/custom crap/022.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/023.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/024.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/025.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/026.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/027.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/028.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/029.png</path>
             </preview>
         </previews>
         <startup>

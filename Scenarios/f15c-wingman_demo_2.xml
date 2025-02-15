@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<scenario>
+
+		<name>F-15C Wingman 2</name>
+		<description>
+
+			Pair - non-tactical
+
+			This scenario formates 1 Buccaneer to the
+			parent ac at the position designated by
+			the x,y,z ofsets. It is automatically
+			included with the F-15C(wingman).
+
+
+			Vivian Meazza
+		</description>
+
+		<entry>
+			<name>Gemini</name>
+			<type>wingman</type>
+			<model>/Aircraft/F-15/Models/F-15C.xml</model>
+			<x-offset>-35</x-offset>
+			<y-offset>63</y-offset>
+			<z-offset>0</z-offset>
+			<formate>true</formate>
+			<max-speed-kts>1920</max-speed-kts> <!-- Mach 3 -->
+			<coefficients>
+				<heading>5.0</heading>
+				<pitch>4.0</pitch>
+				<bank>4.0</bank>
+				<speed>2.5</speed>
+			</coefficients>
+		</entry>
+
+
+	</scenario>
+
+</PropertyList>
