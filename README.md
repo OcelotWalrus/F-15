@@ -7,6 +7,7 @@ NOTE: **This repository is simply for myself so stay out, unless you're interest
 My project is to add more of nice shit, by inspiring from other flight gear aircraft cuz I ain't very productive at making shit from myself that I don't really know a thing about so it's mainly copying and tweaking. This has for goal to add more effects to the model, and cleaner it (if to cleaner even exists as a word), but mainly add the F-15E (maybe it'll keep the same cockpit model idk) variant so air/ground actually works, add more rounds capacity to the gun (current is 675 and F-15E is 940), make so that MK-84s can be stocked in three, so that the bombs capacity is tripled (from 3 to 9). Probably some other shit too as upgrading the engines.
 
 So what's actually been done for now?
+
 * Added new liveries:
   - 162nd Fighter Wing
   - 162nd Fighter Wing (Black)
@@ -31,6 +32,7 @@ So what's actually been done for now?
 * Added the F-15E variant
 
 So I've got in my small mind:
+
 * Develop the F-15E variant (slightly different model cuz it'll have the targeting pod pylons)
 * Make triple MK-84s model shit and implementation
 * Add some more ground services cuz why not
@@ -74,6 +76,7 @@ Overview of the model
 V1.2E
 
 Sounds; 
+
  - Calculation of volumes now in Nasal module, this allows the canopy to have a gradual effect
  - New sounds for GPU
  - Added pilot helment sound proofing to ground services dialog
@@ -92,21 +95,22 @@ Added sym switch to HUD, if in symbol reject mode then only show the active targ
 Better engine smoke / wing tip contrails
 
 FDM
+
  - adjusted static friction to better hold with full augmentation on dry surface
 
-Better wing root anti-collision lights
-Added Correct stall warning audio tones and vocal warnings for OWS, Caution and fuel.
-Canvas optimisations for low frame rates
-Fix weapon selection after load when master arm selected.
-Improved view positioning for front & backseat.
-Rework of lighting, fix halos, rembrandt light points; added lighting dialog to GUI.
-Reinstate comm radio support
-Overload Warning System (OWS) limits added
-Pitch/Roll ratio improvements, takes into account CG% MAC.
-Nose Wheel Steering (two modes; normal and maneuvering )
+- Better wing root anti-collision lights
+- Added Correct stall warning audio tones and vocal warnings for OWS, Caution and fuel.
+- Canvas optimisations for low frame rates
+- Fix weapon selection after load when master arm selected.
+- Improved view positioning for front & backseat.
+- Rework of lighting, fix halos, rembrandt light points; added lighting dialog to GUI.
+- Reinstate comm radio support
+- Overload Warning System (OWS) limits added
+- Pitch/Roll ratio improvements, takes into account CG% MAC.
+- Nose Wheel Steering (two modes; normal and maneuvering )
 
-New livery for 144FW 84-0014 (Missouri) and Lakenheath
+- New livery for 144FW 84-0014 (Missouri) and Lakenheath
 
-Added cold and dark to menu (to complement quickstart)
+- Added cold and dark to menu (to complement quickstart)
 
-Use of the refuelling switch on ground (opening the hatch) will make a refuelling tanker appear and cause fuel to be added.
+- Use of the refuelling switch on ground (opening the hatch) will make a refuelling tanker appear and cause fuel to be added.
