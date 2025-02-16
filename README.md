@@ -49,6 +49,7 @@ So I've got in my small mind:
 * Implement A/G mechanics
 * Enhance the radar canvs using DCS F-15's
 * Make a manual as much detailed as DCS's one
+* Make an actual gun crosshair with all the crap and stuff
 
 ---
 ORIGINAL TEXT
