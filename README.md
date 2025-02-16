@@ -33,6 +33,9 @@ So what's actually been done for now?
 * Modified the HUD to contain airpseed in kts and G force
 * Added an AIM-120D missile only available for the F-15E (higher range and capabilities than the AIM-120, but can't be used in close range fight cuz of its 5nm minimal range)
 * Updated the HUD to display a cannon crosshair
+* Simulate all MPCD pages
+* Implement more missiles (even maybe Phoenix AIM-54)?
+* Allow the possibility to set custom load for gun, flares and chaffs
 
 So I've got in my small mind:
 
@@ -41,6 +44,11 @@ So I've got in my small mind:
 * Add some more ground services cuz why not
 * Add even more funky and cool liveries
 * Make ejection possible
+* Simulate the red warnings on the top right (below the red canopy alarm which is already simulated), so it turns on when flares or chaffs have no more ammo.
+* Simulate engine fire (a red light warning on the top left only works for now, telling the temperature is too high), so that if one engine's temperature is too high for too long, a fire starts, and make so that the player can estulinguish the fire like in real life.
+* Implement A/G mechanics
+* Enhance the radar canvs using DCS F-15's
+* Make a manual as much detailed as DCS's one
 
 ---
 ORIGINAL TEXT
