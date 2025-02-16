@@ -48,6 +48,7 @@ So I've got in my small mind:
 * Simulate engine fire (a red light warning on the top left only works for now, telling the temperature is too high), so that if one engine's temperature is too high for too long, a fire starts, and make so that the player can estulinguish the fire like in real life.
 * Implement A/G mechanics
 * Enhance the radar canvs using DCS F-15's
+* Make a manual as much detailed as DCS's one
 
 ---
 ORIGINAL TEXT
