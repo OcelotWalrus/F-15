@@ -16,7 +16,7 @@ So what's actually been done for now?
   - 65Th Flanker
   - JASDF 305th Nyutabaru Air Show
   - 55 23rd Flying Tigers
-* Added the F-100-PW-229 to all variants
+* Added the F-100-PW-229 to the F-15E variant, other variants keep the older F-100-PW-220
 * Added mach cone, strake and G vortex vapor effects (taken from the dear flight gear F-16 model) (may be up for some tweaking (some day))
 * Updated the flares' effect (using F-16's ones)
 * Added some more cool preview screenshots cuz why not
@@ -31,6 +31,7 @@ So what's actually been done for now?
 * On the HUD, cross the selected armament if it's outta ammo
 * Added the F-15E variant
 * Modified the HUD to contain airpseed in kts and G force
+* Added an AIM-120D missile only available for the F-15E (higher range and capabilities than the AIM-120, but can't be used in close range fight cuz of its 5nm minimal range)
 
 So I've got in my small mind:
 

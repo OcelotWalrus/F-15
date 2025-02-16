@@ -238,7 +238,6 @@ var update_sw_ready = func()
             foreach (var S; Station.firing_order)
             {
                 printf("AIM %d: %s, %s",S.index, S.get_type(), S.get_selected());
-#                if (S.get_type() == "AIM-9" and S.get_selected())
                 if (S.get_selected())
                 {
                     print("New AIM ",S.index);
@@ -449,7 +448,7 @@ var arm_selector = func() {
           {
               S.set_selected(0);
               if (weapon_s == 2) {
-                  if (S.bcode == 2 or S.bcode == 3) {
+                  if (S.bcode == 2 or S.bcode == 3 or S.bcode == 6) {
                       S.set_selected(sel);
                       sel=0;
                   }

@@ -473,7 +473,7 @@ var update_weapons_over_mp = func
             elsif (S.get_type() == "MK-84")
                 mk84_count = mk84_count+1;
         }
-#        print("count ",aim9_count, aim7_count, aim120_count, aim120d_count, mk84_count);
+        print("count ",aim9_count, aim7_count, aim120_count, aim120d_count, mk84_count);
         setprop("sim/model/f15/systems/armament/aim9/count",aim9_count);
         setprop("sim/model/f15/systems/armament/aim7/count",aim7_count);
         setprop("sim/model/f15/systems/armament/aim120/count",aim120_count);

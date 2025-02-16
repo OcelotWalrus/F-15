@@ -117,6 +117,7 @@ var F15HUD = {
 
         obj.target_locked = obj.get_element("target_locked");
         obj.target_locked.setVisible(0);
+        obj.crosshair = obj.get_element("guncrosshair");
 
         obj.window1 = obj.get_text("window1", "condensed.txf",9,1.4);
         obj.window2 = obj.get_text("window2", "condensed.txf",9,1.4);
@@ -319,8 +320,10 @@ obj.dlzY = 70;
                                                                          if (val.ControlsArmamentMasterArmSwitch) {
                                                                              var w_s = val.ControlsArmamentWeaponSelector;
                                                                              obj.window2.setVisible(1);
+                                                                             obj.crosshair.setVisible(0);
                                                                              if (w_s == 0) {
                                                                                  obj.window2.setText(sprintf("%3d",val.ArmamentRounds));
+                                                                                 obj.crosshair.setVisible(1);
                                                                                  if (val.ArmamentRounds == 0) {
                                                                                     obj.cross1.setVisible(1);
                                                                                     obj.cross1.setText("------");
@@ -376,6 +379,7 @@ obj.dlzY = 70;
                                                                              }
                                                                          } else {
                                                                              obj.window2.setVisible(0);
+                                                                             obj.crosshair.setVisible(0);
                                                                              obj.cross1.setVisible(0);
                                                                              if (val.HudNavRangeDisplay != "")
                                                                                obj.window3.setText("NAV");

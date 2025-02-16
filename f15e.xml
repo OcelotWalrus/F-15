@@ -6,7 +6,7 @@
 
     <fileheader>
         <author>Richard Harrison</author>
-        <filecreationdate>2015-08-29</filecreationdate>
+        <filecreationdate>2025-02-16</filecreationdate>
         <version>1.0</version>
         <description>F-15 - basic aerodynamics are the same, except for the two place canopy which is accounted for</description>
         <note>Aircraft origin for measurements is the nose</note>
@@ -467,7 +467,7 @@
     </ground_reactions>
 
     <propulsion>
-        <engine file="F100-PW-220">
+        <engine file="F100-PW-229">
             <location unit="IN">
                 <x>682</x>
                 <y>-12</y>
@@ -498,7 +498,7 @@
                 </orient>
             </thruster>
         </engine>
-        <engine file="F100-PW-220">
+        <engine file="F100-PW-229">
             <location unit="IN">
                 <x>682</x>
                 <y>12</y>

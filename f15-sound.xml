@@ -1318,17 +1318,20 @@
             <condition>
                 <and>
                     <and>
-                        <property>controls/armament/trigger</property>
+                        <and>
+                            <property>controls/armament/trigger</property>
+                        </and>
+                        <equals>
+                            <property>sim/model/f15/controls/armament/weapon-selector</property>
+                            <value>0</value>
+                        </equals>
                     </and>
-                    <equals>
-                        <property>sim/model/f15/controls/armament/weapon-selector</property>
+                    <greater-than>
+                        <property>ai/submodels/submodel[3]/count</property>
                         <value>0</value>
-                    </equals>
+                    </greater-than>
                 </and>
-                <greater-than>
-                    <property>ai/submodels/submodel[3]/count</property>
-                    <value>0</value>
-                </greater-than>
+                <property>sim/model/f15/controls/armament/master-arm-switch</property>
             </condition>
             <volume>
                 <value>1</value>
@@ -1341,17 +1344,20 @@
             <condition>
                 <and>
                     <and>
-                        <property>controls/armament/trigger</property>
+                        <and>
+                            <property>controls/armament/trigger</property>
+                        </and>
+                        <equals>
+                            <property>sim/model/f15/controls/armament/weapon-selector</property>
+                            <value>0</value>
+                        </equals>
                     </and>
-                    <equals>
-                        <property>sim/model/f15/controls/armament/weapon-selector</property>
-                        <value>0</value>
-                    </equals>g
+                    <less-than>
+                        <property>ai/submodels/submodel[3]/count</property>
+                        <value>5</value>
+                    </less-than>
                 </and>
-                <less-than>
-                    <property>ai/submodels/submodel[3]/count</property>
-                    <value>5</value>
-                </less-than>
+                <property>sim/model/f15/controls/armament/master-arm-switch</property>
             </condition>
             <volume>
                 <value>1</value>

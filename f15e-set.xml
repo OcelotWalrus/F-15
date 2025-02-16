@@ -2,7 +2,7 @@
 <!-- F-15 C Variant
    |  Richard Harrison: 2015-05-24 : rjh@zaretto.com - parts taken from F-14 by xii
 -->
-<PropertyList include="f15-common.xml">
+<PropertyList include="f15-common-e.xml">
 
     <sim>
         <description>F-15E</description>
