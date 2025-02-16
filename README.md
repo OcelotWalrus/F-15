@@ -34,6 +34,8 @@ So what's actually been done for now?
 * Added an AIM-120D missile only available for the F-15E (higher range and capabilities than the AIM-120, but can't be used in close range fight cuz of its 5nm minimal range)
 * Updated the HUD to display a cannon crosshair
 * Simulate all MPCD pages
+* Implement more missiles (even maybe Phoenix AIM-54)?
+* Allow the possibility to set custom load for gun, flares and chaffs
 
 So I've got in my small mind:
 
