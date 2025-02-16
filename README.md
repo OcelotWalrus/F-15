@@ -16,7 +16,7 @@ So what's actually been done for now?
   - 65Th Flanker
   - JASDF 305th Nyutabaru Air Show
   - 55 23rd Flying Tigers
-* Added the F-100-PW-229 to the F-15E variant, other variants keep the F-100-PW-220
+* Added the F-100-PW-229 to all variants
 * Added mach cone, strake and G vortex vapor effects (taken from the dear flight gear F-16 model) (may be up for some tweaking (some day))
 * Updated the flares' effect (using F-16's ones)
 * Added some more cool preview screenshots cuz why not
@@ -30,6 +30,7 @@ So what's actually been done for now?
 * Replaced the sound effects for the flare, so it's no longer a voice saying "flare", and reused the gun outta-ammo sound effect for the flare outta-ammo sound effect
 * On the HUD, cross the selected armament if it's outta ammo
 * Added the F-15E variant
+* Modified the HUD to contain airpseed in kts and G force
 
 So I've got in my small mind:
 

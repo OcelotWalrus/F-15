@@ -112,6 +112,8 @@ var F15HUD = {
         obj.roll_pointer = obj.get_element("roll-pointer");
         obj.alt_range = obj.get_element("alt_range");
         obj.ias_range = obj.get_element("ias_range");
+        obj.window9_rect = obj.get_element("window9_rect");
+        obj.window10_rect = obj.get_element("window10_rect");
 
         obj.target_locked = obj.get_element("target_locked");
         obj.target_locked.setVisible(0);
@@ -124,6 +126,8 @@ var F15HUD = {
         obj.window6 = obj.get_text("window6", "condensed.txf",9,1.4);
         obj.window7 = obj.get_text("window7", "condensed.txf",9,1.4);
         obj.window8 = obj.get_text("window8", "condensed.txf",9,1.4);
+        obj.window9 = obj.get_text("window9", "condensed.txf",9,1.4);
+        obj.window10 = obj.get_text("window10", "condensed.txf",9,1.4);
         obj.cross1 = obj.get_text("cross_1", "condensed.txf",9,1.4);
 
         obj.window1.setVisible(0);
@@ -249,6 +253,14 @@ obj.dlzY = 70;
                                                                          obj.window8.setText(sprintf("%02d %02d", 
                                                                                                      math.round(val.InstrumentedG*10.0), 
                                                                                                      math.round(val.CadcOwsMaximumG*10.0)));
+                                                                     }),
+                            props.UpdateManager.FromHashList(["VelocitiesAirspeedKt"], nil, func(val)
+                                                                     {
+                                                                         obj.window9.setText(sprintf("%02d kts", math.round(val.VelocitiesAirspeedKt)));
+                                                                     }),
+                            props.UpdateManager.FromHashList(["InstrumentedG"], nil, func(val)
+                                                                     {
+                                                                         obj.window10.setText(sprintf("%4.2f G", val.InstrumentedG));
                                                                      }),
                             props.UpdateManager.FromHashList(["Alpha", 
                                                                       "ControlsGearBrakeParking", 
