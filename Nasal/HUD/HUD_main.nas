@@ -275,7 +275,7 @@ obj.dlzY = 70;
                                                                          else if(val.ControlsGearGearDown or obj.alpha > 20)
                                                                            obj.window7.setText(sprintf("AOA %d",obj.alpha));
                                                                          else
-                                                                           obj.window7.setText(sprintf(" %1.3f",obj.mach));
+                                                                           obj.window7.setText(sprintf("Ma %1.3f",obj.mach));
                                                                      }),
                             props.UpdateManager.FromHashList(["AutopilotRouteManagerActive",
                                                                       "AutopilotRouteManagerWpDist",

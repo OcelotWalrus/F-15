@@ -11,10 +11,10 @@
         <description>F-15 - basic aerodynamics are the same, except for the two place canopy which is accounted for</description>
         <note>Aircraft origin for measurements is the nose</note>
         <note>
-            F-15C in the critical aft c.g. configuration has a weight of 33,467
+            F-15E in the critical aft c.g. configuration has a weight of 37,500
             pounds and a c.g. location at 563.1 inches (6:12). To
             convert c.g. location in inches to percent mean aerodynamic
-            chord, the following equation is used for all A through D
+            chord, the following equation is used for all A through E
             models of the F-15: (measurements in inches).
             % MAC = (xcg - 408.1 * 100) / 191.33
         </note>
