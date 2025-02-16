@@ -43,6 +43,7 @@ So I've got in my small mind:
 * Make ejection possible
 * Simulate the red warnings on the top right (below the red canopy alarm which is already simulated), so it turns on when flares or chaffs have no more ammo.
 * Simulate engine fire (a red light warning on the top left only works for now, telling the temperature is too high), so that if one engine's temperature is too high for too long, a fire starts, and make so that the player can estulinguish the fire like in real life.
+* Implement A/G mechanics
 
 ---
 ORIGINAL TEXT
