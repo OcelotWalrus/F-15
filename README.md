@@ -32,6 +32,7 @@ So what's actually been done for now?
 * Added the F-15E variant
 * Modified the HUD to contain airpseed in kts and G force
 * Added an AIM-120D missile only available for the F-15E (higher range and capabilities than the AIM-120, but can't be used in close range fight cuz of its 5nm minimal range)
+* Updated the HUD to display a cannon crosshair
 
 So I've got in my small mind:
 
