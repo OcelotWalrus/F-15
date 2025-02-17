@@ -33,12 +33,10 @@ So what's actually been done for now?
 * Modified the HUD to contain airpseed in kts and G force
 * Added an AIM-120D missile only available for the F-15E (higher range and capabilities than the AIM-120, but can't be used in close range fight cuz of its 10nm minimal range)
 * Updated the HUD to display a cannon crosshair
-* Simulate all MPCD pages
-* Implement more missiles (even maybe Phoenix AIM-54)?
-* Allow the possibility to set custom load for gun, flares and chaffs, using cool slides
+* Allowed the possibility to set custom load for gun, flares and chaffs, using cool slides
 * Implemented simulation of `MINIMAL`, `FLARES` and `CHAFFS` red signal near already-working `CANOPY` signal. `MINIMAL` will set on when either flares of chaffs each own level is lower than 35 (max is 120 each). `FLARES` will set on when flares are getting dumped, as well as `CHAFFS` but for chaffs
 * You can now customize the fuel and payload directly in the F-15 fuel and stores menu, instead of having to go to the fuel and payload in equipment tab
-* Fixed liveries whose nose is fucked up
+* Fixed liveries whose nose was fucked up
 * Upgraded the fuel and payload panel by renaming it to F-15 Eagle Configuration Panel and merging ground services into it, as well as lighting config
 * Renamed the AIM-120 to AIM-120C as it's actually the C variant
 
@@ -57,6 +55,7 @@ So I've got in my small mind:
 * Differentiate flares and chaffs in the systems
 * Add the other AIM missiles variat (AIM-4, AIM-26, AIM-132, AIM-47, AIM-174, AIM-120C)
 * Add A/G missiles
+* Simulate all MPCD pages
 
 ---
 ORIGINAL TEXT
