@@ -1145,7 +1145,7 @@
                         </binding>
                     </item>
                     <item n="1">
-                        <label>Fuel and Stores</label>
+                        <label>F-15 Config</label>
                         <binding>
                             <command>nasal</command>
                             <script>aircraft.ext_loads_dlg.open()</script>
@@ -1183,7 +1183,8 @@
                             <script>aircraft.cold_and_dark()</script>
                         </binding>
                     </item>
-                    <item n="8">
+                    <!-- they're now inside the all-config panel -->
+                    <!-- <item n="8">
                         <label>Ground Services</label>
                         <binding>
                             <command>nasal</command>
@@ -1196,7 +1197,7 @@
                             <command>nasal</command>
                             <script>aircraft.dlg_lighting.open()</script>
                         </binding>
-                    </item>
+                    </item>-->
                 </menu>
             </default>
         </menubar>
@@ -1734,7 +1735,7 @@
                 <self-destruct-time-sec type="double">165</self-destruct-time-sec><!-- guess --><!-- + 50 %-->
                 <weight-launch-lbs>436</weight-launch-lbs> <!-- +50% -->
                 <weight-warhead-lbs>66</weight-warhead-lbs> <!-- +50% -->
-                <weight-fuel-lbm type="double">195</weight-fuel-lbm> <!-- +50% -->
+                <weight-fuel-lbm type="double">260</weight-fuel-lbm> <!-- +10% -->
                 <drag-coeff type="double">0.3</drag-coeff> <!-- +50% -->
                 <cross-section-sqft type="double">0.2739</cross-section-sqft>
                 <loft-altitude>50000</loft-altitude><!-- in stage 1 it will attempt to climb to this altitude -->

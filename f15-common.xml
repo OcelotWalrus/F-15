@@ -1139,7 +1139,7 @@
                         </binding>
                     </item>
                     <item n="1">
-                        <label>Fuel and Stores</label>
+                        <label>F-15 Config</label>
                         <binding>
                             <command>nasal</command>
                             <script>aircraft.ext_loads_dlg.open()</script>
@@ -1177,7 +1177,8 @@
                             <script>aircraft.cold_and_dark()</script>
                         </binding>
                     </item>
-                    <item n="8">
+                    <!-- they're now inside the all-config panel -->
+                    <!-- <item n="8">
                         <label>Ground Services</label>
                         <binding>
                             <command>nasal</command>
@@ -1190,7 +1191,7 @@
                             <command>nasal</command>
                             <script>aircraft.dlg_lighting.open()</script>
                         </binding>
-                    </item>
+                    </item>-->
                 </menu>
             </default>
         </menubar>

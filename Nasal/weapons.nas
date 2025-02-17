@@ -571,6 +571,11 @@ var impact_listener = func {
 # setup impact listener
 setlistener("/ai/models/model-impact3", impact_listener, 0, 0);
 
+# tiny fix
+setlistener("ai/submodels/submodel[5]/count", func {
+    setprop("ai/submodels/submodel[6]/count", getprop("ai/submodels/submodel[5]/count"));
+});
+
 
 var flareCount = -1;
 var flareStart = -1;

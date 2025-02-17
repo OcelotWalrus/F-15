@@ -705,7 +705,7 @@ var MPCD_Device =
             } else if (me.w_s == 1) {
                 me.root.infoArm.setText(sprintf("S%dL", getprop("sim/model/f15/systems/armament/aim9/count")));
             } else if (me.w_s == 2) {
-                me.root.infoArm.setText(sprintf("A%dB\nM%dF", getprop("sim/model/f15/systems/armament/aim120/count"), getprop("sim/model/f15/systems/armament/aim7/count")));
+                me.root.infoArm.setText(sprintf("FUCKA%dB\nM%dF", getprop("sim/model/f15/systems/armament/aim120/count"), getprop("sim/model/f15/systems/armament/aim7/count")));
             } else if (me.w_s == 5) {
                 me.root.infoArm.setText(sprintf("G%d", getprop("sim/model/f15/systems/armament/agm/count")));
             }
@@ -942,6 +942,11 @@ var MPCD_Device =
         me.p1_3.LBL_FLARE = me.PFDsvg.getElementById("LBL_FLARE");
         me.p1_3.LBL_NONAVY = me.PFDsvg.getElementById("LBL_NONAVY");
         me.p1_3.LBL_CMD_MSS = me.PFDsvg.getElementById("LBL_CMD_MSS");
+        me.p1_3.L_PYLON = me.PFDsvg.getElementById("MI_10");
+        me.p1_3.CL_TANK = me.PFDsvg.getElementById("MI_11");
+        me.p1_3.C_PYLON = me.PFDsvg.getElementById("MI_12");
+        me.p1_3.CR_TANK = me.PFDsvg.getElementById("MI_13");
+        me.p1_3.R_PYLON = me.PFDsvg.getElementById("MI_14");
 
 ## AG page
         me.p1_4 = me.PFD.addPage("PACS Menu", "p1_4");
@@ -957,6 +962,12 @@ var MPCD_Device =
         me.p1_4.S9 = MPCD_GroundStation.new(me.PFDsvg, 9);
         me.p1_4.S10 = MPCD_GroundStation.new(me.PFDsvg, 10);
 
+        me.p1_4.L_PYLON = me.PFDsvg.getElementById("MI_10");
+        me.p1_4.CL_TANK = me.PFDsvg.getElementById("MI_11");
+        me.p1_4.C_PYLON = me.PFDsvg.getElementById("MI_12");
+        me.p1_4.CR_TANK = me.PFDsvg.getElementById("MI_13");
+        me.p1_4.R_PYLON = me.PFDsvg.getElementById("MI_14");
+        me.p1_4.LBL_FLARE = me.PFDsvg.getElementById("LBL_FLARE-g");
         me.p1_4.LBL_CHAFF = me.PFDsvg.getElementById("LBL_CHAFF-g");
         me.p1_4.LBL_FLARE = me.PFDsvg.getElementById("LBL_FLARE-g");
         me.p1_4.LBL_NONAVY = me.PFDsvg.getElementById("LBL_NONAVY-g");
@@ -968,12 +979,14 @@ var MPCD_Device =
         var oo = me;
         var update_flares = func(o) {
             v = getprop("/ai/submodels/submodel[5]/count");
+            w = getprop("/ai/submodels/submodel[6]/count");
             print("submodel [5]",v);
+            print("submodel [6]",w);
             
-            o.p1_3.LBL_CHAFF.setText(sprintf("CHF %3d",v));
+            o.p1_3.LBL_CHAFF.setText(sprintf("CHF %3d",w));
             o.p1_3.LBL_FLARE.setText(sprintf(" FLR %2d",v));
             o.p1_3.LBL_NONAVY.setText("GLOBAL");
-            o.p1_4.LBL_CHAFF.setText(sprintf("CHF %3d",v));
+            o.p1_4.LBL_CHAFF.setText(sprintf("CHF %3d",w));
             o.p1_4.LBL_FLARE.setText(sprintf(" FLR %2d",v));
             o.p1_4.LBL_NONAVY.setText("GLOBAL");
         };
@@ -984,6 +997,79 @@ var MPCD_Device =
         setlistener("ai/submodels/submodel[5]/reloaded", func {
             update_flares(oo);
             setprop("/ai/submodels/submodel[5]/reloaded",0);
+        });
+        
+        var update_pylons = func(o) {
+            # pylons
+            if (getprop("payload/weight[1]/selected") == "Droptank")
+            {
+                o.p1_3.L_PYLON.setText("FUEL");
+                o.p1_4.L_PYLON.setText("FUEL");
+            } elsif (getprop("payload/weight[1]/selected") == "MK-84")
+            {
+                o.p1_3.L_PYLON.setText("MK-84");
+                o.p1_4.L_PYLON.setText("MK-84");
+            } else
+            {
+                o.p1_3.L_PYLON.setText("PYLON");
+                o.p1_4.L_PYLON.setText("PYLON");
+            }
+            
+            if (getprop("payload/weight[5]/selected") == "Droptank")
+            {
+                o.p1_3.C_PYLON.setText("FUEL");
+                o.p1_4.C_PYLON.setText("FUEL");
+            } elsif (getprop("payload/weight[5]/selected") == "MK-84")
+            {
+                o.p1_3.C_PYLON.setText("MK-84");
+                o.p1_4.C_PYLON.setText("MK-84");
+            } else
+            {
+                o.p1_3.C_PYLON.setText("PYLON");
+                o.p1_4.C_PYLON.setText("PYLON");
+            }
+            
+            if (getprop("payload/weight[8]/selected") == "Droptank")
+            {
+                o.p1_3.R_PYLON.setText("FUEL");
+                o.p1_4.R_PYLON.setText("FUEL");
+            } elsif (getprop("payload/weight[8]/selected") == "MK-84")
+            {
+                o.p1_3.R_PYLON.setText("MK-84");
+                o.p1_4.R_PYLON.setText("MK-84");
+            } else
+            {
+                o.p1_3.L_PYLON.setText("PYLON");
+                o.p1_4.L_PYLON.setText("PYLON");
+            }
+            # conformal tanks
+            if (getprop("fdm/jsbsim/propulsion/cft") == 1)
+            {
+                o.p1_3.CL_TANK.setText("YES");
+                o.p1_3.CR_TANK.setText("YES");
+                o.p1_4.CL_TANK.setText("YES");
+                o.p1_4.CR_TANK.setText("YES");
+            }
+            else
+            {
+                o.p1_3.CL_TANK.setText("NO");
+                o.p1_3.CR_TANK.setText("NO");
+                o.p1_4.CL_TANK.setText("NO");
+                o.p1_4.CR_TANK.setText("NO");
+            }
+        };
+        update_pylons(oo);
+        setlistener("payload/weight[1]/selected", func {
+            update_pylons(oo);
+        });
+        setlistener("payload/weight[5]/selected", func {
+            update_pylons(oo);
+        });
+        setlistener("payload/weight[8]/selected", func {
+            update_pylons(oo);
+        });
+        setlistener("fdm/jsbsim/propulsion/cft", func {
+            update_pylons(oo);
         });
 
 
@@ -1135,9 +1221,6 @@ var MPCD_Device =
         me.p1_3.addMenuItem(4, "2/2", me.p1_3);
         me.p1_3.addMenuItem(8, "TM\nPWR", me.p1_3);
         me.p1_3.addMenuItem(9, "M", me.p1_1);
-        me.p1_3.addMenuItem(10, "PYLON", me.p1_3);
-        me.p1_3.addMenuItem(12, "FUEL", me.p1_3);
-        me.p1_3.addMenuItem(14, "PYLON", me.p1_3);
         me.p1_3.addMenuItem(15, "MODE S", me.p1_3);
 
         me.p1_4.addMenuItem(2, "SIT", me.pjitds_1);

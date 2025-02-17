@@ -2556,7 +2556,7 @@
                     <value>AIM-120</value>
                 </equals>
                 <equals>
-                    <property>payload/weight[7]/selected</property>
+                    <property>payload/weight[0]/selected</property>
                     <value>AIM-120D</value>
                 </equals>
             </or>

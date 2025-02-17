@@ -35,7 +35,11 @@ So what's actually been done for now?
 * Updated the HUD to display a cannon crosshair
 * Simulate all MPCD pages
 * Implement more missiles (even maybe Phoenix AIM-54)?
-* Allow the possibility to set custom load for gun, flares and chaffs
+* Allow the possibility to set custom load for gun, flares and chaffs, using cool slides
+* Implemented simulation of `MINIMAL`, `FLARES` and `CHAFFS` red signal near already-working `CANOPY` signal. `MINIMAL` will set on when either flares of chaffs each own level is lower than 35 (max is 120 each). `FLARES` will set on when flares are getting dumped, as well as `CHAFFS` but for chaffs
+* You can now customize the fuel and payload directly in the F-15 fuel and stores menu, instead of having to go to the fuel and payload in equipment tab
+* Fixed liveries whose nose is fucked up
+* Upgraded the fuel and payload panel by renaming it to F-15 Eagle Configuration Panel and merging ground services into it, as well as lighting config
 
 So I've got in my small mind:
 
@@ -44,12 +48,15 @@ So I've got in my small mind:
 * Add some more ground services cuz why not
 * Add even more funky and cool liveries
 * Make ejection possible
-* Simulate the red warnings on the top right (below the red canopy alarm which is already simulated), so it turns on when flares or chaffs have no more ammo.
-* Simulate engine fire (a red light warning on the top left only works for now, telling the temperature is too high), so that if one engine's temperature is too high for too long, a fire starts, and make so that the player can estulinguish the fire like in real life.
+* Simulate engine fire (a red light warning on the top left only works for now, telling the temperature is too high), so that if one engine's temperature is too high for too long, a fire starts, and make so that the player can extinguish the fire like in real life.
 * Implement A/G mechanics
-* Enhance the radar canvs using DCS F-15's
+* Enhance the radar canvas using DCS F-15's
 * Make a manual as much detailed as DCS's one
 * Make an actual gun crosshair with all the crap and stuff
+* Differentiate flares and chaffs in the systems
+* Enable AIM-120D in the F-15 config menu only when E variant detected
+* Add the AIM-260
+* Add A/G missiles
 
 ---
 ORIGINAL TEXT
