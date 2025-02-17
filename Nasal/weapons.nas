@@ -199,8 +199,8 @@ var missile_code_from_ident= func(mty)
             return "mk83";
         else if (mty == "MK-84")
             return "mk84";
-        else if (mty == "AIM-120")
-            return "aim120";
+        else if (mty == "AIM-120C")
+            return "aim120c";
         else if (mty == "AIM-120D")
             return "aim120d";
 }
@@ -219,7 +219,7 @@ var get_sel_missile_count = func()
         else if (WeaponSelector.getValue() == 2)
         {
             Current_missile = Current_mrm;
-            return getprop("sim/model/f15/systems/armament/aim7/count")+getprop("sim/model/f15/systems/armament/aim120/count")+getprop("sim/model/f15/systems/armament/aim120d/count");
+            return getprop("sim/model/f15/systems/armament/aim7/count")+getprop("sim/model/f15/systems/armament/aim120c/count")+getprop("sim/model/f15/systems/armament/aim120d/count");
         }
         return 0;
 }
@@ -247,7 +247,7 @@ var update_sw_ready = func()
             }
             if (pylon >= 0)
             {
-                if (S.get_type() == "AIM-9" or S.get_type() == "AIM-7" or S.get_type() == "AIM-120" or S.get_type() == "MK-84" or S.get_type() == "AIM-120D")
+                if (S.get_type() == "AIM-9" or S.get_type() == "AIM-7" or S.get_type() == "AIM-120C" or S.get_type() == "MK-84" or S.get_type() == "AIM-120D")
                 {
                     print(S.get_type()," new !! ", pylon, " sel_missile_count - 1 = ", sel_missile_count - 1);
                     if (WeaponSelector.getValue() == 1) {
@@ -393,7 +393,7 @@ var demand_weapons_refresh = func {
 # (AFT)
 # GUN
 # SRM = AIM-9 (Sidewinder)
-# MRM = AIM-120, AIM-7, AIM-120D
+# MRM = AIM-120C, AIM-7, AIM-120D
 # (FWD)
 var arm_selector = func() {
 	update_gun_ready();

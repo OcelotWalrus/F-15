@@ -69,9 +69,9 @@ var MPCD_Station =
                 }
                 else mode = "SRM";
             }
-            elsif (na == "AIM-120") 
+            elsif (na == "AIM-120C") 
             {
-                na = "120A";
+                na = "120C";
                 if (weapon_mode == 2)
                 {
                     sel = getprop(sel_node);
@@ -82,7 +82,7 @@ var MPCD_Station =
             }
             elsif (na == "AIM-120D") 
             {
-                na = "120D/A";
+                na = "120D";
                 if (weapon_mode == 2)
                 {
                     sel = getprop(sel_node);
@@ -705,7 +705,7 @@ var MPCD_Device =
             } else if (me.w_s == 1) {
                 me.root.infoArm.setText(sprintf("S%dL", getprop("sim/model/f15/systems/armament/aim9/count")));
             } else if (me.w_s == 2) {
-                me.root.infoArm.setText(sprintf("FUCKA%dB\nM%dF", getprop("sim/model/f15/systems/armament/aim120/count"), getprop("sim/model/f15/systems/armament/aim7/count")));
+                me.root.infoArm.setText(sprintf("A%dB\nM%dF", getprop("sim/model/f15/systems/armament/aim120c/count"), getprop("sim/model/f15/systems/armament/aim7/count")));
             } else if (me.w_s == 5) {
                 me.root.infoArm.setText(sprintf("G%d", getprop("sim/model/f15/systems/armament/agm/count")));
             }

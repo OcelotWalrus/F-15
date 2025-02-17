@@ -31,7 +31,7 @@ So what's actually been done for now?
 * On the HUD, cross the selected armament if it's outta ammo
 * Added the F-15E variant
 * Modified the HUD to contain airpseed in kts and G force
-* Added an AIM-120D missile only available for the F-15E (higher range and capabilities than the AIM-120, but can't be used in close range fight cuz of its 5nm minimal range)
+* Added an AIM-120D missile only available for the F-15E (higher range and capabilities than the AIM-120, but can't be used in close range fight cuz of its 10nm minimal range)
 * Updated the HUD to display a cannon crosshair
 * Simulate all MPCD pages
 * Implement more missiles (even maybe Phoenix AIM-54)?
@@ -40,6 +40,7 @@ So what's actually been done for now?
 * You can now customize the fuel and payload directly in the F-15 fuel and stores menu, instead of having to go to the fuel and payload in equipment tab
 * Fixed liveries whose nose is fucked up
 * Upgraded the fuel and payload panel by renaming it to F-15 Eagle Configuration Panel and merging ground services into it, as well as lighting config
+* Renamed the AIM-120 to AIM-120C as it's actually the C variant
 
 So I've got in my small mind:
 
@@ -54,8 +55,7 @@ So I've got in my small mind:
 * Make a manual as much detailed as DCS's one
 * Make an actual gun crosshair with all the crap and stuff
 * Differentiate flares and chaffs in the systems
-* Enable AIM-120D in the F-15 config menu only when E variant detected
-* Add the AIM-260
+* Add the other AIM missiles variat (AIM-4, AIM-26, AIM-132, AIM-47, AIM-174, AIM-120C)
 * Add A/G missiles
 
 ---

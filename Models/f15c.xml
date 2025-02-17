@@ -2525,7 +2525,7 @@
                 </equals>
                 <equals>
                     <property>payload/weight[0]/selected</property>
-                    <value>AIM-120</value>
+                    <value>AIM-120C</value>
                 </equals>
                 <equals>
                     <property>payload/weight[0]/selected</property>
@@ -2553,7 +2553,7 @@
             <or>
                 <equals>
                     <property>payload/weight[0]/selected</property>
-                    <value>AIM-120</value>
+                    <value>AIM-120C</value>
                 </equals>
                 <equals>
                     <property>payload/weight[0]/selected</property>
@@ -2592,7 +2592,7 @@
             <or>
                 <equals>
                     <property>payload/weight[3]/selected</property>
-                    <value>AIM-120</value>
+                    <value>AIM-120C</value>
                 </equals>
                 <equals>
                     <property>payload/weight[3]/selected</property>
@@ -2609,7 +2609,7 @@
             <or>
                 <equals>
                     <property>payload/weight[4]/selected</property>
-                    <value>AIM-120</value>
+                    <value>AIM-120C</value>
                 </equals>
                 <equals>
                     <property>payload/weight[4]/selected</property>
@@ -2632,7 +2632,7 @@
                 </equals>
                 <equals>
                     <property>payload/weight[2]/selected</property>
-                    <value>AIM-120</value>
+                    <value>AIM-120C</value>
                 </equals>
                 <equals>
                     <property>payload/weight[2]/selected</property>
@@ -2660,7 +2660,7 @@
             <or>
                 <equals>
                     <property>payload/weight[2]/selected</property>
-                    <value>AIM-120</value>
+                    <value>AIM-120C</value>
                 </equals>
                 <equals>
                     <property>payload/weight[2]/selected</property>
@@ -2739,7 +2739,7 @@
                 </equals>
                 <equals>
                     <property>payload/weight[8]/selected</property>
-                    <value>AIM-120</value>
+                    <value>AIM-120C</value>
                 </equals>
                 <equals>
                     <property>payload/weight[8]/selected</property>
@@ -2767,7 +2767,7 @@
             <or>
                 <equals>
                     <property>payload/weight[8]/selected</property>
-                    <value>AIM-120</value>
+                    <value>AIM-120C</value>
                 </equals>
                 <equals>
                     <property>payload/weight[8]/selected</property>
@@ -2806,7 +2806,7 @@
             <or>
                 <equals>
                     <property>payload/weight[6]/selected</property>
-                    <value>AIM-120</value>
+                    <value>AIM-120C</value>
                 </equals>
                 <equals>
                     <property>payload/weight[6]/selected</property>
@@ -2823,7 +2823,7 @@
             <or>
                 <equals>
                     <property>payload/weight[7]/selected</property>
-                    <value>AIM-120</value>
+                    <value>AIM-120C</value>
                 </equals>
                 <equals>
                     <property>payload/weight[7]/selected</property>
@@ -2846,7 +2846,7 @@
                 </equals>
                 <equals>
                     <property>payload/weight[10]/selected</property>
-                    <value>AIM-120</value>
+                    <value>AIM-120C</value>
                 </equals>
                 <equals>
                     <property>payload/weight[10]/selected</property>
@@ -2874,7 +2874,7 @@
             <or>
                 <equals>
                     <property>payload/weight[10]/selected</property>
-                    <value>AIM-120</value>
+                    <value>AIM-120C</value>
                 </equals>
                 <equals>
                     <property>payload/weight[10]/selected</property>

@@ -100,7 +100,8 @@ var update_ext_load = func(sender, state)
 			str = chr(wpstr[ccc]) ~ chr(wpstr[cc]) ~ chr(wpstr[c]);
 			if ( str == "001" ) { o = "AIM-9" }
 			elsif ( str == "010") { o = "AIM-7" }
-			elsif ( str == "011") { o = "AIM-120" }
+			elsif ( str == "011") { o = "AIM-120C" }
+			elsif ( str == "011") { o = "AIM-120D" }
 			elsif ( str == "100") { o = "MK-83" }
 			elsif ( str == "000") { o = "none" }
 			Station = Wnode.getChild ("station", s , 1);

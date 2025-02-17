@@ -981,7 +981,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-9</value>
-                            <value>AIM-120</value>
+                            <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1030,7 +1030,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-9</value>
-                            <value>AIM-120</value>
+                            <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1055,7 +1055,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-7</value>
-                            <value>AIM-120</value>
+                            <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1080,7 +1080,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-7</value>
-                            <value>AIM-120</value>
+                            <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1129,7 +1129,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-7</value>
-                            <value>AIM-120</value>
+                            <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1154,7 +1154,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-7</value>
-                            <value>AIM-120</value>
+                            <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1179,7 +1179,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-9</value>
-                            <value>AIM-120</value>
+                            <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1228,7 +1228,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-9</value>
-                            <value>AIM-120</value>
+                            <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1274,6 +1274,13 @@
 					        	<binding>
 					        		<command>dialog-apply</command>
 					        		<object-name>Gun Rounds</object-name>
+					        	</binding>
+					        	<binding>
+					            	<command>nasal</command>
+					            	<script>
+					            	    v = getprop("sim/model/f15/systems/gun/rounds") / 5;
+					            	    setprop("/ai/submodels/submodel[3]/count",v);
+					            	</script>
 					        	</binding>
 					        </slider>
 					        <slider>

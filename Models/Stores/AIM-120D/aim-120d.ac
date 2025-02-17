@@ -3,9 +3,9 @@ MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  sh
 OBJECT world
 kids 1
 OBJECT poly
-name "aim-120"
+name "aim-120d"
 loc 0.06988 -0.000232488 -0.000638992
-texture "aim-120.png"
+texture "aim-120d.png"
 crease 45.000000
 numvert 232
 1.83937 0.000176489 0.000649989

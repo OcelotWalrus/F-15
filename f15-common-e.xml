@@ -871,12 +871,12 @@
                             <target-range-nm type="double">0</target-range-nm>
                             <sound-volume type="double">0.12</sound-volume>
                         </aim9>
-                        <aim120>
+                        <aim120c>
                             <count type="int">0</count>
                             <nearest-target type="int">-1</nearest-target>
                             <target-range-nm type="double">0</target-range-nm>
                             <sound-volume type="double">0.12</sound-volume>
-                        </aim120>
+                        </aim120c>
                         <aim120d>
                             <count type="int">0</count>
                             <nearest-target type="int">-1</nearest-target>
@@ -1401,12 +1401,12 @@
                 <lbs>196</lbs>
             </opt>
             <opt>
-                <name>AIM-120</name>
-                <lbs>348</lbs>
+                <name>AIM-120C</name>
+                <lbs>335</lbs>
             </opt>
             <opt>
                 <name>AIM-120D</name>
-                <lbs>480</lbs>
+                <lbs>335</lbs>
             </opt>
         </weight>
 
@@ -1443,12 +1443,12 @@
                 <lbs>196</lbs>
             </opt>
             <opt>
-                <name>AIM-120</name>
-                <lbs>348</lbs>
+                <name>AIM-120C</name>
+                <lbs>335</lbs>
             </opt>
             <opt>
                 <name>AIM-120D</name>
-                <lbs>480</lbs>
+                <lbs>335</lbs>
             </opt>
         </weight>
 
@@ -1466,12 +1466,12 @@
                 <lbs>510</lbs>
             </opt>
             <opt>
-                <name>AIM-120</name>
-                <lbs>348</lbs>
+                <name>AIM-120C</name>
+                <lbs>335</lbs>
             </opt>
             <opt>
                 <name>AIM-120D</name>
-                <lbs>480</lbs>
+                <lbs>335</lbs>
             </opt>
         </weight>
 
@@ -1488,12 +1488,12 @@
                 <lbs>510</lbs>
             </opt>
             <opt>
-                <name>AIM-120</name>
-                <lbs>348</lbs>
+                <name>AIM-120C</name>
+                <lbs>335</lbs>
             </opt>
             <opt>
                 <name>AIM-120D</name>
-                <lbs>480</lbs>
+                <lbs>335</lbs>
             </opt>
         </weight>
 
@@ -1533,12 +1533,12 @@
                 <lbs>510</lbs>
             </opt>
             <opt>
-                <name>AIM-120</name>
-                <lbs>348</lbs>
+                <name>AIM-120C</name>
+                <lbs>335</lbs>
             </opt>
             <opt>
                 <name>AIM-120D</name>
-                <lbs>480</lbs>
+                <lbs>335</lbs>
             </opt>
         </weight>
 
@@ -1556,12 +1556,12 @@
                 <lbs>510</lbs>
             </opt>
             <opt>
-                <name>AIM-120</name>
-                <lbs>348</lbs>
+                <name>AIM-120C</name>
+                <lbs>335</lbs>
             </opt>
             <opt>
                 <name>AIM-120D</name>
-                <lbs>480</lbs>
+                <lbs>335</lbs>
             </opt>
         </weight>
 
@@ -1581,12 +1581,12 @@
                 <lbs>196</lbs>
             </opt>
             <opt>
-                <name>AIM-120</name>
-                <lbs>348</lbs>
+                <name>AIM-120C</name>
+                <lbs>335</lbs>
             </opt>
             <opt>
                 <name>AIM-120D</name>
-                <lbs>480</lbs>
+                <lbs>335</lbs>
             </opt>
         </weight>
 
@@ -1623,12 +1623,12 @@
                 <lbs>196</lbs>
             </opt>
             <opt>
-                <name>AIM-120</name>
-                <lbs>348</lbs>
+                <name>AIM-120C</name>
+                <lbs>335</lbs>
             </opt>
             <opt>
                 <name>AIM-120D</name>
-                <lbs>480</lbs>
+                <lbs>335</lbs>
             </opt>
         </weight>
 
@@ -1681,9 +1681,9 @@
                 <DLZ-optimal-alt-feet type="double">25000</DLZ-optimal-alt-feet>
                 <DLZ-optimal-closing-mach type="double">2.0</DLZ-optimal-closing-mach>
             </aim-9>
-            <aim-120>
-                <!--Based on values from Fabien's loading_missiles:
-                AIM 120 max range 72 km for actual version. ->39 nm.. at mach 4 it's about 53 sec. I put a life of 115, and thurst duration oo 3/4 the travel time.-->
+            <aim-120c>
+                <!--Based on values from Wikipedia's AIM-120 AMRAAM page and Fabien's loading_missiles:
+                AIM 120C max range 72 km for actual version. ->39 nm.. at mach 4 it's about 53 sec. I put a life of 115, and thurst duration oo 3/4 the travel time.-->
                 <guidance type="string">radar</guidance>
                 <vol-search type="double">0.00</vol-search>
                 <vol-track type="double">0.15</vol-track>
@@ -1698,9 +1698,9 @@
                 <stage-1-duration-sec type="double">10.0</stage-1-duration-sec><!-- guess -->
                 <stage-2-duration-sec type="double">18.0</stage-2-duration-sec><!-- guess -->
                 <self-destruct-time-sec type="double">110</self-destruct-time-sec><!-- guess -->
-                <weight-launch-lbs>291</weight-launch-lbs>
-                <weight-warhead-lbs>44</weight-warhead-lbs>
-                <weight-fuel-lbm type="double">130</weight-fuel-lbm>
+                <weight-launch-lbs>335</weight-launch-lbs> <!-- real value -->
+                <weight-warhead-lbs>50</weight-warhead-lbs> <!-- real value -->
+                <weight-fuel-lbm type="double">130</weight-fuel-lbm> <!-- real value -->
                 <drag-coeff type="double">0.2</drag-coeff>
                 <cross-section-sqft type="double">0.2739</cross-section-sqft>
                 <loft-altitude>50000</loft-altitude><!-- in stage 1 it will attempt to climb to this altitude -->
@@ -1715,33 +1715,33 @@
                 <DLZ type="bool">true</DLZ>
                 <DLZ-optimal-alt-feet type="double">30000</DLZ-optimal-alt-feet>
                 <DLZ-optimal-closing-mach type="double">2.0</DLZ-optimal-closing-mach>
-            </aim-120>
+            </aim-120c>
             <aim-120d>
                 <!--Based on values from Wikipedia's AIM-120 AMRAAM page and Fabien's loading_missiles:
-                AI-120D max range between 57-65 nm. ->60 nm.. at mach 4 it's about 2 mins. I put a life of 115, and thurst duration oo 3/4 the travel time.-->
+                AI-120D max range between 100-123 nm. ->120 nm.. at mach 4 it's about 2'20" (min:sec). I put a life of 115, and thurst duration oo 3/4 the travel time.-->
                 <guidance type="string">radar</guidance>
                 <vol-search type="double">0.00</vol-search>
                 <vol-track type="double">0.15</vol-track>
                 <vol-track-weak type="double">0.1</vol-track-weak>
-                <max-fire-range-nm type="int">60</max-fire-range-nm> <!-- +100% of range-->
-                <min-fire-range-nm type="double">5</min-fire-range-nm> <!-- +a lot% of min range to try to balance -->
+                <max-fire-range-nm type="int">123</max-fire-range-nm> <!-- real value-->
+                <min-fire-range-nm type="double">10</min-fire-range-nm> <!-- +a lot% of min range to try to balance -->
                 <FCS-field-deg type="int">50</FCS-field-deg> <!-- +20 degrees -->
                 <seeker-field-deg type="int">155</seeker-field-deg> <!-- +20 degrees -->
-                <max-g type="int">30</max-g> <!-- +10 G of overload-->
+                <max-g type="int">40</max-g> <!-- +10 G of overload-->
                 <thrust-lbf-stage-1 type="double">2970</thrust-lbf-stage-1><!-- guess --> <!-- + 10 %-->
                 <thrust-lbf-stage-2 type="double">308</thrust-lbf-stage-2>    <!-- guess --> <!-- + 10 %-->
                 <stage-1-duration-sec type="double">11</stage-1-duration-sec><!-- guess --> <!-- + 10 %-->
                 <stage-2-duration-sec type="double">19.8</stage-2-duration-sec><!-- guess --> <!-- + 10 %-->
                 <self-destruct-time-sec type="double">165</self-destruct-time-sec><!-- guess --><!-- + 50 %-->
-                <weight-launch-lbs>436</weight-launch-lbs> <!-- +50% -->
-                <weight-warhead-lbs>66</weight-warhead-lbs> <!-- +50% -->
-                <weight-fuel-lbm type="double">260</weight-fuel-lbm> <!-- +10% -->
+                <weight-launch-lbs>335</weight-launch-lbs> <!-- real value -->
+                <weight-warhead-lbs>39</weight-warhead-lbs> <!-- real value -->
+                <weight-fuel-lbm type="double">260</weight-fuel-lbm> <!-- +100% -->
                 <drag-coeff type="double">0.3</drag-coeff> <!-- +50% -->
                 <cross-section-sqft type="double">0.2739</cross-section-sqft>
                 <loft-altitude>50000</loft-altitude><!-- in stage 1 it will attempt to climb to this altitude -->
                 <min-speed-for-guiding-mach type="double">0.7</min-speed-for-guiding-mach>
                 <max-report-distance type="double">81</max-report-distance> <!-- +25 % -->
-                <arming-time-sec type="double">1.6</arming-time-sec>
+                <arming-time-sec type="double">1.9</arming-time-sec>
                 <rail type="bool">false</rail>
                 <navigation type="string">APN</navigation>
                 <class type="string">A</class>

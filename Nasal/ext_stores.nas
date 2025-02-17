@@ -55,10 +55,10 @@ Station =
                             prop.getParent().getNode("weight-lb").setValue(190);
                         elsif (v == "AIM-7")
                         prop.getParent().getNode("weight-lb").setValue(510);
-                        elsif (v == "AIM-120")
+                        elsif (v == "AIM-120C")
                         prop.getParent().getNode("weight-lb").setValue(335);
                         elsif (v == "AIM-120D")
-                        prop.getParent().getNode("weight-lb").setValue(418);
+                        prop.getParent().getNode("weight-lb").setValue(335);
                         elsif (v == "MK-84")
                         prop.getParent().getNode("weight-lb").setValue(2039);
                         elsif (v == "Droptank")
@@ -88,7 +88,7 @@ Station =
 			me.bcode = 2;
             me.xbcode = 2;
 		} 
-        elsif ( t == "AIM-120" )
+        elsif ( t == "AIM-120C" )
         {
 			me.bcode = 3;
             me.xbcode = 3;
@@ -268,17 +268,17 @@ var ext_loads_set = func(s)
     elsif ( s == "Standard Combat" )
     {
         b_set = 1;
-        setprop("payload/weight[0]/selected","AIM-120");
+        setprop("payload/weight[0]/selected","AIM-120C");
         setprop("payload/weight[1]/selected","Droptank");
         setprop("payload/weight[2]/selected","AIM-9");
         setprop("payload/weight[3]/selected","AIM-7");
-        setprop("payload/weight[4]/selected","AIM-120");
+        setprop("payload/weight[4]/selected","AIM-120C");
         setprop("payload/weight[5]/selected","none");
-        setprop("payload/weight[6]/selected","AIM-120");
+        setprop("payload/weight[6]/selected","AIM-120C");
         setprop("payload/weight[7]/selected","AIM-7");
         setprop("payload/weight[8]/selected","AIM-9");
         setprop("payload/weight[9]/selected","Droptank");
-        setprop("payload/weight[10]/selected","AIM-9");
+        setprop("payload/weight[10]/selected","AIM-120C");
         setprop("consumables/fuel/tank[5]/selected",true);
         setprop("consumables/fuel/tank[6]/selected",true);
         setprop("consumables/fuel/tank[7]/selected",false);
@@ -289,11 +289,11 @@ var ext_loads_set = func(s)
         setprop("payload/weight[0]/selected","AIM-9");
         setprop("payload/weight[1]/selected","Droptank");
         setprop("payload/weight[2]/selected","AIM-9");
-        setprop("payload/weight[3]/selected","AIM-120");
-        setprop("payload/weight[4]/selected","AIM-120");
+        setprop("payload/weight[3]/selected","AIM-120C");
+        setprop("payload/weight[4]/selected","AIM-120C");
         setprop("payload/weight[5]/selected","none");
-        setprop("payload/weight[6]/selected","AIM-120");
-        setprop("payload/weight[7]/selected","AIM-120");
+        setprop("payload/weight[6]/selected","AIM-120C");
+        setprop("payload/weight[7]/selected","AIM-120C");
         setprop("payload/weight[8]/selected","AIM-9");
         setprop("payload/weight[9]/selected","Droptank");
         setprop("payload/weight[10]/selected","AIM-9");
@@ -304,7 +304,7 @@ var ext_loads_set = func(s)
     elsif ( s == "No Fly Zone" ) 
     {
         b_set = 3;
-        setprop("payload/weight[0]/selected","AIM-120");
+        setprop("payload/weight[0]/selected","AIM-120C");
         setprop("payload/weight[1]/selected","Droptank");
         setprop("payload/weight[2]/selected","AIM-9");
         setprop("payload/weight[3]/selected","AIM-7");
@@ -314,7 +314,7 @@ var ext_loads_set = func(s)
         setprop("payload/weight[7]/selected","AIM-7");
         setprop("payload/weight[8]/selected","AIM-9");
         setprop("payload/weight[9]/selected","Droptank");
-        setprop("payload/weight[10]/selected","AIM-120");
+        setprop("payload/weight[10]/selected","AIM-120C");
         setprop("consumables/fuel/tank[5]/selected",true);
         setprop("consumables/fuel/tank[6]/selected",true);
         setprop("consumables/fuel/tank[7]/selected",false);
@@ -341,17 +341,17 @@ var ext_loads_set = func(s)
     elsif ( s == "Air Superiority" ) 
     {
         b_set = 5;
-        setprop("payload/weight[0]/selected","AIM-120");
+        setprop("payload/weight[0]/selected","AIM-120D");
         setprop("payload/weight[1]/selected","Droptank");
-        setprop("payload/weight[2]/selected","AIM-120");
-        setprop("payload/weight[3]/selected","AIM-120");
-        setprop("payload/weight[4]/selected","AIM-120");
+        setprop("payload/weight[2]/selected","AIM-120C");
+        setprop("payload/weight[3]/selected","AIM-120C");
+        setprop("payload/weight[4]/selected","AIM-120D");
         setprop("payload/weight[5]/selected","none");
-        setprop("payload/weight[6]/selected","AIM-120");
-        setprop("payload/weight[7]/selected","AIM-120");
-        setprop("payload/weight[8]/selected","AIM-120");
+        setprop("payload/weight[6]/selected","AIM-120D");
+        setprop("payload/weight[7]/selected","AIM-120C");
+        setprop("payload/weight[8]/selected","AIM-120C");
         setprop("payload/weight[9]/selected","Droptank");
-        setprop("payload/weight[10]/selected","AIM-120");
+        setprop("payload/weight[10]/selected","AIM-120D");
         setprop("consumables/fuel/tank[5]/selected",true);
         setprop("consumables/fuel/tank[6]/selected",true);
         setprop("consumables/fuel/tank[7]/selected",false);
@@ -359,17 +359,17 @@ var ext_loads_set = func(s)
     elsif ( s == "Ground Attack" ) 
     {
         b_set = 6;
-        setprop("payload/weight[0]/selected","AIM-120");
+        setprop("payload/weight[0]/selected","AIM-120D");
         setprop("payload/weight[1]/selected","MK-84");
-        setprop("payload/weight[2]/selected","AIM-120");
-        setprop("payload/weight[3]/selected","AIM-120");
-        setprop("payload/weight[4]/selected","AIM-120");
+        setprop("payload/weight[2]/selected","AIM-120C");
+        setprop("payload/weight[3]/selected","AIM-120C");
+        setprop("payload/weight[4]/selected","AIM-120C");
         setprop("payload/weight[5]/selected","MK-84");
-        setprop("payload/weight[6]/selected","AIM-120");
-        setprop("payload/weight[7]/selected","AIM-120");
-        setprop("payload/weight[8]/selected","AIM-120");
+        setprop("payload/weight[6]/selected","AIM-120C");
+        setprop("payload/weight[7]/selected","AIM-120C");
+        setprop("payload/weight[8]/selected","AIM-120C");
         setprop("payload/weight[9]/selected","MK-84");
-        setprop("payload/weight[10]/selected","AIM-120");
+        setprop("payload/weight[10]/selected","AIM-120D");
         setprop("consumables/fuel/tank[5]/selected",false);
         setprop("consumables/fuel/tank[6]/selected",false);
         setprop("consumables/fuel/tank[7]/selected",false);
@@ -379,13 +379,13 @@ var ext_loads_set = func(s)
         b_set = 7;
         setprop("payload/weight[0]/selected","AIM-9");
         setprop("payload/weight[1]/selected","Droptank");
-        setprop("payload/weight[2]/selected","AIM-120");
-        setprop("payload/weight[3]/selected","AIM-120");
-        setprop("payload/weight[4]/selected","AIM-120");
+        setprop("payload/weight[2]/selected","AIM-120D");
+        setprop("payload/weight[3]/selected","AIM-120C");
+        setprop("payload/weight[4]/selected","AIM-120C");
         setprop("payload/weight[5]/selected","none");
-        setprop("payload/weight[6]/selected","AIM-120");
-        setprop("payload/weight[7]/selected","AIM-120");
-        setprop("payload/weight[8]/selected","AIM-120");
+        setprop("payload/weight[6]/selected","AIM-120C");
+        setprop("payload/weight[7]/selected","AIM-120C");
+        setprop("payload/weight[8]/selected","AIM-120D");
         setprop("payload/weight[9]/selected","Droptank");
         setprop("payload/weight[10]/selected","AIM-9");
         setprop("consumables/fuel/tank[5]/selected",true);
@@ -444,7 +444,7 @@ var update_weapons_over_mp = func
         var b_wpstring = "";
         var aim9_count = 0;
         var aim7_count = 0;
-        var aim120_count = 0;
+        var aim120c_count = 0;
         var aim120d_count = 0;
         var mk84_count = 0;
 
@@ -466,17 +466,17 @@ var update_weapons_over_mp = func
                 aim9_count = aim9_count+1;
             elsif (S.get_type() == "AIM-7")
                 aim7_count = aim7_count+1;
-            elsif (S.get_type() == "AIM-120")
-                aim120_count = aim120_count+1;
+            elsif (S.get_type() == "AIM-120C")
+                aim120c_count = aim120c_count+1;
             elsif (S.get_type() == "AIM-120D")
                 aim120d_count = aim120d_count+1;
             elsif (S.get_type() == "MK-84")
                 mk84_count = mk84_count+1;
         }
-        print("count ",aim9_count, aim7_count, aim120_count, aim120d_count, mk84_count);
+        print("count ",aim9_count, aim7_count, aim120c_count, aim120d_count, mk84_count);
         setprop("sim/model/f15/systems/armament/aim9/count",aim9_count);
         setprop("sim/model/f15/systems/armament/aim7/count",aim7_count);
-        setprop("sim/model/f15/systems/armament/aim120/count",aim120_count);
+        setprop("sim/model/f15/systems/armament/aim120c/count",aim120c_count);
         setprop("sim/model/f15/systems/armament/aim120d/count",aim120d_count);
         setprop("sim/model/f15/systems/armament/mk84/count",mk84_count);
 
