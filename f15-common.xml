@@ -1138,20 +1138,13 @@
                 <menu n="50">
                     <label>F-15 Eagle</label>
                     <item n="0">
-                        <label>Repair Airframe</label>
-                        <binding>
-                            <command>nasal</command>
-                            <script>aircraft.fixAirframe();aircraft.ct("rp");</script>
-                        </binding>
-                    </item>
-                    <item n="1">
                         <label>F-15 Config</label>
                         <binding>
                             <command>nasal</command>
                             <script>aircraft.ext_loads_dlg.open()</script>
                         </binding>
                     </item>
-                    <item n="2">
+                    <item n="1">
                         <label>Liveries</label>
                         <binding>
                             <command>nasal</command>
@@ -1169,14 +1162,14 @@
                         </binding>
                     </item>
 -->
-                    <item n="6">
+                    <item n="2">
                         <label>Quickstart</label>
                         <binding>
                             <command>nasal</command>
                             <script>aircraft.quickstart()</script>
                         </binding>
                     </item>
-                    <item n="7">
+                    <item n="3">
                         <label>Cold and Dark</label>
                         <binding>
                             <command>nasal</command>
@@ -1198,6 +1191,13 @@
                             <script>aircraft.dlg_lighting.open()</script>
                         </binding>
                     </item>-->
+                    <item n="4">
+                        <label>Repair Airframe</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>aircraft.fixAirframe();aircraft.ct("rp");</script>
+                        </binding>
+                    </item>
                 </menu>
             </default>
         </menubar>

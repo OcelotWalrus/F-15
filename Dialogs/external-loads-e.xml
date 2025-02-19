@@ -615,6 +615,97 @@
 	        
 	        <hrule/>
 	        
+            <button>
+                <legend>Repair Airframe</legend>
+                <binding>
+                    <command>nasal</command>
+                    <script>aircraft.fixAirframe();aircraft.ct("rp");</script>
+                </binding>
+            </button>
+            
+            <group>
+                <layout>hbox</layout>
+
+                <text>
+                    <label>Front Gear Damaged</label>
+                </text>
+
+                <checkbox>
+                    <property>fdm/jsbsim/gear/unit/damaged</property>
+                    <live>true</live>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>fdm/jsbsim/gear/unit/damaged</property>
+                    </binding>
+                </checkbox>
+            </group>
+            <group>
+                <layout>hbox</layout>
+
+                <text>
+                    <label>Right Gear Damage</label>
+                </text>
+
+                <checkbox>
+                    <property>fdm/jsbsim/gear/unit[1]/damaged</property>
+                    <live>true</live>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>fdm/jsbsim/gear/unit[1]/damaged</property>
+                    </binding>
+                </checkbox>
+            </group>
+            <group>
+                <layout>hbox</layout>
+
+                <text>
+                    <label>Left Gear Damage</label>
+                </text>
+
+                <checkbox>
+                    <property>fdm/jsbsim/gear/unit[2]/damaged</property>
+                    <live>true</live>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>fdm/jsbsim/gear/unit[2]/damaged</property>
+                    </binding>
+                </checkbox>
+            </group>
+            <group>
+                <layout>hbox</layout>
+
+                <text>
+                    <label>Right Wing Torn</label>
+                </text>
+
+                <checkbox>
+                    <property>sim/model/f15/wings/right-wing-torn</property>
+                    <live>true</live>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/model/f15/wings/right-wing-torn</property>
+                    </binding>
+                </checkbox>
+            </group>
+            <group>
+                <layout>hbox</layout>
+
+                <text>
+                    <label>Left Wing Torn</label>
+                </text>
+
+                <checkbox>
+                    <property>sim/model/f15/wings/left-wing-torn</property>
+                    <live>true</live>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/model/f15/wings/left-wing-torn</property>
+                    </binding>
+                </checkbox>
+            </group>
+	        
+	        <hrule/>
+	        
 	        <group>
                 <layout>hbox</layout>
 
