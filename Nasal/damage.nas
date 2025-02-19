@@ -8,7 +8,7 @@ var cannon_types = {
     " M55 cannon shell hit":  0.10, # 30mm
     " KCA cannon shell hit":  0.10, # 30mm
     " Gun Splash On ":        0.10, # 30mm
-    " M61A1 shell hit":       0.05, # 20mm
+    " M61A1 shell hit":       0.10, # 20mm
     " GAU-8/A hit":           0.10, # 30mm
     " BK27 cannon hit":       0.07, # 27mm
     " GSh-30 hit":            0.10, # 30mm
@@ -23,6 +23,12 @@ var warhead_lbs = {
     "aim-120":              44.00,
     "AIM120":               44.00,
     "AIM-120":              44.00,
+    "aim-120c":              44.00,
+    "AIM120C":               44.00,
+    "AIM-120C":              44.00,
+    "aim-120d":              44.00,
+    "AIM120D":               44.00,
+    "AIM-120D":              44.00,
     "RB-99":                44.00,
     "aim-7":                88.00,
     "AIM-7":                88.00,
@@ -92,9 +98,10 @@ var fireMsgs = {
     " Bird away at":  nil, # G/A
 
     # F15
-    " aim7 at":       nil,
-    " aim9 at":       nil,
-    " aim120 at":     nil,
+    " AIM-7 at":       nil,
+    " AIM-9 at":       nil,
+    " AIM-120C at":     nil,
+    " AIM-120D at":     nil,
 };
 
 var incoming_listener = func {

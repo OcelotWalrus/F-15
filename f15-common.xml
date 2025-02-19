@@ -1745,7 +1745,7 @@
                 <rail type="bool">false</rail>
                 <navigation type="string">APN</navigation>
                 <class type="string">A</class>
-                <fire-msg type="string">Fox 4</fire-msg>
+                <fire-msg type="string">Fox 3</fire-msg>
                 <telemetry type="bool">false</telemetry><!-- enable for aim 120 to see datalink info -->
                 <DLZ type="bool">true</DLZ>
                 <DLZ-optimal-alt-feet type="double">30000</DLZ-optimal-alt-feet>

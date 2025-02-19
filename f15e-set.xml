@@ -11,7 +11,7 @@
             Douglas Aerospace powered by two Pratt and Whitney F100-PW-229 turbofan engines. Unlike the original F-15C and F-15D, this aircraft has
             been designed to succeed in both air superiority and ground attack missions.
             Radar and heat seeking air-to-air missiles AIM-7, AIM-9, AIM-120 and a 20 MM gun are the primary armament.
-            The Aircraft can carry MK-48 bombs.
+            The Aircraft can carry and deploy MK-48 bombs.
             MTOW ≈85,000 lbs. VNE ≈2,000 kts. Max Gear extension 300 kts. Max Flap speed 250 kts.
         </long-description>
         <variant-of>f15c</variant-of>
@@ -311,6 +311,11 @@
                 <type>exterior</type>
                 <splash type="bool">true</splash>
                 <path>Previews/custom crap/031.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/032.png</path>
             </preview>
         </previews>
         <startup>

@@ -39,11 +39,12 @@ So what's actually been done for now?
 * Fixed liveries whose nose was fucked up
 * Upgraded the fuel and payload panel by renaming it to F-15 Eagle Configuration Panel and merging ground services into it, as well as lighting config
 * Renamed the AIM-120 to AIM-120C as it's actually the C variant
+* Changed some missiles' weight and other statistics to be more realistic
+* Allowed MK-84s to be installed on the conformal body stations (only for the F-15E variant)
 
 So I've got in my small mind:
 
 * Develop the F-15E variant (slightly different model cuz it'll have the targeting pod pylons)
-* Make triple MK-84s model shit and implementation
 * Add some more ground services cuz why not
 * Add even more funky and cool liveries
 * Make ejection possible
@@ -53,9 +54,14 @@ So I've got in my small mind:
 * Make a manual as much detailed as DCS's one
 * Make an actual gun crosshair with all the crap and stuff
 * Differentiate flares and chaffs in the systems
-* Add the other AIM missiles variat (AIM-4, AIM-26, AIM-132, AIM-47, AIM-174, AIM-120C)
+* Add the other AIM missiles variants (AIM-4, AIM-26, AIM-132, AIM-47, AIM-174)
 * Add A/G missiles
 * Simulate all MPCD pages
+* Add some Datalink crap like in the F16 to recognize friendly aircraft
+* Use different shapes for missiles in the radar, so the player can differentiate them from aircraft
+* Don't allow flares to be fired when cold and dark
+* Enhance the cockpit's textures to be complete HD
+* Add more different bombs
 
 ---
 ORIGINAL TEXT

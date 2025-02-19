@@ -407,10 +407,54 @@
     <animation>
         <type>select</type>
         <nopreview/>
+        <object-name>mk84-b1</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[3]/selected</property>
+                <value>MK-84</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>mk84-b2</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[4]/selected</property>
+                <value>MK-84</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
         <object-name>mk84-c</object-name>
         <condition>
             <equals>
                 <property>payload/weight[5]/selected</property>
+                <value>MK-84</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>mk84-b3</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[6]/selected</property>
+                <value>MK-84</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>mk84-b4</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[7]/selected</property>
                 <value>MK-84</value>
             </equals>
         </condition>

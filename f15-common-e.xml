@@ -1145,10 +1145,10 @@
                         </binding>
                     </item>
                     <item n="1">
-                        <label>F-15 Config</label>
+                        <label>F-15E Config</label>
                         <binding>
                             <command>nasal</command>
-                            <script>aircraft.ext_loads_dlg.open()</script>
+                            <script>aircraft.ext_loads_dlg_e.open()</script>
                         </binding>
                     </item>
                     <item n="2">
@@ -1473,6 +1473,10 @@
                 <name>AIM-120D</name>
                 <lbs>335</lbs>
             </opt>
+            <opt>
+                <name>MK-84</name>
+                <lbs>2039</lbs>
+            </opt>
         </weight>
 
         <weight n="4">
@@ -1494,6 +1498,10 @@
             <opt>
                 <name>AIM-120D</name>
                 <lbs>335</lbs>
+            </opt>
+            <opt>
+                <name>MK-84</name>
+                <lbs>2039</lbs>
             </opt>
         </weight>
 
@@ -1540,6 +1548,10 @@
                 <name>AIM-120D</name>
                 <lbs>335</lbs>
             </opt>
+            <opt>
+                <name>MK-84</name>
+                <lbs>2039</lbs>
+            </opt>
         </weight>
 
 
@@ -1562,6 +1574,10 @@
             <opt>
                 <name>AIM-120D</name>
                 <lbs>335</lbs>
+            </opt>
+            <opt>
+                <name>MK-84</name>
+                <lbs>2039</lbs>
             </opt>
         </weight>
 
@@ -1745,7 +1761,7 @@
                 <rail type="bool">false</rail>
                 <navigation type="string">APN</navigation>
                 <class type="string">A</class>
-                <fire-msg type="string">Fox 4</fire-msg>
+                <fire-msg type="string">Fox 3</fire-msg>
                 <telemetry type="bool">false</telemetry><!-- enable for aim 120 to see datalink info -->
                 <DLZ type="bool">true</DLZ>
                 <DLZ-optimal-alt-feet type="double">30000</DLZ-optimal-alt-feet>

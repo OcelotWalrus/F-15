@@ -1,0 +1,1555 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<name>external_loads</name>
+	<layout>vbox</layout>
+	<default-padding>1</default-padding>
+	<modal>false</modal>
+	<width>795</width>
+
+	<empty>
+		<pref-height>6</pref-height>
+	</empty>
+
+	<text>
+		<label>F-15E Strike Eagle Configuration Panel</label>
+	</text>
+
+	<empty>
+		<pref-height>4</pref-height>
+	</empty>
+
+	<hrule/>
+
+	<group>
+		<layout>hbox</layout>
+		<default-padding>0</default-padding>
+
+		<group>
+			<layout>vbox</layout>
+			<default-padding>1</default-padding>
+
+			<empty>
+				<pref-height>2</pref-height>
+			</empty>
+			
+			<empty>
+		        <pref-height>3</pref-height>
+	        </empty>
+
+	        <text>
+		        <label>FUEL</label>
+	        </text>
+
+	        <empty>
+		        <pref-height>4</pref-height>
+	        </empty>
+	        
+	        <hrule/>
+
+			<group>
+				<layout>hbox</layout>
+			<group>
+				<layout>vbox</layout>
+
+				<text>
+					<label>Left Wing Tank</label>
+				</text>
+
+				<checkbox>
+					<property>consumables/fuel/tank[5]/selected</property>
+					<live>true</live>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>sim/model/f15/systems/external-loads/left-wing-tank-demand</property>
+                        <value>true</value>
+                    </binding>
+                </checkbox>
+			</group>
+			<group>
+				<layout>vbox</layout>
+
+				<text>
+					<label>Centre Tank</label>
+				</text>
+
+				<checkbox>
+					<property>consumables/fuel/tank[7]/selected</property>
+					<live>true</live>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>sim/model/f15/systems/external-loads/external-centre-tank-demand</property>
+                        <value>true</value>
+                    </binding>
+                </checkbox>
+			</group>
+			<group>
+				<layout>vbox</layout>
+
+				<text>
+					<label>Right Wing Tank</label>
+				</text>
+
+				<checkbox>
+					<property>consumables/fuel/tank[6]/selected</property>
+					<live>true</live>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>sim/model/f15/systems/external-loads/right-wing-tank-demand</property>
+                        <value>true</value>
+                    </binding>
+                </checkbox>
+			</group>
+            <group>
+                <layout>vbox</layout>
+                
+                <text>
+                    <label> Conformal Tanks</label>
+                </text>
+                
+                <checkbox>
+                    <property>fdm/jsbsim/propulsion/cft</property>
+                    <live>true</live>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>fdm/jsbsim/propulsion/cft</property>
+                    </binding>
+                </checkbox>
+            </group>
+			</group>
+            <group>
+                <layout>hbox</layout>
+                <group>
+                    <layout>hbox</layout>
+                    <default-padding>0</default-padding>
+                <halign>left</halign>
+                <checkbox>
+                    <padding>12</padding>
+                    <property>sim/freeze/fuel</property>
+                    <live>true</live>
+                    <binding>
+                        <command>nasal</command>
+                        <script>aircraft.toggle_fuel_freeze()</script>
+                    </binding>
+                </checkbox>
+                <text>
+                    <label> Fuel Freeze</label>
+                </text>
+            </group>
+            <button>
+                <legend>Quickstart</legend>
+                <binding>
+                    <command>nasal</command>
+                    <script>aircraft.quickstart()</script>
+                </binding>
+            </button>
+            <button>
+                <legend>Cold and Dark</legend>
+                <binding>
+                    <command>nasal</command>
+                    <script>aircraft.cold_and_dark()</script>
+                </binding>
+            </button>
+            </group>
+
+            <empty>
+				<pref-height>2</pref-height>
+			</empty>
+
+			<hrule/>
+
+      <group>
+        <layout>hbox</layout>
+        <button>
+          <legend>Airshow fuel</legend>
+          <binding>
+            <command>nasal</command>
+            <script>aircraft.set_fuel(3000)</script>
+          </binding>
+        </button>
+        <button>
+          <legend>Full</legend>
+          <binding>
+            <command>nasal</command>
+            <script>aircraft.set_fuel(36000)</script> <!-- more than can be held will just be ignored by the set_fuel logic -->
+          </binding>
+        </button>
+        <button>
+          <legend>7,000 lbs</legend>
+          <binding>
+            <command>nasal</command>
+            <script>aircraft.set_fuel(7000)</script>
+          </binding>
+        </button>
+        <button>
+          <legend>11,000 lbs</legend>
+          <binding>
+            <command>nasal</command>
+            <script>aircraft.set_fuel(11000)</script>
+          </binding>
+        </button>
+        <button>
+          <legend>Empty</legend>
+          <binding>
+            <command>nasal</command>
+            <script>aircraft.set_fuel(0)</script> <!-- more than can be held will just be ignored by the set_fuel logic -->
+          </binding>
+        </button>
+      </group>
+      <group>
+				<layout>hbox</layout>
+			
+				<group><!-- Labels -->
+					<layout>vbox</layout>
+					<halign>left</halign>
+					<text>
+						<label>Tank</label>
+					</text>
+					<text>
+                        <halign>left</halign>
+                        <label>xxxxxxxxxxxxxx</label>
+                        <live>true</live>
+                        <property>consumables/fuel/tank[0]/name</property>
+                    </text>
+                    <text>
+						<halign>left</halign>
+                        <label>xxxxxxxxxxxxxx</label>
+                        <live>true</live>
+                        <property>consumables/fuel/tank[1]/name</property>
+                    </text>
+					<text>
+						<halign>left</halign>
+                        <label>xxxxxxxxxxxxxx</label>
+                        <live>true</live>
+                        <property>consumables/fuel/tank[2]/name</property>
+                    </text>
+					<text>
+						<halign>left</halign>
+                        <label>xxxxxxxxxxxxxx</label>
+                        <live>true</live>
+                        <property>consumables/fuel/tank[3]/name</property>
+                    </text>
+					<text>
+						<halign>left</halign>
+                        <label>xxxxxxxxxxxxxx</label>
+                        <live>true</live>
+                        <property>consumables/fuel/tank[4]/name</property>
+                    </text>
+					<text>
+						<halign>left</halign>
+                        <label>xxxxxxxxxxxxxx</label>
+                        <live>true</live>
+                        <property>consumables/fuel/tank[5]/name</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[5]/selected</property>
+                        </enable>
+                    </text>
+					<text>
+						<halign>left</halign>
+                        <label>xxxxxxxxxxxxxx</label>
+                        <live>true</live>
+                        <property>consumables/fuel/tank[6]/name</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[6]/selected</property>
+                        </enable>
+                    </text>
+					<text>
+						<halign>left</halign>
+                        <label>xxxxxxxxxxxxxx</label>
+                        <live>true</live>
+                        <property>consumables/fuel/tank[7]/name</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[7]/selected</property>
+                        </enable>
+                    </text>
+					<text>
+						<halign>left</halign>
+                        <label>xxxxxxxxxxxxxx</label>
+                        <live>true</live>
+                        <property>consumables/fuel/tank[8]/name</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[8]/selected</property>
+                        </enable>
+                    </text>
+                    <text>
+                        <halign>left</halign>
+                        <label>xxxxxxxxxxxxxx</label>
+                        <live>true</live>
+                        <property>consumables/fuel/tank[9]/name</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[9]/selected</property>
+                        </enable>
+                    </text>
+                </group>
+				<group> <!-- Sliders -->
+					<layout>vbox</layout>
+					<halign>right</halign>
+					<text>
+						<label>Level</label>
+					</text>
+					<slider>
+						<name>LFEED</name>
+						<property>/consumables/fuel/tank[0]/level-gal_us</property>
+						<live>1</live>
+						<min>0</min>
+						<max>222.1</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>LFEED</object-name>
+						</binding>
+					</slider>
+					<slider>
+						<name>RFEED</name>
+						<property>/consumables/fuel/tank[1]/level-gal_us</property>
+						<live>1</live>
+						<min>0</min>
+						<max>245.8</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>RFEED</object-name>
+						</binding>
+					</slider>
+					<slider>
+						<name>Tank1</name>
+						<property>/consumables/fuel/tank[2]/level-gal_us</property>
+						<live>1</live>
+						<min>0</min>
+						<max>701.8</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>Tank1</object-name>
+						</binding>
+					</slider>
+					<slider>
+						<name>LWing</name>
+						<property>/consumables/fuel/tank[3]/level-gal_us</property>
+						<live>1</live>
+						<min>0</min>
+						<max>529.8</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>LWing</object-name>
+						</binding>
+					</slider>
+					<slider>
+						<name>RWing</name>
+						<property>/consumables/fuel/tank[4]/level-gal_us</property>
+						<live>1</live>
+						<min>0</min>
+						<max>529.8</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>RWing</object-name>
+						</binding>
+					</slider>
+					<slider>
+						<name>ExtWingL</name>
+						<property>/consumables/fuel/tank[5]/level-gal_us</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[5]/selected</property>
+                        </enable>
+						<live>1</live>
+						<min>0</min>
+						<max>600</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>ExtWingL</object-name>
+						</binding>
+					</slider>
+					<slider>
+						<name>ExtWingR</name>
+						<property>/consumables/fuel/tank[6]/level-gal_us</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[6]/selected</property>
+                        </enable>
+						<live>1</live>
+						<min>0</min>
+						<max>600</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>ExtWingR</object-name>
+						</binding>
+					</slider>
+					<slider>
+						<name>CentreExternal</name>
+						<property>/consumables/fuel/tank[7]/level-gal_us</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[7]/selected</property>
+                        </enable>
+						<live>1</live>
+						<min>0</min>
+						<max>600</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>CentreExternal</object-name>
+						</binding>
+					</slider>
+					<slider>
+						<name>LCFTvalue</name>
+						<property>/consumables/fuel/tank[8]/level-gal_us</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[8]/selected</property>
+                        </enable>
+						<live>1</live>
+						<min>0</min>
+						<max>728</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>LCFTvalue</object-name>
+						</binding>
+					</slider>
+                    <slider>
+                        <name>RCFTvalue</name>
+                        <property>/consumables/fuel/tank[9]/level-gal_us</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[9]/selected</property>
+                        </enable>
+                        <live>1</live>
+                        <min>0</min>
+                        <max>728</max>
+                        <binding>
+                            <command>dialog-apply</command>
+                            <object-name>RCFTvalue</object-name>
+                        </binding>
+                    </slider>
+                </group>
+				<group> <!-- Level Lbs -->
+					<layout>vbox</layout>
+					<halign>right</halign>
+					<text>
+						<label>Pounds</label>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f lbs</format>
+						<property>/consumables/fuel/tank[0]/level-lbs</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f lbs</format>
+						<property>/consumables/fuel/tank[1]/level-lbs</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f lbs</format>
+						<property>/consumables/fuel/tank[2]/level-lbs</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f lbs</format>
+						<property>/consumables/fuel/tank[3]/level-lbs</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f lbs</format>
+						<property>/consumables/fuel/tank[4]/level-lbs</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f lbs</format>
+						<property>/consumables/fuel/tank[5]/level-lbs</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[5]/selected</property>
+                        </enable>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f lbs</format>
+						<property>/consumables/fuel/tank[6]/level-lbs</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[6]/selected</property>
+                        </enable>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f lbs</format>
+						<property>/consumables/fuel/tank[7]/level-lbs</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[7]/selected</property>
+                        </enable>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f lbs</format>
+						<property>/consumables/fuel/tank[8]/level-lbs</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[8]/selected</property>
+                        </enable>
+					</text>
+                    <text>
+                        <halign>right</halign>
+                        <label>xxxxxxxx</label>
+                        <live>true</live>
+                        <format>%.1f lbs</format>
+                        <property>/consumables/fuel/tank[9]/level-lbs</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[9]/selected</property>
+                        </enable>
+                    </text>
+                </group>
+				<group> <!-- Level Gallons -->
+					<layout>vbox</layout>
+					<halign>right</halign>
+					<text>
+						<label>Gallons</label>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxx</label>
+						<live>true</live>
+						<format>%.1f gal</format>
+						<property>/consumables/fuel/tank[0]/level-gal_us</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxx</label>
+						<live>true</live>
+						<format>%.1f gal</format>
+						<property>/consumables/fuel/tank[1]/level-gal_us</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxx</label>
+						<live>true</live>
+						<format>%.1f gal</format>
+						<property>/consumables/fuel/tank[2]/level-gal_us</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxx</label>
+						<live>true</live>
+						<format>%.1f gal</format>
+						<property>/consumables/fuel/tank[3]/level-gal_us</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxx</label>
+						<live>true</live>
+						<format>%.1f gal</format>
+						<property>/consumables/fuel/tank[4]/level-gal_us</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxx</label>
+						<live>true</live>
+						<format>%.1f gal</format>
+						<property>/consumables/fuel/tank[5]/level-gal_us</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[5]/selected</property>
+                        </enable>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxx</label>
+						<live>true</live>
+						<format>%.1f gal</format>
+						<property>/consumables/fuel/tank[6]/level-gal_us</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[6]/selected</property>
+                        </enable>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxx</label>
+						<live>true</live>
+						<format>%.1f gal</format>
+						<property>/consumables/fuel/tank[7]/level-gal_us</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[7]/selected</property>
+                        </enable>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxx</label>
+						<live>true</live>
+						<format>%.1f gal</format>
+						<property>/consumables/fuel/tank[8]/level-gal_us</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[8]/selected</property>
+                        </enable>
+					</text>
+                    <text>
+                        <halign>right</halign>
+                        <label>xxxxxxx</label>
+                        <live>true</live>
+                        <format>%.1f gal</format>
+                        <property>/consumables/fuel/tank[9]/level-gal_us</property>
+                        <enable>
+			        		<property>/consumables/fuel/tank[9]/selected</property>
+                        </enable>
+                    </text>
+                </group>
+			</group>
+		
+		    <hrule/>
+
+		    <empty>
+		        <pref-height>6</pref-height>
+	        </empty>
+
+	        <text>
+		        <label>GROUND SERVICES</label>
+	        </text>
+
+	        <empty>
+		        <pref-height>4</pref-height>
+	        </empty>
+	        
+	        <hrule/>
+	        
+	        <group>
+                <layout>hbox</layout>
+
+                <text>
+                    <label>Ground Power Unit</label>
+                </text>
+
+                <checkbox>
+                    <property>fdm/jsbsim/systems/electrics/ground-power-gpu</property>
+                    <live>true</live>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>fdm/jsbsim/systems/electrics/ground-power-gpu</property>
+                    </binding>
+                </checkbox>
+            </group>
+            <group>
+                <layout>hbox</layout>
+
+                <text>
+                    <label>External Electrical Power Connected</label>
+                </text>
+
+                <checkbox>
+                    <property>fdm/jsbsim/systems/electrics/ground-power</property>
+                    <live>true</live>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>fdm/jsbsim/systems/electrics/ground-power</property>
+                    </binding>
+                </checkbox>
+            </group>
+
+            <group>
+                <layout>hbox</layout>
+                <text>
+                    <label>External Air Connected</label>
+                </text>
+
+                <checkbox>
+                    <property>fdm/jsbsim/systems/electrics/ground-air</property>
+                    <live>true</live>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>fdm/jsbsim/systems/electrics/ground-air</property>
+                    </binding>
+                </checkbox>
+            </group>
+            
+            <hrule/>
+            
+            <group>
+                <layout>hbox</layout>
+
+                <text>
+                    <label>Smoke generator</label>
+                </text>
+
+                <checkbox>
+                    <property>sim/model/f15/fx/smoke</property>
+                    <live>true</live>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>/sim/model/f15/fx/smoke</property>
+                    </binding>
+                </checkbox>
+            </group>
+            
+            <group>
+				<layout>hbox</layout>
+			
+				<group><!-- Labels -->
+					<layout>vbox</layout>
+					<halign>left</halign>
+					<text>
+						<label>Smoke Color</label>
+					</text>
+					<text>
+                        <halign>left</halign>
+                        <live>true</live>
+                        <label>Red</label>
+                    </text>
+					<text>
+                        <halign>left</halign>
+                        <live>true</live>
+                        <label>Green</label>
+                    </text>
+					<text>
+                        <halign>left</halign>
+                        <live>true</live>
+                        <label>Blue</label>
+                    </text>
+                </group>
+				<group> <!-- Sliders -->
+					<layout>vbox</layout>
+					<halign>right</halign>
+					<text>
+						<label>Level</label>
+					</text>
+					<slider>
+						<name>Red</name>
+						<property>systems/smoke-generator/red</property>
+						<live>1</live>
+						<min>0</min>
+						<max>1</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>Red</object-name>
+						</binding>
+					</slider>
+					<slider>
+						<name>Green</name>
+						<property>systems/smoke-generator/green</property>
+						<live>1</live>
+						<min>0</min>
+						<max>1</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>Green</object-name>
+						</binding>
+					</slider>
+					<slider>
+						<name>Blue</name>
+						<property>systems/smoke-generator/blue</property>
+						<live>1</live>
+						<min>0</min>
+						<max>1</max>
+						<binding>
+							<command>dialog-apply</command>
+							<object-name>Blue</object-name>
+						</binding>
+					</slider>
+                </group>
+				<group> <!-- Level -->
+					<layout>vbox</layout>
+					<halign>right</halign>
+					<text>
+						<label>Level</label>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f</format>
+						<property>systems/smoke-generator/red</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f</format>
+						<property>systems/smoke-generator/green</property>
+					</text>
+					<text>
+						<halign>right</halign>
+						<label>xxxxxxxx</label>
+						<live>true</live>
+						<format>%.1f</format>
+						<property>systems/smoke-generator/blue</property>
+					</text>
+                </group>
+			</group>
+
+            <hrule/>
+
+            <group>
+                <layout>hbox</layout>
+
+                <text>
+                    <label>Pilot Helment Sound Proofing</label>
+                </text>
+
+                <slider>
+                    <name>PilotHelmentSoundProofing</name>
+                    <property>/controls/seat/pilot-helmet-volume-attenuation</property>
+                    <live>1</live>
+                    <min>0</min>
+                    <max>0.3</max>
+                    <binding>
+                        <command>dialog-apply</command>
+                        <object-name>PilotHelmentSoundProofing</object-name>
+                    </binding>
+                </slider>
+            </group>
+            <group>
+                <layout>hbox</layout>
+
+                <text>
+                    <label>Aileron deadzone CSS</label>
+                </text>
+
+                <slider>
+                    <name>AileronDeadzoneForAutopilotCss</name>
+                    <property>/autopilot/settings/aileron-deadzone</property>
+                    <pref-width>250</pref-width>
+                    <live>1</live>
+                    <min>0</min>
+                    <max>0.4</max>
+                    <binding>
+                        <command>dialog-apply</command>
+                        <object-name>AileronDeadzoneForAutopilotCss</object-name>
+                    </binding>
+                </slider>
+            </group>
+            <group>
+                <layout>hbox</layout>
+
+                <text>
+                    <label>Elevator deadzone CSS</label>
+                </text>
+
+                <slider>
+                    <pref-width>250</pref-width>
+                    <name>ElevatorDeadzoneForAutopilotCss</name>
+                    <property>/autopilot/settings/elevator-deadzone</property>
+                    <width>20</width>
+                    <live>1</live>
+                    <min>0</min>
+                    <max>0.4</max>
+                    <binding>
+                        <command>dialog-apply</command>
+                        <object-name>ElevatorDeadzoneForAutopilotCss</object-name>
+                    </binding>
+                </slider>
+            </group>
+
+            <hrule/>
+
+			<empty>
+				<pref-height>96</pref-height>
+			</empty>
+
+		</group>
+
+
+		<vrule/>
+
+		<group>
+			<layout>vbox</layout>
+			<height>350</height>
+			<valign>top</valign>
+
+			<default-padding>1</default-padding>
+
+			<empty>
+				<pref-height>2</pref-height>
+			</empty>
+
+
+			<group>
+				<layout>hbox</layout>
+				<default-padding>0</default-padding>
+				<empty>
+		            <pref-height>6</pref-height>
+	            </empty>
+
+	            <text>
+		            <label>ARMAMENT</label>
+	            </text>
+
+	            <empty>
+		            <pref-height>4</pref-height>
+	            </empty>
+				<!--<text>
+					<label>xxxxxxxxxxxxxxxxxx</label>
+					<live>true</live>
+					<property>sim/model/f15/systems/external-loads/external-load-set</property>
+				</text>-->
+			</group>
+
+			<empty>
+				<pref-height>2</pref-height>
+			</empty>
+
+			<hrule/>
+            <group>
+                <!-- Weapons Sets -->
+                <layout>vbox</layout>
+                <height>300</height>
+                <valign>center</valign>
+                <default-padding>1</default-padding>
+                <combo>
+                    <pref-width>200</pref-width>
+                    <property>/sim/model/f15/systems/external-loads/external-load-set</property>
+                    <value>Clean</value>
+                    <value>Standard Combat</value>
+                    <value>Offensive Counter Air</value>
+                    <value>Combat Air Patrol</value>
+                    <value>Air Superiority</value>
+                    <value>No Fly Zone</value>
+                    <value>Ground Attack</value>
+                    <value>Ferry Flight</value>
+                    <binding>
+                        <command>dialog-apply</command>
+                    </binding>
+                </combo>
+            <group>
+                <!-- Ammunitions -->
+                <layout>hbox</layout>
+                <default-padding>1</default-padding>
+                <button>
+                    <legend>Reload set</legend>
+                    <equal>true</equal>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/model/f15/systems/external-loads/reload-demand</property>
+                    </binding>
+                </button>
+                <button>
+                    <legend>Reload Ammunitions</legend>
+                    <equal>true</equal>
+                    <binding>
+                        <command>nasal</command>
+                        <script>
+                            <!-- gun ammos -->
+                            setprop("/ai/submodels/submodel[3]/count",188);
+                            setprop("sim/model/f15/systems/gun/rounds",940);
+                            <!-- flares and chaffs -->
+                            setprop("/ai/submodels/submodel[5]/count",100);
+                            setprop("/ai/submodels/submodel[6]/count",100);
+                            <!-- force to update the displays -->
+                            setprop("/ai/submodels/submodel[5]/reloaded",1);
+                        </script>
+                    </binding>
+                </button>
+            </group>
+            </group>
+
+            <empty>
+				<pref-height>12</pref-height>
+			</empty>
+
+			<group>
+				<layout>hbox</layout>
+
+				<group> <!-- Stations -->
+					<layout>vbox</layout>
+					<group>
+						<layout>hbox</layout>
+						<default-padding>0</default-padding>
+						<text>
+							<label>Location</label>
+						</text>
+						<text>
+							<label>Payload</label>
+						</text>
+						<text>
+							<label>Weight</label>
+						</text>
+					</group>
+                    <empty>
+				        <pref-height>6</pref-height>
+			        </empty>
+
+					<group>
+						<layout>hbox</layout>
+						<default-padding>0</default-padding>
+						<text>
+							<label>S0 : </label>
+						</text>
+						<combo>
+                            <pref-width>100</pref-width>
+                            <property>payload/weight[0]/selected</property>
+                            <live>true</live>
+                            <value>none</value>
+                            <value>AIM-9</value>
+                            <value>AIM-120C</value>
+                            <value>AIM-120D</value>
+                            <binding>
+                                <command>dialog-apply</command>
+                            </binding>
+                        </combo>
+                        <text>
+                            <property>payload/weight[0]/weight-lb</property>
+						    <label>xxxxxxxx</label>
+						    <live>true</live>
+						    <format>%.1f lbs</format>
+                        </text>
+					</group>
+					<group>
+						<layout>hbox</layout>
+						<default-padding>0</default-padding>
+						<text>
+							<label>S1 : </label>
+						</text>
+						<combo>
+                            <pref-width>100</pref-width>
+                            <property>payload/weight[1]/selected</property>
+                            <live>true</live>
+                            <value>none</value>
+                            <value>Droptank</value>
+                            <value>MK-84</value>
+                            <binding>
+                                <command>dialog-apply</command>
+                            </binding>
+                        </combo>
+                        <text>
+                            <property>payload/weight[1]/weight-lb</property>
+						    <label>xxxxxxxx</label>
+						    <live>true</live>
+						    <format>%.1f lbs</format>
+                        </text>
+					</group>
+					<group>
+						<layout>hbox</layout>
+						<default-padding>0</default-padding>
+						<text>
+							<label>S2 : </label>
+						</text>
+						<combo>
+                            <pref-width>100</pref-width>
+                            <property>payload/weight[2]/selected</property>
+                            <live>true</live>
+                            <value>none</value>
+                            <value>AIM-9</value>
+                            <value>AIM-120C</value>
+                            <value>AIM-120D</value>
+                            <binding>
+                                <command>dialog-apply</command>
+                            </binding>
+                        </combo>
+                        <text>
+                            <property>payload/weight[2]/weight-lb</property>
+						    <label>xxxxxxxx</label>
+						    <live>true</live>
+						    <format>%.1f lbs</format>
+                        </text>
+					</group>
+					<group>
+						<layout>hbox</layout>
+						<default-padding>0</default-padding>
+						<text>
+							<label>S3 : </label>
+						</text>
+						<combo>
+                            <pref-width>100</pref-width>
+                            <property>payload/weight[3]/selected</property>
+                            <live>true</live>
+                            <value>none</value>
+                            <value>AIM-7</value>
+                            <value>AIM-120C</value>
+                            <value>AIM-120D</value>
+                            <value>MK-84</value>
+                            <binding>
+                                <command>dialog-apply</command>
+                            </binding>
+                        </combo>
+                        <text>
+                            <property>payload/weight[3]/weight-lb</property>
+						    <label>xxxxxxxx</label>
+						    <live>true</live>
+						    <format>%.1f lbs</format>
+                        </text>
+					</group>
+					<group>
+						<layout>hbox</layout>
+						<default-padding>0</default-padding>
+						<text>
+							<label>S4 : </label>
+						</text>
+						<combo>
+                            <pref-width>100</pref-width>
+                            <property>payload/weight[4]/selected</property>
+                            <live>true</live>
+                            <value>none</value>
+                            <value>AIM-7</value>
+                            <value>AIM-120C</value>
+                            <value>AIM-120D</value>
+                            <value>MK-84</value>
+                            <binding>
+                                <command>dialog-apply</command>
+                            </binding>
+                        </combo>
+                        <text>
+                            <property>payload/weight[4]/weight-lb</property>
+						    <label>xxxxxxxx</label>
+						    <live>true</live>
+						    <format>%.1f lbs</format>
+                        </text>
+					</group>
+					<group>
+						<layout>hbox</layout>
+						<default-padding>0</default-padding>
+						<text>
+							<label>S5 : </label>
+						</text>
+						<combo>
+                            <pref-width>100</pref-width>
+                            <property>payload/weight[5]/selected</property>
+                            <live>true</live>
+                            <value>none</value>
+                            <value>Droptank</value>
+                            <value>MK-84</value>
+                            <binding>
+                                <command>dialog-apply</command>
+                            </binding>
+                        </combo>
+                        <text>
+                            <property>payload/weight[5]/weight-lb</property>
+						    <label>xxxxxxxx</label>
+						    <live>true</live>
+						    <format>%.1f lbs</format>
+                        </text>
+					</group>
+					<group>
+						<layout>hbox</layout>
+						<default-padding>0</default-padding>
+						<text>
+							<label>S6 : </label>
+						</text>
+						<combo>
+                            <pref-width>100</pref-width>
+                            <property>payload/weight[6]/selected</property>
+                            <live>true</live>
+                            <value>none</value>
+                            <value>AIM-7</value>
+                            <value>AIM-120C</value>
+                            <value>AIM-120D</value>
+                            <value>MK-84</value>
+                            <binding>
+                                <command>dialog-apply</command>
+                            </binding>
+                        </combo>
+                        <text>
+                            <property>payload/weight[6]/weight-lb</property>
+						    <label>xxxxxxxx</label>
+						    <live>true</live>
+						    <format>%.1f lbs</format>
+                        </text>
+					</group>
+					<group>
+						<layout>hbox</layout>
+						<default-padding>0</default-padding>
+						<text>
+							<label>S7 : </label>
+						</text>
+						<combo>
+                            <pref-width>100</pref-width>
+                            <property>payload/weight[7]/selected</property>
+                            <live>true</live>
+                            <value>none</value>
+                            <value>AIM-7</value>
+                            <value>AIM-120C</value>
+                            <value>AIM-120D</value>
+                            <value>MK-84</value>
+                            <binding>
+                                <command>dialog-apply</command>
+                            </binding>
+                        </combo>
+                        <text>
+                            <property>payload/weight[7]/weight-lb</property>
+						    <label>xxxxxxxx</label>
+						    <live>true</live>
+						    <format>%.1f lbs</format>
+                        </text>
+					</group>
+                    <group>
+                        <layout>hbox</layout>
+                        <default-padding>0</default-padding>
+                        <text>
+                            <label>S8 : </label>
+                        </text>
+						<combo>
+                            <pref-width>100</pref-width>
+                            <property>payload/weight[8]/selected</property>
+                            <live>true</live>
+                            <value>none</value>
+                            <value>AIM-9</value>
+                            <value>AIM-120C</value>
+                            <value>AIM-120D</value>
+                            <binding>
+                                <command>dialog-apply</command>
+                            </binding>
+                        </combo>
+                        <text>
+                            <property>payload/weight[8]/weight-lb</property>
+						    <label>xxxxxxxx</label>
+						    <live>true</live>
+						    <format>%.1f lbs</format>
+                        </text>
+                    </group>
+                    <group>
+                        <layout>hbox</layout>
+                        <default-padding>0</default-padding>
+                        <text>
+                            <label>S9 : </label>
+                        </text>
+						<combo>
+                            <pref-width>100</pref-width>
+                            <property>payload/weight[9]/selected</property>
+                            <live>true</live>
+                            <value>none</value>
+                            <value>Droptank</value>
+                            <value>MK-84</value>
+                            <binding>
+                                <command>dialog-apply</command>
+                            </binding>
+                        </combo>
+                        <text>
+                            <property>payload/weight[9]/weight-lb</property>
+						    <label>xxxxxxxx</label>
+						    <live>true</live>
+						    <format>%.1f lbs</format>
+                        </text>
+                    </group>
+                    <group>
+                        <layout>hbox</layout>
+                        <default-padding>0</default-padding>
+                        <text>
+                            <label>S10 :</label>
+                        </text>
+						<combo>
+                            <pref-width>100</pref-width>
+                            <property>payload/weight[10]/selected</property>
+                            <live>true</live>
+                            <value>none</value>
+                            <value>AIM-9</value>
+                            <value>AIM-120C</value>
+                            <value>AIM-120D</value>
+                            <binding>
+                                <command>dialog-apply</command>
+                            </binding>
+                        </combo>
+                        <text>
+                            <property>payload/weight[10]/weight-lb</property>
+						    <label>xxxxxxxx</label>
+						    <live>true</live>
+						    <format>%.1f lbs</format>
+                        </text>
+                    </group>
+                    
+                    <hrule/>
+                    
+                    <group>
+                        <layout>hbox</layout>
+                        <group><!-- Labels -->
+					        <layout>vbox</layout>
+					        <halign>left</halign>
+					        <text>
+                                <halign>left</halign>
+                                <label>Gun Rounds : </label>
+                            </text>
+					        <text>
+                                <halign>left</halign>
+                                <label>Flares Count : </label>
+                            </text>
+					        <text>
+                                <halign>left</halign>
+                                <label>Chaffs Count : </label>
+                            </text>
+                        </group>
+                        <group> <!-- Sliders -->
+					        <layout>vbox</layout>
+					        <halign>right</halign>
+					        <slider>
+					        	<name>Gun Rounds</name>
+					        	<property>sim/model/f15/systems/gun/rounds</property>
+					        	<live>1</live>
+					        	<min>0</min>
+					        	<max>940</max>
+					        	<binding>
+					        		<command>dialog-apply</command>
+					        		<object-name>Gun Rounds</object-name>
+					        	</binding>
+					        	<binding>
+					            	<command>nasal</command>
+					            	<script>
+					            	    v = getprop("sim/model/f15/systems/gun/rounds") / 5;
+					            	    setprop("/ai/submodels/submodel[3]/count",v);
+					            	</script>
+					        	</binding>
+					        </slider>
+					        <slider>
+					        	<name>Flares Count</name>
+					        	<property>ai/submodels/submodel[5]/count</property>
+					        	<live>1</live>
+					        	<min>0</min>
+					        	<max>120</max>
+					        	<binding>
+					        		<command>dialog-apply</command>
+					        		<object-name>Flares Count</object-name>
+					        	</binding>
+					        </slider>
+					        <slider>
+					        	<name>Chaffs Count</name>
+					        	<property>ai/submodels/submodel[6]/count</property>
+					        	<live>1</live>
+					        	<min>0</min>
+					        	<max>150</max>
+					        	<binding>
+					        		<command>dialog-apply</command>
+					        		<object-name>Chaffs Count</object-name>
+					        	</binding>
+					        </slider>
+					    </group>
+					    <group> <!-- Level Count -->
+					        <layout>vbox</layout>
+					        <halign>right</halign>
+					        <text>
+					        	<halign>right</halign>
+					        	<label>xxxxxxxx</label>
+					        	<live>true</live>
+					        	<format>%3d</format>
+					        	<property>sim/model/f15/systems/gun/rounds</property>
+					        </text>
+					        <text>
+					        	<halign>right</halign>
+					        	<label>xxxxxxxx</label>
+					        	<live>true</live>
+					        	<format>%3d</format>
+					        	<property>ai/submodels/submodel[5]/count</property>
+					        </text>
+					        <text>
+					        	<halign>right</halign>
+					        	<label>xxxxxxxx</label>
+					        	<live>true</live>
+					        	<format>%3d</format>
+					        	<property>ai/submodels/submodel[6]/count</property>
+					        </text>
+					    </group>
+					</group>
+                </group>
+
+            </group>
+
+            <group>
+				<layout>hbox</layout>
+                <halign>left</halign>
+				<checkbox>
+                        <padding>12</padding>
+                        <property>sim/model/f15/systems/armament/mp-messaging</property>
+					<live>true</live>
+					<binding>
+						<command>property-toggle</command>
+						<property>sim/model/f15/systems/armament/mp-messaging</property>
+					</binding>
+				</checkbox>
+                <text>
+                    <label>Multiplayer dogfight enabled</label>
+                </text>
+
+            </group>
+			<group>
+				<layout>hbox</layout>
+
+				<text>
+					<label>CAUTION: Please, don't use when in</label>
+				</text>
+			</group>
+			<group>
+				<layout>hbox</layout>
+				<text>
+					<label>100 NM range of a crowded airport like</label>
+				</text>
+			</group>
+			<group>
+				<layout>hbox</layout>
+				<text>
+					<label>KSFO.</label>
+				</text>
+			</group>
+
+            
+
+
+            <empty>
+				<pref-height>12</pref-height>
+			</empty>
+
+			<hrule/>
+			
+			<empty>
+		        <pref-height>6</pref-height>
+	        </empty>
+
+	        <text>
+		        <label>STATISTICS</label>
+	        </text>
+
+	        <empty>
+		        <pref-height>4</pref-height>
+	        </empty>
+	        
+	        <hrule/>
+
+			<!-- Weigts Sum -->
+			<group>
+				<layout>hbox</layout>
+				<default-padding>0</default-padding>
+				<halign>left</halign>
+				<text>
+					<label>Weapons Weight : </label>
+				</text>
+				<text>
+					<label>xxxxxxxxxxxxxxxxxx</label>
+					<live>true</live>
+					<format>%.1f lbs</format>
+					<property>sim/model/f15/systems/external-loads/weapons-weight</property>
+				</text>
+			</group>
+
+
+			<group>
+				<layout>hbox</layout>
+				<default-padding>0</default-padding>
+				<halign>left</halign>
+				<text>
+					<label>Pylons Weight : </label>
+				</text>
+				<text>
+					<label>xxxxxxxxxxxxxxxxxx</label>
+					<live>true</live>
+					<format>%.1f lbs</format>
+					<property>sim/model/f15/systems/external-loads/pylons-weight</property>
+				</text>
+			</group>
+
+
+			<group>
+				<layout>hbox</layout>
+				<default-padding>0</default-padding>
+				<halign>left</halign>
+				<text>
+					<label>Fuel Weight : </label>
+				</text>
+				<text>
+					<label>xxxxxxxxxxxxxxxxxx</label>
+					<live>true</live>
+					<format>%.1f lbs</format>
+					<property>sim/model/f15/instrumentation/fuel-gauges/total</property>
+				</text>
+			</group>
+			
+			<group>
+				<layout>hbox</layout>
+				<default-padding>0</default-padding>
+				<halign>left</halign>
+				<text>
+					<label>Fuel Volume : </label>
+				</text>
+				<text>
+					<label>xxxxxxxxxxxxxxxxxx</label>
+					<live>true</live>
+					<format>%.1f gal</format>
+					<property>/consumables/fuel/total-fuel-gal_us</property>
+				</text>
+			</group>
+
+			<group>
+				<layout>hbox</layout>
+				<default-padding>0</default-padding>
+				<halign>left</halign>
+				<text>
+					<label>Center Of Gravity : </label>
+				</text>
+				<text>
+					<label>xxxxxxxxxxxxxxxxxx</label>
+					<live>true</live>
+					<format>%.1f in</format>
+					<property>fdm/jsbsim/inertia/cg-x-in</property>
+				</text>
+			</group>
+
+			<group>
+				<layout>hbox</layout>
+				<default-padding>0</default-padding>
+				<halign>left</halign>
+				<text>
+					<label>CG % MAC : </label>
+				</text>
+				<text>
+					<label>xxxxxxxxxxxxxxxxxx</label>
+					<live>true</live>
+					<format>%3.1f</format>
+					<property>fdm/jsbsim/inertia/cg-x-mac-percent</property>
+				</text>
+			</group>
+
+
+			<group>
+				<layout>hbox</layout>
+				<default-padding>0</default-padding>
+				<halign>left</halign>
+				<text>
+					<label>Gross Weight : </label>
+				</text>
+				<text>
+					<label>xxxxxxxxxxxxxxxxxx</label>
+					<live>true</live>
+					<format>%.1f lbs</format>
+					<property>fdm/jsbsim/inertia/weight-lbs</property>
+<!-- yasim/gross-weight-lbs -->
+				</text>
+			</group>
+			
+			<group>
+				<layout>hbox</layout>
+				<default-padding>0</default-padding>
+				<halign>left</halign>
+				<text>
+					<label>Max Takeoff Weight : </label>
+				</text>
+				<text>
+					<label>~85,000 lbs</label>
+					<live>true</live>
+					<format>%.1f</format>
+				</text>
+			</group>
+
+            <empty>
+				<pref-height>12</pref-height>
+			</empty>
+
+			<hrule/>
+
+			<empty>
+				<pref-height>20</pref-height>
+			</empty>
+
+			<button>
+				<legend>Close</legend>
+				<default>true</default>
+				<key>Esc</key>
+				<binding>
+					<command>dialog-close</command>
+				</binding>
+			</button>
+
+
+		</group>
+
+	</group>
+
+	<empty>
+		<pref-height>8</pref-height>
+	</empty>
+
+    </PropertyList>
