@@ -543,3 +543,20 @@ setlistener("sim/model/f15/controls/engines/r-ramp-switch", func {
             setprop("fdm/jsbsim/propulsion/inlet/r-inlet-ramp-emerg", 0);
     }
 });
+
+# Engine burn-thru system
+# pilot has 30 seconds to extinguish fire
+setlistener("fdm/jsbsim/propulsion/engine[0]/burn-thru", func {
+    if (getprop("fdm/jsbsim/propulsion/engine[0]/burn-thru") > 0) {
+        first_time = getprop("sim/time/elapsed-sec");
+        settimer (func {
+            if ((getprop("sim/time/elapsed-sec") - first_time) > 30) {
+                if (getprop("fdm/jsbsim/propulsion/engine[0]/burn-thru") > 0) {
+                    setprop ("sim/model/f15/controls/engines/l-engine-fail", 1);
+                } else {
+                    setprop ("sim/model/f15/controls/engines/l-engine-fail", 0);
+                }
+            }
+        }, 30);
+    }
+});

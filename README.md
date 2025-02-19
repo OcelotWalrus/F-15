@@ -44,8 +44,6 @@ So what's actually been done for now?
 
 So I've got in my small mind:
 
-* Develop the F-15E variant (slightly different model cuz it'll have the targeting pod pylons)
-* Add some more ground services cuz why not
 * Add even more funky and cool liveries
 * Make ejection possible
 * Simulate engine fire (a red light warning on the top left only works for now, telling the temperature is too high), so that if one engine's temperature is too high for too long, a fire starts, and make so that the player can extinguish the fire like in real life.

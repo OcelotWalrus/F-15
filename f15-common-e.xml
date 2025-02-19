@@ -621,6 +621,8 @@
                         <r-eec-switch type="int">1</r-eec-switch>
                         <l-ramp-switch type="int">1</l-ramp-switch>
                         <r-ramp-switch type="int">1</r-ramp-switch>
+                        <l-engine-fail type="int">0</l-engine-fail>
+                        <r-engine-fail type="int">0</r-engine-fail>
                     </engines>
                     <fuel>
                         <bingo type="int">4500</bingo>
@@ -1751,7 +1753,7 @@
                 <self-destruct-time-sec type="double">165</self-destruct-time-sec><!-- guess --><!-- + 50 %-->
                 <weight-launch-lbs>335</weight-launch-lbs> <!-- real value -->
                 <weight-warhead-lbs>39</weight-warhead-lbs> <!-- real value -->
-                <weight-fuel-lbm type="double">260</weight-fuel-lbm> <!-- +100% -->
+                <weight-fuel-lbm type="double">700</weight-fuel-lbm>
                 <drag-coeff type="double">0.3</drag-coeff> <!-- +50% -->
                 <cross-section-sqft type="double">0.2739</cross-section-sqft>
                 <loft-altitude>50000</loft-altitude><!-- in stage 1 it will attempt to climb to this altitude -->
