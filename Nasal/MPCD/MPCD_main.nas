@@ -92,8 +92,14 @@ var MPCD_Station =
                 else mode = "MRM";
             }
             elsif (na == "MK-84") {
-                na = "";
-                mode = "";
+                na = "MK-84";
+                if (weapon_mode == 5)
+                {
+                    sel = getprop(sel_node);
+                    if (sel and master_arm)
+                        mode = "RDY";
+                }
+                else mode = "AG";
             }
             elsif (na == "AIM-7") 
             {
@@ -182,7 +188,7 @@ var MPCD_GroundStation =
         {
             if (na == "MK-84")
             {
-                na = "84";
+                na = "MK-84";
                 if (weapon_mode == 5)
                 {
                     sel = getprop(sel_node);
@@ -707,7 +713,7 @@ var MPCD_Device =
             } else if (me.w_s == 2) {
                 me.root.infoArm.setText(sprintf("A%dB\nM%dF", getprop("sim/model/f15/systems/armament/aim120c/count"), getprop("sim/model/f15/systems/armament/aim7/count")));
             } else if (me.w_s == 5) {
-                me.root.infoArm.setText(sprintf("G%d", getprop("sim/model/f15/systems/armament/agm/count")));
+                me.root.infoArm.setText(sprintf("G%d", getprop("sim/model/f15/systems/armament/mk84/count")));
             }
             me.root.cone.removeAllChildren();
             if (getprop("sim/multiplay/generic/int[2]") != 1) {
