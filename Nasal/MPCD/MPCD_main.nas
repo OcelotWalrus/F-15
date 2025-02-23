@@ -2,7 +2,7 @@
 # ---------------------------
 # MPCD has many pages; the classes here support multiple pages, menu
 # operation and the update loop.
-# 2016-05-17: Refactor to use Nasal/canvas/MFD_Generic.nas 
+# 2016-05-17: Refactor to use Nasal/canvas/MFD_Generic.nas
 # ---------------------------
 # Richard Harrison: 2015-01-23 : rjh@zaretto.com
 # ---------------------------
@@ -58,7 +58,7 @@ var MPCD_Station =
 
         if (na != nil and na != "none")
         {
-            if (na == "AIM-9")
+            if (na == "AIM-9L")
             {
                 na = "9L";
                 if (weapon_mode == 1)
@@ -69,7 +69,7 @@ var MPCD_Station =
                 }
                 else mode = "SRM";
             }
-            elsif (na == "AIM-120C") 
+            elsif (na == "AIM-120C")
             {
                 na = "120C";
                 if (weapon_mode == 2)
@@ -80,7 +80,7 @@ var MPCD_Station =
                 }
                 else mode = "MRM";
             }
-            elsif (na == "AIM-120D") 
+            elsif (na == "AIM-120D")
             {
                 na = "120D";
                 if (weapon_mode == 2)
@@ -91,8 +91,8 @@ var MPCD_Station =
                 }
                 else mode = "MRM";
             }
-            elsif (na == "MK-84") {
-                na = "MK-84";
+            elsif (na == "MK-83") {
+                na = "M83";
                 if (weapon_mode == 5)
                 {
                     sel = getprop(sel_node);
@@ -101,7 +101,17 @@ var MPCD_Station =
                 }
                 else mode = "AG";
             }
-            elsif (na == "AIM-7") 
+			elsif (na == "MK-84") {
+                na = "M84";
+                if (weapon_mode == 5)
+                {
+                    sel = getprop(sel_node);
+                    if (sel and master_arm)
+                        mode = "RDY";
+                }
+                else mode = "AG";
+            }
+            elsif (na == "AIM-7M")
             {
                 na = "7M";
                 if (weapon_mode == 2)
@@ -186,9 +196,19 @@ var MPCD_GroundStation =
 
         if (na != nil and na != "none")
         {
-            if (na == "MK-84")
+            if (na == "MK-83")
             {
-                na = "MK-84";
+                na = "M83";
+                if (weapon_mode == 5)
+                {
+                    sel = getprop(sel_node);
+                    if (sel and master_arm)
+                        mode = "RDY";
+                }
+                else mode = "AG";
+			} elsif (na == "MK-84")
+            {
+                na = "M84";
                 if (weapon_mode == 5)
                 {
                     sel = getprop(sel_node);
@@ -241,10 +261,10 @@ var MPCD_Device =
         obj.model_element = model_element;
         var dev_canvas= canvas.new({
                 "name": designation,
-                           "size": [1024,1024], 
-                           "view": [1024,1024],                       
+                           "size": [1024,1024],
+                           "view": [1024,1024],
                     "mipmapping": 1
-                    });                          
+                    });
 
         dev_canvas.addPlacement({"node": model_element});
         dev_canvas.setColorBackground(0.003921,0.1764,0, 0);
@@ -265,7 +285,7 @@ var MPCD_Device =
 
 #
 # Mode switch is day/night/off. we just do on/off
-        setlistener("sim/model/f15/controls/MPCD/mode", 
+        setlistener("sim/model/f15/controls/MPCD/mode",
                     func(v)
                     {
                         if (v != nil)
@@ -278,7 +298,7 @@ var MPCD_Device =
                           }
                     });
 
-        setlistener("instrumentation/radar/radar2-range", 
+        setlistener("instrumentation/radar/radar2-range",
                     func(v)
                     {
                         setprop("instrumentation/mpcd-sit/inputs/range-nm", v.getValue());
@@ -288,24 +308,24 @@ var MPCD_Device =
         obj.addPages();
         return obj;
     },
-    
+
     setupHSD: func (svg) {
         var uv_x = 0;#0.408274;#UV map starts at these coords and goes to 1,1
         var uv_y = 0;#1-0.712342;
         var canvas_x = 1024;#740;
         var canvas_y = 1024;#680;
-        
+
         svg.origin_y = canvas_y*uv_y;
         svg.origin_x = canvas_x*uv_x;
-        
+
         svg.centrum_y= canvas_y*(uv_y+(1-uv_y)*0.5);
         svg.centrum_x= (uv_x+(1-uv_x)*0.5)*canvas_x;
-        
+
         svg.width  = canvas_x*(1-uv_x);
         svg.height = canvas_y*(1-uv_y);
-        
-        
-        
+
+
+
         svg.holeTop_y          = svg.origin_y+svg.height*0.15;
         svg.holeBottom_y       = svg.origin_y+svg.height*0.85;
         svg.holeHeight         = svg.holeBottom_y-svg.holeTop_y;
@@ -313,7 +333,7 @@ var MPCD_Device =
         svg.myPos_y            = svg.holeTop_y+svg.holeHeight*0.75;
         svg.myPos_x            = svg.centrum_x;
         #svg.holeTopFromMyPos_y = svg.myPos_y-svg.holeTop_y;
-        
+
         svg.p_HSD = me.PFD._canvas.createGroup();
         #print("h "~svg.holeHeight);#339
         svg.hole = svg.p_HSD.createChild("path")
@@ -334,10 +354,10 @@ var MPCD_Device =
                 .set("src", "Aircraft/F-15/Nasal/MPCD/sit-mask.png");
         #printf("leftc %d,%d  size %d,%d",svg.width*0.5-svg.holeRadius,svg.height/svg.width*(svg.height*0.5-svg.holeRadius),svg.holeRadius*2,svg.height/svg.width*(svg.holeRadius*2));
         #printf("%d, %d",svg.width,svg.height);
-        
+
         svg.p_HSDcompass = svg.p_HSD.createChild("group")
             .setTranslation(svg.myPos_x,svg.myPos_y).set("z-index",10002);
-        
+
         svg.compassRadius = svg.holeRadius*0.5;
         svg.compassL = 10;
         svg.c0 = svg.p_HSDcompass.createChild("text")
@@ -463,10 +483,10 @@ var MPCD_Device =
                 .lineTo(svg.compassRadius*math.cos(350*D2R), svg.compassRadius*math.sin(350*D2R))
                 .setColor(0,1,0)
                 .setStrokeLineWidth(1.5);
-        
-            
-        
-        
+
+
+
+
 #        svg.buttonView = svg.p_HSD.createChild("group")
 #            .setTranslation(276*0.795,482);
         svg.p_HSDmyPos = svg.p_HSD.createChild("group")
@@ -475,7 +495,7 @@ var MPCD_Device =
             .set("z-index",5);#radar cone
         svg.legs = svg.p_HSDmyPos.createChild("group")
             .set("z-index",3);
-        
+
 
         svg.maxB = 21;#taken from VSD
         svg.blep = setsize([],svg.maxB);
@@ -589,7 +609,7 @@ var MPCD_Device =
                 .set("z-index",10020)
                 .setFontSize(25, 1.0);
         # TODO: these tables needs to be expanded:
-        svg.shipLookup = {  
+        svg.shipLookup = {
                 "missile_frigate":          "",
                 "frigate":                  "",
                 "fleet":                    "",
@@ -600,18 +620,18 @@ var MPCD_Device =
         };
         svg.samLookup = {
                 "buk-m2":                   "11",
-        };     
+        };
         svg.typeLookup = {
                 "f-14b":                    "F",     #fighter
-                "F-14D":                    "F",    
-                "F-15C":                    "F",     
-                "F-15D":                    "F",    
+                "F-14D":                    "F",
+                "F-15C":                    "F",
+                "F-15D":                    "F",
                 "F-16":                     "FB",#fighter bomber
-                "YF-16":                    "F",      
-                "JA37-Viggen":              "F",     
-                "AJ37-Viggen":              "FB",     
-                "AJS37-Viggen":             "FB",     
-                "JA37Di-Viggen":            "F",      
+                "YF-16":                    "F",
+                "JA37-Viggen":              "F",
+                "AJ37-Viggen":              "FB",
+                "AJS37-Viggen":             "FB",
+                "JA37Di-Viggen":            "F",
                 "m2000-5":                  "FB",
                 "m2000-5B":                 "FB",
                 "MiG-21bis":                "FB",
@@ -649,7 +669,7 @@ var MPCD_Device =
         var svg = {getElementById: func (id) {return me[id]},};
         #var svg = canvas.parsesvg(obj.PFDsvg, "Nasal/MPCD/empty.svg");
         me.setupHSD(svg);
-        me.PFD.addHSDPage = func(svg, title, layer_id) {   
+        me.PFD.addHSDPage = func(svg, title, layer_id) {
             var np = PFD_Page.new(svg, title, layer_id, me);
             append(me.pages, np);
             me.page_index[layer_id] = np;
@@ -663,7 +683,7 @@ var MPCD_Device =
         me.p_HSD.plc = 0;
         me.p_HSD.ppp = me.PFD;
         me.p_HSD.my = me;
-        
+
         me.p_HSD.root.showDAT = 1;
         me.p_HSD.root.showTGT = 1;
         me.p_HSD.root.showSAM = 1;
@@ -672,19 +692,19 @@ var MPCD_Device =
         me.p_HSD.root.showDIR = 1;
 
         me.p_HSD.update = func (noti) {
-            
+
             me.root.holeRange          = awg_9.range_radar2*1.75;
-            me.root.NM2PIXEL           = svg.holeHeight/me.root.holeRange;       
+            me.root.NM2PIXEL           = svg.holeHeight/me.root.holeRange;
             me.i=0;
             me.root.lock.hide();
             me.rdrRangePixels = awg_9.range_radar2*me.root.NM2PIXEL;
-            
+
             me.root.infoTime.setText(getprop("sim/time/gmt-string")~"Z");
             me.root.infoPq.setText("RPQ 15");
             me.root.infoRange.setText(""~awg_9.range_radar2);
-            
+
             me.myHeading = getprop("orientation/heading-deg");
-            
+
             if (me.root.showDIR) {
                 me.magn = getprop("orientation/heading-magnetic-deg")*D2R;
                 me.root.p_HSDcompass.setRotation(-me.magn);
@@ -704,16 +724,16 @@ var MPCD_Device =
             } else {
                 me.root.p_HSDcompass.hide();
             }
-            
+
             me.w_s = getprop("sim/model/f15/controls/armament/weapon-selector");
             if (me.w_s == 0) {
                 me.root.infoArm.setText(sprintf("G%3dP",getprop("sim/model/f15/systems/gun/rounds")));
             } else if (me.w_s == 1) {
                 me.root.infoArm.setText(sprintf("S%dL", getprop("sim/model/f15/systems/armament/aim9/count")));
             } else if (me.w_s == 2) {
-                me.root.infoArm.setText(sprintf("A%dB\nM%dF", getprop("sim/model/f15/systems/armament/aim120c/count"), getprop("sim/model/f15/systems/armament/aim7/count")));
+                me.root.infoArm.setText(sprintf("A%dB\nM%dF", getprop("sim/model/f15/systems/armament/aim120c/count") + getprop("sim/model/f15/systems/armament/aim120d/count"), getprop("sim/model/f15/systems/armament/aim7/count")));
             } else if (me.w_s == 5) {
-                me.root.infoArm.setText(sprintf("G%d", getprop("sim/model/f15/systems/armament/mk84/count")));
+                me.root.infoArm.setText(sprintf("G%d", getprop("sim/model/f15/systems/armament/mk83/count") + getprop("sim/model/f15/systems/armament/mk84/count")));
             }
             me.root.cone.removeAllChildren();
             if (getprop("sim/multiplay/generic/int[2]") != 1) {
@@ -745,7 +765,7 @@ var MPCD_Device =
                     me.legBearing = geo.aircraft_position().course_to(me.wpC)-me.myHeading;#relative
                     me.legDistance = geo.aircraft_position().distance_to(me.wpC)*M2NM;
                     me.legRangePixels = me.legDistance*me.root.NM2PIXEL;
-                    
+
                     me.legX = me.legRangePixels*math.sin(me.legBearing*D2R);
                     me.legY = -me.legRangePixels*math.cos(me.legBearing*D2R);
                     if (me.j > me.root.steerpointsMaxUsed) {
@@ -788,19 +808,19 @@ var MPCD_Device =
             }
 
             me.foundLock = 0;
-            
+
             foreach(contact; awg_9.tgts_list) {
                 if (contact.get_display() == 0) {
                     continue;
                 }
                 me.distPixels = contact.get_range()*me.root.NM2PIXEL;
-                
+
                 me.relBearing = contact.get_deviation(me.myHeading);
-                
+
                 me.rot = contact.get_heading();
-                me.rot -= me.myHeading;                
-                
-                
+                me.rot -= me.myHeading;
+
+
                 if (contact.get_model()!=nil and me.root.samLookup[contact.get_model()] != nil) {
                     me.root.blep[me.i].hide();
                     me.root.ship[me.i].hide();
@@ -877,7 +897,7 @@ var MPCD_Device =
                     break;
                 }
             }
-            
+
             for (;me.i<me.root.maxB;me.i+=1) {
                 me.root.ship[me.i].hide();
                 me.root.blep[me.i].hide();
@@ -988,7 +1008,7 @@ var MPCD_Device =
             w = getprop("/ai/submodels/submodel[6]/count");
             print("submodel [5]",v);
             print("submodel [6]",w);
-            
+
             o.p1_3.LBL_CHAFF.setText(sprintf("CHF %3d",w));
             o.p1_3.LBL_FLARE.setText(sprintf(" FLR %2d",v));
             o.p1_3.LBL_NONAVY.setText("GLOBAL");
@@ -1004,14 +1024,18 @@ var MPCD_Device =
             update_flares(oo);
             setprop("/ai/submodels/submodel[5]/reloaded",0);
         });
-        
+
         var update_pylons = func(o) {
             # pylons
             if (getprop("payload/weight[1]/selected") == "Droptank")
             {
                 o.p1_3.L_PYLON.setText("FUEL");
                 o.p1_4.L_PYLON.setText("FUEL");
-            } elsif (getprop("payload/weight[1]/selected") == "MK-84")
+            } elsif (getprop("payload/weight[1]/selected") == "MK-83")
+            {
+                o.p1_3.L_PYLON.setText("MK-83");
+                o.p1_4.L_PYLON.setText("MK-83");
+			} elsif (getprop("payload/weight[1]/selected") == "MK-84")
             {
                 o.p1_3.L_PYLON.setText("MK-84");
                 o.p1_4.L_PYLON.setText("MK-84");
@@ -1020,29 +1044,37 @@ var MPCD_Device =
                 o.p1_3.L_PYLON.setText("PYLON");
                 o.p1_4.L_PYLON.setText("PYLON");
             }
-            
+
             if (getprop("payload/weight[5]/selected") == "Droptank")
             {
                 o.p1_3.C_PYLON.setText("FUEL");
                 o.p1_4.C_PYLON.setText("FUEL");
-            } elsif (getprop("payload/weight[5]/selected") == "MK-84")
+            } elsif (getprop("payload/weight[5]/selected") == "MK-83")
             {
-                o.p1_3.C_PYLON.setText("MK-84");
-                o.p1_4.C_PYLON.setText("MK-84");
+                o.p1_3.C_PYLON.setText("MK-83");
+                o.p1_4.C_PYLON.setText("MK-83");
+            } elsif (getprop("payload/weight[1]/selected") == "MK-84")
+            {
+                o.p1_3.L_PYLON.setText("MK-84");
+                o.p1_4.L_PYLON.setText("MK-84");
             } else
             {
                 o.p1_3.C_PYLON.setText("PYLON");
                 o.p1_4.C_PYLON.setText("PYLON");
             }
-            
+
             if (getprop("payload/weight[8]/selected") == "Droptank")
             {
                 o.p1_3.R_PYLON.setText("FUEL");
                 o.p1_4.R_PYLON.setText("FUEL");
-            } elsif (getprop("payload/weight[8]/selected") == "MK-84")
+            } elsif (getprop("payload/weight[8]/selected") == "MK-83")
             {
-                o.p1_3.R_PYLON.setText("MK-84");
-                o.p1_4.R_PYLON.setText("MK-84");
+                o.p1_3.R_PYLON.setText("MK-83");
+                o.p1_4.R_PYLON.setText("MK-83");
+            } elsif (getprop("payload/weight[1]/selected") == "MK-84")
+            {
+                o.p1_3.L_PYLON.setText("MK-84");
+                o.p1_4.L_PYLON.setText("MK-84");
             } else
             {
                 o.p1_3.L_PYLON.setText("PYLON");
@@ -1099,7 +1131,7 @@ var MPCD_Device =
             me.p_spin_alt.setText(sprintf("%5d", getprop ("instrumentation/altimeter/indicated-altitude-ft")));
             me.p_spin_cas.setText(sprintf("%3d", getprop ("instrumentation/airspeed-indicator/indicated-speed-kt")));
 
-            if (math.abs(getprop("fdm/jsbsim/velocities/r-rad_sec")) > 0.52631578947368421052631578947368 
+            if (math.abs(getprop("fdm/jsbsim/velocities/r-rad_sec")) > 0.52631578947368421052631578947368
                 or math.abs(getprop("fdm/jsbsim/velocities/p-rad_sec")) > 0.022)
             {
                 me.p_spin_stick_left.setVisible(1);
@@ -1186,18 +1218,18 @@ var MPCD_Device =
         me.PFD.selectPage(me.p1_1);
     },
 
-    # Add the menus to each page. 
+    # Add the menus to each page.
     setupMenus : func
     {
 #
 # Menu Id's
-# 0           5            
-# 1           6            
-# 2           7            
-# 3           8            
-# 4           9            
+# 0           5
+# 1           6
+# 2           7
+# 3           8
+# 4           9
 #
-# Top: 10 11 12 13 14 
+# Top: 10 11 12 13 14
 # Bot: 15 16 17 18 19
         me.mpcd_spin_reset_time = 0;
 
@@ -1207,7 +1239,7 @@ var MPCD_Device =
         me.p1_1.addMenuItem(3, "WPN", me.p1_2);
         me.p1_1.addMenuItem(4, "DTM", me.p1_2);
         me.p1_1.addMenuItem(8, "SIT2", me.p_HSD);#added by niko
-        
+
         me.p_HSD.addMenuItem(9, "M", me.p1_1);#added by niko
         me.p_HSD.addMenuItem(0, "DAT", me.p_HSD);#added by niko
         me.p_HSD.addMenuItem(2, "TGT", me.p_HSD);#added by niko
@@ -1258,7 +1290,7 @@ var MPCD_Device =
                 me.PFD.selectPage(me.p_spin_recovery);
             }
             me.mpcd_spin_reset_time = getprop("instrumentation/clock/indicated-sec") + 5;
-        } 
+        }
         else
         {
             if (me.mpcd_spin_reset_time > 0 and getprop("instrumentation/clock/indicated-sec") > me.mpcd_spin_reset_time)
@@ -1278,7 +1310,7 @@ var MPCD_Device =
 };
 
 #
-# Connect the radar range to the nav display range. 
+# Connect the radar range to the nav display range.
 setprop("instrumentation/mpcd-sit/inputs/range-nm", getprop("instrumentation/radar/radar2-range"));
 emesary.GlobalTransmitter.NotifyAll(notifications.FrameNotificationAddProperty.new("MPCD", "wowN","gear/gear[0]/wow"));
 emesary.GlobalTransmitter.NotifyAll(notifications.FrameNotificationAddProperty.new("MPCD", "wowL","gear/gear[1]/wow"));

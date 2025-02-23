@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- F-15 All Variants
    | Richard Harrison: released 2015-06-29 : rjh@zaretto.com
-   |   
+   |
    | Authors/Contributions:
    | Richard Harrison; flight and systems models. Cockpit model and operation. Revisions to external 3d model (engines, ramps, animations, speedbrake). Sound. Canvas HUD, MPCD, VSD, TEWS. Revisions to xii files for weapons, radar, etc.
    |                   sole developer of original version (2014->2015)
@@ -23,7 +23,7 @@
                 <aileron-deadzone alias="/autopilot/settings/aileron-deadzone"/>
                 <elevator-deadzone alias="/autopilot/settings/elevator-deadzone"/>
                 <rudder-deadzone alias="/autopilot/settings/rudder-deadzone"/>
-                
+
                 <aileron-control  type="double">0</aileron-control>
                 <elevator-control type="double">0</elevator-control>
                 <left-aileron-normalization  type="double">0</left-aileron-normalization>
@@ -186,6 +186,10 @@
             <key>
                 <name>Ctrl-n</name>
                 <desc>Toggle Radar PULSE SRCH / TWS AUTO Mode</desc>
+            </key>
+            <key>
+                <name>Ctrl-y</name>
+                <desc>Cycle through bombs arming times</desc>
             </key>
             <key>
                 <name>e</name>
@@ -866,6 +870,7 @@
                 </instrumentation>
                 <systems>
                     <armament>
+                        <selected-bomb>none</selected-bomb>
                         <mp-messaging type="bool">false</mp-messaging>
                         <aim9>
                             <count type="int">0</count>
@@ -891,6 +896,12 @@
                             <target-range-nm type="double">0</target-range-nm>
                             <sound-volume type="double">0.12</sound-volume>
                         </aim7>
+                        <mk83>
+                            <count type="int">0</count>
+                            <nearest-target type="int">-1</nearest-target>
+                            <target-range-nm type="double">0</target-range-nm>
+                            <sound-volume type="double">0.12</sound-volume>
+                        </mk83>
                         <mk84>
                             <count type="int">0</count>
                             <nearest-target type="int">-1</nearest-target>
@@ -900,6 +911,7 @@
 
                         <launch-light type="bool">false</launch-light>
                         <system-running type="bool">false</system-running>
+                        <arming-time-sec type="int">3</arming-time-sec>
                     </armament>
                     <afcs>
                         <engaged type="bool">false</engaged>
@@ -917,13 +929,13 @@
                         <running type="bool">false</running>
                         <ready type="bool">false</ready>
                     </gun>
-                    
+
                     <smoke-generator>
                         <red type="float">1.0</red>
                         <green type="float">1.0</green>
                         <blue type="float">1.0</blue>
                     </smoke-generator>
-                    
+
                     <utilities>
                         <numeral-1 type="int">1</numeral-1>
                     </utilities>
@@ -1048,7 +1060,7 @@
                     <left-wing-torn type="bool">false</left-wing-torn>
                     <right-wing-torn type="bool">false</right-wing-torn>
                 </wings>
-                <!-- values that may need to be changed in the future if the carrier handling is fixed 
+                <!-- values that may need to be changed in the future if the carrier handling is fixed
                      and/or the intialization procedure changes
                 -->
                 <overrides>
@@ -1376,7 +1388,7 @@
             <reverser-pos-norm type="double">0</reverser-pos-norm>
         </engine>
     </engines>
-    
+
     <autopilot n="0">
         <internal n="0">
             <pitch-active type="bool">0</pitch-active>
@@ -1399,7 +1411,7 @@
                 <lbs>0</lbs>
             </opt>
             <opt>
-                <name>AIM-9</name>
+                <name>AIM-9L</name>
                 <lbs>196</lbs>
             </opt>
             <opt>
@@ -1427,6 +1439,10 @@
                 <gals>600</gals>
             </opt>
             <opt>
+                <name>MK-83</name>
+                <lbs>1014</lbs>
+            </opt>
+            <opt>
                 <name>MK-84</name>
                 <lbs>2039</lbs>
             </opt>
@@ -1441,7 +1457,7 @@
                 <lbs>0</lbs>
             </opt>
             <opt>
-                <name>AIM-9</name>
+                <name>AIM-9L</name>
                 <lbs>196</lbs>
             </opt>
             <opt>
@@ -1464,7 +1480,7 @@
                 <lbs>0</lbs>
             </opt>
             <opt>
-                <name>AIM-7</name>
+                <name>AIM-7M</name>
                 <lbs>510</lbs>
             </opt>
             <opt>
@@ -1476,8 +1492,8 @@
                 <lbs>335</lbs>
             </opt>
             <opt>
-                <name>MK-84</name>
-                <lbs>2039</lbs>
+                <name>MK-83</name>
+                <lbs>1014</lbs>
             </opt>
         </weight>
 
@@ -1490,7 +1506,7 @@
                 <lbs>0</lbs>
             </opt>
             <opt>
-                <name>AIM-7</name>
+                <name>AIM-7M</name>
                 <lbs>510</lbs>
             </opt>
             <opt>
@@ -1502,8 +1518,8 @@
                 <lbs>335</lbs>
             </opt>
             <opt>
-                <name>MK-84</name>
-                <lbs>2039</lbs>
+                <name>MK-83</name>
+                <lbs>1014</lbs>
             </opt>
         </weight>
 
@@ -1524,6 +1540,10 @@
                 <gals>600</gals>
             </opt>
             <opt>
+                <name>MK-83</name>
+                <lbs>1014</lbs>
+            </opt>
+            <opt>
                 <name>MK-84</name>
                 <lbs>2039</lbs>
             </opt>
@@ -1539,7 +1559,7 @@
                 <lbs>0</lbs>
             </opt>
             <opt>
-                <name>AIM-7</name>
+                <name>AIM-7M</name>
                 <lbs>510</lbs>
             </opt>
             <opt>
@@ -1551,8 +1571,8 @@
                 <lbs>335</lbs>
             </opt>
             <opt>
-                <name>MK-84</name>
-                <lbs>2039</lbs>
+                <name>MK-83</name>
+                <lbs>1014</lbs>
             </opt>
         </weight>
 
@@ -1566,7 +1586,7 @@
                 <lbs>0</lbs>
             </opt>
             <opt>
-                <name>AIM-7</name>
+                <name>AIM-7M</name>
                 <lbs>510</lbs>
             </opt>
             <opt>
@@ -1578,8 +1598,8 @@
                 <lbs>335</lbs>
             </opt>
             <opt>
-                <name>MK-84</name>
-                <lbs>2039</lbs>
+                <name>MK-83</name>
+                <lbs>1014</lbs>
             </opt>
         </weight>
 
@@ -1595,7 +1615,7 @@
                 <lbs>0</lbs>
             </opt>
             <opt>
-                <name>AIM-9</name>
+                <name>AIM-9L</name>
                 <lbs>196</lbs>
             </opt>
             <opt>
@@ -1623,6 +1643,10 @@
                 <gals>600</gals>
             </opt>
             <opt>
+                <name>MK-83</name>
+                <lbs>1014</lbs>
+            </opt>
+            <opt>
                 <name>MK-84</name>
                 <lbs>2039</lbs>
             </opt>
@@ -1637,7 +1661,7 @@
                 <lbs>0</lbs>
             </opt>
             <opt>
-                <name>AIM-9</name>
+                <name>AIM-9L</name>
                 <lbs>196</lbs>
             </opt>
             <opt>
@@ -1689,7 +1713,7 @@
                 <min-speed-for-guiding-mach type="double">0.8</min-speed-for-guiding-mach>
                 <arming-time-sec type="double">1.4</arming-time-sec>
                 <rail type="bool">true</rail>
-                <rail-length-m type="double">2.667</rail-length-m><!-- 16S210 AIM-9 Missile Launcher -->
+                <rail-length-m type="double">2.667</rail-length-m><!-- 16S210 AIM-9L Missile Launcher -->
                 <rail-point-forward type="bool">true</rail-point-forward>
                 <max-report-distance type="double">65</max-report-distance>
                 <lock-on-sun-deg type="double">5</lock-on-sun-deg> <!-- source -->
@@ -1770,7 +1794,7 @@
                 <DLZ-optimal-closing-mach type="double">2.0</DLZ-optimal-closing-mach>
             </aim-120d>
             <aim-7>
-                <!-- AIM-7 F/M http://www.hill.af.mil/library/factsheets/factsheet.asp?id=5787
+                <!-- AIM-7M F/M http://www.hill.af.mil/library/factsheets/factsheet.asp?id=5787
                      http://warfare.be/db/lang/rus/catid/348/linkid/2517/
                      Power Plant Hercules MK-58 solid-propellant rocket motor
                         Thrust Classified
@@ -1839,45 +1863,99 @@
                 <DLZ-optimal-alt-feet type="double">30000</DLZ-optimal-alt-feet>
                 <DLZ-optimal-closing-mach type="double">2.0</DLZ-optimal-closing-mach>
             </aim-7>
-            <mk-84>
-                <short-name type="string">MK84</short-name>
-                <long-name type="string">MK-84 General Purpose Bomb</long-name>
+            <mk-83>
+                <type-id type="int">33</type-id>
+                <short-name type="string">M83</short-name>
+                <long-name type="string">MK-83 General Purpose Bomb</long-name>
                 <fire-msg type="string">Bombs away</fire-msg>
-                <class type="string">GM</class>
+                <class type="string">GMP</class>
                 <max-fire-range-nm type="double"> 8 </max-fire-range-nm>
                 <min-fire-range-nm type="double"> 0 </min-fire-range-nm>
-                <guidance type="string">laser</guidance>
+                <guidance type="string">unguided</guidance>
                 <navigation type="string">direct</navigation>
                 <loft-altitude type="int"> 0 </loft-altitude>
                 <terrain-follow type="bool">false</terrain-follow>
                 <FCS-field-deg type="int"> 240 </FCS-field-deg>
                 <seeker-field-deg type="int"> 360 </seeker-field-deg>
-                <max-g type="double"> 1.5 </max-g>
+                <max-g type="double"> 1.8 </max-g>
                 <thrust-lbf-stage-1 type="double"> 0 </thrust-lbf-stage-1>
                 <thrust-lbf-stage-2 type="double"> 0 </thrust-lbf-stage-2>
                 <stage-1-duration-sec type="double"> 0 </stage-1-duration-sec>
                 <stage-2-duration-sec type="double"> 0 </stage-2-duration-sec>
-                <weight-launch-lbs type="double"> 500 </weight-launch-lbs>
-                <weight-warhead-lbs type="double"> 190 </weight-warhead-lbs>
+                <weight-launch-lbs type="double"> 1014 </weight-launch-lbs>
+                <weight-warhead-lbs type="double"> 445 </weight-warhead-lbs>
                 <weight-fuel-lbm type="double"> 0 </weight-fuel-lbm>
-                <drag-coeff type="double"> 0.012 </drag-coeff>
-                <cross-section-sqft type="double"> 0.63 </cross-section-sqft>
-                <arming-time-sec type="double"> 3 </arming-time-sec>
+                <drag-coeff type="double"> 0.125 </drag-coeff>
+                <cross-section-sqft type="double"> 1.07744817 </cross-section-sqft><!-- the MK83 is 357 mm diam -->
+                <arming-time-sec type="double"> 5 </arming-time-sec>
                 <min-speed-for-guiding-mach type="double"> 0 </min-speed-for-guiding-mach>
                 <self-destruct-time-sec type="double"> 10000 </self-destruct-time-sec>
                 <all-aspect type="bool">true</all-aspect>
                 <lock-on-sun-deg type="double"> 0 </lock-on-sun-deg>
                 <seeker-angular-speed-dps type="double"> 0 </seeker-angular-speed-dps>
                 <rail type="bool">false</rail>
-                <max-report-distance type="double"> 275 </max-report-distance>
+                <max-report-distance type="double"> 175 </max-report-distance>
                 <vol-search type="double"> 0.075 </vol-search>
                 <vol-track type="double"> 0.25 </vol-track>
                 <vol-track-weak type="double"> 0.175 </vol-track-weak>
-                <drop-time type="double">0</drop-time>
-                <deploy-time type="double">0</deploy-time>
+                <drop-time type="double">0.75</drop-time>
+                <deploy-time type="double">1</deploy-time>
                 <lateral-dps type="double"> -10 </lateral-dps>
                 <max-pitch-deg type="double">-90</max-pitch-deg>
                 <hit-everything-nearby type="bool">true</hit-everything-nearby>
+                <ejector-speed-fps type="double">10</ejector-speed-fps>
+                <ready-time type="double">0.5</ready-time>
+            </mk-83>
+            <mk-84>
+                <type-id type="int">35</type-id>
+                <short-name type="string">M84</short-name>
+                <long-name type="string">MK-84 General Purpose Bomb</long-name>
+                <fire-msg type="string">Bombs away</fire-msg>
+                <class type="string">GMP</class>
+                <max-fire-range-nm type="double">8 </max-fire-range-nm>
+                <min-fire-range-nm type="double"> 0 </min-fire-range-nm>
+                <guidance type="string">unguided</guidance>
+                <navigation type="string">direct</navigation>
+                <loft-altitude type="int"> 0 </loft-altitude>
+                <terrain-follow type="bool">false</terrain-follow>
+                <FCS-field-deg type="int"> 200 </FCS-field-deg>
+                <seeker-field-deg type="int"> 32 </seeker-field-deg>
+                <reaquire type="bool">true</reaquire>
+                <max-g type="double"> 2.0 </max-g>
+                <thrust-lbf-stage-1 type="double"> 0 </thrust-lbf-stage-1>
+                <thrust-lbf-stage-2 type="double"> 0 </thrust-lbf-stage-2>
+                <stage-1-duration-sec type="double"> 0 </stage-1-duration-sec>
+                <stage-2-duration-sec type="double"> 0 </stage-2-duration-sec>
+                <weight-launch-lbs type="double"> 2039 </weight-launch-lbs><!-- weapons file 2004 -->
+                <weight-warhead-lbs type="double"> 945 </weight-warhead-lbs><!-- weapons file 2004 -->
+                <weight-fuel-lbm type="double"> 0 </weight-fuel-lbm>
+                <drag-coeff type="double"> 0.125 </drag-coeff>
+                <cross-section-sqft type="double"> 1.78886 </cross-section-sqft><!-- the MK84 which is the bomb part is 640 mm diam -->
+                <arming-time-sec type="double"> 6 </arming-time-sec>
+                <min-speed-for-guiding-mach type="double"> 0 </min-speed-for-guiding-mach>
+                <self-destruct-time-sec type="double"> 10000 </self-destruct-time-sec>
+                <all-aspect type="bool">true</all-aspect>
+                <lock-on-sun-deg type="double"> 0 </lock-on-sun-deg>
+                <seeker-angular-speed-dps type="double"> 0 </seeker-angular-speed-dps>
+                <rail type="bool">false</rail>
+                <max-report-distance type="double"> 225 </max-report-distance>
+                <vol-search type="double"> 0.075 </vol-search>
+                <vol-track type="double"> 0.25 </vol-track>
+                <vol-track-weak type="double"> 0.175 </vol-track-weak>
+                <drop-time type="double">0.75</drop-time>
+                <deploy-time type="double">1</deploy-time>
+                <lateral-dps type="double"> 10 </lateral-dps>
+                <max-pitch-deg type="double">-90</max-pitch-deg>
+                <hit-everything-nearby type="bool">true</hit-everything-nearby>
+                <!-- the following 6 properties not used yet: -->
+                <release-limit-mach type="double"> 1.2 </release-limit-mach>
+                <release-limit-altitude type="double"> 45000 </release-limit-altitude>
+                <release-limit-g type="double"> 0 </release-limit-g><!-- no info on this -->
+                <release-limit-roll type="double"> 90 </release-limit-roll>
+                <mounted-limit-g type="double"> 7.5 </mounted-limit-g>
+                <require-lock-to-fire type="bool">false</require-lock-to-fire>
+                <ejector-speed-fps type="double">5</ejector-speed-fps>
+                <ready-time type="double">0.5</ready-time>
             </mk-84>
         </armament>
 
@@ -2065,6 +2143,15 @@
                 </binding>
             </key>
 
+            <key n="25">
+                <name>Ctrl-y</name>
+                <desc>Cycle through bombs arming times</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>aircraft.cycleArmingTimes();</script>
+                </binding>
+            </key>
+
             <key n="19">
                 <name>Ctrl-s</name>
                 <desc>Toggle Auto Throttle hold</desc>
@@ -2107,7 +2194,7 @@
                 <binding>
                     <command>nasal</command>
                     <script type="string">
-                        <![CDATA[ 
+                        <![CDATA[
                             if (getprop("fdm/jsbsim/fcs/steer-maneuver"))
                             {
                                 gui.popupTip("Maneuver NWS disabled");
@@ -2242,7 +2329,7 @@
                 <binding>
                     <command>nasal</command>
                     <script type="string">
-                        <![CDATA[ 
+                        <![CDATA[
                         if(getprop("sim/hud/visibility[1]"))
                         {
                             setprop("sim/hud/visibility[0]",0);
@@ -2509,6 +2596,7 @@
             <file>Aircraft/F-15/Nasal/afcs.nas</file>
             <file>Aircraft/F-15/Nasal/damage.nas</file>
             <file>Nasal/HUD/HUD_main.nas</file>
+            <file>Nasal/HUD/hud_math.nas</file>
             <file>Nasal/VSD/VSD_main.nas</file>
             <file>Nasal/TEWS/TEWS_main.nas</file>
             <file>Nasal/MPCD/MPCD_main.nas</file>

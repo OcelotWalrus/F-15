@@ -1,5 +1,5 @@
 #
-# F-15 External stores 
+# F-15 External stores
 # ---------------------------
 # Manages the external stores; pylons etc.
 # ---------------------------
@@ -52,14 +52,16 @@ Station =
         setlistener("payload/weight["~obj.index~"]/selected", func(prop){
                         var v = prop.getValue();
                         obj.set_type(v);
-                        if (v == "AIM-9")
+                        if (v == "AIM-9L")
                             prop.getParent().getNode("weight-lb").setValue(190);
-                        elsif (v == "AIM-7")
+                        elsif (v == "AIM-7M")
                         prop.getParent().getNode("weight-lb").setValue(510);
                         elsif (v == "AIM-120C")
                         prop.getParent().getNode("weight-lb").setValue(335);
                         elsif (v == "AIM-120D")
                         prop.getParent().getNode("weight-lb").setValue(335);
+                        elsif (v == "MK-83")
+                        prop.getParent().getNode("weight-lb").setValue(1014);
                         elsif (v == "MK-84")
                         prop.getParent().getNode("weight-lb").setValue(2039);
                         elsif (v == "Droptank")
@@ -74,36 +76,41 @@ Station =
 
 		return obj;
 	},
-    set_type : func (t) 
+    set_type : func (t)
     {
 		me.type.setValue(t);
 		me.bcode = 0;
 		me.xbcode = 0;
-		if ( t == "AIM-9" )
+		if ( t == "AIM-9L" )
         {
 			me.bcode = 1;
             me.xbcode = 1;
 		}
-        elsif ( t == "AIM-7" )
+        elsif ( t == "AIM-7M" )
         {
 			me.bcode = 2;
             me.xbcode = 2;
-		} 
+		}
         elsif ( t == "AIM-120C" )
         {
 			me.bcode = 3;
             me.xbcode = 3;
-		} 
+		}
 		elsif ( t == "AIM-120D" )
         {
 			me.bcode = 6;
             me.xbcode = 6;
-		} 
-        elsif ( t == "MK-84" )
+		}
+        elsif ( t == "MK-83" )
         {
 			me.bcode = 4;
             me.xbcode = 2;
-		} 
+		}
+		elsif ( t == "MK-84" )
+        {
+			me.bcode = 4;
+            me.xbcode = 2;
+		}
         elsif ( t == "Droptank" )
         {
 			me.bcode = 5; # although 5 only bit 0 will be used
@@ -113,7 +120,7 @@ Station =
 	},
     get_type : func ()
     {
-		return me.type.getValue();	
+		return me.type.getValue();
 	},
     set_display : func (n)
     {
@@ -126,15 +133,15 @@ Station =
 	},
     set_weight_lb : func (t)
     {
-		me.weight_lb.setValue(t);	
+		me.weight_lb.setValue(t);
 	},
     get_weight_lb : func ()
     {
-		return me.weight_lb.getValue();	
+		return me.weight_lb.getValue();
 	},
     get_selected : func ()
     {
-		return me.selected.getBoolValue();	
+		return me.selected.getBoolValue();
 	},
     set_selected : func (n)
     {
@@ -146,7 +153,7 @@ Station =
 	},
     list : [],
 };
-    
+
 
 
 var ext_loads_init = func() {
@@ -265,62 +272,62 @@ var ext_loads_set = func(s)
         setprop("consumables/fuel/tank[6]/level-lbs",0);
         setprop("consumables/fuel/tank[7]/level-lbs",0);
 
-    } 
+    }
     elsif ( s == "Standard Combat" )
     {
         b_set = 1;
         setprop("payload/weight[0]/selected","AIM-120C");
         setprop("payload/weight[1]/selected","Droptank");
-        setprop("payload/weight[2]/selected","AIM-9");
-        setprop("payload/weight[3]/selected","AIM-7");
+        setprop("payload/weight[2]/selected","AIM-9L");
+        setprop("payload/weight[3]/selected","AIM-7M");
         setprop("payload/weight[4]/selected","AIM-120C");
         setprop("payload/weight[5]/selected","none");
         setprop("payload/weight[6]/selected","AIM-120C");
-        setprop("payload/weight[7]/selected","AIM-7");
-        setprop("payload/weight[8]/selected","AIM-9");
+        setprop("payload/weight[7]/selected","AIM-7M");
+        setprop("payload/weight[8]/selected","AIM-9L");
         setprop("payload/weight[9]/selected","Droptank");
         setprop("payload/weight[10]/selected","AIM-120C");
         setprop("consumables/fuel/tank[5]/selected",true);
         setprop("consumables/fuel/tank[6]/selected",true);
         setprop("consumables/fuel/tank[7]/selected",false);
-    } 
-    elsif ( s == "Offensive Counter Air" ) 
+    }
+    elsif ( s == "Offensive Counter Air" )
     {
         b_set = 2;
-        setprop("payload/weight[0]/selected","AIM-9");
+        setprop("payload/weight[0]/selected","AIM-9L");
         setprop("payload/weight[1]/selected","Droptank");
-        setprop("payload/weight[2]/selected","AIM-9");
+        setprop("payload/weight[2]/selected","AIM-9L");
         setprop("payload/weight[3]/selected","AIM-120C");
         setprop("payload/weight[4]/selected","AIM-120C");
         setprop("payload/weight[5]/selected","none");
         setprop("payload/weight[6]/selected","AIM-120C");
         setprop("payload/weight[7]/selected","AIM-120C");
-        setprop("payload/weight[8]/selected","AIM-9");
+        setprop("payload/weight[8]/selected","AIM-9L");
         setprop("payload/weight[9]/selected","Droptank");
-        setprop("payload/weight[10]/selected","AIM-9");
+        setprop("payload/weight[10]/selected","AIM-9L");
         setprop("consumables/fuel/tank[5]/selected",true);
         setprop("consumables/fuel/tank[6]/selected",true);
         setprop("consumables/fuel/tank[7]/selected",false);
-    } 
-    elsif ( s == "No Fly Zone" ) 
+    }
+    elsif ( s == "No Fly Zone" )
     {
         b_set = 3;
         setprop("payload/weight[0]/selected","AIM-120C");
         setprop("payload/weight[1]/selected","Droptank");
-        setprop("payload/weight[2]/selected","AIM-9");
-        setprop("payload/weight[3]/selected","AIM-7");
-        setprop("payload/weight[4]/selected","AIM-7");
+        setprop("payload/weight[2]/selected","AIM-9L");
+        setprop("payload/weight[3]/selected","AIM-7M");
+        setprop("payload/weight[4]/selected","AIM-7M");
         setprop("payload/weight[5]/selected","none");
-        setprop("payload/weight[6]/selected","AIM-7");
-        setprop("payload/weight[7]/selected","AIM-7");
-        setprop("payload/weight[8]/selected","AIM-9");
+        setprop("payload/weight[6]/selected","AIM-7M");
+        setprop("payload/weight[7]/selected","AIM-7M");
+        setprop("payload/weight[8]/selected","AIM-9L");
         setprop("payload/weight[9]/selected","Droptank");
         setprop("payload/weight[10]/selected","AIM-120C");
         setprop("consumables/fuel/tank[5]/selected",true);
         setprop("consumables/fuel/tank[6]/selected",true);
         setprop("consumables/fuel/tank[7]/selected",false);
-    } 
-    elsif ( s == "Ferry Flight" ) 
+    }
+    elsif ( s == "Ferry Flight" )
     {
         b_set = 4;
         setprop("payload/weight[0]/selected","none");
@@ -339,7 +346,7 @@ var ext_loads_set = func(s)
         setprop("consumables/fuel/tank[6]/selected",true);
         setprop("consumables/fuel/tank[7]/selected",true);
     }
-    elsif ( s == "Air Superiority" ) 
+    elsif ( s == "Air Superiority" )
     {
         b_set = 5;
         setprop("payload/weight[0]/selected","AIM-120D");
@@ -356,29 +363,29 @@ var ext_loads_set = func(s)
         setprop("consumables/fuel/tank[5]/selected",true);
         setprop("consumables/fuel/tank[6]/selected",true);
         setprop("consumables/fuel/tank[7]/selected",false);
-    } 
-    elsif ( s == "Ground Attack" ) 
+    }
+    elsif ( s == "Ground Attack" )
     {
         b_set = 6;
         setprop("payload/weight[0]/selected","AIM-120D");
-        setprop("payload/weight[1]/selected","MK-84");
+        setprop("payload/weight[1]/selected","MK-83");
         setprop("payload/weight[2]/selected","AIM-120C");
         setprop("payload/weight[3]/selected","AIM-120C");
         setprop("payload/weight[4]/selected","AIM-120C");
-        setprop("payload/weight[5]/selected","MK-84");
+        setprop("payload/weight[5]/selected","MK-83");
         setprop("payload/weight[6]/selected","AIM-120C");
         setprop("payload/weight[7]/selected","AIM-120C");
         setprop("payload/weight[8]/selected","AIM-120C");
-        setprop("payload/weight[9]/selected","MK-84");
+        setprop("payload/weight[9]/selected","MK-83");
         setprop("payload/weight[10]/selected","AIM-120D");
         setprop("consumables/fuel/tank[5]/selected",false);
         setprop("consumables/fuel/tank[6]/selected",false);
         setprop("consumables/fuel/tank[7]/selected",false);
-    } 
-    elsif ( s == "Combat Air Patrol" ) 
+    }
+    elsif ( s == "Combat Air Patrol" )
     {
         b_set = 7;
-        setprop("payload/weight[0]/selected","AIM-9");
+        setprop("payload/weight[0]/selected","AIM-9L");
         setprop("payload/weight[1]/selected","Droptank");
         setprop("payload/weight[2]/selected","AIM-120D");
         setprop("payload/weight[3]/selected","AIM-120C");
@@ -388,11 +395,11 @@ var ext_loads_set = func(s)
         setprop("payload/weight[7]/selected","AIM-120C");
         setprop("payload/weight[8]/selected","AIM-120D");
         setprop("payload/weight[9]/selected","Droptank");
-        setprop("payload/weight[10]/selected","AIM-9");
+        setprop("payload/weight[10]/selected","AIM-9L");
         setprop("consumables/fuel/tank[5]/selected",true);
         setprop("consumables/fuel/tank[6]/selected",true);
         setprop("consumables/fuel/tank[7]/selected",false);
-    } 
+    }
     update_dialog_checkboxes();
 	update_wpstring();
     arm_selector();
@@ -448,6 +455,7 @@ var update_weapons_over_mp = func
         var aim120c_count = 0;
         var aim120d_count = 0;
         var mk84_count = 0;
+        var mk83_count = 0;
 
         update_wp_next = cur_time + update_wp_frequency_s;
         update_wp_requested = false;
@@ -463,22 +471,25 @@ var update_weapons_over_mp = func
             b = substr(b, size(b)-S.encode_length, S.encode_length);
             b_wpstring = b_wpstring ~ b;
 #printf("%-5s: %2d(%d): %-4s = %-32s (%d)    ",S.get_type(),S.index,S.encode_length,b, b_wpstring, size(b_wpstring));
-            if (S.get_type() == "AIM-9")
+            if (S.get_type() == "AIM-9L")
                 aim9_count = aim9_count+1;
-            elsif (S.get_type() == "AIM-7")
+            elsif (S.get_type() == "AIM-7M")
                 aim7_count = aim7_count+1;
             elsif (S.get_type() == "AIM-120C")
                 aim120c_count = aim120c_count+1;
             elsif (S.get_type() == "AIM-120D")
                 aim120d_count = aim120d_count+1;
+            elsif (S.get_type() == "MK-83")
+                mk83_count = mk83_count+1;
             elsif (S.get_type() == "MK-84")
                 mk84_count = mk84_count+1;
         }
-        print("count ",aim9_count, aim7_count, aim120c_count, aim120d_count, mk84_count);
+        print("count ",aim9_count, aim7_count, aim120c_count, aim120d_count, mk83_count, mk84_count);
         setprop("sim/model/f15/systems/armament/aim9/count",aim9_count);
         setprop("sim/model/f15/systems/armament/aim7/count",aim7_count);
         setprop("sim/model/f15/systems/armament/aim120c/count",aim120c_count);
         setprop("sim/model/f15/systems/armament/aim120d/count",aim120d_count);
+        setprop("sim/model/f15/systems/armament/mk83/count",mk83_count);
         setprop("sim/model/f15/systems/armament/mk84/count",mk84_count);
 
         var set = WeaponsSet.getValue();
@@ -574,7 +585,7 @@ var calculate_weights=func
     {
         var w = getprop("payload/weight["~payload_item~"]/weight-lb");
         var is_tank = getprop("payload/weight["~payload_item~"]/selected") == "Droptank";
-        
+
         if (is_tank and (payload_item == 1 or payload_item == 5 or payload_item == 9)) # Fuel
             tw = tw + w;
         else
@@ -584,4 +595,3 @@ var calculate_weights=func
     WeaponsWeight.setValue(ww);
     TanksWeight.setValue(tw);
 }
-

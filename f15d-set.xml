@@ -9,7 +9,7 @@
         <long-description>
             The F-15D is the two seat version of the F-15, a high-performance, supersonic, allweather air-superiority fighter built by McDonnell
             Douglas Aerospace powered by two Pratt and Whitney F100-PW-220 turbofan engines. Its primary mission is air superiority. This model does not support ground missions.
-            Radar and heat seeking air-to-air missiles AIM-7, AIM-9, AIM-120 and a 20 MM gun are the primary armament. 
+            Radar and heat seeking air-to-air missiles AIM-7M, AIM-9L, AIM-120 and a 20 MM gun are the primary armament. 
             MTOW 74,350 lbs. VNE 1,100 kts. Max Gear extension 300 kts. Max Flap speed 250 kts.
         </long-description>
         <variant-of>f15c</variant-of>
@@ -314,6 +314,26 @@
                 <type>exterior</type>
                 <splash type="bool">true</splash>
                 <path>Previews/custom crap/032.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/033.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/034.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/035.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/036.png</path>
             </preview>
         </previews>
         <startup>

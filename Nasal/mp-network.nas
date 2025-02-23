@@ -86,23 +86,24 @@ var update_ext_load = func(sender, state)
 	var o = "";
 	var s = 10;
 
-	while (s >= 0) 
+	while (s >= 0)
     {
 # fuel tanks only take one bit.
         Station = Wnode.getChild ("station", s , 1);
         Station.getNode("type", 1).setValue(o);
         Station.getNode("selected", 1).setBoolValue(1);
         var payload = PayloadNode.getChild ("weight", s , 1);
-		if ( s != 1 and s != 5 and s != 9) 
+		if ( s != 1 and s != 5 and s != 9)
         {
 			var ccc = c-2;
 			var cc = c-1;
 			str = chr(wpstr[ccc]) ~ chr(wpstr[cc]) ~ chr(wpstr[c]);
-			if ( str == "001" ) { o = "AIM-9" }
-			elsif ( str == "010") { o = "AIM-7" }
+			if ( str == "001" ) { o = "AIM-9L" }
+			elsif ( str == "010") { o = "AIM-7M" }
 			elsif ( str == "011") { o = "AIM-120C" }
 			elsif ( str == "011") { o = "AIM-120D" }
 			elsif ( str == "100") { o = "MK-83" }
+			elsif ( str == "101") { o = "MK-84" }
 			elsif ( str == "000") { o = "none" }
 			Station = Wnode.getChild ("station", s , 1);
 			Station.getNode("type", 1).setValue(o);
@@ -111,14 +112,14 @@ var update_ext_load = func(sender, state)
 			c -= 3;
 #			print("arm ",str," ",s," ",o);
 		}
-        else 
+        else
         {
             var tank_sel = 0;
             var fuel_idx = 5;
 
 # Stations 1,5,7
 # Tanks    5,7,6
-            if (s == 5) 
+            if (s == 5)
                 fuel_idx = 7;
             if (s == 9)
                 fuel_idx = 6;
@@ -128,12 +129,12 @@ var update_ext_load = func(sender, state)
 			str = chr(wpstr[cc]) ~ chr(wpstr[c]);
 			Station = Wnode.getChild ("station", s , 1);
 			Station.getNode("selected", 1).setBoolValue(0);
-			if ( str == "01" ) { 
-o = "Droptank"; 
+			if ( str == "01" ) {
+o = "Droptank";
 tank_sel = 1;
 			Station.getNode("selected", 1).setBoolValue(0);
-            } elsif ( str == "10") { 
-                o = "MK-84"; 
+            } elsif ( str == "10") {
+                o = "MK-83";
                 Station.getNode("selected", 1).setBoolValue(1);
                 Station.getNode("weight-lb", 1).setDoubleValue(222); # used to detect if rails / pylons required
                 payload.getNode("weight-lb", 1).setDoubleValue(222); # used to detect if rails / pylons required

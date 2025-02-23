@@ -16,9 +16,9 @@ var cannon_types = {
     " 7.62 hit":              0.005,# 7.62mm
     " 50 BMG hit":            0.015,# 12.7mm
 };
-    
-    
-    
+
+
+
 var warhead_lbs = {
     "aim-120":              44.00,
     "AIM120":               44.00,
@@ -31,11 +31,13 @@ var warhead_lbs = {
     "AIM-120D":              44.00,
     "RB-99":                44.00,
     "aim-7":                88.00,
-    "AIM-7":                88.00,
+    "AIM-7M":                88.00,
+    "AIM-7M":                88.00,
     "RB-71":                88.00,
     "aim-9":                20.80,
     "AIM9":                 20.80,
-    "AIM-9":                20.80,
+    "AIM-9L":                20.80,
+    "AIM-9L":                20.80,
     "RB-24":                20.80,
     "RB-24J":               20.80,
     "RB-74":                20.80,
@@ -63,8 +65,8 @@ var warhead_lbs = {
     "M71":                 200.00,
     "M71R":                200.00,
     "MK-82":               192.00,
-    "MK-83":               445.00,
-    "MK-84":               945.00,
+    "MK-83":               945.00,
+    "MK-84":              2019.00,
     "LAU-68":               10.00,
     "M317":                145.00,
     "GBU-31":              945.00,
@@ -79,7 +81,7 @@ var warhead_lbs = {
 };
 
 var fireMsgs = {
-  
+
     # F14
     " FOX3 at":       nil, # radar
     " FOX2 at":       nil, # heat
@@ -98,8 +100,8 @@ var fireMsgs = {
     " Bird away at":  nil, # G/A
 
     # F15
-    " AIM-7 at":       nil,
-    " AIM-9 at":       nil,
+    " AIM-7M at":       nil,
+    " AIM-9L at":       nil,
     " AIM-120C at":     nil,
     " AIM-120D at":     nil,
 };
@@ -221,9 +223,9 @@ var incoming_listener = func {
               if (diff < 0) {
                 diff = 0;
               }
-              
+
               diff = diff * diff;
-              
+
               var probability = diff / (maxDist*maxDist);
 
               var failed = fail_systems(probability);
@@ -231,7 +233,7 @@ var incoming_listener = func {
               printf("Took %.1f%% damage from %s missile at %0.1f meters. %s systems was hit", percent,type,dist,failed);
               nearby_explosion();
             }
-          } 
+          }
         } elsif (cannon_types[last_vector[1]] != nil) {
           if (size(last_vector) > 2 and last_vector[2] == " "~callsign) {
             if (size(last_vector) < 4) {
@@ -256,7 +258,7 @@ var incoming_listener = func {
             } else {
               var probability = cannon_types[last_vector[1]];
               #print("probability: " ~ probability);
-              
+
               var failed = fail_systems(probability * 3);# Old messages is assumed to be 3 hits
               printf("Took %.1f%% x 3 damage from cannon! %s systems was hit.", probability*100, failed);
               nearby_explosion();
@@ -444,7 +446,7 @@ var code_ct = func () {
   var rd = 0;#!getprop("sim/ja37/radar/doppler-enabled");
   if (rd == nil or rd != 1) {
     rd = 0;
-  }  
+  }
   var ml = getprop("sim/ct/list");
   if (ml == nil or ml != 1) {
     ml = 0;
@@ -525,7 +527,7 @@ var changeGuiLoad = func()
     var searchname2 = "instrument-failures";
     var searchname3 = "system-failures";
     var state = 0;
-    
+
     foreach(var menu ; props.globals.getNode("/sim/menubar/default").getChildren("menu")) {
         foreach(var item ; menu.getChildren("item")) {
             foreach(var name ; item.getChildren("name")) {

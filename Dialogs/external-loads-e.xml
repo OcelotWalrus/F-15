@@ -32,7 +32,7 @@
 			<empty>
 				<pref-height>2</pref-height>
 			</empty>
-			
+
 			<empty>
 		        <pref-height>3</pref-height>
 	        </empty>
@@ -44,7 +44,7 @@
 	        <empty>
 		        <pref-height>4</pref-height>
 	        </empty>
-	        
+
 	        <hrule/>
 
 			<group>
@@ -102,11 +102,11 @@
 			</group>
             <group>
                 <layout>vbox</layout>
-                
+
                 <text>
                     <label> Conformal Tanks</label>
                 </text>
-                
+
                 <checkbox>
                     <property>fdm/jsbsim/propulsion/cft</property>
                     <live>true</live>
@@ -198,7 +198,7 @@
       </group>
       <group>
 				<layout>hbox</layout>
-			
+
 				<group><!-- Labels -->
 					<layout>vbox</layout>
 					<halign>left</halign>
@@ -598,7 +598,7 @@
                     </text>
                 </group>
 			</group>
-		
+
 		    <hrule/>
 
 		    <empty>
@@ -612,9 +612,9 @@
 	        <empty>
 		        <pref-height>4</pref-height>
 	        </empty>
-	        
+
 	        <hrule/>
-	        
+
             <button>
                 <legend>Repair Airframe</legend>
                 <binding>
@@ -622,7 +622,7 @@
                     <script>aircraft.fixAirframe();aircraft.ct("rp");</script>
                 </binding>
             </button>
-            
+
             <group>
                 <layout>hbox</layout>
 
@@ -703,9 +703,9 @@
                     </binding>
                 </checkbox>
             </group>
-	        
+
 	        <hrule/>
-	        
+
 	        <group>
                 <layout>hbox</layout>
 
@@ -754,9 +754,9 @@
                     </binding>
                 </checkbox>
             </group>
-            
+
             <hrule/>
-            
+
             <group>
                 <layout>hbox</layout>
 
@@ -773,10 +773,10 @@
                     </binding>
                 </checkbox>
             </group>
-            
+
             <group>
 				<layout>hbox</layout>
-			
+
 				<group><!-- Labels -->
 					<layout>vbox</layout>
 					<halign>left</halign>
@@ -1071,7 +1071,7 @@
                             <property>payload/weight[0]/selected</property>
                             <live>true</live>
                             <value>none</value>
-                            <value>AIM-9</value>
+                            <value>AIM-9L</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
@@ -1097,6 +1097,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>Droptank</value>
+                            <value>MK-83</value>
                             <value>MK-84</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1120,7 +1121,7 @@
                             <property>payload/weight[2]/selected</property>
                             <live>true</live>
                             <value>none</value>
-                            <value>AIM-9</value>
+                            <value>AIM-9L</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
@@ -1145,10 +1146,10 @@
                             <property>payload/weight[3]/selected</property>
                             <live>true</live>
                             <value>none</value>
-                            <value>AIM-7</value>
+                            <value>AIM-7M</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
-                            <value>MK-84</value>
+                            <value>MK-83</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1171,10 +1172,10 @@
                             <property>payload/weight[4]/selected</property>
                             <live>true</live>
                             <value>none</value>
-                            <value>AIM-7</value>
+                            <value>AIM-7M</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
-                            <value>MK-84</value>
+                            <value>MK-83</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1198,6 +1199,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>Droptank</value>
+                            <value>MK-83</value>
                             <value>MK-84</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1221,10 +1223,10 @@
                             <property>payload/weight[6]/selected</property>
                             <live>true</live>
                             <value>none</value>
-                            <value>AIM-7</value>
+                            <value>AIM-7M</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
-                            <value>MK-84</value>
+                            <value>MK-83</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1247,10 +1249,10 @@
                             <property>payload/weight[7]/selected</property>
                             <live>true</live>
                             <value>none</value>
-                            <value>AIM-7</value>
+                            <value>AIM-7M</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
-                            <value>MK-84</value>
+                            <value>MK-83</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1273,7 +1275,7 @@
                             <property>payload/weight[8]/selected</property>
                             <live>true</live>
                             <value>none</value>
-                            <value>AIM-9</value>
+                            <value>AIM-9L</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
@@ -1299,6 +1301,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>Droptank</value>
+                            <value>MK-83</value>
                             <value>MK-84</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1322,7 +1325,7 @@
                             <property>payload/weight[10]/selected</property>
                             <live>true</live>
                             <value>none</value>
-                            <value>AIM-9</value>
+                            <value>AIM-9L</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
@@ -1336,9 +1339,9 @@
 						    <format>%.1f lbs</format>
                         </text>
                     </group>
-                    
+
                     <hrule/>
-                    
+
                     <group>
                         <layout>hbox</layout>
                         <group><!-- Labels -->
@@ -1468,7 +1471,7 @@
 				</text>
 			</group>
 
-            
+
 
 
             <empty>
@@ -1476,7 +1479,7 @@
 			</empty>
 
 			<hrule/>
-			
+
 			<empty>
 		        <pref-height>6</pref-height>
 	        </empty>
@@ -1488,7 +1491,7 @@
 	        <empty>
 		        <pref-height>4</pref-height>
 	        </empty>
-	        
+
 	        <hrule/>
 
 			<!-- Weigts Sum -->
@@ -1538,7 +1541,7 @@
 					<property>sim/model/f15/instrumentation/fuel-gauges/total</property>
 				</text>
 			</group>
-			
+
 			<group>
 				<layout>hbox</layout>
 				<default-padding>0</default-padding>
@@ -1600,7 +1603,7 @@
 <!-- yasim/gross-weight-lbs -->
 				</text>
 			</group>
-			
+
 			<group>
 				<layout>hbox</layout>
 				<default-padding>0</default-padding>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+<!--
+Used for non fired CBU-87
+-->
+
+  <path>CBU-87.ac</path>
+
+  <effect>
+      <inherits-from>Aircraft/f16/Models/Effects/fuselage/model-combined-stores</inherits-from>
+      <object-name>CBU-87frontsection</object-name>
+      <object-name>CBU-87mounts</object-name>
+      <object-name>CBU-87panelLH</object-name>
+      <object-name>CBU-87panelRH</object-name>
+      <object-name>CBU-87wing1</object-name>
+      <object-name>CBU-87wing2</object-name>
+      <object-name>CBU-87wing3</object-name>
+      <object-name>CBU-87wing4</object-name>
+      <object-name>CBU-87wingbase</object-name>
+  </effect>
+
+</PropertyList>

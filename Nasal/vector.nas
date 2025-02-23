@@ -138,7 +138,7 @@ var Math = {
     },
 
     #pitch from coord1 to coord2 in degrees (takes curvature of earth into effect.)
-    getPitch: func (coord1, coord2) {      
+    getPitch: func (coord1, coord2) {
       if (coord1.lat() == coord2.lat() and coord1.lon() == coord2.lon()) {
         if (coord2.alt() > coord1.alt()) {
           return 90;

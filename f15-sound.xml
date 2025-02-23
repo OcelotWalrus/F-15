@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- F-15 sounds
-   |  Richard Harrison: 2014-11-23 : rjh@zaretto.com - based on F-14 
+   |  Richard Harrison: 2014-11-23 : rjh@zaretto.com - based on F-14
 -->
 <PropertyList>
     <fx>
@@ -24,7 +24,7 @@
                 <factor>0.04</factor>
             </volume>
         </avionics-hum>
-        
+
         <burn-thru>
             <name>burn-thru</name>
             <mode>looped</mode>
@@ -47,7 +47,7 @@
             </volume>
             <max-dist>5</max-dist>
         </burn-thru>
-        
+
         <burn-thru-voice>
             <name>burn-thru-voice</name>
             <mode>looped</mode>
@@ -70,7 +70,7 @@
             </volume>
             <max-dist>5</max-dist>
         </burn-thru-voice>
-        
+
         <engine-fail>
             <name>engine-fail</name>
             <mode>looped</mode>
@@ -591,7 +591,7 @@
             <reference-dist>220.0</reference-dist>
             <max-dist>300.0</max-dist>
         </fuselage-scrape>
-        
+
         <fuselage-strike>
             <name>fuselage-strike</name>
             <path>Sounds/fuselage-strike.wav</path>
@@ -620,7 +620,7 @@
             <reference-dist>220.0</reference-dist>
             <max-dist>300.0</max-dist>
         </fuselage-strike>
-        
+
         <rumble>
             <name>rumble</name>
             <mode>looped</mode>
@@ -643,7 +643,7 @@
             <reference-dist>60.0</reference-dist>
             <max-dist>300.0</max-dist>
         </rumble>
-        
+
         <rattle-front>
             <!--wheel-speed-fps-->
             <name>nose wheel rumble</name>
@@ -1128,7 +1128,7 @@
             </volume>
             <max-dist>5</max-dist>
         </pre-stall>
- 
+
         <gear-aoa>
             <name>gear-aoa</name>
             <mode>looped</mode>
@@ -1285,7 +1285,7 @@
             </volume>
             <max-dist>5</max-dist>
         </ows-overload>
-        
+
         <caution-warning>
             <name>caution-warning</name>
             <mode>once</mode>
@@ -1839,7 +1839,7 @@
                 <property>payload/armament/aim-9/sound-volume</property>
             </volume>
         </rb74-signal>
-        
+
         <rb71-signal>
             <name>rb71-signal</name>
             <mode>looped</mode>
@@ -1897,7 +1897,7 @@
             <path>Aircraft/F-15/Sounds/AIM-discharge.wav</path>
             <mode>once</mode>
             <condition>
-                <property>payload/armament/aim-120/sound-fire-on-off</property>
+                <property>payload/armament/aim-120c/sound-fire-on-off</property>
             </condition>
             <reference-dist>25</reference-dist>
             <max-dist>10000</max-dist>
@@ -1911,6 +1911,27 @@
                 <max>1</max>
             </volume>
         </missile1>
+
+        <missile1>
+            <name>missile1</name>
+            <path>Aircraft/F-15/Sounds/AIM-discharge.wav</path>
+            <mode>once</mode>
+            <condition>
+                <property>payload/armament/aim-120d/sound-fire-on-off</property>
+            </condition>
+            <reference-dist>25</reference-dist>
+            <max-dist>10000</max-dist>
+            <position>
+                <x> 3.15986 </x>
+                <y> -2.70311 </y>
+                <z> -0.67645 </z>
+            </position>
+            <volume>
+                <factor>0.75</factor>
+                <max>1</max>
+            </volume>
+        </missile1>
+
         <missile2>
             <name>missile2</name>
             <path>Aircraft/F-15/Sounds/AIM-discharge.wav</path>

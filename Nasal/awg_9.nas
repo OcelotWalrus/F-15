@@ -1,20 +1,20 @@
 #
-# F-15 Radar routines. 
+# F-15 Radar routines.
 # The F-15 doesn't have an awg_9, however this isn't an accurate simulation
 # of the radar so it works fine.
 # The scan and update is optimised. The AI list is only scanned when targets added or removed
 # and the update visibility is performed in a partitioned manner, with one partition per frame
 # ---------------------------
 # RWR (Radar Warning Receiver) is computed in the radar loop for better performance
-# AWG-9 Radar computes the nearest target for AIM-9.
+# AWG-9 Radar computes the nearest target for AIM-9L.
 # Provides the 'tuned carrier' tacan channel support for ARA-63 emulation
 # ---------------------------
 # Richard Harrison (rjh@zaretto.com) 2014-11-23. Based on F-14b by xii
 # - 2015-07 : Modified to have target selection - nearest_u is retained
 #             however active_u is the currently active target which mostly
-#             should be the same as nearest_u - but use active_u instead in 
+#             should be the same as nearest_u - but use active_u instead in
 #             most of the code. nearest_u is kept for compatibility.
-# 
+#
 
 var this_model = "f15";
 #var this_model = "f-14b";
@@ -69,12 +69,12 @@ SelectTargetCommand.setIntValue(0);
 
 # variables for the partioned scanning.
 # - instead of building the entire list of potential returns (tgts_list) each frame
-#   the list is only built when the something changes in the ai/models, by 
+#   the list is only built when the something changes in the ai/models, by
 #   listening to the model-added and model-removed properties.
 # - to improve the peformance further the visibility check is only performed every 10 seconds. This may seem slow but I don't think it
-#   is unrealistic , especially during a hard turn; but realistically it will take a certain amount of time for the real radar to 
+#   is unrealistic , especially during a hard turn; but realistically it will take a certain amount of time for the real radar to
 #   stabilise the returns. I don't have figures for this but it seems plausible that even when lined up with a return it could take
-#   a good few seconds for the processing to find it. 
+#   a good few seconds for the processing to find it.
 #   TODO: possibly reduce the scan_visibility_check_interval to a lower value
 # - also once built the list of potential returns only has a chunk updated each frame, based on the scan_partition_size
 #   so with a lot of targets it could take a number of seconds to update all of these, however it should be a reasonable optimisation
@@ -132,7 +132,7 @@ var r_az_fld          = 0;
 var swp_fac           = nil;    # Scan azimuth deviation, normalized (-1 --> 1).
 var swp_deg           = nil;    # Scan azimuth deviation, in degree.
 var swp_deg_last      = 0;      # Used to get sweep direction.
-var swp_spd           = 0.5; 
+var swp_spd           = 0.5;
 var swp_dir           = nil;    # Sweep direction, 0 to left, 1 to right.
 var swp_dir_last      = 0;
 var ddd_screen_width  = 0.0844; # 0.0844m : length of the max azimuth range on the DDD screen.
@@ -155,7 +155,7 @@ var mp_count          = 0;
 var mp_list           = [];
 var tgts_list         = [];
 var cnt               = 0;
-# Dual-control vars: 
+# Dual-control vars:
 var we_are_bs         = 0;
 var pilot_lock        = 0;
 
@@ -238,7 +238,7 @@ var compute_rwr = func(radar_mode, u, u_rng){
     # Decide if this mp item is a valid return (and within range).
     # - our radar switched on
     # - their radar switched on
-    # - their transponder switched on 
+    # - their transponder switched on
     var their_radar_standby = u.get_rdr_standby();
     var their_transponder_id = u.get_transponder();
     var emitting = 0;
@@ -265,11 +265,11 @@ var compute_rwr = func(radar_mode, u, u_rng){
          if (  u_rng < horizon ) {
             var our_deviation_deg = deviation_normdeg(u.get_heading(), u.get_bearing());
 #print("     our_deviation_deg=",our_deviation_deg);
-            
+
             if ( our_deviation_deg < 0 ) { our_deviation_deg *= -1 }
             if ( our_deviation_deg < u_az_field) {
 #                em_by = em_by ~ "my_rdr ";
-                emitting = 1; 
+                emitting = 1;
             }
         }
     }
@@ -313,13 +313,13 @@ var az_scan = func() {
 #
 #
 # The radar sweep is simulated such that when the scan limit is reached it is reversed
-# and the mp list is rescanned. This means the contents of the radar list will be 
+# and the mp list is rescanned. This means the contents of the radar list will be
 # simulated in a realistic way - the target acquisition based on what's in the MP list will
 # be ok; the values (distance etc) will be read from the target list so these will be accurate
 # which isn't quite how radar works but it will be good enough for us.
 
     range_radar2 = RangeRadar2.getValue();
-    
+
     if (1==1 or swp_dir != swp_dir_last)
     {
 		# Antena scan direction change (at max: more or less every 2 seconds). Reads the whole MP_list.
@@ -357,8 +357,8 @@ var az_scan = func() {
                 if (c.getNode("valid") == nil or !c.getNode("valid").getValue()) {
                     continue;
                 }
-                if (type == "multiplayer" or type == "tanker" or type == "aircraft" 
-                    or type == "ship" or type == "groundvehicle" or type == "aim-120c" or type == "aim-7" or type == "aim-9" or type == "aim-120d" or type == "mk-84") 
+                if (type == "multiplayer" or type == "tanker" or type == "aircraft"
+                    or type == "ship" or type == "groundvehicle" or type == "aim-120c" or type == "aim-7" or type == "aim-9" or type == "aim-120d" or type == "mk-83" or type == "mk-84") 
                 {
                     append(tgts_list, Target.new(c));
                 }
@@ -376,7 +376,7 @@ var az_scan = func() {
     u_ecm_signal_norm = 0;
     u_radar_standby   = 0;
     u_ecm_type_num    = 0;
-    
+
     if (scan_tgt_idx >= size(tgts_list)) {
         scan_tgt_idx = 0;
         scan_id += 1;
@@ -460,14 +460,14 @@ var az_scan = func() {
             }
 #if(awg9_trace)
 #    print("UPDS: ",u.Callsign.getValue(),", ", msg, "vis= ",u.get_visible(), " dis=",u.get_display(), " rng=",u_rng, " rr=",range_radar2);
-        } 
+        }
 #        else {
 #
 #            if (u_rng != nil and (u_rng > range_radar2)) {
 #                tgts_list[scan_tgt_idx].set_display(0);
 ## still need to test for RWR warning indication even if outside of the radar range
 #                if ( !rwr_done and ecm_on and tgts_list[scan_tgt_idx].get_rdr_standby() == 0) {
-#                    rwr_done = rwr_warning_indication(tgts_list[scan_tgt_idx]); 
+#                    rwr_done = rwr_warning_indication(tgts_list[scan_tgt_idx]);
 #                }
 #                break;
 #            }
@@ -477,7 +477,7 @@ var az_scan = func() {
 # if target within radar range, and not acting (i.e. a RIO/backseat/copilot)
         if (u_rng != nil and (u_rng < range_radar2  and u.not_acting == 0 )) {
             u.get_deviation(our_true_heading);
-        
+
             if (rcs.isInRadarRange(u, 80, myRadarStrength_rcs) == 0) {
 #                if(awg9_trace)
 #                  print(scan_tgt_idx,";",u.get_Callsign()," not visible by rcs");
@@ -510,7 +510,7 @@ var az_scan = func() {
             }
         }
 
-# RWR 
+# RWR
         compute_rwr(radar_mode, u, u_rng);
         # Test if target has a radar. Compute if we are illuminated. This propery used by ECM
         # over MP, should be standardized, like "ai/models/multiplayer[0]/radar/radar-standby".
@@ -536,7 +536,7 @@ var az_scan = func() {
               var u_rng = u.get_range();
 
               #Leto: commented out for OPRF due to that list not being up to date, and plane has no doppler effect, so should see targets below horizon:
-              #if ( u_rng < horizon and radardist.radis(u.string, my_radarcorr))  
+              #if ( u_rng < horizon and radardist.radis(u.string, my_radarcorr))
               if (1==1) {
 
                   # Compute mp position in our DDD display. (Bearing/horizontal + Range/Vertical).
@@ -587,7 +587,7 @@ var az_scan = func() {
     }
 
 
-    # if this is true then we have finished a complete scan; so 
+    # if this is true then we have finished a complete scan; so
     # update anything that requires this.
     if (scan_tgt_idx >= size(tgts_list)) {
 
@@ -606,11 +606,11 @@ var az_scan = func() {
 
         # Summarize ECM alerts.
         # - this logic is to avoid the ECM alert flashing
-        if ( ecm_alert1 == 0 and ecm_alert1_last == 0 ) { 
+        if ( ecm_alert1 == 0 and ecm_alert1_last == 0 ) {
             EcmAlert1.setBoolValue(0)
         }
-        if ( ecm_alert2 == 0 and ecm_alert1_last == 0 ) { 
-            EcmAlert2.setBoolValue(0) 
+        if ( ecm_alert2 == 0 and ecm_alert1_last == 0 ) {
+            EcmAlert2.setBoolValue(0)
         }
         ecm_alert1_last = ecm_alert1; # And avoid alert blinking at each loop.
         ecm_alert2_last = ecm_alert2;
@@ -620,7 +620,7 @@ var az_scan = func() {
 
     #
     #
-    # next / previous target selection. 
+    # next / previous target selection.
     var tgt_cmd = SelectTargetCommand.getValue();
     SelectTargetCommand.setIntValue(0);
 
@@ -640,7 +640,7 @@ var az_scan = func() {
 
         var prv=nil;
 
-        foreach (var u; tgts_list) 
+        foreach (var u; tgts_list)
         {
             if(u.Callsign.getValue() == active_u_callsign)
                 break;
@@ -654,7 +654,7 @@ var az_scan = func() {
         if (prv == nil)
         {
             var passed = 0;
-            foreach (var u; tgts_list) 
+            foreach (var u; tgts_list)
             {
                 if(passed == 1 and u.get_display() == 1)
                     prv = u;
@@ -671,7 +671,7 @@ var az_scan = func() {
                 active_u_callsign = tmp_nearest_u.Callsign.getValue();
             else
                 active_u_callsign = nil;
-                
+
         }
         awg_9.sel_prev_target =0;
     }
@@ -686,7 +686,7 @@ var az_scan = func() {
 
         var nxt=nil;
         var passed = 0;
-        foreach (var u; tgts_list) 
+        foreach (var u; tgts_list)
         {
             if(u.Callsign.getValue() == active_u_callsign)
             {
@@ -702,7 +702,7 @@ var az_scan = func() {
         }
         if (nxt == nil)
         {
-            foreach (var u; tgts_list) 
+            foreach (var u; tgts_list)
             {
                 if(u.Callsign.getValue() == active_u_callsign)
                 {
@@ -778,7 +778,7 @@ var isNotBehindTerrain = func(node) {
     }
     var SelectCoord = geo.Coord.new().set_xyz(x, y, z);
     var MyCoord = geo.aircraft_position();
-        
+
     # There is no terrain on earth that can be between these altitudes
     # so shortcut the whole thing and return now.
     if(MyCoord.alt() > 8900 and SelectCoord.alt() > 8900){
@@ -812,7 +812,7 @@ var isNotBehindTerrain = func(node) {
       }
     } else {
         var isVisible = 0;
-        
+
         # Temporary variable
         # A (our plane) coord in meters
         var a = MyCoord.x();
@@ -827,22 +827,22 @@ var isNotBehindTerrain = func(node) {
         var difa = d - a;
         var difb = e - b;
         var difc = f - c;
-        
+
 #        print("a,b,c | " ~ a ~ "," ~ b ~ "," ~ c);
 #        print("d,e,f | " ~ d ~ "," ~ e ~ "," ~ f);
-        
+
         # direct Distance in meters
         var myDistance = math.sqrt( math.pow((d-a),2) + math.pow((e-b),2) + math.pow((f-c),2)); #calculating distance ourselves to avoid another call to geo.nas (read: speed, probably).
 #        print("myDistance: " ~ myDistance);
         var Aprime = geo.Coord.new();
-            
+
         # Here is to limit FPS drop on very long distance
         var L = 500;
         if (myDistance > 50000) {
             L = myDistance / 15;
         }
         var maxLoops = int(myDistance / L);
-            
+
         isVisible = 1;
         # This loop will make travel a point between us and the target and check if there is terrain
         for (var i = 1 ; i <= maxLoops ; i += 1) {
@@ -852,9 +852,9 @@ var isNotBehindTerrain = func(node) {
             #  |us|----------|step 1|-----------|step 2|--------|step 3|----------|them|
             #there will be as many steps as there is i
             #every step will be equidistant
-              
+
             #also, if i == 0 then the first step will be our plane
-              
+
             var x = ((difa/(maxLoops+1))*i)+a;
             var y = ((difb/(maxLoops+1))*i)+b;
               var z = ((difc/(maxLoops+1))*i)+c;
@@ -864,7 +864,7 @@ var isNotBehindTerrain = func(node) {
             if (AprimeTerrainAlt == nil) {
                 AprimeTerrainAlt = 0;
             }
-              
+
             if (AprimeTerrainAlt > Aprime.alt()) {
                 return 0;
             }
@@ -904,9 +904,9 @@ var hud_nearest_tgt = func() {
 
 			if (cr != nil)
             {
-                if (cr < -200) 
+                if (cr < -200)
                     cr = 200;
-                else if (cr > 1000) 
+                else if (cr > 1000)
                     cr = 1000;
     			HudTgtClosureRate.setValue(cr);
             }
@@ -970,7 +970,7 @@ var ac_map = {"C-137R" : "707",
               "c130k" : "c310",
               "kc130" : "c310",
               "F-15D" : "f15c",
-              "F-15C" : "f15c", 
+              "F-15C" : "f15c",
               "AJ37-Viggen" : "mirage2000",
               "AJS37-Viggen" : "mirage2000",
               "JA37Di-Viggen" : "mirage2000",
@@ -986,7 +986,7 @@ rwr_warning_indication = func(u) {
 # the path.
 # then remove the .xml and additionally support extra craft using the ac_map mapping defined above.
 # this will then give us the maximum range.
-# although we will use our own RCS method to 
+# although we will use our own RCS method to
 	var u_name = radardist.get_aircraft_name(u.string);
     u_name = string.truncateAt(u_name, ".xml");
     u_name = ac_map[u_name] or u_name;
@@ -1023,7 +1023,7 @@ rwr_warning_indication = func(u) {
     # Set these again once the lights are done as need these for the RWR display.
     u_ecm_signal = (-u_rng/20) + 2.6;
     u_ecm_type_num = radardist.get_ecm_type_num(u_name);
-	
+
 #print("     u_ecm_signal=",u_ecm_signal," u_ecm_type_num=",u_ecm_type_num);
 
     u.EcmSignal.setValue(u_ecm_signal);
@@ -1212,11 +1212,11 @@ var Target = {
             }
         }
 
-        if (obj.type == "multiplayer" or obj.type == "tanker" or obj.type == "aircraft" and obj.RdrProp != nil) 
+        if (obj.type == "multiplayer" or obj.type == "tanker" or obj.type == "aircraft" and obj.RdrProp != nil)
             obj.airbone = 1;
         else
             obj.airbone = 0;
-		
+
 		# Remote back-seaters shall not emit and shall be invisible. FIXME: This is going to be handled by radardist ASAP.
 		obj.not_acting = 0;
 		var Remote_Bs_String = c.getNode("sim/multiplay/generic/string[1]");
@@ -1247,7 +1247,7 @@ var Target = {
 					obj.not_acting = 1;
 				}
 			}
-		}	
+		}
 
 		obj.TgtsFiles = obj.InstrTgts.getNode(obj.shortstring, 1);
         if (obj.RdrProp != nil)
@@ -1299,7 +1299,7 @@ var Target = {
 		obj.deviation = nil;
         obj.target_classification = AIR; # default to AIR targets
         obj.set_type_from_name(c.getName(), obj.ModelType);
-    
+
 		return obj;
 	},
 #
@@ -1311,7 +1311,7 @@ var Target = {
     set_type_from_name : func(type, mdl){
 
 #        print ("set tgt Ttype ",type, " mdl=",mdl);
-    
+
         if (type == "tanker" or type == "aircraft") {
             me.target_classification = AIR;
         } elsif (type=="carrier") {
@@ -1440,13 +1440,13 @@ var Target = {
 		var s = 0;
 		if ( me.RadarStandby != nil ) {
 			s = me.RadarStandby.getValue();
-        if (s == nil or s != 1) 
+        if (s == nil or s != 1)
             return 0;
 		}
 		return s;
 	},
 	get_transponder : func {
-        if (me.TransponderId != nil) 
+        if (me.TransponderId != nil)
             return me.TransponderId.getValue();
         return nil;
 		},
@@ -1475,7 +1475,7 @@ var Target = {
 		me.RWRVisible.setBoolValue(n);
 	},
 	get_fading : func() {
-		var fading = me.Fading.getValue(); 
+		var fading = me.Fading.getValue();
 		if ( fading == nil ) { fading = 0 }
 		return fading;
 	},
@@ -1632,7 +1632,7 @@ var Target = {
 # HUD field of view = 2 * math.atan2( 0.0764, 0.7186) * globals.R2D; # ~ 12.1375°
 # where 0.071 : virtual screen half width, 0.7186 : distance eye -> screen
 dump_tgt = func (u){
-    print(scan_tgt_idx, " callsign ", u.get_Callsign(), " range ",u.get_range(), " display ", u.get_display(), " visible ",u.get_visible(), 
+    print(scan_tgt_idx, " callsign ", u.get_Callsign(), " range ",u.get_range(), " display ", u.get_display(), " visible ",u.get_visible(),
           " ddd-relative-bearing=", u.RelBearing,
           " ddd-echo-fading=", u.Fading,
           " ddd-draw-range-nm=",u.DddDrawRangeNm,
@@ -1657,7 +1657,7 @@ setlistener("/instrumentation/tacan/display/channel", func {
 find_carrier_by_tacan = func(output) {
     var raw_list = awg_9.Mp.getChildren();
     var carrier_located = 0;
-    
+
     foreach ( var c; raw_list ) {
 
         var tchan = c.getNode("navaids/tacan/channel-ID");
@@ -1667,7 +1667,7 @@ find_carrier_by_tacan = func(output) {
 # Tuned into this carrier (node) so use the offset.
 # Get the position of the glideslope; this is offset from the carrier position by
 # a smidgen. This is measured and is a point slightly in front of the TDZ where the
-# deck is marked with previous tyre marks (which seems as good a place as any to 
+# deck is marked with previous tyre marks (which seems as good a place as any to
 # aim for).
                 if (c.getNode("position/global-x") != nil) {
                     var x = c.getNode("position/global-x").getValue() + 88.7713542;

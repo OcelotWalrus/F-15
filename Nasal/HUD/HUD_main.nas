@@ -4,7 +4,7 @@
 # F-15C HUD is in two parts so we have a single class that we can instantiate
 # twice on for each combiner pane
 # ---------------------------
-# Richard Harrison (rjh@zaretto.com) 2015-01-27  - based on F-20 HUD main module Enrique Laso (Flying toaster) 
+# Richard Harrison (rjh@zaretto.com) 2015-01-27  - based on F-20 HUD main module Enrique Laso (Flying toaster)
 # ---------------------------
 
 var ht_xcf = 1024;
@@ -27,9 +27,9 @@ var ht_debug = 0;
 # paste into nasal console for debugging
 #aircraft.MainHUD.canvas._node.setValues({
 #                           "name": "F-15 HUD",
-#                           "size": [1024,1024], 
-#                           "view": [276,106],                       
-#                           "mipmapping": 0     
+#                           "size": [1024,1024],
+#                           "view": [276,106],
+#                           "mipmapping": 0
 #  });
 #aircraft.MainHUD.svg.setTranslation (0, 20.0);
 #aircraft.MainHUD.svg.set("clip", "rect(2,256,276,0)");
@@ -77,26 +77,26 @@ var F15HUD = {
 
         obj.canvas= canvas.new({
                 "name": "F-15 HUD",
-                    "size": [1024,1024], 
+                    "size": [1024,1024],
                     "view": [256,296],
                     "mipmapping": 0,
-                    });                          
-        obj.view = [0, 1.4000051983, -5];                          
+                    });
+        obj.view = [0, 1.4000051983, -5];
         obj.canvas.addPlacement({"node": "HUDImage1"});
         obj.canvas.addPlacement({"node": "HUDImage2"});
         obj.canvas.setColorBackground(0.36, 1, 0.3, 0.00);
         obj.FocusAtInfinity = 0;
 # Create a group for the parsed elements
         obj.svg = obj.canvas.createGroup();
- 
+
 # Parse an SVG file and add the parsed elements to the given group
         print("HUD Parse SVG ",canvas.parsesvg(obj.svg, svgname));
 
         obj.canvas._node.setValues({
                                     "name": "F-15 HUD",
-                                    "size": [1024,1024], 
-                                    "view": [256,296],                       
-                                    "mipmapping": 0     
+                                    "size": [1024,1024],
+                                    "view": [256,296],
+                                    "mipmapping": 0
                     });
         obj.baseTranslation = [30,30];
         obj.svg.setTranslation (obj.baseTranslation[0], obj.baseTranslation[1]);
@@ -108,6 +108,8 @@ var F15HUD = {
         obj.ladder.setScale(1,0.558);
 
         obj.VV = obj.get_element("VelocityVector");
+        obj.BV = obj.get_element("BombVector");
+        obj.BV.setVisible(0);
         obj.heading_tape = obj.get_element("heading-scale");
         obj.roll_pointer = obj.get_element("roll-pointer");
         obj.alt_range = obj.get_element("alt_range");
@@ -129,6 +131,8 @@ var F15HUD = {
         obj.window8 = obj.get_text("window8", "condensed.txf",9,1.4);
         obj.window9 = obj.get_text("window9", "condensed.txf",9,1.4);
         obj.window10 = obj.get_text("window10", "condensed.txf",9,1.4);
+        obj.window11 = obj.get_text("window11", "condensed.txf",9,1.4);
+        obj.window12 = obj.get_text("window12", "condensed.txf",9,1.4);
         obj.cross1 = obj.get_text("cross_1", "condensed.txf",9,1.4);
 
         obj.window1.setVisible(0);
@@ -138,7 +142,7 @@ var F15HUD = {
         obj.HudNavRangeETA = "";
         obj.currentViewX = props.globals.getNode("/sim/current-view/x-offset-m");
         obj.currentViewY = props.globals.getNode("/sim/current-view/y-offset-m");
-        
+
         obj.symbol_reject = 0;
         obj.heading_deg=0;
         obj.roll_deg=0;
@@ -146,9 +150,14 @@ var F15HUD = {
         obj.pitch_deg=0;
         obj.VV_x=0;
         obj.VV_y=0;
+        obj.BV_x=0;
+        obj.BV_y=0;
         obj.mach=0;
         obj.rng=0;
         obj.eta_s=0;
+        obj.showLow=0;
+
+        HudMath.init([-4.54553+0.013,-0.057863,0.84791+0.010], [-4.56837+0.013, 0.057863,0.71547+0.010], [256,296], [0,1.0], [0.788878,0.0], 0);
 #
 #
 # Load the target symbosl.
@@ -168,7 +177,7 @@ var F15HUD = {
             else
                 print("HUD: could not locate ",name);
         }
-       
+
             obj.dlzX      =170;
             obj.dlzY      =100;
             obj.dlzWidth  = 10;
@@ -193,7 +202,7 @@ obj.dlzY = 70;
         obj.update_items = [
             props.UpdateManager.FromHashList(["ElectricsAcLeftMainBus","ControlsHudBrightness"] , 0.01, func(val)
                                       {
-                                          if (val.ElectricsAcLeftMainBus <= 0 
+                                          if (val.ElectricsAcLeftMainBus <= 0
                                               or val.ControlsHudBrightness <= 0) {
                                               obj.svg.setVisible(0);
                                           } else {
@@ -221,7 +230,7 @@ obj.dlzY = 70;
                                             obj.heading_tape_position = -val*54/10;
                                           else
                                             obj.heading_tape_position = (360-val)*54/10;
-                                          
+
                                           obj.heading_tape.setTranslation (obj.heading_tape_position,0);
                                       }),
             props.UpdateManager.FromHashList(["OrientationRollDeg","OrientationPitchDeg"], 0.025, func(val)
@@ -241,18 +250,98 @@ obj.dlzY = 70;
                                         else
                                           obj.ladder.setCenter (110,900+obj.pitch_deg*-(1772/90));
                                     }),
-                            props.UpdateManager.FromHashList(["Alpha", "OrientationSideSlipDeg"], 0.001, func(val)
+                            props.UpdateManager.FromHashList(["Alpha", "OrientationSideSlipDeg", "ControlsArmamentWeaponSelector"], 0.001, func(val)
                                                                      {
                                                                          if (val.OrientationSideSlipDeg == nil or val.Alpha == nil)
                                                                            return;
                                                                          obj.VV_x = (val.OrientationSideSlipDeg or 0)*10; # adjust for view
                                                                          obj.VV_y = (val.Alpha or 0)*10; # adjust for view
                                                                          obj.VV.setTranslation (obj.VV_x, obj.VV_y);
+
+																		 bomb_type = getprop("sim/model/f15/systems/armament/selected-bomb");
+																		 if (bomb_type != "none") {
+
+	                                                                         # Update pos shit, taken from the FG F-16 model
+	                                                                         gpsCoord = armament.AIM.getCCIPadv(18,0.20,bomb_type);
+	                                                                         if (gpsCoord == nil) {
+	                                                                            gpsCoord = geo.Coord.new(geo.aircraft_position());
+	                                                                         } else {
+	                                                                            gpsCoord = gpsCoord[0];
+	                                                                         }
+			                                                                 crft = geo.aircraft_position();
+		                                                                     ptch = vector.Math.getPitch(crft,gpsCoord);
+	                                                                         dst  = crft.direct_distance_to(gpsCoord);
+	                                                                         brng = crft.course_to(gpsCoord);
+	                                                                         hrz  = math.cos(ptch*D2R)*dst;
+
+	                                                                         vel_gz = -math.sin(ptch*D2R)*dst;
+	                                                                         vel_gx = math.cos(brng*D2R) *hrz;
+	                                                                         vel_gy = math.sin(brng*D2R) *hrz;
+
+
+	                                                                         yaw   = getprop("orientation/heading-deg") * D2R;
+	                                                                         roll  = getprop("orientation/roll-deg")    * D2R;
+	                                                                         pitch = getprop("orientation/pitch-deg")   * D2R;
+
+	                                                                         sy = math.sin(yaw);   cy = math.cos(yaw);
+	                                                                         sr = math.sin(roll);  cr = math.cos(roll);
+	                                                                         sp = math.sin(pitch); cp = math.cos(pitch);
+
+	                                                                         vel_bx = vel_gx * cy * cp
+	                                                                                  + vel_gy * sy * cp
+	                                                                                  + vel_gz * -sp;
+	                                                                         vel_by = vel_gx * (cy * sp * sr - sy * cr)
+	                                                                                  + vel_gy * (sy * sp * sr + cy * cr)
+	                                                                                  + vel_gz * cp * sr;
+	                                                                         vel_bz = vel_gx * (cy * sp * cr + sy * sr)
+	                                                                                  + vel_gy * (sy * sp * cr - cy * sr)
+	                                                                                  + vel_gz * cp * cr;
+
+	                                                                         dir_y  = math.atan2(round0_(vel_bz), math.max(vel_bx, 0.001)) * R2D;
+	                                                                         dir_x  = math.atan2(round0_(vel_by), math.max(vel_bx, 0.001)) * R2D;
+
+	                                                                         pos = HudMath.getCenterPosFromDegs(dir_x,-dir_y);
+
+	                                                                         pos_x = pos[0];
+	                                                                         pos_y = pos[1];
+	                                                                         bPos = [obj.VV_x,obj.VV_y];
+	                                                                         llx  = pos_x - bPos[0];
+	                                                                         lly  = pos_y - bPos[1];
+	                                                                         ll = math.sqrt(llx * llx + lly * lly);
+	                                                                         if (ll != 0) {
+	                                                                             pipAng = math.acos(llx / ll);
+	                                                                             if (lly < 0) {
+	                                                                                 pipAng *= -1;
+	                                                                             }
+	                                                                             obj.BV_x = pos_x - math.cos(pipAng) * 10;
+	                                                                             obj.BV_y = pos_y - math.sin(pipAng) * 10;
+	                                                                             obj.BV_x = obj.BV_x / 100; # adapt it to the f15's HUD
+	                                                                             obj.BV_y = (obj.BV_y / -13) - 30;
+	                                                                         } # if gear is down, put it in the center
+	                                                                         if (getprop("controls/gear/gear-down")) {
+	                                                                            obj.BV_y = 0;
+	                                                                         }
+	                                                                         obj.BV.setTranslation(obj.BV_x, obj.BV_y);
+	                                                                         obj.window12.setTranslation(0, obj.BV_y);
+	                                                                         #print(obj.BV_x);
+	                                                                         #print(obj.BV_y);
+	                                                                         #print("VV");
+	                                                                         #print(obj.VV_x);
+	                                                                         #print(obj.VV_y);
+
+	                                                                         # determine if distance is too low for arming time
+	                                                                         if (armament.AIM.getCCIPadv(18,0.20,bomb_type) != nil) {
+	                                                                             obj.showLow = !armament.AIM.getCCIPadv(18,0.20,bomb_type)[1];
+	                                                                             obj.showLow = obj.showLow?-1:1;
+	                                                                         } else {
+	                                                                             obj.showLow = 0;
+	                                                                         }
+																		 }
                                                                      }),
                             props.UpdateManager.FromHashList(["InstrumentedG", "CadcOwsMaximumG"], 0.05, func(val)
                                                                      {
-                                                                         obj.window8.setText(sprintf("%02d %02d", 
-                                                                                                     math.round(val.InstrumentedG*10.0), 
+                                                                         obj.window8.setText(sprintf("%02d %02d",
+                                                                                                     math.round(val.InstrumentedG*10.0),
                                                                                                      math.round(val.CadcOwsMaximumG*10.0)));
                                                                      }),
                             props.UpdateManager.FromHashList(["VelocitiesAirspeedKt"], nil, func(val)
@@ -263,8 +352,8 @@ obj.dlzY = 70;
                                                                      {
                                                                          obj.window10.setText(sprintf("%4.2f G", val.InstrumentedG));
                                                                      }),
-                            props.UpdateManager.FromHashList(["Alpha", 
-                                                                      "ControlsGearBrakeParking", 
+                            props.UpdateManager.FromHashList(["Alpha",
+                                                                      "ControlsGearBrakeParking",
                                                                       "AirspeedIndicatorIndicatedMach",
                                                                       "ControlsGearGearDown"], 0.01, func(val)
                                                                      {
@@ -307,7 +396,8 @@ obj.dlzY = 70;
                                                                       "ArmamentAim120Count",
                                                                       "ArmamentAim120DCount",
                                                                       "ArmamentAim7Count",
-                                                                      "ArmamentAgmCount",
+                                                                      "ArmamentMk83Count",
+                                                                      "ArmamentMk84Count",
                                                                       "RadarActiveTargetAvailable",
                                                                       "RadarActiveTargetDisplay",
                                                                       "RadarActiveTargetCallsign",
@@ -320,6 +410,7 @@ obj.dlzY = 70;
                                                                          if (val.ControlsArmamentMasterArmSwitch) {
                                                                              var w_s = val.ControlsArmamentWeaponSelector;
                                                                              obj.window2.setVisible(1);
+                                                                             obj.window11.setVisible(0);
                                                                              obj.crosshair.setVisible(0);
                                                                              if (w_s == 0) {
                                                                                  obj.window2.setText(sprintf("%3d",val.ArmamentRounds));
@@ -350,14 +441,29 @@ obj.dlzY = 70;
                                                                                     obj.cross1.setVisible(0);
                                                                                  }
                                                                              } else if (w_s == 5){
-                                                                                 obj.window2.setText(sprintf("G%2d", val.ArmamentAgmCount));
-                                                                                 if (val.ArmamentAgmCount == 0) {
+                                                                                 obj.window2.setText(sprintf("G%2d", val.ArmamentMk83Count + val.ArmamentMk84Count));
+                                                                                 if (val.ArmamentMk83Count + val.ArmamentMk84Count == 0) {
                                                                                     obj.cross1.setVisible(1);
                                                                                     obj.cross1.setText("------");
+                                                                                    obj.BV.setVisible(0);
+                                                                                    obj.window12.setVisible(0);
                                                                                  }
                                                                                  else {
                                                                                     obj.cross1.setVisible(0);
-                                                                                 }
+                                                                                    obj.window11.setVisible(1);
+                                                                                    obj.window11.setText(sprintf("%1d sec", val.ArmingTime));
+                                                                                    obj.BV.setVisible(1);
+                                                                                    if (getprop("controls/gear/gear-down")) {
+                                                                                        obj.window12.setText("GROUND");
+                                                                                    } elsif (obj.showLow == -1 ) {
+                                                                                        obj.window12.setText("LOW");
+																					} elsif (getprop("orientation/roll-deg") > 5 or getprop("orientation/roll-deg") < -5) {
+                                                                                        obj.window12.setText("ROLL");
+                                                                                    } else {
+                                                                                        obj.window12.setText("RDY");
+                                                                                    }
+                                                                                    obj.window12.setVisible(1);
+                                                                                }
                                                                              }
                                                                              if (val.RadarActiveTargetAvailable or 0) {
                                                                                  obj.window3.setText(val.RadarActiveTargetCallsign);
@@ -365,7 +471,7 @@ obj.dlzY = 70;
                                                                                  if (val.RadarActiveTargetType != "")
                                                                                    model = val.RadarActiveTargetType;
 
-                                                                                 #these labels aren't correct - but we don't have a full simulation of the targetting and missiles so 
+                                                                                 #these labels aren't correct - but we don't have a full simulation of the targetting and missiles so
                                                                                  #have no real idea on the details of how this works.
                                                                                  if (val.RadarActiveTargetDisplay){
                                                                                      obj.window4.setText(sprintf("RNG %3.1f", val.RadarActiveTargetRange));
@@ -378,7 +484,10 @@ obj.dlzY = 70;
                                                                                  obj.window6.setVisible(1); # SRM UNCAGE / TARGET ASPECT
                                                                              }
                                                                          } else {
+                                                                             obj.BV.setVisible(0);
+                                                                             obj.window12.setVisible(0);
                                                                              obj.window2.setVisible(0);
+                                                                             obj.window11.setVisible(0);
                                                                              obj.crosshair.setVisible(0);
                                                                              obj.cross1.setVisible(0);
                                                                              if (val.HudNavRangeDisplay != "")
@@ -421,7 +530,7 @@ return obj;
             clip_el.setVisible(0);
             var tran_rect = clip_el.getTransformedBounds();
 
-            var clip_rect = sprintf("rect(%d,%d, %d,%d)", 
+            var clip_rect = sprintf("rect(%d,%d, %d,%d)",
                                    tran_rect[1], # 0 ys
                                    tran_rect[2],  # 1 xe
                                    tran_rect[3], # 2 ye
@@ -439,7 +548,7 @@ return obj;
 #
 #
     update : func(notification) {
-        
+
         me.dlzArray = aircraft.getDLZ();
 #me.dlzArray =[10,8,6,2,9];#test
         if (me.dlzArray == nil or size(me.dlzArray) == 0) {
@@ -464,18 +573,18 @@ return obj;
                     .setColor(0,1,0);
             me.dlz.show();
         }
-        
-        
+
+
         if(me.FocusAtInfinity)
           {
               # parallax correction
               var current_x = me.currentViewX.getValue();
               var current_y = me.currentViewY.getValue();
               #        var current_z = getprop("/sim/current-view/z-offset-m");
-        
+
               var dx = me.view[0] - current_x;
               var dy = me.view[1] - current_y;
-              
+
               me.svg.setTranslation(me.baseTranslation[0]-dx*1024, me.baseTranslation[1]+dy*1024);
           }
 
@@ -509,7 +618,7 @@ return obj;
         if (me.svg.getVisible() == 0)
           return;
 
-     
+
 #        if (hdp.range_rate != nil)
 #        {
 #            me.window1.setVisible(1);
@@ -517,12 +626,12 @@ return obj;
 #        }
 #        else
 #            me.window1.setVisible(0);
-  
+
 
      if (notification["Timestamp"] != nil)
          me.process_targets.set_timestamp(notification.Timestamp);
 
-     me.process_targets.process(me, awg_9.tgts_list, 
+     me.process_targets.process(me, awg_9.tgts_list,
                                 func(pp, obj, data){
                                     obj.target_idx=1;
                                     obj.designated = 0;
@@ -573,7 +682,7 @@ return obj;
                         tgt.setTranslation (xc, yc);
 
                         if (ht_debug)
-                            printf("%-10s %f,%f [%f,%f,%f] :: %f,%f",callsign,xc,yc, devs[0], devs[1], devs[2], u_dev_rad*D2R, u_elev_rad*D2R); 
+                            printf("%-10s %f,%f [%f,%f,%f] :: %f,%f",callsign,xc,yc, devs[0], devs[1], devs[2], u_dev_rad*D2R, u_elev_rad*D2R);
                     }
                 }
                                         obj.target_idx = obj.target_idx+1;
@@ -599,11 +708,14 @@ return obj;
 
 #
 # The F-15C HUD is provided by 2 combiners.
-# We model this accurately in the geometry by having the two glass panes 
+# We model this accurately in the geometry by having the two glass panes
 # which are texture mapped onto a single canvas texture.two instances of the HUD
 # 2016-01-06: The HUD appears slightly trapezoidal (better than previous version
 #             however still could be improved possibly with a transformation matrix.
 
+var round0_ = func(x) {
+	return math.abs(x) > 0.01 ? x : 0;
+};
 
 var HUDRecipient =
 {
@@ -633,7 +745,8 @@ input = {
         AirspeedIndicatorIndicatedMach          : "instrumentation/airspeed-indicator/indicated-mach",
         Alpha                                   : "orientation/alpha-indicated-deg",
         AltimeterIndicatedAltitudeFt            : "instrumentation/altimeter/indicated-altitude-ft",
-        ArmamentAgmCount                        : "sim/model/f15/systems/armament/mk84/count",
+        ArmamentMk83Count                        : "sim/model/f15/systems/armament/mk83/count",
+        ArmamentMk84Count                        : "sim/model/f15/systems/armament/mk84/count",
         ArmamentAim120Count                     : "sim/model/f15/systems/armament/aim120c/count",
         ArmamentAim7Count                       : "sim/model/f15/systems/armament/aim7/count",
         ArmamentAim9Count                       : "sim/model/f15/systems/armament/aim9/count",
@@ -664,6 +777,7 @@ input = {
         RadarActiveTargetType                   : "sim/model/f15/instrumentation/radar-awg-9/active-target-type",
         InstrumentedG                           : "instrumentation/g-meter/instrumented-g",
         VelocitiesAirspeedKt                    : "velocities/airspeed-kt",
+        ArmingTime                              : "sim/model/f15/systems/armament/arming-time-sec",
 };
 foreach (var name; keys(input)) {
     emesary.GlobalTransmitter.NotifyAll(notifications.FrameNotificationAddProperty.new("F15-HUD", name, input[name]));

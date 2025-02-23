@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0"?>
-<!-- F-15C Model 
-   |  3D Model by Enrique Laso (Flying toaster) 
+<!-- F-15C Model
+   |  3D Model by Enrique Laso (Flying toaster)
    |  Livery support from F-14b by xiii
-   |  
-   |  Richard Harrison: 2014-12-23 : rjh@zaretto.com 
+   |
+   |  Richard Harrison: 2014-12-23 : rjh@zaretto.com
 -->
 
 <PropertyList>
@@ -20,7 +20,7 @@
 
     <nasal>
         <load>
-        <![CDATA[ 
+        <![CDATA[
 
          var self = cmdarg();
          print("Model load F-15 ", self.getPath(), " ID ",_module_id);
@@ -43,7 +43,7 @@
 
          var objs = {};
 
-         var loop = func () {          
+         var loop = func () {
 
              if (alt.getValue() != 0) {
                  var objModel = objs["first"];
@@ -189,7 +189,7 @@
         </load>
 
         <unload>
-            <![CDATA[ 
+            <![CDATA[
             print("UNLOAD F-15 ", getprop("sim/model/path"), " ID ",_module_id);
             #cmdarg().getNode("sim/model/ac-type", 1).setValue(""); # Dual-control
             livery_update.stop();
@@ -279,6 +279,7 @@
         <object-name>CFT-left-pylons</object-name>
         <object-name>CFT-right-pylons</object-name>
         <object-name>tanks</object-name>
+        <object-name>mk-83</object-name>
         <object-name>mk-84</object-name>
         <object-name>aim-9</object-name>
         <object-name>aim-7</object-name>
@@ -297,8 +298,8 @@
         <object-name>aim-7-r4</object-name>
         <object-name>aim120-r3</object-name>
         <object-name>aim120-r4</object-name>
-        <object-name>mk84-b3</object-name>
-        <object-name>mk84-b4</object-name>
+        <object-name>mk83-b3</object-name>
+        <object-name>mk83-b4</object-name>
         <object-name>aim120-r4</object-name>
         <factor>0.36</factor>
         <property>fdm/jsbsim/propulsion/cft</property>
@@ -315,8 +316,8 @@
         <object-name>aim120-l4</object-name>
         <object-name>aim-7-l3</object-name>
         <object-name>aim-7-l4</object-name>
-        <object-name>mk84-b1</object-name>
-        <object-name>mk84-b2</object-name>
+        <object-name>mk83-b1</object-name>
+        <object-name>mk83-b2</object-name>
         <factor>0.36</factor>
         <property>fdm/jsbsim/propulsion/cft</property>
         <axis>
@@ -2074,6 +2075,65 @@
         </offsets>
     </model>
 
+    <model>
+        <name>mk84-l</name>
+        <path>Aircraft/F-15/Models/Stores/MK-84/mk84.xml</path>
+        <offsets>
+             <x-m>2</x-m>
+             <y-m>-3.28</y-m>
+             <z-m>-0.07</z-m>
+        </offsets>
+    </model>
+    <model>
+        <name>mk84-c</name>
+        <path>Aircraft/F-15/Models/Stores/MK-84/mk84.xml</path>
+        <offsets>
+             <x-m>1.2</x-m>
+             <y-m>0</y-m>
+             <z-m>-1.1</z-m>
+        </offsets>
+    </model>
+    <model>
+        <name>mk84-r</name>
+        <path>Aircraft/F-15/Models/Stores/MK-84/mk84.xml</path>
+        <offsets>
+            <x-m>2</x-m>
+            <y-m>3.28</y-m>
+            <z-m>-0.07</z-m>
+        </offsets>
+    </model>
+
+    <animation>
+      <type>select</type>
+      <object-name>mk84-l</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[1]/selected</property>
+              <value>MK-84</value>
+          </equals>
+      </condition>
+    </animation>
+    <animation>
+      <type>select</type>
+      <object-name>mk84-c</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[5]/selected</property>
+              <value>MK-84</value>
+          </equals>
+      </condition>
+    </animation>
+    <animation>
+      <type>select</type>
+      <object-name>mk84-r</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[9]/selected</property>
+              <value>MK-84</value>
+          </equals>
+      </condition>
+    </animation>
+
     <!--<effect>
         <name>test-shader</name>
         <inherits-from>Aircraft/F-15/Models/Effects/f15test</inherits-from>
@@ -2129,7 +2189,7 @@
             <z>0.0</z>
         </axis>
     </animation>
-    <!-- should probably be Stewart & Stevenson Ground Power Unit Model TM4900D 
+    <!-- should probably be Stewart & Stevenson Ground Power Unit Model TM4900D
          or Hobart GPU 60CUa
     -->
     <model>
@@ -2212,7 +2272,7 @@
             </binding>
         </action>
     </animation>
-    
+
     <animation>
         <type>pick</type>
         <visible>false</visible>
@@ -2408,7 +2468,7 @@
             <blue-prop>/controls/lighting/instrument-blue</blue-prop>
         </emission>
     </animation>
-    
+
     <animation>
         <type>select</type>
         <object-name>CanopyLockShootLightLamp</object-name>
@@ -2424,7 +2484,7 @@
         </condition>
     </animation>
     <!-- The ready light comes on when the system is ready. We will do this when the door is open.
-         ref: NASA video https://www.youtube.com/watch?v=Wqo8DIKcYtk 
+         ref: NASA video https://www.youtube.com/watch?v=Wqo8DIKcYtk
      -->
     <animation>
         <type>select</type>
@@ -2513,7 +2573,6 @@
                 <property>payload/weight[0]/weight-lb</property>
                 <property>payload/weight[1]/weight-lb</property>
                 <property>payload/weight[2]/weight-lb</property>
-                <property>payload/weight[5]/weight-lb</property>
             </or>
         </condition>
     </animation>
@@ -2526,7 +2585,7 @@
             <or>
                 <equals>
                     <property>payload/weight[0]/selected</property>
-                    <value>AIM-9</value>
+                    <value>AIM-9L</value>
                 </equals>
                 <equals>
                     <property>payload/weight[0]/selected</property>
@@ -2546,7 +2605,7 @@
         <condition>
             <equals>
                 <property>payload/weight[0]/selected</property>
-                <value>AIM-9</value>
+                <value>AIM-9L</value>
             </equals>
         </condition>
     </animation>
@@ -2574,7 +2633,7 @@
         <condition>
             <equals>
                 <property>payload/weight[3]/selected</property>
-                <value>AIM-7</value>
+                <value>AIM-7M</value>
             </equals>
         </condition>
     </animation>
@@ -2585,7 +2644,7 @@
         <condition>
             <equals>
                 <property>payload/weight[4]/selected</property>
-                <value>AIM-7</value>
+                <value>AIM-7M</value>
             </equals>
         </condition>
     </animation>
@@ -2633,7 +2692,7 @@
             <or>
                 <equals>
                     <property>payload/weight[2]/selected</property>
-                    <value>AIM-9</value>
+                    <value>AIM-9L</value>
                 </equals>
                 <equals>
                     <property>payload/weight[2]/selected</property>
@@ -2653,7 +2712,7 @@
         <condition>
             <equals>
                 <property>payload/weight[2]/selected</property>
-                <value>AIM-9</value>
+                <value>AIM-9L</value>
             </equals>
         </condition>
     </animation>
@@ -2740,7 +2799,7 @@
             <or>
                 <equals>
                     <property>payload/weight[8]/selected</property>
-                    <value>AIM-9</value>
+                    <value>AIM-9L</value>
                 </equals>
                 <equals>
                     <property>payload/weight[8]/selected</property>
@@ -2760,7 +2819,7 @@
         <condition>
             <equals>
                 <property>payload/weight[8]/selected</property>
-                <value>AIM-9</value>
+                <value>AIM-9L</value>
             </equals>
         </condition>
     </animation>
@@ -2788,7 +2847,7 @@
         <condition>
             <equals>
                 <property>payload/weight[6]/selected</property>
-                <value>AIM-7</value>
+                <value>AIM-7M</value>
             </equals>
         </condition>
     </animation>
@@ -2799,7 +2858,7 @@
         <condition>
             <equals>
                 <property>payload/weight[7]/selected</property>
-                <value>AIM-7</value>
+                <value>AIM-7M</value>
             </equals>
         </condition>
     </animation>
@@ -2847,7 +2906,7 @@
             <or>
                 <equals>
                     <property>payload/weight[10]/selected</property>
-                    <value>AIM-9</value>
+                    <value>AIM-9L</value>
                 </equals>
                 <equals>
                     <property>payload/weight[10]/selected</property>
@@ -2867,7 +2926,7 @@
         <condition>
             <equals>
                 <property>payload/weight[10]/selected</property>
-                <value>AIM-9</value>
+                <value>AIM-9L</value>
             </equals>
         </condition>
     </animation>
@@ -2892,77 +2951,77 @@
     <animation>
         <type>select</type>
         <nopreview/>
-        <object-name>mk84-l</object-name>
+        <object-name>mk83-l</object-name>
         <condition>
             <equals>
                 <property>payload/weight[1]/selected</property>
-                <value>MK-84</value>
+                <value>MK-83</value>
             </equals>
         </condition>
     </animation>
     <animation>
         <type>select</type>
         <nopreview/>
-        <object-name>mk84-b1</object-name>
+        <object-name>mk83-b1</object-name>
         <condition>
             <equals>
                 <property>payload/weight[3]/selected</property>
-                <value>MK-84</value>
+                <value>MK-83</value>
             </equals>
         </condition>
     </animation>
     <animation>
         <type>select</type>
         <nopreview/>
-        <object-name>mk84-b2</object-name>
+        <object-name>mk83-b2</object-name>
         <condition>
             <equals>
                 <property>payload/weight[4]/selected</property>
-                <value>MK-84</value>
+                <value>MK-83</value>
             </equals>
         </condition>
     </animation>
     <animation>
         <type>select</type>
         <nopreview/>
-        <object-name>mk84-c</object-name>
+        <object-name>mk83-c</object-name>
         <condition>
             <equals>
                 <property>payload/weight[5]/selected</property>
-                <value>MK-84</value>
+                <value>MK-83</value>
             </equals>
         </condition>
     </animation>
     <animation>
         <type>select</type>
         <nopreview/>
-        <object-name>mk84-b3</object-name>
+        <object-name>mk83-b3</object-name>
         <condition>
             <equals>
                 <property>payload/weight[6]/selected</property>
-                <value>MK-84</value>
+                <value>MK-83</value>
             </equals>
         </condition>
     </animation>
     <animation>
         <type>select</type>
         <nopreview/>
-        <object-name>mk84-b4</object-name>
+        <object-name>mk83-b4</object-name>
         <condition>
             <equals>
                 <property>payload/weight[7]/selected</property>
-                <value>MK-84</value>
+                <value>MK-83</value>
             </equals>
         </condition>
     </animation>
     <animation>
         <type>select</type>
         <nopreview/>
-        <object-name>mk84-r</object-name>
+        <object-name>mk83-r</object-name>
         <condition>
             <equals>
                 <property>payload/weight[9]/selected</property>
-                <value>MK-84</value>
+                <value>MK-83</value>
             </equals>
         </condition>
     </animation>
