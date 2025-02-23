@@ -104,6 +104,7 @@ var update_ext_load = func(sender, state)
 			elsif ( str == "011") { o = "AIM-120D" }
 			elsif ( str == "100") { o = "MK-83" }
 			elsif ( str == "101") { o = "MK-84" }
+			elsif ( str == "111") { o = "LAU-68C" }
 			elsif ( str == "000") { o = "none" }
 			Station = Wnode.getChild ("station", s , 1);
 			Station.getNode("type", 1).setValue(o);

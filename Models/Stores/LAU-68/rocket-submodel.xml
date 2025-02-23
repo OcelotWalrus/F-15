@@ -4,7 +4,7 @@
 
 	<submodel>
 		<name>rocket splash</name>
-		<model>Aircraft/f16/Models/Armament/Weapons/LAU-68/rocket-explosion.xml</model>
+		<model>Aircraft/F-15/Models/Stores/LAU-68/rocket-explosion.xml</model>
 		<speed>0</speed>
 		<repeat>false</repeat>
 		<delay>0</delay>
@@ -21,7 +21,7 @@
                 <fuse-range>0</fuse-range>
 		<life>2</life>
 		<random>false</random>
-	</submodel> 
+	</submodel>
 
 
 </PropertyList>

@@ -64,6 +64,8 @@ Station =
                         prop.getParent().getNode("weight-lb").setValue(1014);
                         elsif (v == "MK-84")
                         prop.getParent().getNode("weight-lb").setValue(2039);
+						elsif (v == "LAU-68C")
+                        prop.getParent().getNode("weight-lb").setValue(90);
                         elsif (v == "Droptank")
                         {
                             prop.getParent().getNode("weight-lb").setValue(271);
@@ -110,6 +112,11 @@ Station =
         {
 			me.bcode = 4;
             me.xbcode = 2;
+		}
+		elsif ( t == "LAU-68C" )
+        {
+			me.bcode = 7;
+            me.xbcode = 7;
 		}
         elsif ( t == "Droptank" )
         {

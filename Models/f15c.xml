@@ -2103,6 +2103,19 @@
         </offsets>
     </model>
 
+    <model>
+        <name>lau68-l</name>
+        <path>Aircraft/F-15/Models/Stores/LAU-68/ter-9a.xml</path>
+    </model>
+    <model>
+        <name>lau68-c</name>
+        <path>Aircraft/F-15/Models/Stores/LAU-68/ter-9a.xml</path>
+    </model>
+    <model>
+        <name>lau68-r</name>
+        <path>Aircraft/F-15/Models/Stores/LAU-68/ter-9a.xml</path>
+    </model>
+
     <animation>
       <type>select</type>
       <object-name>mk84-l</object-name>

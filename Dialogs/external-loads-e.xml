@@ -1099,6 +1099,7 @@
                             <value>Droptank</value>
                             <value>MK-83</value>
                             <value>MK-84</value>
+                            <value>LAU-68C</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1201,6 +1202,7 @@
                             <value>Droptank</value>
                             <value>MK-83</value>
                             <value>MK-84</value>
+                            <value>LAU-68C</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1303,6 +1305,7 @@
                             <value>Droptank</value>
                             <value>MK-83</value>
                             <value>MK-84</value>
+                            <value>LAU-68C</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>

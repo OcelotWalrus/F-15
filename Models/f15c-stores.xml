@@ -429,6 +429,22 @@
     <animation>
         <type>select</type>
         <nopreview/>
+        <object-name>lau68-l</object-name>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>lau68-c</object-name>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>lau68-r</object-name>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <nopreview/>
         <object-name>mk83-l</object-name>
         <condition>
             <equals>

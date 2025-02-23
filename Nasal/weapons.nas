@@ -205,6 +205,8 @@ var missile_code_from_ident= func(mty)
             return "mk83";
         else if (mty == "MK-84")
             return "mk84";
+        else if (mty == "LAU-68C")
+            return "lau68";
         else if (mty == "AIM-120C")
             return "aim120c";
         else if (mty == "AIM-120D")
@@ -253,7 +255,7 @@ var update_sw_ready = func()
             }
             if (pylon >= 0)
             {
-                if (S.get_type() == "AIM-9L" or S.get_type() == "AIM-7M" or S.get_type() == "AIM-120C" or S.get_type() == "MK-83" or S.get_type() == "AIM-120D" or S.get_type() == "MK-84")
+                if (S.get_type() == "AIM-9L" or S.get_type() == "AIM-7M" or S.get_type() == "AIM-120C" or S.get_type() == "MK-83" or S.get_type() == "AIM-120D" or S.get_type() == "MK-84" or S.get_type() == "LAU-68C")
                 {
                     print(S.get_type()," new !! ", pylon, " sel_missile_count - 1 = ", sel_missile_count - 1);
                     if (WeaponSelector.getValue() == 1) {

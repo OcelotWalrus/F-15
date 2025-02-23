@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+  
+<PropertyList> 
+
+    <path>Aircraft/f16/Models/Stores/Racks/TER-9A/TER-9A.xml</path>
+
+    <offsets>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.014</z-m>
+      <pitch-deg>0</pitch-deg>
+    </offsets>
+
+    <model>
+      <name>Station3_LAU68_left</name>
+      <path>Aircraft/f16/Models/Armament/Weapons/LAU-68/LAU-68-l.xml</path>
+      <offsets>
+        <x-m>2</x-m>
+        <y-m>-3.8</y-m>
+        <z-m>-0.07</z-m>
+        <pitch-deg>0</pitch-deg>
+        <roll-deg>00</roll-deg>
+      </offsets>
+    </model>
+
+    <model>
+      <name>Station3_LAU68_center</name>
+      <path>Aircraft/f16/Models/Armament/Weapons/LAU-68/LAU-68-c.xml</path>
+      <offsets>
+        <x-m>1.2</x-m>
+        <y-m>0</y-m>
+        <z-m>-1.1</z-m>
+        <pitch-deg>0</pitch-deg>
+      </offsets>
+    </model>
+    
+    <model>
+      <name>Station3_LAU68_right</name>
+      <path>Aircraft/f16/Models/Armament/Weapons/LAU-68/LAU-68-r.xml</path>
+      <offsets>
+        <x-m>2</x-m>
+        <y-m>3.8</y-m>
+        <z-m>-0.07</z-m>
+        <pitch-deg>0</pitch-deg>
+      </offsets>
+    </model>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Station3_LAU68_left</object-name>
+        <factor>0</factor>
+        <offset-deg>-45</offset-deg>
+        <center>
+          <x-m>-0.1</x-m>
+          <y-m>-0.285</y-m>
+          <z-m>-0.1</z-m>
+        </center>
+        <axis>
+          <x>1</x>
+          <y>0</y>
+          <z>0</z>
+        </axis>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>Station3_LAU68_right</object-name>
+        <factor>0</factor>
+        <offset-deg>-45</offset-deg>
+        <center>
+          <x-m>-0.1</x-m>
+          <y-m>-0.285</y-m>
+          <z-m>-0.1</z-m>
+        </center>
+        <axis>
+          <x>1</x>
+          <y>0</y>
+          <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+      <type>select</type>
+      <object-name>Station3_LAU68_left</object-name>
+      <condition>
+        <equals>
+          <property>payload/weight[1]/selected</property>
+          <value>LAU-68C</value>
+        </equals>
+      </condition>
+     </animation>
+
+     <animation>
+      <type>select</type>
+      <object-name>Station3_LAU68_center</object-name>
+      <condition>
+        <equals>
+          <property>payload/weight[5]/selected</property>
+          <value>LAU-68C</value>
+        </equals>
+      </condition>
+     </animation>
+     
+     <animation>
+      <type>select</type>
+      <object-name>Station3_LAU68_right</object-name>
+      <condition>
+        <equals>
+          <property>payload/weight[9]/selected</property>
+          <value>LAU-68C</value>
+        </equals>
+      </condition>
+     </animation>
+
+</PropertyList> 

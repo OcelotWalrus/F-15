@@ -111,6 +111,16 @@ var MPCD_Station =
                 }
                 else mode = "AG";
             }
+			elsif (na == "LAU-68C") {
+                na = "LAU68";
+                if (weapon_mode == 5)
+                {
+                    sel = getprop(sel_node);
+                    if (sel and master_arm)
+                        mode = "RDY";
+                }
+                else mode = "AG";
+            }
             elsif (na == "AIM-7M")
             {
                 na = "7M";
@@ -216,6 +226,16 @@ var MPCD_GroundStation =
                         mode = "RDY";
                 }
                 else mode = "AG";
+			} elsif (na == "LAU-68C")
+               {
+                   na = "LAU68";
+                   if (weapon_mode == 5)
+                   {
+                       sel = getprop(sel_node);
+                       if (sel and master_arm)
+                           mode = "RDY";
+                   }
+                   else mode = "AG";
             } else {
                 mode = "";
                 na = "";
