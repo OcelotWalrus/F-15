@@ -269,8 +269,17 @@ var update_sw_ready = func()
                         armament.AIM.new(pylon, S.get_type(), S.get_type());
                         Current_mrm = armament.AIM.active[pylon];
                     } elsif (WeaponSelector.getValue() == 5) {
-                        armament.AIM.new(pylon, S.get_type(), S.get_type());
-                        Current_mk84 = armament.AIM.active[pylon];
+                        if (S.get_type != "CBU-87") {
+                            armament.AIM.new(pylon, S.get_type(), S.get_type());
+                            Current_mk84 = armament.AIM.active[pylon];
+                        } else {
+                            if (getprop("payload/weight["~Current_missile.ID~"]/count") < 1) {
+                                print("Cannot select weapon: rack is empty");
+                            } else {
+                                armament.AIM.new(pylon, S.get_type(), S.get_type());
+                                Current_mk84 = armament.AIM.active[pylon];
+                            }
+                        }
                     }
                 }
                 else
@@ -323,6 +332,9 @@ var release_bomb = func()
 	if (Current_missile != nil) {
 	    if (Current_missile == Current_mk84 and getprop("payload/weight["~Current_missile.ID~"]/selected") != "none") {
 	        Current_missile.status = 1; # set status manually here for dumb bombs
+	    }
+	    if (getprop("payload/weight["~Current_missile.ID~"]/selected") == "CBU-87" and getprop("payload/weight["~Current_missile.ID~"]/count") < 1) {
+	        Current_missile.status = 0; # reset to à cuz there's no more ammo in the rack
 	    }
         print("RELEASE MISSILE status: ", Current_missile.status);
 		# Set the pylon empty
