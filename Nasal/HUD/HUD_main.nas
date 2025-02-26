@@ -258,8 +258,9 @@ obj.dlzY = 70;
                                                                          obj.VV_y = (val.Alpha or 0)*10; # adjust for view
                                                                          obj.VV.setTranslation (obj.VV_x, obj.VV_y);
 
-																		 bomb_type = getprop("sim/model/f15/systems/armament/selected-bomb");
-																		 if (bomb_type != "none") {
+																		 bomb_type = getprop("sim/model/f15/systems/armament/selected-arm");
+																		 print(bomb_type);
+																		 if (bomb_type == "MK-83" or bomb_type == "MK-84" or bomb_type == "CBU-87" or bomb_type == "CBU-105" or bomb_type == "B61-12") {
 
 	                                                                         # Update pos shit, taken from the FG F-16 model
 	                                                                         gpsCoord = armament.AIM.getCCIPadv(18,0.20,bomb_type);
@@ -409,8 +410,11 @@ obj.dlzY = 70;
                                                                          if (val.ControlsArmamentMasterArmSwitch) {
                                                                              var w_s = val.ControlsArmamentWeaponSelector;
                                                                              obj.window2.setVisible(1);
-                                                                             obj.window11.setVisible(0);
+                                                                             obj.window11.setVisible(1);
                                                                              obj.crosshair.setVisible(0);
+                                                                             weapon_type = getprop("sim/model/f15/systems/armament/selected-arm");
+                                                                             obj.window11.setText(weapon_type);
+                                                                             obj.BV.setVisible(0);
                                                                              if (w_s == 0) {
                                                                                  obj.window2.setText(sprintf("%3d",val.ArmamentRounds));
                                                                                  obj.crosshair.setVisible(1);
@@ -449,9 +453,6 @@ obj.dlzY = 70;
                                                                                  }
                                                                                  else {
                                                                                     obj.cross1.setVisible(0);
-                                                                                    obj.window11.setVisible(1);
-																					#weapon_type = getprop("payload/weight[~"getprop("sim/model/f15/systems/armament/selected-bomb")"~]/selected");
-                                                                                    #obj.window11.setText(weapon_type);
                                                                                     obj.BV.setVisible(1);
                                                                                     if (getprop("controls/gear/gear-down")) {
                                                                                         obj.window12.setText("GROUND");

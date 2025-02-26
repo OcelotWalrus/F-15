@@ -2227,7 +2227,7 @@
         <name>cbu-87-r1</name>
         <path>Aircraft/F-15/Models/Stores/CBU-87/ter-9a-6.xml</path>
         <offsets>
-             <x-m>3.65</x-m>
+             <x-m>0</x-m>
              <y-m>1.25</y-m>
              <z-m>-0.75</z-m>
              <pitch-deg>1.5</pitch-deg>
@@ -2237,7 +2237,7 @@
         <name>cbu-87-r2</name>
         <path>Aircraft/F-15/Models/Stores/CBU-87/ter-9a-7.xml</path>
         <offsets>
-             <x-m>0</x-m>
+             <x-m>3.65</x-m>
              <y-m>1.25</y-m>
              <z-m>-0.82</z-m>
         </offsets>

@@ -870,7 +870,7 @@
                 </instrumentation>
                 <systems>
                     <armament>
-                        <selected-bomb>none</selected-bomb>
+                        <selected-arm>none</selected-arm>
                         <mp-messaging type="bool">false</mp-messaging>
                         <aim9>
                             <count type="int">0</count>
@@ -2372,7 +2372,7 @@
                 <weight-fuel-lbm type="double"> 0 </weight-fuel-lbm>
                 <drag-coeff type="double">0.125</drag-coeff>
                 <cross-section-sqft type="double">1.1722</cross-section-sqft>
-                <arming-time-sec type="double">3</arming-time-sec>
+                <arming-time-sec type="double">900</arming-time-sec>
                 <min-speed-for-guiding-mach type="double">0</min-speed-for-guiding-mach>
                 <self-destruct-time-sec type="double">900</self-destruct-time-sec>
                 <all-aspect type="bool">true</all-aspect>

@@ -125,10 +125,11 @@ var armament_update = func {
 		#set_status_current_aim9(-1);
 	}
 
-    if (Current_mk84 == Current_missile and Current_missile != nil) {
-        setprop("sim/model/f15/systems/armament/selected-bomb", getprop("payload/weight["~Current_mk84.ID~"]/selected"));
-    } else {
-        setprop("sim/model/f15/systems/armament/selected-bomb", "none");
+    if (Current_missile != nil) {
+        setprop("sim/model/f15/systems/armament/selected-arm", getprop("payload/weight["~Current_missile.ID~"]/selected"));
+    }
+    if (WeaponSelector.getValue() == 0) {
+        setprop("sim/model/f15/systems/armament/selected-arm", "M61A1");
     }
 
     if (WeaponSelector.getValue() == 5) {
@@ -191,6 +192,7 @@ var fire_gun = func {
 		print(new_gcount);
 		settimer(fire_gun, 0.1);
 	}
+	armament_update();
 }
 
 var missile_code_from_ident= func(mty)
@@ -350,6 +352,8 @@ var release_bomb = func()
         if (getprop(current_pylon) != "CBU-87") {
     		setprop(current_pylon,"none");
         } else {
+            code_id = missile_code_from_ident(getprop(current_pylon));
+            setprop("sim/model/f15/systems/armament/"~code_id~"/count",getprop("sim/model/f15/systems/armament/"~code_id~"/count") - 1);
             setprop(current_count, getprop(current_count) - 1);
             setprop(current_weight, getprop(current_count) * getprop("payload/armament/"~missile_id~"/weight-launch-lbs"));
             if (getprop(current_weight) == 0) {
