@@ -71,6 +71,8 @@ Station =
                         prop.getParent().getNode("weight-lb").setValue(2039);
                         elsif (v == "CBU-105")
                         prop.getParent().getNode("weight-lb").setValue(934);
+						elsif (v == "B61-12")
+                        prop.getParent().getNode("weight-lb").setValue(775);
                         elsif (v == "CBU-87")
                         prop.getParent().getNode("weight-lb").setValue(934 * getprop("payload/weight["~obj.index~"]/count"));
 						elsif (v == "LAU-68C")
@@ -124,6 +126,11 @@ Station =
             me.xbcode = 2;
 		}
 		elsif ( t == "CBU-105" )
+        {
+			me.bcode = 4;
+            me.xbcode = 2;
+		}
+		elsif ( t == "B61-12" )
         {
 			me.bcode = 4;
             me.xbcode = 2;
@@ -485,6 +492,7 @@ var update_weapons_over_mp = func
         var mk83_count = 0;
 		var cbu105_count = 0;
 		var cbu87_count = 0;
+		var b61count = 0;
 
         update_wp_next = cur_time + update_wp_frequency_s;
         update_wp_requested = false;
@@ -514,10 +522,12 @@ var update_weapons_over_mp = func
                 mk84_count = mk84_count+1;
             elsif (S.get_type() == "CBU-105")
                 cbu105_count = cbu105_count+1;
+            elsif (S.get_type() == "B61-12")
+                b61count = b61count+1;
             elsif (S.get_type() == "CBU-87")
                 cbu87_count = cbu87_count + getprop("payload/weight["~S.index~"]/count");
         }
-        #print("count ",aim9_count, aim7_count, aim120c_count, aim120d_count, mk83_count, mk84_count, cbu105_count, cbu87_count);
+        #print("count ",aim9_count, aim7_count, aim120c_count, aim120d_count, mk83_count, mk84_count, cbu105_count, cbu87_count, b61count);
         setprop("sim/model/f15/systems/armament/aim9/count",aim9_count);
         setprop("sim/model/f15/systems/armament/aim7/count",aim7_count);
         setprop("sim/model/f15/systems/armament/aim120c/count",aim120c_count);
@@ -526,6 +536,7 @@ var update_weapons_over_mp = func
         setprop("sim/model/f15/systems/armament/mk84/count",mk84_count);
         setprop("sim/model/f15/systems/armament/cbu105/count",cbu105_count);
         setprop("sim/model/f15/systems/armament/cbu87/count",cbu87_count);
+        setprop("sim/model/f15/systems/armament/b6112/count",b61count);
 
         var set = WeaponsSet.getValue();
         b_wpstring = b_wpstring;

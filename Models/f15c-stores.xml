@@ -441,6 +441,18 @@
             </equals>
         </condition>
     </animation>
+    
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>b61-12-c</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[5]/selected</property>
+                <value>B61-12</value>
+            </equals>
+        </condition>
+    </animation>
 
     <animation>
         <type>select</type>

@@ -207,6 +207,8 @@ var missile_code_from_ident= func(mty)
             return "mk84";
         else if (mty == "CBU-105")
             return "cbu105";
+        else if (mty == "B61-12")
+            return "b6112";
         else if (mty == "CBU-87")
             return "cbu87";
         else if (mty == "LAU-68C")
@@ -221,7 +223,7 @@ var get_sel_missile_count = func()
         if (WeaponSelector.getValue() == 5)
         {
             Current_missile = Current_mk84;
-            return getprop("sim/model/f15/systems/armament/mk83/count") + getprop("sim/model/f15/systems/armament/mk84/count") + getprop("sim/model/f15/systems/armament/cbu105/count") + getprop("sim/model/f15/systems/armament/cbu87/count");
+            return getprop("sim/model/f15/systems/armament/mk83/count") + getprop("sim/model/f15/systems/armament/mk84/count") + getprop("sim/model/f15/systems/armament/cbu105/count") + getprop("sim/model/f15/systems/armament/cbu87/count") + getprop("sim/model/f15/systems/armament/b6112/count");
         }
         else if (WeaponSelector.getValue() == 1)
         {
@@ -259,7 +261,7 @@ var update_sw_ready = func()
             }
             if (pylon >= 0)
             {
-                if (S.get_type() == "AIM-9L" or S.get_type() == "AIM-7M" or S.get_type() == "AIM-120C" or S.get_type() == "MK-83" or S.get_type() == "AIM-120D" or S.get_type() == "MK-84" or S.get_type() == "LAU-68C" or S.get_type() == "CBU-105" or S.get_type() == "CBU-87")
+                if (S.get_type() == "AIM-9L" or S.get_type() == "AIM-7M" or S.get_type() == "AIM-120C" or S.get_type() == "MK-83" or S.get_type() == "AIM-120D" or S.get_type() == "MK-84" or S.get_type() == "LAU-68C" or S.get_type() == "CBU-105" or S.get_type() == "CBU-87" or S.get_type() == "B61-12")
                 {
                     print(S.get_type()," new !! ", pylon, " sel_missile_count - 1 = ", sel_missile_count - 1);
                     if (WeaponSelector.getValue() == 1) {
@@ -677,4 +679,3 @@ var flareLoop = func {
 };
 
 flareLoop();
-

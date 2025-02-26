@@ -416,6 +416,21 @@
                 <splash type="bool">true</splash>
                 <path>Previews/custom crap/040.png</path>
             </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/041.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/042.png</path>
+            </preview>
+            <preview>
+                <type>exterior</type>
+                <splash type="bool">true</splash>
+                <path>Previews/custom crap/043.png</path>
+            </preview>
         </previews>
         <startup>
             <splash-texture>Aircraft/F-15/f15bs-splash.jpg</splash-texture>

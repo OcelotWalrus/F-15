@@ -2102,6 +2102,16 @@
             <z-m>-0.07</z-m>
         </offsets>
     </model>
+    
+    <model>
+        <name>b61-12-c</name>
+        <path>Aircraft/F-15/Models/Stores/B61-12/B61-12.xml</path>
+        <offsets>
+             <x-m>1.2</x-m>
+             <y-m>0</y-m>
+             <z-m>-1</z-m>
+        </offsets>
+    </model>
 
     <model>
         <name>cbu-105-l</name>
@@ -2273,6 +2283,17 @@
           <equals>
               <property>payload/weight[9]/selected</property>
               <value>MK-84</value>
+          </equals>
+      </condition>
+    </animation>
+    
+    <animation>
+      <type>select</type>
+      <object-name>b61-12-c</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[5]/selected</property>
+              <value>B61-12</value>
           </equals>
       </condition>
     </animation>

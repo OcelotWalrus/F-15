@@ -121,6 +121,16 @@ var MPCD_Station =
                 }
                 else mode = "AG";
             }
+			elsif (na == "B61-12") {
+                na = "B61";
+                if (weapon_mode == 5)
+                {
+                    sel = getprop(sel_node);
+                    if (sel and master_arm)
+                        mode = "RDY";
+                }
+                else mode = "AG";
+            }
 			elsif (na == "CBU-87") {
                 na = "CBU87";
                 if (weapon_mode == 5)
@@ -256,6 +266,16 @@ var MPCD_GroundStation =
 	                        mode = "RDY";
 	                }
 	                else mode = "AG";
+			} elsif (na == "B61-12")
+		        {
+		            na = "B61";
+		            if (weapon_mode == 5)
+		            {
+		                sel = getprop(sel_node);
+		                if (sel and master_arm)
+		                    mode = "RDY";
+		            }
+		            else mode = "AG";
 			} elsif (na == "CBU-87")
 		        {
 		            na = "CBU87";
@@ -793,7 +813,7 @@ var MPCD_Device =
             } else if (me.w_s == 2) {
                 me.root.infoArm.setText(sprintf("A%dB\nM%dF", getprop("sim/model/f15/systems/armament/aim120c/count") + getprop("sim/model/f15/systems/armament/aim120d/count"), getprop("sim/model/f15/systems/armament/aim7/count")));
             } else if (me.w_s == 5) {
-                me.root.infoArm.setText(sprintf("G%d", getprop("sim/model/f15/systems/armament/mk83/count") + getprop("sim/model/f15/systems/armament/mk84/count") + getprop("sim/model/f15/systems/armament/cbu105/count") + getprop("sim/model/f15/systems/armament/cbu87/count")));
+                me.root.infoArm.setText(sprintf("G%d", getprop("sim/model/f15/systems/armament/mk83/count") + getprop("sim/model/f15/systems/armament/mk84/count") + getprop("sim/model/f15/systems/armament/cbu105/count") + getprop("sim/model/f15/systems/armament/cbu87/count") + getprop("sim/model/f15/systems/armament/b6112/count")));
             }
             me.root.cone.removeAllChildren();
             if (getprop("sim/multiplay/generic/int[2]") != 1) {

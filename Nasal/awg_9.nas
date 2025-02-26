@@ -358,7 +358,7 @@ var az_scan = func() {
                     continue;
                 }
                 if (type == "multiplayer" or type == "tanker" or type == "aircraft"
-                    or type == "ship" or type == "groundvehicle" or type == "aim-120c" or type == "aim-7" or type == "aim-9" or type == "aim-120d" or type == "mk-83" or type == "mk-84" or type == "lau-68" or type == "cbu-105" or type == "cbu-87") 
+                    or type == "ship" or type == "groundvehicle" or type == "aim-120c" or type == "aim-7" or type == "aim-9" or type == "aim-120d" or type == "mk-83" or type == "mk-84" or type == "lau-68" or type == "cbu-105" or type == "cbu-87" or type == "b61-12") 
                 {
                     append(tgts_list, Target.new(c));
                 }

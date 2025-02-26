@@ -396,6 +396,7 @@ obj.dlzY = 70;
                                                                       "ArmamentMk84Count",
                                                                       "ArmamentCbu105Count",
 																	  "ArmamentCbu87Count",
+																	  "ArmamentB61Count",
                                                                       "RadarActiveTargetAvailable",
                                                                       "RadarActiveTargetDisplay",
                                                                       "RadarActiveTargetCallsign",
@@ -439,8 +440,8 @@ obj.dlzY = 70;
                                                                                     obj.cross1.setVisible(0);
                                                                                  }
                                                                              } else if (w_s == 5){
-                                                                                 obj.window2.setText(sprintf("G%2d", val.ArmamentMk83Count + val.ArmamentMk84Count + val.ArmamentCbu105Count + val.ArmamentCbu87Count));
-                                                                                 if (val.ArmamentMk83Count + val.ArmamentMk84Count + val.ArmamentCbu105Count + val.ArmamentCbu87Count == 0) {
+                                                                                 obj.window2.setText(sprintf("G%2d", val.ArmamentMk83Count + val.ArmamentMk84Count + val.ArmamentCbu105Count + val.ArmamentCbu87Count + val.ArmamentB61Count));
+                                                                                 if (val.ArmamentMk83Count + val.ArmamentMk84Count + val.ArmamentCbu105Count + val.ArmamentCbu87Count + val.ArmamentB61Count == 0) {
                                                                                     obj.cross1.setVisible(1);
                                                                                     obj.cross1.setText("------");
                                                                                     obj.BV.setVisible(0);
@@ -751,7 +752,8 @@ input = {
         ArmamentAim9Count                       : "sim/model/f15/systems/armament/aim9/count",
         ArmamentAim120DCount                    : "sim/model/f15/systems/armament/aim120d/count",
 		ArmamentCbu105Count                     : "sim/model/f15/systems/armament/cbu105/count",
-		ArmamentCbu87Count                     : "sim/model/f15/systems/armament/cbu87/count",
+		ArmamentCbu87Count                      : "sim/model/f15/systems/armament/cbu87/count",
+		ArmamentB61Count                        : "sim/model/f15/systems/armament/b6112/count",
         ArmamentRounds                          : "sim/model/f15/systems/gun/rounds",
         AutopilotRouteManagerActive             : "autopilot/route-manager/active",
         AutopilotRouteManagerWpDist             : "autopilot/route-manager/wp/dist",

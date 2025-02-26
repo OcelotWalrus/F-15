@@ -4,62 +4,26 @@ CROMHⒶ'S HERE
 
 NOTE: **This repository is simply for myself so stay out, unless you're interested in my dookie F-15.**
 
-My project is to add more of nice shit, by inspiring from other flight gear aircraft cuz I ain't very productive at making shit from myself that I don't really know a thing about so it's mainly copying and tweaking. This has for goal to add more effects to the model, and cleaner it (if to cleaner even exists as a word), but mainly add the F-15E (maybe it'll keep the same cockpit model idk) variant so air/ground actually works, add more rounds capacity to the gun (current is 675 and F-15E is 940), make so that MK-84s can be stocked in three, so that the bombs capacity is tripled (from 3 to 9). Probably some other shit too as upgrading the engines.
+This project aims to enhance the already-existing F-15C and D models originally made by Richard Harrison and other various contributors. But, the main aim is to develop the F-15E model from that already-existing model, only changing the cockpit's model, being extremely different from the F-15C, but also add as much as weapons as the F-16 FlightGear model, develop A/G operations by adding more bombs types, racks and etc. The development of the MPCD (multi-page control display), the TWS radar display (for example use different symbols for unknown objects or missiles etc.), the HUD (adding modes and more useful info). The creation of a very detailed PDF manual is also under development.
 
-So what's actually been done for now?
+For now, what's been done is:
 
-* Added new liveries:
-  - 162nd Fighter Wing
-  - 162nd Fighter Wing (Black)
-  - 162nd Fighter Wing (Zebra)
-  - 75th Anniversary
-  - 65Th Flanker
-  - JASDF 305th Nyutabaru Air Show
-  - 55 23rd Flying Tigers
-* Added the F-100-PW-229 to the F-15E variant, other variants keep the older F-100-PW-220
-* Added mach cone, strake and G vortex vapor effects (taken from the dear flight gear F-16 model) (may be up for some tweaking (some day))
-* Updated the flares' effect (using F-16's ones)
-* Added some more cool preview screenshots cuz why not
-* Made the CFTs a parameter instead of it being controlled by the selected livery.
-* Added the ability to change the smoke generator's color and added a keybind to toggle it outside the ground services dialog
-* Fixed the gun smoke's offset (was in the nose of the plane, and not actually where the gatling gun is)
-* Modified the "reload gun" button in fuel and storage to make it also reload flares and chaffs
-* Made the release flare/chaff keybind toggle release instead of just releasing once
-* Display the amount of gun rounds and countermeasures in the fuel and payload dialog crap
-* Added a gun outta-ammo sound effect
-* Replaced the sound effects for the flare, so it's no longer a voice saying "flare", and reused the gun outta-ammo sound effect for the flare outta-ammo sound effect
-* On the HUD, cross the selected armament if it's outta ammo
-* Added the F-15E variant
-* Modified the HUD to contain airpseed in kts and G force
-* Added an AIM-120D missile only available for the F-15E (higher range and capabilities than the AIM-120, but can't be used in close range fight cuz of its 10nm minimal range)
-* Updated the HUD to display a cannon crosshair
-* Allowed the possibility to set custom load for gun, flares and chaffs, using cool slides
-* Implemented simulation of `MINIMAL`, `FLARES` and `CHAFFS` red signal near already-working `CANOPY` signal. `MINIMAL` will set on when either flares of chaffs each own level is lower than 35 (max is 120 each). `FLARES` will set on when flares are getting dumped, as well as `CHAFFS` but for chaffs
-* You can now customize the fuel and payload directly in the F-15 fuel and stores menu, instead of having to go to the fuel and payload in equipment tab
-* Fixed liveries whose nose was fucked up
-* Upgraded the fuel and payload panel by renaming it to F-15 Eagle Configuration Panel and merging ground services into it, as well as lighting config
-* Renamed the AIM-120 to AIM-120C as it's actually the C variant
-* Changed some missiles' weight and other statistics to be more realistic
-* Allowed MK-84s to be installed on the conformal body stations (only for the F-15E variant)
-
-So I've got in my small mind:
-
-* Add even more funky and cool liveries
-* Make ejection possible
-* Simulate engine fire (a red light warning on the top left only works for now, telling the temperature is too high), so that if one engine's temperature is too high for too long, a fire starts, and make so that the player can extinguish the fire like in real life.
-* Implement A/G mechanics
-* Enhance the radar canvas using DCS F-15's
-* Make a manual as much detailed as DCS's one
-* Make an actual gun crosshair with all the crap and stuff
-* Differentiate flares and chaffs in the systems
-* Add the other AIM missiles variants (AIM-4, AIM-26, AIM-132, AIM-47, AIM-174)
-* Add A/G missiles
-* Simulate all MPCD pages
-* Add some Datalink crap like in the F16 to recognize friendly aircraft
-* Use different shapes for missiles in the radar, so the player can differentiate them from aircraft
-* Don't allow flares to be fired when cold and dark
-* Enhance the cockpit's textures to be complete HD
-* Add more different bombs
+- The creation of the E variant (cockpit model is still old F-15C)
+- The enhancement of the C variant cockpit (added simulation of chaff/flare release and low ammo lights, engine flame out oral warning + lights with a system)
+- The implementation of A/G unguided operations (CCIP) and racks as well
+- The addition of new A/A missiles: AIM-9M, AIM-9X (only E variant), and the AIM-120D (only E variant)
+- The addition of new A/G bombs: MK-83, MK-82, CBU-87, CBU-105 (only E variant), and B61-12
+- The addition of misc weapons: LAU-68C
+- The addition of more aerodynamic effects such as mach cone or strake and G vortex
+- The polishing of already-existing effects
+- The addition of new real-life and fictional liveries
+- The complete overhaul of the in-game F-15 GUI by centralizing controls into the F-15 Eagle Configuration Panel, allow the control of fuel, conformal tanks, different parts' damage, ground services, smoke pods' color, pilot helmet sound proofing, selection of pre-made loads setup or customization of every hardpoint, custom load of gun rounds and flares/chaffs, and useful info on the current F-15 setup
+- The polishing of very various sound effects (gun, flares etc.)
+- Enhanced the no-mode HUD to have clearer calibrated speed shown, as well as ground speed with it, current G load, and its max, AOA, clearer current altitude
+- For the A/G mode, added the pipper if CCIP is online
+- For general attack mode, display the currently selected weapon type
+- Fixed liveries whose nose was bugged
+- Tweaked some missiles statistics to fit more realistic scenarios (or not)
 
 ---
 ORIGINAL TEXT
