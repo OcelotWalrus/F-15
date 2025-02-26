@@ -342,11 +342,17 @@ var release_bomb = func()
         # of the bombs in it
 		var current_pylon = "payload/weight["~Current_missile.ID~"]/selected";
         var current_count = "payload/weight["~Current_missile.ID~"]/count";
+        var current_weight = "payload/weight["~Current_missile.ID~"]/weight-lb";
+        var missile_id = string.lc(getprop(current_pylon));
         print("Release ",current_pylon);
         if (getprop(current_pylon) != "CBU-87") {
     		setprop(current_pylon,"none");
         } else {
             setprop(current_count, getprop(current_count) - 1);
+            setprop(current_weight, getprop(current_count) * getprop("payload/armament/"~missile_id~"/weight-launch-lbs"));
+            if (getprop(current_weight) == 0) {
+                setprop(current_pylon,"none"); # remove the rack if no more bombs are loaded
+            }
         }
         print("currently ",getprop(current_pylon));
 		armament_update();

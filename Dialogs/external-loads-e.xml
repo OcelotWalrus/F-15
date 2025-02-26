@@ -1085,6 +1085,15 @@
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
+                            <binding>
+                                <command>nasal</command>
+                                <script>
+                                if (getprop("payload/weight[0]/selected") == "CBU-87") {
+                                    setprop("payload/weight[0]/count", 3);
+                                    setprop("payload/weight[0]/weight-lb", 950*3);
+                                }
+                                </script>
+                            </binding>
                         </combo>
                         <text>
                             <property>payload/weight[0]/weight-lb</property>
@@ -1113,6 +1122,15 @@
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
+                            <binding>
+                                <command>nasal</command>
+                                <script>
+                                if (getprop("payload/weight[1]/selected") == "CBU-87") {
+                                    setprop("payload/weight[1]/count", 3);
+                                    #setprop("payload/weight[1]/weight-lb", 950*3);
+                                }
+                                </script>
+                            </binding>
                         </combo>
                         <text>
                             <property>payload/weight[1]/weight-lb</property>
@@ -1138,6 +1156,15 @@
                             <value>CBU-105</value>
                             <binding>
                                 <command>dialog-apply</command>
+                            </binding>
+                            <binding>
+                                <command>nasal</command>
+                                <script>
+                                if (getprop("payload/weight[2]/selected") == "CBU-87") {
+                                    setprop("payload/weight[2]/count", 3);
+                                    setprop("payload/weight[2]/weight-lb", 950*3);
+                                }
+                                </script>
                             </binding>
                         </combo>
                         <text>
@@ -1166,6 +1193,15 @@
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
+                            <binding>
+                                <command>nasal</command>
+                                <script>
+                                if (getprop("payload/weight[3]/selected") == "CBU-87") {
+                                    setprop("payload/weight[3]/count", 3);
+                                    setprop("payload/weight[3]/weight-lb", 950*3);
+                                }
+                                </script>
+                            </binding>
                         </combo>
                         <text>
                             <property>payload/weight[3]/weight-lb</property>
@@ -1192,6 +1228,15 @@
                             <value>CBU-87</value>
                             <binding>
                                 <command>dialog-apply</command>
+                            </binding>
+                            <binding>
+                                <command>nasal</command>
+                                <script>
+                                if (getprop("payload/weight[4]/selected") == "CBU-87") {
+                                    setprop("payload/weight[4]/count", 3);
+                                    setprop("payload/weight[4]/weight-lb", 950*3);
+                                }
+                                </script>
                             </binding>
                         </combo>
                         <text>
@@ -1221,6 +1266,15 @@
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
+                            <binding>
+                                <command>nasal</command>
+                                <script>
+                                if (getprop("payload/weight[5]/selected") == "CBU-87") {
+                                    setprop("payload/weight[5]/count", 3);
+                                    setprop("payload/weight[5]/weight-lb", 950*3);
+                                }
+                                </script>
+                            </binding>
                         </combo>
                         <text>
                             <property>payload/weight[5]/weight-lb</property>
@@ -1247,6 +1301,15 @@
                             <value>CBU-87</value>
                             <binding>
                                 <command>dialog-apply</command>
+                            </binding>
+                            <binding>
+                                <command>nasal</command>
+                                <script>
+                                if (getprop("payload/weight[6]/selected") == "CBU-87") {
+                                    setprop("payload/weight[6]/count", 3);
+                                    setprop("payload/weight[6]/weight-lb", 950*3);
+                                }
+                                </script>
                             </binding>
                         </combo>
                         <text>
@@ -1275,6 +1338,15 @@
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
+                            <binding>
+                                <command>nasal</command>
+                                <script>
+                                if (getprop("payload/weight[7]/selected") == "CBU-87") {
+                                    setprop("payload/weight[7]/count", 3);
+                                    setprop("payload/weight[7]/weight-lb", 950*3);
+                                }
+                                </script>
+                            </binding>
                         </combo>
                         <text>
                             <property>payload/weight[7]/weight-lb</property>
@@ -1300,6 +1372,15 @@
                             <value>CBU-105</value>
                             <binding>
                                 <command>dialog-apply</command>
+                            </binding>
+                            <binding>
+                                <command>nasal</command>
+                                <script>
+                                if (getprop("payload/weight[8]/selected") == "CBU-87") {
+                                    setprop("payload/weight[8]/count", 3);
+                                    setprop("payload/weight[8]/weight-lb", 950*3);
+                                }
+                                </script>
                             </binding>
                         </combo>
                         <text>
@@ -1329,6 +1410,15 @@
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
+                            <binding>
+                                <command>nasal</command>
+                                <script>
+                                if (getprop("payload/weight[9]/selected") == "CBU-87") {
+                                    setprop("payload/weight[9]/count", 3);
+                                    setprop("payload/weight[9]/weight-lb", 950*3);
+                                }
+                                </script>
+                            </binding>
                         </combo>
                         <text>
                             <property>payload/weight[9]/weight-lb</property>
@@ -1354,6 +1444,15 @@
                             <value>CBU-105</value>
                             <binding>
                                 <command>dialog-apply</command>
+                            </binding>
+                            <binding>
+                                <command>nasal</command>
+                                <script>
+                                if (getprop("payload/weight[10]/selected") == "CBU-87") {
+                                    setprop("payload/weight[10]/count", 3);
+                                    setprop("payload/weight[10]/weight-lb", 950*3);
+                                }
+                                </script>
                             </binding>
                         </combo>
                         <text>

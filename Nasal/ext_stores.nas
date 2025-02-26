@@ -51,7 +51,7 @@ Station =
 # set listener to detect when stores changed and update
 		setlistener("payload/weight["~obj.index~"]/count", func(){
 						if (getprop("payload/weight["~obj.index~"]/selected") == "CBU-87") {
-							prop.getParent().getNode("weight-lb").setValue(934 * getprop("payload/weight["~obj.index~"]/count"));
+							setprop("payload/weight["~obj.index~"]/weight-lb", 934 * getprop("payload/weight["~obj.index~"]/count"));
 						}
 					},0,0);
         setlistener("payload/weight["~obj.index~"]/selected", func(prop){
