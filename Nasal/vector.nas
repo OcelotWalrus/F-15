@@ -152,7 +152,7 @@ var Math = {
         me.d12 = coord1.direct_distance_to(coord2);
         me.coord3 = geo.Coord.new(coord1);
         me.coord3.set_alt(coord1.alt()-me.d12*0.5);# this will increase the area of the triangle so that rounding errors dont get in the way.
-        me.d13 = coord1.alt()-me.coord3.alt();        
+        me.d13 = coord1.alt()-me.coord3.alt();
         if (me.d12 == 0) {
             # on top of each other, maybe rounding error..
             return 0;

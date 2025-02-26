@@ -39,6 +39,10 @@
                     <property>payload/weight[0]/selected</property>
                     <value>AIM-120D</value>
                 </equals>
+                <equals>
+                    <property>payload/weight[0]/selected</property>
+                    <value>CBU-105</value>
+                </equals>
             </or>
         </condition>
     </animation>
@@ -145,6 +149,10 @@
                 <equals>
                     <property>payload/weight[2]/selected</property>
                     <value>AIM-120D</value>
+                </equals>
+                <equals>
+                    <property>payload/weight[2]/selected</property>
+                    <value>CBU-105</value>
                 </equals>
             </or>
         </condition>
@@ -253,6 +261,10 @@
                     <property>payload/weight[8]/selected</property>
                     <value>AIM-120D</value>
                 </equals>
+                <equals>
+                    <property>payload/weight[8]/selected</property>
+                    <value>CBU-105</value>
+                </equals>
             </or>
         </condition>
     </animation>
@@ -360,6 +372,10 @@
                     <property>payload/weight[10]/selected</property>
                     <value>AIM-120D</value>
                 </equals>
+                <equals>
+                    <property>payload/weight[10]/selected</property>
+                    <value>CBU-105</value>
+                </equals>
             </or>
         </condition>
     </animation>
@@ -422,6 +438,162 @@
             <equals>
                 <property>payload/weight[9]/selected</property>
                 <value>MK-84</value>
+            </equals>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-105-l</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[1]/selected</property>
+                <value>CBU-105</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-105-l1</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[0]/selected</property>
+                <value>CBU-105</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-105-l2</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[2]/selected</property>
+                <value>CBU-105</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-105-c</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[5]/selected</property>
+                <value>CBU-105</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-105-r</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[9]/selected</property>
+                <value>CBU-105</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-105-r1</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[8]/selected</property>
+                <value>CBU-105</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-105-r2</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[10]/selected</property>
+                <value>CBU-105</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-87-l</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[1]/selected</property>
+                <value>CBU-87</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-87-l1</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[3]/selected</property>
+                <value>CBU-87</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-87-l2</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[4]/selected</property>
+                <value>CBU-87</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-87-c</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[5]/selected</property>
+                <value>CBU-87</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-87-r</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[9]/selected</property>
+                <value>CBU-87</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-87-r1</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[6]/selected</property>
+                <value>CBU-87</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>cbu-87-r2</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[7]/selected</property>
+                <value>CBU-87</value>
             </equals>
         </condition>
     </animation>

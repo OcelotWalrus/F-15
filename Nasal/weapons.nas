@@ -125,7 +125,7 @@ var armament_update = func {
 		#set_status_current_aim9(-1);
 	}
 
-    if (Current_mk84 == Current_missile) {
+    if (Current_mk84 == Current_missile and Current_missile != nil) {
         setprop("sim/model/f15/systems/armament/selected-bomb", getprop("payload/weight["~Current_mk84.ID~"]/selected"));
     } else {
         setprop("sim/model/f15/systems/armament/selected-bomb", "none");
@@ -205,6 +205,10 @@ var missile_code_from_ident= func(mty)
             return "mk83";
         else if (mty == "MK-84")
             return "mk84";
+        else if (mty == "CBU-105")
+            return "cbu105";
+        else if (mty == "CBU-87")
+            return "cbu87";
         else if (mty == "LAU-68C")
             return "lau68";
         else if (mty == "AIM-120C")
@@ -217,7 +221,7 @@ var get_sel_missile_count = func()
         if (WeaponSelector.getValue() == 5)
         {
             Current_missile = Current_mk84;
-            return getprop("sim/model/f15/systems/armament/mk83/count") + getprop("sim/model/f15/systems/armament/mk84/count");
+            return getprop("sim/model/f15/systems/armament/mk83/count") + getprop("sim/model/f15/systems/armament/mk84/count") + getprop("sim/model/f15/systems/armament/cbu105/count") + getprop("sim/model/f15/systems/armament/cbu87/count");
         }
         else if (WeaponSelector.getValue() == 1)
         {
@@ -255,7 +259,7 @@ var update_sw_ready = func()
             }
             if (pylon >= 0)
             {
-                if (S.get_type() == "AIM-9L" or S.get_type() == "AIM-7M" or S.get_type() == "AIM-120C" or S.get_type() == "MK-83" or S.get_type() == "AIM-120D" or S.get_type() == "MK-84" or S.get_type() == "LAU-68C")
+                if (S.get_type() == "AIM-9L" or S.get_type() == "AIM-7M" or S.get_type() == "AIM-120C" or S.get_type() == "MK-83" or S.get_type() == "AIM-120D" or S.get_type() == "MK-84" or S.get_type() == "LAU-68C" or S.get_type() == "CBU-105" or S.get_type() == "CBU-87")
                 {
                     print(S.get_type()," new !! ", pylon, " sel_missile_count - 1 = ", sel_missile_count - 1);
                     if (WeaponSelector.getValue() == 1) {
@@ -317,14 +321,21 @@ var release_aim9 = func()
 var release_bomb = func()
 {
 	if (Current_missile != nil) {
-	    if (Current_missile == Current_mk84) {
+	    if (Current_missile == Current_mk84 and getprop("payload/weight["~Current_missile.ID~"]/selected") != "none") {
 	        Current_missile.status = 1; # set status manually here for dumb bombs
 	    }
         print("RELEASE MISSILE status: ", Current_missile.status);
-		# Set the pylon empty:
+		# Set the pylon empty
+        # or if it's a bomb in a rack, remove one
+        # of the bombs in it
 		var current_pylon = "payload/weight["~Current_missile.ID~"]/selected";
+        var current_count = "payload/weight["~Current_missile.ID~"]/count";
         print("Release ",current_pylon);
-		setprop(current_pylon,"none");
+        if (getprop(current_pylon) != "CBU-87") {
+    		setprop(current_pylon,"none");
+        } else {
+            setprop(current_count, getprop(current_count) - 1);
+        }
         print("currently ",getprop(current_pylon));
 		armament_update();
         setprop("sim/model/f15/systems/armament/launch-light",0);
@@ -648,3 +659,4 @@ var flareLoop = func {
 };
 
 flareLoop();
+

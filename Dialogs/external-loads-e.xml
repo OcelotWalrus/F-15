@@ -1028,6 +1028,13 @@
                             setprop("/ai/submodels/submodel[6]/count",100);
                             <!-- force to update the displays -->
                             setprop("/ai/submodels/submodel[5]/reloaded",1);
+							setprop("payload/weight[1]/count", 3);
+							setprop("payload/weight[3]/count", 3);
+							setprop("payload/weight[4]/count", 3);
+							setprop("payload/weight[5]/count", 3);
+							setprop("payload/weight[6]/count", 3);
+							setprop("payload/weight[7]/count", 3);
+							setprop("payload/weight[9]/count", 3);
                         </script>
                     </binding>
                 </button>
@@ -1074,6 +1081,7 @@
                             <value>AIM-9L</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
+                            <value>CBU-105</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1099,6 +1107,8 @@
                             <value>Droptank</value>
                             <value>MK-83</value>
                             <value>MK-84</value>
+                            <value>CBU-87</value>
+                            <value>CBU-105</value>
                             <value>LAU-68C</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1125,6 +1135,7 @@
                             <value>AIM-9L</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
+                            <value>CBU-105</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1151,6 +1162,7 @@
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <value>MK-83</value>
+                            <value>CBU-87</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1177,6 +1189,7 @@
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <value>MK-83</value>
+                            <value>CBU-87</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1202,6 +1215,8 @@
                             <value>Droptank</value>
                             <value>MK-83</value>
                             <value>MK-84</value>
+                            <value>CBU-87</value>
+                            <value>CBU-105</value>
                             <value>LAU-68C</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1229,6 +1244,7 @@
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <value>MK-83</value>
+                            <value>CBU-87</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1255,6 +1271,7 @@
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <value>MK-83</value>
+                            <value>CBU-87</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1280,6 +1297,7 @@
                             <value>AIM-9L</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
+                            <value>CBU-105</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>
@@ -1305,6 +1323,8 @@
                             <value>Droptank</value>
                             <value>MK-83</value>
                             <value>MK-84</value>
+                            <value>CBU-87</value>
+                            <value>CBU-105</value>
                             <value>LAU-68C</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1331,6 +1351,7 @@
                             <value>AIM-9L</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
+                            <value>CBU-105</value>
                             <binding>
                                 <command>dialog-apply</command>
                             </binding>

@@ -264,14 +264,14 @@ obj.dlzY = 70;
 	                                                                         # Update pos shit, taken from the FG F-16 model
 	                                                                         gpsCoord = armament.AIM.getCCIPadv(18,0.20,bomb_type);
 	                                                                         if (gpsCoord == nil) {
-	                                                                            gpsCoord = geo.Coord.new(geo.aircraft_position());
+	                                                                            gpsCoord2 = geo.Coord.new(geo.aircraft_position());
 	                                                                         } else {
-	                                                                            gpsCoord = gpsCoord[0];
+	                                                                            gpsCoord2 = gpsCoord[0];
 	                                                                         }
 			                                                                 crft = geo.aircraft_position();
-		                                                                     ptch = vector.Math.getPitch(crft,gpsCoord);
-	                                                                         dst  = crft.direct_distance_to(gpsCoord);
-	                                                                         brng = crft.course_to(gpsCoord);
+		                                                                     ptch = vector.Math.getPitch(crft,gpsCoord2);
+	                                                                         dst  = crft.direct_distance_to(gpsCoord2);
+	                                                                         brng = crft.course_to(gpsCoord2);
 	                                                                         hrz  = math.cos(ptch*D2R)*dst;
 
 	                                                                         vel_gz = -math.sin(ptch*D2R)*dst;
@@ -315,8 +315,9 @@ obj.dlzY = 70;
 	                                                                             }
 	                                                                             obj.BV_x = pos_x - math.cos(pipAng) * 10;
 	                                                                             obj.BV_y = pos_y - math.sin(pipAng) * 10;
-	                                                                             obj.BV_x = obj.BV_x / 100; # adapt it to the f15's HUD
-	                                                                             obj.BV_y = (obj.BV_y / -13) - 30;
+	                                                                             obj.BV_x = obj.BV_x / 100; # disable X axis
+	                                                                             obj.BV_y = (obj.BV_y / -4 - 315); # adapt it to the f15's HUD
+																				 print(obj.BV_y);
 	                                                                         } # if gear is down, put it in the center
 	                                                                         if (getprop("controls/gear/gear-down")) {
 	                                                                            obj.BV_y = 0;
@@ -330,12 +331,8 @@ obj.dlzY = 70;
 	                                                                         #print(obj.VV_y);
 
 	                                                                         # determine if distance is too low for arming time
-	                                                                         if (armament.AIM.getCCIPadv(18,0.20,bomb_type) != nil) {
-	                                                                             obj.showLow = !armament.AIM.getCCIPadv(18,0.20,bomb_type)[1];
-	                                                                             obj.showLow = obj.showLow?-1:1;
-	                                                                         } else {
-	                                                                             obj.showLow = 0;
-	                                                                         }
+	                                                                         obj.showLow = !gpsCoord[1];
+	                                                                         obj.showLow = obj.showLow?-1:1;
 																		 }
                                                                      }),
                             props.UpdateManager.FromHashList(["InstrumentedG", "CadcOwsMaximumG"], 0.05, func(val)
@@ -398,6 +395,8 @@ obj.dlzY = 70;
                                                                       "ArmamentAim7Count",
                                                                       "ArmamentMk83Count",
                                                                       "ArmamentMk84Count",
+                                                                      "ArmamentCbu105Count",
+																	  "ArmamentCbu87Count",
                                                                       "RadarActiveTargetAvailable",
                                                                       "RadarActiveTargetDisplay",
                                                                       "RadarActiveTargetCallsign",
@@ -441,8 +440,8 @@ obj.dlzY = 70;
                                                                                     obj.cross1.setVisible(0);
                                                                                  }
                                                                              } else if (w_s == 5){
-                                                                                 obj.window2.setText(sprintf("G%2d", val.ArmamentMk83Count + val.ArmamentMk84Count));
-                                                                                 if (val.ArmamentMk83Count + val.ArmamentMk84Count == 0) {
+                                                                                 obj.window2.setText(sprintf("G%2d", val.ArmamentMk83Count + val.ArmamentMk84Count + val.ArmamentCbu105Count + val.ArmamentCbu87Count));
+                                                                                 if (val.ArmamentMk83Count + val.ArmamentMk84Count + val.ArmamentCbu105Count + val.ArmamentCbu87Count == 0) {
                                                                                     obj.cross1.setVisible(1);
                                                                                     obj.cross1.setText("------");
                                                                                     obj.BV.setVisible(0);
@@ -451,7 +450,8 @@ obj.dlzY = 70;
                                                                                  else {
                                                                                     obj.cross1.setVisible(0);
                                                                                     obj.window11.setVisible(1);
-                                                                                    obj.window11.setText(sprintf("%1d sec", val.ArmingTime));
+																					#weapon_type = getprop("payload/weight[~"getprop("sim/model/f15/systems/armament/selected-bomb")"~]/selected");
+                                                                                    #obj.window11.setText(weapon_type);
                                                                                     obj.BV.setVisible(1);
                                                                                     if (getprop("controls/gear/gear-down")) {
                                                                                         obj.window12.setText("GROUND");
@@ -745,12 +745,14 @@ input = {
         AirspeedIndicatorIndicatedMach          : "instrumentation/airspeed-indicator/indicated-mach",
         Alpha                                   : "orientation/alpha-indicated-deg",
         AltimeterIndicatedAltitudeFt            : "instrumentation/altimeter/indicated-altitude-ft",
-        ArmamentMk83Count                        : "sim/model/f15/systems/armament/mk83/count",
-        ArmamentMk84Count                        : "sim/model/f15/systems/armament/mk84/count",
+        ArmamentMk83Count                       : "sim/model/f15/systems/armament/mk83/count",
+        ArmamentMk84Count                       : "sim/model/f15/systems/armament/mk84/count",
         ArmamentAim120Count                     : "sim/model/f15/systems/armament/aim120c/count",
         ArmamentAim7Count                       : "sim/model/f15/systems/armament/aim7/count",
         ArmamentAim9Count                       : "sim/model/f15/systems/armament/aim9/count",
         ArmamentAim120DCount                    : "sim/model/f15/systems/armament/aim120d/count",
+		ArmamentCbu105Count                     : "sim/model/f15/systems/armament/cbu105/count",
+		ArmamentCbu87Count                     : "sim/model/f15/systems/armament/cbu87/count",
         ArmamentRounds                          : "sim/model/f15/systems/gun/rounds",
         AutopilotRouteManagerActive             : "autopilot/route-manager/active",
         AutopilotRouteManagerWpDist             : "autopilot/route-manager/wp/dist",

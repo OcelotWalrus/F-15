@@ -2,7 +2,7 @@
   
 <PropertyList> 
 
-    <path>Aircraft/f16/Models/Stores/Racks/TER-9A/TER-9A.xml</path>
+    <path>Aircraft/F-15/Models/Stores/Racks/TER-9A/TER-9A.xml</path>
 
     <offsets>
       <x-m>0</x-m>
@@ -13,7 +13,7 @@
 
     <model>
       <name>Station3_LAU68_left</name>
-      <path>Aircraft/f16/Models/Armament/Weapons/LAU-68/LAU-68-l.xml</path>
+      <path>Aircraft/F-15/Models/Stores/LAU-68/LAU-68-l.xml</path>
       <offsets>
         <x-m>2</x-m>
         <y-m>-3.8</y-m>
@@ -25,7 +25,7 @@
 
     <model>
       <name>Station3_LAU68_center</name>
-      <path>Aircraft/f16/Models/Armament/Weapons/LAU-68/LAU-68-c.xml</path>
+      <path>Aircraft/F-15/Models/Stores/LAU-68/LAU-68-c.xml</path>
       <offsets>
         <x-m>1.2</x-m>
         <y-m>0</y-m>
@@ -36,7 +36,7 @@
     
     <model>
       <name>Station3_LAU68_right</name>
-      <path>Aircraft/f16/Models/Armament/Weapons/LAU-68/LAU-68-r.xml</path>
+      <path>Aircraft/F-15/Models/Stores/LAU-68/LAU-68-r.xml</path>
       <offsets>
         <x-m>2</x-m>
         <y-m>3.8</y-m>

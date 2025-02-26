@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <sim>
+        <model>
+            <livery>
+                <name type="string">181 TFW IMPERIAL</name>
+                <index type="int">0</index>
+                <texture>Liveries/livery.Raider1.jpg</texture>
+            </livery>
+
+            <livery-patch>
+                <name type="string">181 TFW IMPERIAL</name>
+                <index type="int">0</index>
+                <texture>Liveries/patch.imperial.jpg</texture>
+            </livery-patch>
+        </model>
+    </sim>
+</PropertyList>

@@ -2659,7 +2659,6 @@ var AIM = {
 		me.ccip_pitch = math.atan2(me.ccip_fps_z, me.ccip_fps_x);
         while (me.ccip_t <= maxFallTime_sec) {
 			me.ccip_t += me.ccip_dt;
-			me.ccip_t = me.ccip_t * 1.1; # add a 10% exaggeration
 			me.ccip_bomb.deploy = me.clamp(me.extrapolate(me.ccip_t, me.drop_time, me.drop_time+me.deploy_time,0,1),0,1);
 			# Apply drag
 			me.ccip_fps = math.sqrt(me.ccip_fps_x*me.ccip_fps_x+me.ccip_fps_z*me.ccip_fps_z);
@@ -2683,16 +2682,18 @@ var AIM = {
 			me.ccipPos.apply_course_distance(me.ccip_heading, me.ccip_dist);
 			me.ccipPos.set_alt(me.ccip_altC);
 
+			low_or_not = (((me.ccip_dist / FT2M) / me.ccip_fps) < me.arming_time);
+
 			# test terrain
 			me.ccip_grnd = geo.elevation(me.ccipPos.lat(),me.ccipPos.lon());
 			if (me.ccip_grnd != nil) {
-				if (me.ccip_grnd > me.ccip_altC) {
+				if (1 == 1) {#me.ccip_grnd < me.ccip_altC) {
 					#return [me.ccipPos,me.arming_time<me.ccip_t];
 					me.result = me.getTerrain(me.ccip_oldPos, me.ccipPos);
 					if (me.result != nil) {
-						return [me.result, me.arming_time<me.ccip_t, me.ccip_t];
+						return [me.result, low_or_not, me.ccip_t];
 					}
-					return [me.ccipPos,me.arming_time<me.ccip_t, me.ccip_t];
+					return [me.ccipPos, low_or_not, me.ccip_t];
 					#var inter = me.extrapolate(me.ccip_grnd,me.ccip_altC,me.ccip_oldPos.alt(),0,1);
 					#return [me.interpolate(me.ccipPos,me.ccip_oldPos,inter),me.arming_time<me.ccip_t];
 				}

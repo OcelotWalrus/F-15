@@ -2,7 +2,7 @@
   
 <PropertyList> 
 
-    <path>Aircraft/f16/Models/Armament/Racks/TER-9A/TER-9A.xml</path>
+    <path>Aircraft/F-15/Models/Stores/Racks/TER-9A/TER-9A.xml</path>
 
     <offsets>
       <x-m>0</x-m>
@@ -12,8 +12,20 @@
     </offsets>
 
     <model>
+      <name>Station7_CBU87_left</name>
+      <path>Aircraft/F-15/Models/Stores/CBU-87/CBU-87.xml</path>
+      <offsets>
+        <x-m>-0.05</x-m>
+        <y-m>-0.305</y-m>
+        <z-m>-0.115</z-m>
+        <pitch-deg>0</pitch-deg>
+        <roll-deg>00</roll-deg>
+      </offsets>
+    </model>
+
+    <model>
       <name>Station7_CBU87_center</name>
-      <path>Aircraft/f16/Models/Armament/Weapons/CBU-87/CBU-87.xml</path>
+      <path>Aircraft/F-15/Models/Stores/CBU-87/CBU-87.xml</path>
       <offsets>
         <x-m>-0.05</x-m>
         <y-m>0</y-m>
@@ -24,7 +36,7 @@
 
     <model>
       <name>Station7_CBU87_right</name>
-      <path>Aircraft/f16/Models/Armament/Weapons/CBU-87/CBU-87.xml</path>
+      <path>Aircraft/F-15/Models/Stores/CBU-87/CBU-87.xml</path>
       <offsets>
         <x-m>-0.05</x-m>
         <y-m>0.305</y-m>
@@ -34,6 +46,23 @@
       </offsets>
     </model>
 
+    <animation>
+        <type>rotate</type>
+        <object-name>Station7_CBU87_left</object-name>
+        <factor>0</factor>
+        <offset-deg>-47</offset-deg>
+        <center>
+          <x-m>-0.05</x-m>
+          <y-m>-0.305</y-m>
+          <z-m>-0.115</z-m>
+        </center>
+        <axis>
+          <x>1</x>
+          <y>0</y>
+          <z>0</z>
+        </axis>
+    </animation>
+    
     <animation>
         <type>rotate</type>
         <object-name>Station7_CBU87_right</object-name>
@@ -51,17 +80,32 @@
         </axis>
     </animation>
 
+    <animation>
+      <type>select</type>
+      <object-name>Station7_CBU87_left</object-name>
+      <condition><and>
+        <equals>
+          <property>payload/weight[7]/selected</property>
+          <value>CBU-87</value>
+        </equals>
+        <greater-than>
+          <property>payload/weight[7]/count</property>
+          <value>0</value>
+        </greater-than></and>
+      </condition>
+     </animation>
+     
      <animation>
       <type>select</type>
       <object-name>Station7_CBU87_right</object-name>
       <condition><and>
         <equals>
-          <property>payload/armament/station/id-6-type</property>
+          <property>payload/weight[7]/selected</property>
           <value>CBU-87</value>
         </equals>
         <greater-than>
-          <property>payload/armament/station/id-6-count</property>
-          <value>0</value>
+          <property>payload/weight[7]/count</property>
+          <value>1</value>
         </greater-than></and>
       </condition>
      </animation>
@@ -71,12 +115,12 @@
       <object-name>Station7_CBU87_center</object-name>
       <condition><and>
         <equals>
-          <property>payload/armament/station/id-6-type</property>
+          <property>payload/weight[7]/selected</property>
           <value>CBU-87</value>
         </equals>
         <greater-than>
-          <property>payload/armament/station/id-6-count</property>
-          <value>1</value>
+          <property>payload/weight[7]/count</property>
+          <value>2</value>
         </greater-than></and>
       </condition>
      </animation>

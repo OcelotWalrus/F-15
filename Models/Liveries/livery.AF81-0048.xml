@@ -13,10 +13,6 @@
                 <index type="int">0</index>
                 <texture>Liveries/patch.tyndall.jpg</texture>
             </livery-patch>
-
-            <f15>
-                <cft type="int">0</cft>
-            </f15>
         </model>
     </sim>
 </PropertyList>
