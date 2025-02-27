@@ -17,6 +17,9 @@ var GunCount         = AcModel.getNode("systems/gun/rounds");
 var GunReady         = AcModel.getNode("systems/gun/ready");
 var GunStop          = AcModel.getNode("systems/gun/stop", 1);
 var GunRateHighLight = AcModel.getNode("controls/armament/acm-panel-lights/gun-rate-high-light");
+var LauRunning       = props.globals.getNode("fdm/jsbsim/fcs/hydra3rtrigger");
+var LauReady         = props.globals.getNode("fdm/jsbsim/fcs/hydra3rready");
+var LauStop          = props.globals.getNode("fdm/jsbsim/fcs/hydra3rstop", 1);
 
 
 # AIM-9L stuff:
@@ -52,6 +55,7 @@ var weapons_init = func()
 	system_stop();
 	SysRunning.setBoolValue(0);
 	update_gun_ready();
+	update_lau_ready();
 	setlistener("controls/armament/trigger", func(Trig)
                 {
 # Check selected weapon type and set the trigger listeners.
@@ -76,6 +80,19 @@ var weapons_init = func()
                     elsif ( weapon_s == 2 and Trig.getBoolValue())
                     {
                         release_aim9();
+                    }
+                    elsif ( weapon_s == 4 and Trig.getBoolValue())
+                    {
+                        update_lau_ready();
+                        if ( Trig.getBoolValue())
+                        {
+                            setprop("fdm/jsbsim/fcs/hydra3rstop", 0);
+                            fire_lau();
+                        }
+                        else
+                        {
+                            setprop("fdm/jsbsim/fcs/hydra3rstop", 1);
+                        }
                     }
                     elsif ( weapon_s == 5 and Trig.getBoolValue())
                     {
@@ -131,6 +148,9 @@ var armament_update = func {
     if (WeaponSelector.getValue() == 0) {
         setprop("sim/model/f15/systems/armament/selected-arm", "M61A1");
     }
+    if (WeaponSelector.getValue() == 4) {
+        setprop("sim/model/f15/systems/armament/selected-arm", "LAU-68C");
+    }
 
     if (WeaponSelector.getValue() == 5) {
         if (Current_mk84 != nil and Current_mk84.status == 1) {
@@ -154,6 +174,48 @@ var armament_update = func {
     } else {
         setprop("sim/model/f15/systems/armament/launch-light",0);
     }
+}
+
+var update_lau_ready = func()
+ {
+    lau_count = getprop("ai/submodels/submodel[7]/count") + getprop("ai/submodels/submodel[8]/count") + getprop("ai/submodels/submodel[9]/count") + getprop("ai/submodels/submodel[10]/count") + getprop("ai/submodels/submodel[11]/count") + getprop("ai/submodels/submodel[12]/count");
+	var ready = 0;
+	if ( ArmSwitch.getValue() and lau_count > 0 )
+ {
+		ready = 1;
+	}
+	setprop("fdm/jsbsim/fcs/hydra3rready", ready);
+}
+
+var fire_lau = func {
+	var grun   = getprop("fdm/jsbsim/fcs/hydra3rtrigger");
+	var gready = getprop("fdm/jsbsim/fcs/hydra3rready");
+	var gstop  = getprop("fdm/jsbsim/fcs/hydra3rstop");
+	if (gstop or getprop("controls/armament/trigger") == 0) {
+		setprop("fdm/jsbsim/fcs/hydra3rtrigger", 0);
+		return;
+	}
+	if (gready and !grun) {
+		setprop("fdm/jsbsim/fcs/hydra3rtrigger", 1);
+		grun = 1;
+	}
+	if (gready and grun) {
+	    if (getprop("ai/submodels/submodel[7]/count") > 0) {
+	        setprop("ai/submodels/submodel[7]/count", getprop("ai/submodels/submodel[7]/count") - 1);
+	    } elsif (getprop("ai/submodels/submodel[8]/count") > 0) {
+	        setprop("ai/submodels/submodel[8]/count", getprop("ai/submodels/submodel[8]/count") - 1);
+	    } elsif (getprop("ai/submodels/submodel[9]/count") > 0) {
+	        setprop("ai/submodels/submodel[9]/count", getprop("ai/submodels/submodel[9]/count") - 1);
+	    } elsif (getprop("ai/submodels/submodel[10]/count") > 0) {
+	        setprop("ai/submodels/submodel[10]/count", getprop("ai/submodels/submodel[10]/count") - 1);
+	    } elsif (getprop("ai/submodels/submodel[11]/count") > 0) {
+	        setprop("ai/submodels/submodel[11]/count", getprop("ai/submodels/submodel[11]/count") - 1);
+	    } elsif (getprop("ai/submodels/submodel[12]/count") > 0) {
+	        setprop("ai/submodels/submodel[12]/count", getprop("ai/submodels/submodel[12]/count") - 1);
+	    }
+		#settimer(fire_lau, .8);
+	}
+	armament_update();
 }
 
 var update_gun_ready = func()
@@ -383,6 +445,7 @@ var system_start = func
     print("Weapons System start");
 	settimer (func { GunRateHighLight.setBoolValue(1); }, 0.3);
 	update_gun_ready();
+	update_lau_ready();
 	SysRunning.setBoolValue(1);
 	settimer (func { SwCoolOffLight.setBoolValue(1); }, 0.6);
 	settimer (func { MslPrepOffLight.setBoolValue(1); }, 2);
@@ -460,6 +523,7 @@ var demand_weapons_refresh = func {
 # (FWD)
 var arm_selector = func() {
 	update_gun_ready();
+	update_lau_ready();
 	var weapon_s = WeaponSelector.getValue();
 #    print("arm stick selector ",weapon_s);
     setprop("sim/model/f15/systems/armament/launch-light",0);

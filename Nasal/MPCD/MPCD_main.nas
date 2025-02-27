@@ -143,7 +143,7 @@ var MPCD_Station =
             }
 			elsif (na == "LAU-68C") {
                 na = "LAU68";
-                if (weapon_mode == 5)
+                if (weapon_mode == 4)
                 {
                     sel = getprop(sel_node);
                     if (sel and master_arm)
@@ -289,7 +289,7 @@ var MPCD_GroundStation =
 			} elsif (na == "LAU-68C")
             {
                 na = "LAU68";
-                if (weapon_mode == 5)
+                if (weapon_mode == 4)
                 {
                     sel = getprop(sel_node);
                     if (sel and master_arm)

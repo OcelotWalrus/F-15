@@ -926,6 +926,12 @@
                             <target-range-nm type="double">0</target-range-nm>
                             <sound-volume type="double">0.12</sound-volume>
                         </b6112>
+                        <lau68c>
+                            <count type="int">0</count>
+                            <nearest-target type="int">-1</nearest-target>
+                            <target-range-nm type="double">0</target-range-nm>
+                            <sound-volume type="double">0.12</sound-volume>
+                        </lau68c>
 
                         <launch-light type="bool">false</launch-light>
                         <system-running type="bool">false</system-running>
@@ -2822,7 +2828,7 @@
                     <property>sim/model/f15/controls/armament/weapon-selector</property>
                     <step>1</step>
                     <min>0</min>
-                    <max>4</max>
+                    <max>5</max>
                     <repeat>false</repeat>
                     <wrap>true</wrap>
                 </binding>

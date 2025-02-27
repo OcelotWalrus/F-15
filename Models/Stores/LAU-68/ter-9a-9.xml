@@ -13,7 +13,7 @@
 
     <model>
       <name>Station1_LAU68_left</name>
-      <path>Aircraft/F-15/Models/Stores/LAU-68/LAU-68-l.xml</path>
+      <path>Aircraft/F-15/Models/Stores/LAU-68/LAU-68-l-2.xml</path>
       <offsets>
         <x-m>-0.05</x-m>
         <y-m>-0.295</y-m>
@@ -24,7 +24,7 @@
 
     <model>
       <name>Station1_LAU68_center</name>
-      <path>Aircraft/F-15/Models/Stores/LAU-68/LAU-68-c.xml</path>
+      <path>Aircraft/F-15/Models/Stores/LAU-68/LAU-68-c-2.xml</path>
       <offsets>
         <x-m>-0.05</x-m>
         <y-m>0.115</y-m>
@@ -35,7 +35,7 @@
     
     <model>
       <name>Station1_LAU68_right</name>
-      <path>Aircraft/F-15/Models/Stores/LAU-68/LAU-68-r.xml</path>
+      <path>Aircraft/F-15/Models/Stores/LAU-68/LAU-68-r-2.xml</path>
       <offsets>
         <x-m>-0.05</x-m>
         <y-m>0.10</y-m>

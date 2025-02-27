@@ -1937,7 +1937,7 @@
             <path>Aircraft/F-15/Sounds/AIM-discharge.wav</path>
             <mode>once</mode>
             <condition>
-                <property>payload/armament/aim-9/sound-fire-on-off</property>
+                <property>payload/armament/aim-9l/sound-fire-on-off</property>
             </condition>
             <reference-dist>25</reference-dist>
             <max-dist>10000</max-dist>
@@ -1956,7 +1956,7 @@
             <path>Aircraft/F-15/Sounds/AIM-discharge.wav</path>
             <mode>once</mode>
             <condition>
-                <property>payload/armament/aim-7/sound-fire-on-off</property>
+                <property>payload/armament/aim-7m/sound-fire-on-off</property>
             </condition>
             <reference-dist>25</reference-dist>
             <max-dist>10000</max-dist>
@@ -1970,6 +1970,140 @@
                 <max>1</max>
             </volume>
         </missile3>
+        <missile4>
+            <name>missile4</name>
+            <path>Aircraft/F-15/Sounds/AIM-discharge.wav</path>
+            <mode>once</mode>
+            <condition>
+                <property>payload/armament/aim-7m/sound-fire-on-off</property>
+            </condition>
+            <reference-dist>25</reference-dist>
+            <max-dist>10000</max-dist>
+            <position>
+                <x> 3.15986 </x>
+                <y> 2.70311 </y>
+                <z> -0.67645 </z>
+            </position>
+            <volume>
+                <factor>0.75</factor>
+                <max>1</max>
+            </volume>
+        </missile4>
+
+        <bomb1>
+            <name>bomb1</name>
+            <path>Aircraft/F-15/Sounds/bomb_contact.wav</path>
+            <mode>once</mode>
+            <condition>
+                <property>payload/armament/mk-84/sound-fire-on-off</property>
+            </condition>
+            <reference-dist>25</reference-dist>
+            <max-dist>10000</max-dist>
+            <position>
+                <x> 3.15986 </x>
+                <y> 2.70311 </y>
+                <z> -0.67645 </z>
+            </position>
+            <volume>
+                <factor>0.75</factor>
+                <max>1</max>
+            </volume>
+        </bomb1>
+        <bomb2>
+            <name>bomb2</name>
+            <path>Aircraft/F-15/Sounds/bomb_contact.wav</path>
+            <mode>once</mode>
+            <condition>
+                <property>payload/armament/mk-82/sound-fire-on-off</property>
+            </condition>
+            <reference-dist>25</reference-dist>
+            <max-dist>10000</max-dist>
+            <position>
+                <x> 3.15986 </x>
+                <y> 2.70311 </y>
+                <z> -0.67645 </z>
+            </position>
+            <volume>
+                <factor>0.75</factor>
+                <max>1</max>
+            </volume>
+        </bomb2>
+        <bomb3>
+            <name>bomb3</name>
+            <path>Aircraft/F-15/Sounds/bomb_contact.wav</path>
+            <mode>once</mode>
+            <condition>
+                <property>payload/armament/mk-83/sound-fire-on-off</property>
+            </condition>
+            <reference-dist>25</reference-dist>
+            <max-dist>10000</max-dist>
+            <position>
+                <x> 3.15986 </x>
+                <y> 2.70311 </y>
+                <z> -0.67645 </z>
+            </position>
+            <volume>
+                <factor>0.75</factor>
+                <max>1</max>
+            </volume>
+        </bomb3>
+        <bomb4>
+            <name>bomb4</name>
+            <path>Aircraft/F-15/Sounds/bomb_contact.wav</path>
+            <mode>once</mode>
+            <condition>
+                <property>payload/armament/cbu-87/sound-fire-on-off</property>
+            </condition>
+            <reference-dist>25</reference-dist>
+            <max-dist>10000</max-dist>
+            <position>
+                <x> 3.15986 </x>
+                <y> 2.70311 </y>
+                <z> -0.67645 </z>
+            </position>
+            <volume>
+                <factor>0.75</factor>
+                <max>1</max>
+            </volume>
+        </bomb4>
+        <bomb5>
+            <name>bomb5</name>
+            <path>Aircraft/F-15/Sounds/bomb_contact.wav</path>
+            <mode>once</mode>
+            <condition>
+                <property>payload/armament/cbu-105/sound-fire-on-off</property>
+            </condition>
+            <reference-dist>25</reference-dist>
+            <max-dist>10000</max-dist>
+            <position>
+                <x> 3.15986 </x>
+                <y> 2.70311 </y>
+                <z> -0.67645 </z>
+            </position>
+            <volume>
+                <factor>0.75</factor>
+                <max>1</max>
+            </volume>
+        </bomb5>
+        <bomb6>
+            <name>bomb6</name>
+            <path>Aircraft/F-15/Sounds/bomb_contact.wav</path>
+            <mode>once</mode>
+            <condition>
+                <property>payload/armament/b61-12/sound-fire-on-off</property>
+            </condition>
+            <reference-dist>25</reference-dist>
+            <max-dist>10000</max-dist>
+            <position>
+                <x> 3.15986 </x>
+                <y> 2.70311 </y>
+                <z> -0.67645 </z>
+            </position>
+            <volume>
+                <factor>0.75</factor>
+                <max>1</max>
+            </volume>
+        </bomb6>
 
         <flare>
             <name>flare</name>

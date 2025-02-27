@@ -76,7 +76,7 @@ Station =
                         elsif (v == "CBU-87")
                         prop.getParent().getNode("weight-lb").setValue(934 * getprop("payload/weight["~obj.index~"]/count"));
 						elsif (v == "LAU-68C")
-                        prop.getParent().getNode("weight-lb").setValue(90);
+                        prop.getParent().getNode("weight-lb").setValue(90 * 3);
                         elsif (v == "Droptank")
                         {
                             prop.getParent().getNode("weight-lb").setValue(271);
@@ -142,8 +142,8 @@ Station =
 		}
 		elsif ( t == "LAU-68C" )
         {
-			me.bcode = 7;
-            me.xbcode = 7;
+			me.bcode = 4;
+            me.xbcode = 2;
 		}
         elsif ( t == "Droptank" )
         {

@@ -404,6 +404,12 @@ obj.dlzY = 70;
                                                                       "RadarActiveTargetRange",
                                                                       "RadarActiveTargetClosure",
                                                                       "HudNavRangeDisplay",
+                                                                      "Lau68AmmoCount1",
+                                                                      "Lau68AmmoCount2",
+                                                                      "Lau68AmmoCount3",
+                                                                      "Lau68AmmoCount4",
+                                                                      "Lau68AmmoCount5",
+                                                                      "Lau68AmmoCount6",
                                                                       "HudNavRangeETA"], nil, func(val)
                                                                      {
                                                                          if (val.ControlsArmamentMasterArmSwitch) {
@@ -411,6 +417,7 @@ obj.dlzY = 70;
                                                                              obj.window2.setVisible(1);
                                                                              obj.window11.setVisible(1);
                                                                              obj.crosshair.setVisible(0);
+                                                                             lau_68_count = val.Lau68AmmoCount1 + val.Lau68AmmoCount2 + val.Lau68AmmoCount3 + val.Lau68AmmoCount4 + val.Lau68AmmoCount5 + val.Lau68AmmoCount6;
                                                                              weapon_type = getprop("sim/model/f15/systems/armament/selected-arm");
                                                                              obj.window11.setText(weapon_type);
                                                                              obj.BV.setVisible(0);
@@ -436,6 +443,15 @@ obj.dlzY = 70;
                                                                              } else if (w_s == 2){
                                                                                  obj.window2.setText(sprintf("M%2dF", val.ArmamentAim120Count + val.ArmamentAim120DCount + val.ArmamentAim7Count));
                                                                                  if ((val.ArmamentAim120Count + val.ArmamentAim120DCount + val.ArmamentAim7Count) == 0) {
+                                                                                    obj.cross1.setVisible(1);
+                                                                                    obj.cross1.setText("------");
+                                                                                 }
+                                                                                 else {
+                                                                                    obj.cross1.setVisible(0);
+                                                                                 }
+                                                                             } else if (w_s == 4){
+                                                                                 obj.window2.setText(sprintf("G%2dM", lau_68_count));
+                                                                                 if (lau_68_count == 0) {
                                                                                     obj.cross1.setVisible(1);
                                                                                     obj.cross1.setText("------");
                                                                                  }
@@ -781,6 +797,12 @@ input = {
         InstrumentedG                           : "instrumentation/g-meter/instrumented-g",
         VelocitiesAirspeedKt                    : "velocities/airspeed-kt",
         ArmingTime                              : "sim/model/f15/systems/armament/arming-time-sec",
+        Lau68AmmoCount1                         : "ai/submodels/submodel[7]/count",
+        Lau68AmmoCount2                         : "ai/submodels/submodel[8]/count",
+        Lau68AmmoCount3                         : "ai/submodels/submodel[9]/count",
+        Lau68AmmoCount4                         : "ai/submodels/submodel[10]/count",
+        Lau68AmmoCount5                         : "ai/submodels/submodel[11]/count",
+        Lau68AmmoCount6                         : "ai/submodels/submodel[12]/count",
 };
 foreach (var name; keys(input)) {
     emesary.GlobalTransmitter.NotifyAll(notifications.FrameNotificationAddProperty.new("F15-HUD", name, input[name]));
