@@ -1262,7 +1262,6 @@
                             <value>MK-84</value>
                             <value>CBU-87</value>
                             <value>CBU-105</value>
-                            <value>LAU-68C</value>
                             <value>B61-12</value>
                             <binding>
                                 <command>dialog-apply</command>

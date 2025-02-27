@@ -259,7 +259,6 @@ obj.dlzY = 70;
                                                                          obj.VV.setTranslation (obj.VV_x, obj.VV_y);
 
 																		 bomb_type = getprop("sim/model/f15/systems/armament/selected-arm");
-																		 print(bomb_type);
 																		 if (bomb_type == "MK-83" or bomb_type == "MK-84" or bomb_type == "CBU-87" or bomb_type == "CBU-105" or bomb_type == "B61-12") {
 
 	                                                                         # Update pos shit, taken from the FG F-16 model

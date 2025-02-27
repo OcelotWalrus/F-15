@@ -2245,15 +2245,21 @@
 
     <model>
         <name>lau68-l</name>
-        <path>Aircraft/F-15/Models/Stores/LAU-68/ter-9a.xml</path>
-    </model>
-    <model>
-        <name>lau68-c</name>
-        <path>Aircraft/F-15/Models/Stores/LAU-68/ter-9a.xml</path>
+        <path>Aircraft/F-15/Models/Stores/LAU-68/ter-9a-1.xml</path>
+        <offsets>
+             <x-m>2</x-m>
+             <y-m>-3.28</y-m>
+             <z-m>0.07</z-m>
+        </offsets>
     </model>
     <model>
         <name>lau68-r</name>
-        <path>Aircraft/F-15/Models/Stores/LAU-68/ter-9a.xml</path>
+        <path>Aircraft/F-15/Models/Stores/LAU-68/ter-9a-9.xml</path>
+        <offsets>
+             <x-m>2</x-m>
+             <y-m>3.28</y-m>
+             <z-m>0.07</z-m>
+        </offsets>
     </model>
 
     <animation>
@@ -2446,16 +2452,6 @@
       <condition>
           <equals>
               <property>payload/weight[1]/selected</property>
-              <value>LAU-68C</value>
-          </equals>
-      </condition>
-    </animation>
-    <animation>
-      <type>select</type>
-      <object-name>lau68-c</object-name>
-      <condition>
-          <equals>
-              <property>payload/weight[5]/selected</property>
               <value>LAU-68C</value>
           </equals>
       </condition>
