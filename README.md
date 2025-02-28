@@ -12,18 +12,18 @@ For now, what's been done is:
 - The enhancement of the C variant cockpit (added simulation of chaff/flare release and low ammo lights, engine flame out oral warning + lights with a system)
 - The implementation of A/G unguided operations (CCIP) and racks as well
 - The addition of new A/A missiles: AIM-9M, AIM-9X (only E variant), and the AIM-120D (only E variant)
-- The addition of new A/G bombs: MK-83, MK-82, CBU-87, CBU-105 (only E variant), and B61-12
-- The addition of misc weapons: LAU-68C
+- The addition of new A/G bombs: MK-83, MK-82, CBU-87, CBU-105 (only E variant), and B61-12 (only E variant)
+- The addition of misc weapons: LAU-68C (only E variant)
 - The addition of more aerodynamic effects such as mach cone or strake and G vortex
 - The polishing of already-existing effects
 - The addition of new real-life and fictional liveries
 - The complete overhaul of the in-game F-15 GUI by centralizing controls into the F-15 Eagle Configuration Panel, allow the control of fuel, conformal tanks, different parts' damage, ground services, smoke pods' color, pilot helmet sound proofing, selection of pre-made loads setup or customization of every hardpoint, custom load of gun rounds and flares/chaffs, and useful info on the current F-15 setup
-- The polishing of very various sound effects (gun, flares etc.)
-- Enhanced the no-mode HUD to have clearer calibrated speed shown, as well as ground speed with it, current G load, and its max, AOA, clearer current altitude
+- The polishing of various sound effects (gun, flares etc.)
+- Enhanced the no-mode HUD to have clearer calibrated speed shown, as well as ground speed with it, current G load, and its max, AOA, clearer current altitude, using DCS's F-15E HUD design
 - For the A/G mode, added the pipper if CCIP is online
 - For general attack mode, display the currently selected weapon type
 - Fixed liveries whose nose was bugged
-- Tweaked some missiles statistics to fit more realistic scenarios (or not)
+- Tweaked some missiles' data to fit more realistic scenarios (or not)
 
 ---
 ORIGINAL TEXT
