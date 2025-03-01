@@ -91,66 +91,6 @@ var MPCD_Station =
                 }
                 else mode = "MRM";
             }
-            elsif (na == "MK-83") {
-                na = "M83";
-                if (weapon_mode == 5)
-                {
-                    sel = getprop(sel_node);
-                    if (sel and master_arm)
-                        mode = "RDY";
-                }
-                else mode = "AG";
-            }
-			elsif (na == "MK-84") {
-                na = "M84";
-                if (weapon_mode == 5)
-                {
-                    sel = getprop(sel_node);
-                    if (sel and master_arm)
-                        mode = "RDY";
-                }
-                else mode = "AG";
-            }
-			elsif (na == "CBU-105") {
-                na = "CBU105";
-                if (weapon_mode == 5)
-                {
-                    sel = getprop(sel_node);
-                    if (sel and master_arm)
-                        mode = "RDY";
-                }
-                else mode = "AG";
-            }
-			elsif (na == "B61-12") {
-                na = "B61";
-                if (weapon_mode == 5)
-                {
-                    sel = getprop(sel_node);
-                    if (sel and master_arm)
-                        mode = "RDY";
-                }
-                else mode = "AG";
-            }
-			elsif (na == "CBU-87") {
-                na = "CBU87";
-                if (weapon_mode == 5)
-                {
-                    sel = getprop(sel_node);
-                    if (sel and master_arm)
-                        mode = "RDY";
-                }
-                else mode = "AG";
-            }
-			elsif (na == "LAU-68C") {
-                na = "LAU68";
-                if (weapon_mode == 4)
-                {
-                    sel = getprop(sel_node);
-                    if (sel and master_arm)
-                        mode = "RDY";
-                }
-                else mode = "AG";
-            }
             elsif (na == "AIM-7M")
             {
                 na = "7M";

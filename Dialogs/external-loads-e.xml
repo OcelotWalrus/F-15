@@ -1035,12 +1035,16 @@
 							setprop("payload/weight[6]/count", 3);
 							setprop("payload/weight[7]/count", 3);
 							setprop("payload/weight[9]/count", 3);
-                            setprop("/ai/submodels/submodel[7]/count",7);
-                            setprop("/ai/submodels/submodel[8]/count",7);
-                            setprop("/ai/submodels/submodel[9]/count",7);
-                            setprop("/ai/submodels/submodel[10]/count",7);
-                            setprop("/ai/submodels/submodel[11]/count",7);
-                            setprop("/ai/submodels/submodel[12]/count",7);
+                            if (getprop("payload/weight[1]/selected") == "LAU-68C") {
+                                setprop("/ai/submodels/submodel[7]/count",7);
+                                setprop("/ai/submodels/submodel[8]/count",7);
+                                setprop("/ai/submodels/submodel[9]/count",7);
+                            }
+                            if (getprop("payload/weight[9]/selected") == "LAU-68C") {
+                                setprop("/ai/submodels/submodel[10]/count",7);
+                                setprop("/ai/submodels/submodel[11]/count",7);
+                                setprop("/ai/submodels/submodel[12]/count",7);
+                            }
                         </script>
                     </binding>
                 </button>

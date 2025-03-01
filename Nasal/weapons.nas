@@ -17,9 +17,9 @@ var GunCount         = AcModel.getNode("systems/gun/rounds");
 var GunReady         = AcModel.getNode("systems/gun/ready");
 var GunStop          = AcModel.getNode("systems/gun/stop", 1);
 var GunRateHighLight = AcModel.getNode("controls/armament/acm-panel-lights/gun-rate-high-light");
-var LauRunning       = props.globals.getNode("fdm/jsbsim/fcs/hydra3rtrigger");
-var LauReady         = props.globals.getNode("fdm/jsbsim/fcs/hydra3rready");
-var LauStop          = props.globals.getNode("fdm/jsbsim/fcs/hydra3rstop", 1);
+var LauRunning       = props.globals.getNode("fdm/jsbsim/fcs/hydra3trigger");
+var LauReady         = props.globals.getNode("fdm/jsbsim/fcs/hydra3ready");
+var LauStop          = props.globals.getNode("fdm/jsbsim/fcs/hydra3stop", 1);
 
 
 # AIM-9L stuff:
@@ -86,12 +86,12 @@ var weapons_init = func()
                         update_lau_ready();
                         if ( Trig.getBoolValue())
                         {
-                            setprop("fdm/jsbsim/fcs/hydra3rstop", 0);
+                            setprop("fdm/jsbsim/fcs/hydra3stop", 0);
                             fire_lau();
                         }
                         else
                         {
-                            setprop("fdm/jsbsim/fcs/hydra3rstop", 1);
+                            setprop("fdm/jsbsim/fcs/hydra3stop", 1);
                         }
                     }
                     elsif ( weapon_s == 5 and Trig.getBoolValue())
@@ -119,6 +119,12 @@ var weapons_init = func()
                     elsif ( weapon_s == 2 and Trig.getBoolValue())
                     {
                         release_aim9();
+                    } elsif ( weapon_s == 4 ) {
+                        print("Pickle does not fire the gun");
+                    }
+                    elsif ( weapon_s == 5 and Trig.getBoolValue())
+                    {
+                        release_bomb();
                     }
                 }, 0, 1);
 }
@@ -184,26 +190,27 @@ var update_lau_ready = func()
  {
 		ready = 1;
 	}
-	setprop("fdm/jsbsim/fcs/hydra3rready", ready);
+	setprop("fdm/jsbsim/fcs/hydra3ready", ready);
 }
 
 var fire_lau = func {
-	var grun   = getprop("fdm/jsbsim/fcs/hydra3rtrigger");
-	var gready = getprop("fdm/jsbsim/fcs/hydra3rready");
-	var gstop  = getprop("fdm/jsbsim/fcs/hydra3rstop");
+	var grun   = getprop("fdm/jsbsim/fcs/hydra3trigger");
+	var gready = getprop("fdm/jsbsim/fcs/hydra3ready");
+	var gstop  = getprop("fdm/jsbsim/fcs/hydra3stop");
 	if (gstop or getprop("controls/armament/trigger") == 0) {
-		setprop("fdm/jsbsim/fcs/hydra3rtrigger", 0);
+		setprop("fdm/jsbsim/fcs/hydra3trigger", 0);
 		return;
 	}
 	if (gready and !grun) {
-		setprop("fdm/jsbsim/fcs/hydra3rtrigger", 1);
+		setprop("fdm/jsbsim/fcs/hydra3trigger", 1);
 		grun = 1;
 	}
-	if (gready and grun) {
+	if ((gready and grun) or getprop("fdm/jsbsim/fcs/hydra3ready") and getprop("fdm/jsbsim/fcs/hydra3trigger")) {
 	    if (getprop("ai/submodels/submodel[7]/count") > 0) {
 	        setprop("ai/submodels/submodel[7]/count", getprop("ai/submodels/submodel[7]/count") - 1);
 	    } elsif (getprop("ai/submodels/submodel[8]/count") > 0) {
 	        setprop("ai/submodels/submodel[8]/count", getprop("ai/submodels/submodel[8]/count") - 1);
+	        setprop("ai/submodels/submodel[7]/count", -1);
 	    } elsif (getprop("ai/submodels/submodel[9]/count") > 0) {
 	        setprop("ai/submodels/submodel[9]/count", getprop("ai/submodels/submodel[9]/count") - 1);
 	    } elsif (getprop("ai/submodels/submodel[10]/count") > 0) {
@@ -213,7 +220,14 @@ var fire_lau = func {
 	    } elsif (getprop("ai/submodels/submodel[12]/count") > 0) {
 	        setprop("ai/submodels/submodel[12]/count", getprop("ai/submodels/submodel[12]/count") - 1);
 	    }
-		#settimer(fire_lau, .8);
+	    lau_count = getprop("ai/submodels/submodel[7]/count") + getprop("ai/submodels/submodel[8]/count") + getprop("ai/submodels/submodel[9]/count") + getprop("ai/submodels/submodel[10]/count") + getprop("ai/submodels/submodel[11]/count") + getprop("ai/submodels/submodel[12]/count");
+	    if (lau_count < 0) {
+	        setprop("ai/submodels/submodel[7]/count", 0);
+	        setprop("fdm/jsbsim/fcs/hydra3trigger", 0);
+			setprop("fdm/jsbsim/fcs/hydra3ready", 0);
+			return;
+	    }
+		settimer(fire_lau, .85);
 	}
 	armament_update();
 }

@@ -203,11 +203,13 @@
     <submodel>
         <name>Hydra-70</name>
         <model>Aircraft/F-15/Models/Stores/LAU-68/Hydra70.xml</model>
-        <trigger>fdm/jsbsim/fcs/hydra3ltrigger</trigger>
+        <trigger>fdm/jsbsim/fcs/hydra3trigger</trigger>
         <speed>2000.0</speed><!-- ft/sec, due to no drag this should probably be around 65% of topspeed -->
-        <repeat>false</repeat>
-        <delay>0.0</delay>
+        <repeat>true</repeat>
+        <delay>0.85</delay>
         <count>-1</count>
+        <fuse-range>0.0</fuse-range>
+        <life>8.0</life>
         <offsets>
             <x-m> 2</x-m><!-- in FEET and x is opposite normal FG model coordinates -->
             <y-m> -3.8</y-m>
@@ -225,27 +227,7 @@
     </submodel>
 
   <submodel>
-    <name>Hydra-70</name>
-    <model>Aircraft/F-15/Models/Stores/LAU-68/Hydra70.xml</model>
-    <trigger>fdm/jsbsim/fcs/hydra3rtrigger</trigger>
-    <speed>2000.0</speed><!-- ft/sec -->
-    <repeat>false</repeat>
-    <delay>0.0</delay>
     <count>-1</count>
-    <offsets>
-        <x-m> 1.2</x-m>
-        <y-m> 0</y-m>
-        <z-m> -1.1</z-m>
-    </offsets>
-    <life>7.0</life>
-    <wind>true</wind>
-    <weight>23.6</weight> <!-- 13.6lbs Mk66 Rocket Motor, 10lbs M151 HE warhead -->
-    <cd>0.0</cd>
-    <eda>0.00136354</eda>
-    <collision>true</collision>
-    <impact>true</impact>
-    <impact-reports>/ai/models/model-impact</impact-reports>
-    <submodel-path>Aircraft/F-15/Models/Stores/LAU-68/rocket-submodel.xml</submodel-path>
   </submodel>
 
   <submodel>

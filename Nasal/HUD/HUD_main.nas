@@ -315,7 +315,7 @@ obj.dlzY = 70;
 	                                                                             }
 	                                                                             obj.BV_x = pos_x - math.cos(pipAng) * 10;
 	                                                                             obj.BV_y = pos_y - math.sin(pipAng) * 10;
-	                                                                             obj.BV_x = obj.BV_x / 100; # disable X axis
+	                                                                             obj.BV_x = 0; #obj.BV_x / 100; # disable X axis
 	                                                                             obj.BV_y = (obj.BV_y / -4 - 315); # adapt it to the f15's HUD
 	                                                                         } # if gear is down, put it in the center
 	                                                                         if (getprop("controls/gear/gear-down")) {
