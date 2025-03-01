@@ -2370,11 +2370,11 @@
                 <stage-1-duration-sec type="double">0</stage-1-duration-sec>
                 <stage-2-duration-sec type="double">0</stage-2-duration-sec>
                 <weight-launch-lbs type="double">755</weight-launch-lbs> <!-- source -->
-                <weight-warhead-lbs type="double">825</weight-warhead-lbs>
+                <weight-warhead-lbs type="double">6600000</weight-warhead-lbs> <!--825 lbs of plutonium = 6,600,000 lbs of TNT (cuz 1 lb of plutonium = 8,000 of TNT)-->
                 <weight-fuel-lbm type="double"> 0 </weight-fuel-lbm>
                 <drag-coeff type="double">0.125</drag-coeff>
                 <cross-section-sqft type="double">1.1722</cross-section-sqft>
-                <arming-time-sec type="double">5</arming-time-sec>
+                <arming-time-sec type="double">30</arming-time-sec>
                 <min-speed-for-guiding-mach type="double">0</min-speed-for-guiding-mach>
                 <self-destruct-time-sec type="double">900</self-destruct-time-sec>
                 <all-aspect type="bool">true</all-aspect>
