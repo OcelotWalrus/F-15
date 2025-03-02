@@ -115,7 +115,7 @@ var F15HUD = {
         obj.alt_range = obj.get_element("alt_range");
         obj.ias_range = obj.get_element("ias_range");
         obj.window9_rect = obj.get_element("window9_rect");
-        obj.window10_rect = obj.get_element("window10_rect");
+        obj.window1_rect = obj.get_element("window1_rect");
 
         obj.target_locked = obj.get_element("target_locked");
         obj.target_locked.setVisible(0);
@@ -133,6 +133,7 @@ var F15HUD = {
         obj.window10 = obj.get_text("window10", "condensed.txf",9,1.4);
         obj.window11 = obj.get_text("window11", "condensed.txf",9,1.4);
         obj.window12 = obj.get_text("window12", "condensed.txf",9,1.4);
+        obj.window13 = obj.get_text("window12", "condensed.txf",9,1.4);
         obj.cross1 = obj.get_text("cross_1", "condensed.txf",9,1.4);
 
         obj.window1.setVisible(0);
@@ -340,13 +341,12 @@ obj.dlzY = 70;
                                                                                                      math.round(val.InstrumentedG*10.0),
                                                                                                      math.round(val.CadcOwsMaximumG*10.0)));
                                                                      }),
-                            props.UpdateManager.FromHashList(["VelocitiesAirspeedKt"], nil, func(val)
+                            props.UpdateManager.FromHashList(["VelocitiesAirspeedKt", "VelocitiesGroundspeedKt", "AltimeterIndicatedAltitudeFt", "Alpha"], nil, func(val)
                                                                      {
-                                                                         obj.window9.setText(sprintf("%02d kts", math.round(val.VelocitiesAirspeedKt)));
-                                                                     }),
-                            props.UpdateManager.FromHashList(["InstrumentedG"], nil, func(val)
-                                                                     {
-                                                                         obj.window10.setText(sprintf("%4.2f G", val.InstrumentedG));
+                                                                         obj.window9.setText(sprintf("%02d", math.round(val.VelocitiesAirspeedKt)));
+                                                                         obj.window13.setText(sprintf("G %02d", math.round(val.VelocitiesGroundspeedKt)));
+                                                                         obj.window1.setText(sprintf("ft %02d", math.round(val.AltimeterIndicatedAltitudeFt)));
+                                                                         obj.window1.setVisible(1);
                                                                      }),
                             props.UpdateManager.FromHashList(["Alpha",
                                                                       "ControlsGearBrakeParking",
@@ -355,10 +355,11 @@ obj.dlzY = 70;
                                                                      {
                                                                          obj.alpha = val.Alpha or 0;
                                                                          obj.mach = val.AirspeedIndicatorIndicatedMach or 0;
+                                                                         
+                                                                         obj.window10.setText(sprintf("α  %d", obj.alpha));
+                                                                         
                                                                          if(val.ControlsGearBrakeParking)
                                                                            obj.window7.setText("BRAKES");
-                                                                         else if(val.ControlsGearGearDown or obj.alpha > 20)
-                                                                           obj.window7.setText(sprintf("AOA %d",obj.alpha));
                                                                          else
                                                                            obj.window7.setText(sprintf("Ma %1.3f",obj.mach));
                                                                      }),
@@ -796,6 +797,7 @@ input = {
         RadarActiveTargetType                   : "sim/model/f15/instrumentation/radar-awg-9/active-target-type",
         InstrumentedG                           : "instrumentation/g-meter/instrumented-g",
         VelocitiesAirspeedKt                    : "velocities/airspeed-kt",
+        VelocitiesGroundspeedKt                 : "velocities/groundspeed-kt",
         ArmingTime                              : "sim/model/f15/systems/armament/arming-time-sec",
         Lau68AmmoCount1                         : "ai/submodels/submodel[7]/count",
         Lau68AmmoCount2                         : "ai/submodels/submodel[8]/count",
