@@ -82,9 +82,11 @@
     </fdm>
 
     <sim>
-        <minimum-fg-version>2017.2</minimum-fg-version>
-        <description>F-15E</description>
-        <author>Richard Harrison, Enrique Laso, Nikolai V. Chr., Joshua Davidson</author>
+        <aircraft-version>1.12</aircraft-version>
+        <minimum-fg-version>2020.3</minimum-fg-version>
+        <expected-aircraft-dir-name>F-15</expected-aircraft-dir-name>
+        <description>F-15EX</description>
+        <author>Richard Harrison, Enrique Laso, Nikolai V. Chr., Joshua Davidson, Jimmy L. Miles</author>
         <status>production</status>
         <config>
             <hud-filter type="int">1</hud-filter>
@@ -108,7 +110,7 @@
         <aero>f15e</aero>
 
         <help>
-            <title>McDonnel Douglas F-15E Strike Eagle</title>
+            <title>McDonnel Douglas F-15EX Eagle II</title>
             <key>
                 <name>Home</name>
                 <desc>Increase elevator trim</desc>
@@ -550,7 +552,7 @@
 
 
         <startup>
-            <splash-texture>Aircraft/F-15/f15c-splash.jpg</splash-texture>
+            <splash-texture>Aircraft/F-15/f15e-splash.jpg</splash-texture>
         </startup>
         <systems>
             <autopilot n="0">
@@ -1174,9 +1176,9 @@
         <menubar>
             <default>
                 <menu n="50">
-                    <label>F-15E Strike  Eagle</label>
+                    <label>F-15EX Eagle II</label>
                     <item n="0">
-                        <label>F-15E Config Panel</label>
+                        <label>F-15EX Config Panel</label>
                         <binding>
                             <command>nasal</command>
                             <script>aircraft.ext_loads_dlg_e.open()</script>

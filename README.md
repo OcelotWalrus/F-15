@@ -2,18 +2,18 @@
 CROMHⒶ'S HERE
 ---
 
-NOTE: **This repository is simply for myself so stay out, unless you're interested in my dookie F-15.**
+NOTE: **This repository is simply for myself so stay out, unless you're interested in my dookie F-15EX.**
 
-This project aims to enhance the already-existing F-15C and D models originally made by Richard Harrison and other various contributors. But, the main aim is to develop the F-15E model from that already-existing model, only changing the cockpit's model, being extremely different from the F-15C, but also add as much as weapons as the F-16 FlightGear model, develop A/G operations by adding more bombs types, racks and etc. The development of the MPCD (multi-page control display), the TWS radar display (for example use different symbols for unknown objects or missiles etc.), the HUD (adding modes and more useful info). The creation of a very detailed PDF manual is also under development.
+This project aims to enhance the already-existing F-15C and D models originally made by Richard Harrison and other various contributors. But, the main aim is to develop the F-15EX model from that already-existing model, only changing the cockpit's model, being extremely different from the F-15C, but also add as much as weapons as the F-16 FlightGear model, develop A/G operations by adding more bombs types, racks and etc. The development of the MPCD (multi-page control display), the TWS radar display (for example use different symbols for unknown objects or missiles etc.), the HUD (adding modes and more useful info). The creation of a very detailed PDF manual is also under development.
 
 For now, what's been done is:
 
-- The creation of the E variant (cockpit model is still old F-15C)
+- The creation of the EX variant (cockpit model is still old F-15C)
 - The enhancement of the C variant cockpit (added simulation of chaff/flare release and low ammo lights, engine flame out oral warning + lights with a system)
 - The implementation of A/G unguided operations (CCIP) and racks as well
-- The addition of new A/A missiles: AIM-9M, AIM-9X (only E variant), and the AIM-120D (only E variant)
-- The addition of new A/G bombs: MK-83, MK-82, CBU-87, CBU-105 (only E variant), and B61-12 (only E variant)
-- The addition of misc weapons: LAU-68C (only E variant)
+- The addition of new A/A missiles: AIM-9M, AIM-9X (only EX variant), and the AIM-120D (only EX variant)
+- The addition of new A/G bombs: MK-83, MK-82, CBU-87, CBU-105 (only EX variant), and B61-12 (only EX variant)
+- The addition of misc weapons: LAU-68C (only EX variant)
 - The addition of more aerodynamic effects such as mach cone or strake and G vortex
 - The polishing of already-existing effects
 - The addition of new real-life and fictional liveries
@@ -24,6 +24,7 @@ For now, what's been done is:
 - For general attack mode, display the currently selected weapon type
 - Fixed liveries whose nose was bugged
 - Tweaked some missiles' data to fit more realistic scenarios (or not)
+- The addition of custom FlightGear AI scenarios for either strike, target interception or dogfight situations
 
 ---
 ORIGINAL TEXT
