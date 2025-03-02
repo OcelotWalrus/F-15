@@ -133,7 +133,7 @@ var F15HUD = {
         obj.window10 = obj.get_text("window10", "condensed.txf",9,1.4);
         obj.window11 = obj.get_text("window11", "condensed.txf",9,1.4);
         obj.window12 = obj.get_text("window12", "condensed.txf",9,1.4);
-        obj.window13 = obj.get_text("window12", "condensed.txf",9,1.4);
+        obj.window13 = obj.get_text("window13", "condensed.txf",9,1.4);
         obj.cross1 = obj.get_text("cross_1", "condensed.txf",9,1.4);
 
         obj.window1.setVisible(0);
@@ -341,11 +341,15 @@ obj.dlzY = 70;
                                                                                                      math.round(val.InstrumentedG*10.0),
                                                                                                      math.round(val.CadcOwsMaximumG*10.0)));
                                                                      }),
-                            props.UpdateManager.FromHashList(["VelocitiesAirspeedKt", "VelocitiesGroundspeedKt", "AltimeterIndicatedAltitudeFt", "Alpha"], nil, func(val)
+                            props.UpdateManager.FromHashList(["VelocitiesAirspeedKt", "VelocitiesGroundspeedKt", "AltimeterIndicatedAltitudeFt", "Alpha", "ControlsGearGearDown"], nil, func(val)
                                                                      {
-                                                                         obj.window9.setText(sprintf("%02d", math.round(val.VelocitiesAirspeedKt)));
-                                                                         obj.window13.setText(sprintf("G %02d", math.round(val.VelocitiesGroundspeedKt)));
-                                                                         obj.window1.setText(sprintf("ft %02d", math.round(val.AltimeterIndicatedAltitudeFt)));
+                                                                         obj.window9.setText(sprintf("%03d", math.round(val.VelocitiesAirspeedKt)));
+                                                                         obj.window13.setText(sprintf("G %03d", math.round(val.VelocitiesGroundspeedKt)));
+                                                                         if (val.ControlsGearGearDown == 1) {
+                                                                            obj.window1.setText("GROUND");
+                                                                         } else {
+                                                                            obj.window1.setText(sprintf(" %05d", math.round(val.AltimeterIndicatedAltitudeFt)));
+                                                                        }
                                                                          obj.window1.setVisible(1);
                                                                      }),
                             props.UpdateManager.FromHashList(["Alpha",
@@ -356,7 +360,7 @@ obj.dlzY = 70;
                                                                          obj.alpha = val.Alpha or 0;
                                                                          obj.mach = val.AirspeedIndicatorIndicatedMach or 0;
                                                                          
-                                                                         obj.window10.setText(sprintf("α  %d", obj.alpha));
+                                                                         obj.window10.setText(sprintf("a  %d", obj.alpha));
                                                                          
                                                                          if(val.ControlsGearBrakeParking)
                                                                            obj.window7.setText("BRAKES");
