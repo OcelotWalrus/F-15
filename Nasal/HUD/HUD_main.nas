@@ -395,6 +395,7 @@ obj.dlzY = 70;
                                                                       "ArmamentRounds",
                                                                       "ArmamentAim9Count",
                                                                       "ArmamentAim9XCount",
+                                                                      "ArmamentAim9MCount",
                                                                       "ArmamentAim120Count",
                                                                       "ArmamentAim120DCount",
                                                                       "ArmamentAim7Count",
@@ -438,8 +439,8 @@ obj.dlzY = 70;
                                                                                     obj.cross1.setVisible(0);
                                                                                  }
                                                                              } else if (w_s == 1) {
-                                                                                 obj.window2.setText(sprintf("S%2dL", val.ArmamentAim9Count + val.ArmamentAim9XCount));
-                                                                                 if (val.ArmamentAim9Count + val.ArmamentAim9XCount == 0) {
+                                                                                 obj.window2.setText(sprintf("S%2dL", val.ArmamentAim9Count + val.ArmamentAim9XCount + val.ArmamentAim9MCount));
+                                                                                 if (val.ArmamentAim9Count + val.ArmamentAim9XCount + val.ArmamentAim9MCount == 0) {
                                                                                     obj.cross1.setVisible(1);
                                                                                     obj.cross1.setText("------");
                                                                                  }
@@ -772,7 +773,8 @@ input = {
         ArmamentAim120Count                     : "sim/model/f15/systems/armament/aim120c/count",
         ArmamentAim7Count                       : "sim/model/f15/systems/armament/aim7/count",
         ArmamentAim9Count                       : "sim/model/f15/systems/armament/aim9/count",
-        ArmamentAim9XCount                       : "sim/model/f15/systems/armament/aim9x/count",
+        ArmamentAim9XCount                      : "sim/model/f15/systems/armament/aim9x/count",
+        ArmamentAim9MCount                      : "sim/model/f15/systems/armament/aim9m/count",
         ArmamentAim120DCount                    : "sim/model/f15/systems/armament/aim120d/count",
 		ArmamentCbu105Count                     : "sim/model/f15/systems/armament/cbu105/count",
 		ArmamentCbu87Count                      : "sim/model/f15/systems/armament/cbu87/count",

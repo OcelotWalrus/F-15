@@ -80,6 +80,17 @@ var MPCD_Station =
                 }
                 else mode = "SRM";
             }
+			elsif (na == "AIM-9M")
+            {
+                na = "9M";
+                if (weapon_mode == 1)
+                {
+                    sel = getprop(sel_node);
+                    if (sel and master_arm)
+                        mode = "RDY";
+                }
+                else mode = "SRM";
+            }
             elsif (na == "AIM-120C")
             {
                 na = "120C";
@@ -112,6 +123,9 @@ var MPCD_Station =
                         mode = "RDY";
                 }
                 else mode = "MRM";
+            } else {
+                mode = "";
+                na = "";
             }
             me.status.setText(mode);
             me.label.setText(na);
@@ -760,7 +774,7 @@ var MPCD_Device =
             if (me.w_s == 0) {
                 me.root.infoArm.setText(sprintf("G%3dP",getprop("sim/model/f15/systems/gun/rounds")));
             } else if (me.w_s == 1) {
-                me.root.infoArm.setText(sprintf("S%dL", getprop("sim/model/f15/systems/armament/aim9/count") + getprop("sim/model/f15/systems/armament/aim9x/count")));
+                me.root.infoArm.setText(sprintf("S%dL", getprop("sim/model/f15/systems/armament/aim9/count") + getprop("sim/model/f15/systems/armament/aim9x/count") + getprop("sim/model/f15/systems/armament/aim9m/count")));
             } else if (me.w_s == 2) {
                 me.root.infoArm.setText(sprintf("A%dB\nM%dF", getprop("sim/model/f15/systems/armament/aim120c/count") + getprop("sim/model/f15/systems/armament/aim120d/count"), getprop("sim/model/f15/systems/armament/aim7/count")));
             } else if (me.w_s == 5) {

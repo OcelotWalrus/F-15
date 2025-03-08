@@ -1013,6 +1013,35 @@
                         <command>property-toggle</command>
                         <property>sim/model/f15/systems/external-loads/reload-demand</property>
                     </binding>
+                    <mod-up>
+                        <binding>
+                             <!-- gun ammos -->
+                            setprop("/ai/submodels/submodel[3]/count",0);
+                            setprop("sim/model/f15/systems/gun/rounds",0);
+                            <!-- flares and chaffs -->
+                            setprop("/ai/submodels/submodel[5]/count",0);
+                            setprop("/ai/submodels/submodel[6]/count",0);
+                            <!-- force to update the displays -->
+                            setprop("/ai/submodels/submodel[5]/reloaded",1);
+							setprop("payload/weight[1]/count", 0);
+							setprop("payload/weight[3]/count", 0);
+							setprop("payload/weight[4]/count", 0);
+							setprop("payload/weight[5]/count", 0);
+							setprop("payload/weight[6]/count", 0);
+							setprop("payload/weight[7]/count", 0);
+							setprop("payload/weight[9]/count", 0);
+                            if (getprop("payload/weight[1]/selected") == "LAU-68C") {
+                                setprop("/ai/submodels/submodel[7]/count",0);
+                                setprop("/ai/submodels/submodel[8]/count",0);
+                                setprop("/ai/submodels/submodel[9]/count",0);
+                            }
+                            if (getprop("payload/weight[9]/selected") == "LAU-68C") {
+                                setprop("/ai/submodels/submodel[10]/count",0);
+                                setprop("/ai/submodels/submodel[11]/count",0);
+                                setprop("/ai/submodels/submodel[12]/count",0);
+                            }
+                        </binding>
+                    </mod-up>
                 </button>
                 <button>
                     <legend>Reload Ammunitions</legend>
@@ -1089,6 +1118,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-9L</value>
+                            <value>AIM-9M</value>
                             <value>AIM-9X</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
@@ -1162,6 +1192,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-9L</value>
+                            <value>AIM-9M</value>
                             <value>AIM-9X</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
@@ -1379,6 +1410,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-9L</value>
+                            <value>AIM-9M</value>
                             <value>AIM-9X</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
@@ -1452,6 +1484,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-9L</value>
+                            <value>AIM-9M</value>
                             <value>AIM-9X</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>

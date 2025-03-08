@@ -37,6 +37,10 @@
                 </equals>
                 <equals>
                     <property>payload/weight[0]/selected</property>
+                    <value>AIM-9M</value>
+                </equals>
+                <equals>
+                    <property>payload/weight[0]/selected</property>
                     <value>AIM-120C</value>
                 </equals>
                 <equals>
@@ -149,6 +153,10 @@
                 <equals>
                     <property>payload/weight[2]/selected</property>
                     <value>AIM-9X</value>
+                </equals>
+                <equals>
+                    <property>payload/weight[2]/selected</property>
+                    <value>AIM-9M</value>
                 </equals>
                 <equals>
                     <property>payload/weight[2]/selected</property>
@@ -267,6 +275,10 @@
                 </equals>
                 <equals>
                     <property>payload/weight[8]/selected</property>
+                    <value>AIM-9M</value>
+                </equals>
+                <equals>
+                    <property>payload/weight[8]/selected</property>
                     <value>AIM-120C</value>
                 </equals>
                 <equals>
@@ -379,6 +391,10 @@
                 <equals>
                     <property>payload/weight[10]/selected</property>
                     <value>AIM-9X</value>
+                </equals>
+                <equals>
+                    <property>payload/weight[10]/selected</property>
+                    <value>AIM-9M</value>
                 </equals>
                 <equals>
                     <property>payload/weight[10]/selected</property>
@@ -511,6 +527,51 @@
             <equals>
                 <property>payload/weight[10]/selected</property>
                 <value>AIM-9X</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>aim-9m-l1</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[0]/selected</property>
+                <value>AIM-9M</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>aim-9m-l2</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[2]/selected</property>
+                <value>AIM-9M</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>aim-9m-r1</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[8]/selected</property>
+                <value>AIM-9M</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>aim-9m-r2</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[10]/selected</property>
+                <value>AIM-9M</value>
             </equals>
         </condition>
     </animation>

@@ -57,7 +57,7 @@ Station =
         setlistener("payload/weight["~obj.index~"]/selected", func(prop){
                         var v = prop.getValue();
                         obj.set_type(v);
-                        if (v == "AIM-9L" or v == "AIM-9X")
+                        if (v == "AIM-9L" or v == "AIM-9X" or v =="AIM-9M")
                             prop.getParent().getNode("weight-lb").setValue(190);
                         elsif (v == "AIM-7M")
                         prop.getParent().getNode("weight-lb").setValue(510);
@@ -101,6 +101,11 @@ Station =
             me.xbcode = 1;
 		}
 		elsif ( t == "AIM-9X" )
+        {
+			me.bcode = 1;
+            me.xbcode = 1;
+		}
+		elsif ( t == "AIM-9M" )
         {
 			me.bcode = 1;
             me.xbcode = 1;
@@ -499,6 +504,7 @@ var update_weapons_over_mp = func
 		var cbu87_count = 0;
 		var b61count = 0;
 		var aim9x_count = 0;
+		var aim9m_count = 0;
 
         update_wp_next = cur_time + update_wp_frequency_s;
         update_wp_requested = false;
@@ -518,6 +524,8 @@ var update_weapons_over_mp = func
                 aim9_count = aim9_count+1;
 			elsif (S.get_type() == "AIM-9X")
 	            aim9x_count = aim9x_count+1;
+			elsif (S.get_type() == "AIM-9M")
+	            aim9m_count = aim9m_count+1;
             elsif (S.get_type() == "AIM-7M")
                 aim7_count = aim7_count+1;
             elsif (S.get_type() == "AIM-120C")
@@ -535,7 +543,7 @@ var update_weapons_over_mp = func
             elsif (S.get_type() == "CBU-87")
                 cbu87_count = cbu87_count + getprop("payload/weight["~S.index~"]/count");
         }
-        #print("count ",aim9_count, aim7_count, aim120c_count, aim120d_count, mk83_count, mk84_count, cbu105_count, cbu87_count, b61count, aim9x_count);
+        #print("count ",aim9_count, aim7_count, aim120c_count, aim120d_count, mk83_count, mk84_count, cbu105_count, cbu87_count, b61count, aim9x_count, aim9m_count);
         setprop("sim/model/f15/systems/armament/aim9/count",aim9_count);
         setprop("sim/model/f15/systems/armament/aim7/count",aim7_count);
         setprop("sim/model/f15/systems/armament/aim120c/count",aim120c_count);
@@ -546,6 +554,7 @@ var update_weapons_over_mp = func
         setprop("sim/model/f15/systems/armament/cbu87/count",cbu87_count);
         setprop("sim/model/f15/systems/armament/b6112/count",b61count);
         setprop("sim/model/f15/systems/armament/aim9x/count",aim9x_count);
+        setprop("sim/model/f15/systems/armament/aim9m/count",aim9m_count);
 
         var set = WeaponsSet.getValue();
         b_wpstring = b_wpstring;

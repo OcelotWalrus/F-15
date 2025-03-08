@@ -878,6 +878,12 @@
                             <target-range-nm type="double">0</target-range-nm>
                             <sound-volume type="double">0.12</sound-volume>
                         </aim9>
+                        <aim9m>
+                            <count type="int">0</count>
+                            <nearest-target type="int">-1</nearest-target>
+                            <target-range-nm type="double">0</target-range-nm>
+                            <sound-volume type="double">0.12</sound-volume>
+                        </aim9m>
                         <aim120c>
                             <count type="int">0</count>
                             <nearest-target type="int">-1</nearest-target>
@@ -1421,6 +1427,10 @@
                 <lbs>196</lbs>
             </opt>
             <opt>
+                <name>AIM-9M</name>
+                <lbs>196</lbs>
+            </opt>
+            <opt>
                 <name>AIM-120C</name>
                 <lbs>335</lbs>
             </opt>
@@ -1468,6 +1478,10 @@
             </opt>
             <opt>
                 <name>AIM-9L</name>
+                <lbs>196</lbs>
+            </opt>
+            <opt>
+                <name>AIM-9M</name>
                 <lbs>196</lbs>
             </opt>
             <opt>
@@ -1617,6 +1631,10 @@
                 <lbs>196</lbs>
             </opt>
             <opt>
+                <name>AIM-9M</name>
+                <lbs>196</lbs>
+            </opt>
+            <opt>
                 <name>AIM-120C</name>
                 <lbs>335</lbs>
             </opt>
@@ -1664,6 +1682,10 @@
             </opt>
             <opt>
                 <name>AIM-9L</name>
+                <lbs>196</lbs>
+            </opt>
+            <opt>
+                <name>AIM-9M</name>
                 <lbs>196</lbs>
             </opt>
             <opt>

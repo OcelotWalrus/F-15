@@ -1072,6 +1072,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-9L</value>
+                            <value>AIM-9M</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
@@ -1122,6 +1123,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-9L</value>
+                            <value>AIM-9M</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
@@ -1272,6 +1274,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-9L</value>
+                            <value>AIM-9M</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>
@@ -1322,6 +1325,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>AIM-9L</value>
+                            <value>AIM-9M</value>
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <binding>

@@ -193,6 +193,8 @@ var AIM = {
             m.type_lc = "aim-9";
         elsif (type == "AIM-9X")
             m.type_lc = "aim-9x";
+        elsif (type == "AIM-9M")
+            m.type_lc = "aim-9m";
         else if (type == "AIM-7M")
             m.type_lc = "aim-7";
         else if (type == "MK-82")
