@@ -123,6 +123,10 @@ var MPCD_Station =
                         mode = "RDY";
                 }
                 else mode = "MRM";
+            } elsif (na == "Droptank")
+            {
+                na = "TANK";
+                mode = "NIL";
             } else {
                 mode = "";
                 na = "";
@@ -271,6 +275,10 @@ var MPCD_GroundStation =
                         mode = "RDY";
                 }
                 else mode = "AG";
+            } elsif (na == "Droptank")
+            {
+                na = "TANK";
+                mode = "NIL";
             } else {
                 mode = "";
                 na = "";

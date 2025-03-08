@@ -418,7 +418,7 @@ var release_aim9 = func()
 var release_bomb = func()
 {
 	if (Current_missile != nil) {
-	    if (Current_missile == Current_mk84 and getprop("payload/weight["~Current_missile.ID~"]/selected") != "none" and getprop("sim/model/f15/systems/armament/mk83/count") + getprop("sim/model/f15/systems/armament/mk84/count") + getprop("sim/model/f15/systems/armament/cbu105/count") + getprop("sim/model/f15/systems/armament/cbu87/count") + getprop("sim/model/f15/systems/armament/b6112/count") > 0 and getprop("sim/model/f15/systems/armament/selected-arm") != "none") {
+	    if (Current_missile == Current_mk84 and getprop("payload/weight["~Current_missile.ID~"]/selected") != "none" and getprop("sim/model/f15/systems/armament/mk83/count") + getprop("sim/model/f15/systems/armament/mk84/count") + getprop("sim/model/f15/systems/armament/cbu105/count") + getprop("sim/model/f15/systems/armament/cbu87/count") + getprop("sim/model/f15/systems/armament/b6112/count") > 0 and getprop("sim/model/f15/systems/armament/selected-arm") != "none" and ArmSwitch.getValue()) {
 	        Current_missile.status = 1; # set status manually here for dumb bombs
 	    }
 	    if ((getprop("payload/weight["~Current_missile.ID~"]/selected") == "3 X CBU-87" or getprop("payload/weight["~Current_missile.ID~"]/selected") == "3 X MK-83") and getprop("payload/weight["~Current_missile.ID~"]/count") < 1) {
