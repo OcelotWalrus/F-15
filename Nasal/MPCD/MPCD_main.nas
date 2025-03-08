@@ -241,9 +241,9 @@ var MPCD_GroundStation =
 		                mode = "RDY";
 		        }
 		        else mode = "AG";
-			} elsif (na == "CBU-87")
+			} elsif (na == "3 X CBU-87")
 		    {
-		        na = "CBU87";
+		        na = "3xCBU87";
 		        if (weapon_mode == 5)
 		        {
 		            sel = getprop(sel_node);

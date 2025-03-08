@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-  
-<PropertyList> 
+
+<PropertyList>
 
     <path>Aircraft/F-15/Models/Stores/Racks/TER-9A/TER-9A.xml</path>
 
@@ -13,7 +13,7 @@
 
     <model>
       <name>Station7_CBU87_left</name>
-      <path>Aircraft/F-15/Models/Stores/CBU-87/CBU-87.xml</path>
+      <path>Aircraft/F-15/Models/Stores/3 X CBU-87/CBU-87.xml</path>
       <offsets>
         <x-m>-0.05</x-m>
         <y-m>-0.305</y-m>
@@ -25,7 +25,7 @@
 
     <model>
       <name>Station7_CBU87_center</name>
-      <path>Aircraft/F-15/Models/Stores/CBU-87/CBU-87.xml</path>
+      <path>Aircraft/F-15/Models/Stores/3 X CBU-87/CBU-87.xml</path>
       <offsets>
         <x-m>-0.05</x-m>
         <y-m>0</y-m>
@@ -36,7 +36,7 @@
 
     <model>
       <name>Station7_CBU87_right</name>
-      <path>Aircraft/F-15/Models/Stores/CBU-87/CBU-87.xml</path>
+      <path>Aircraft/F-15/Models/Stores/3 X CBU-87/CBU-87.xml</path>
       <offsets>
         <x-m>-0.05</x-m>
         <y-m>0.305</y-m>
@@ -62,7 +62,7 @@
           <z>0</z>
         </axis>
     </animation>
-    
+
     <animation>
         <type>rotate</type>
         <object-name>Station7_CBU87_right</object-name>
@@ -86,7 +86,7 @@
       <condition><and>
         <equals>
           <property>payload/weight[7]/selected</property>
-          <value>CBU-87</value>
+          <value>3 X CBU-87</value>
         </equals>
         <greater-than>
           <property>payload/weight[7]/count</property>
@@ -94,14 +94,14 @@
         </greater-than></and>
       </condition>
      </animation>
-     
+
      <animation>
       <type>select</type>
       <object-name>Station7_CBU87_right</object-name>
       <condition><and>
         <equals>
           <property>payload/weight[7]/selected</property>
-          <value>CBU-87</value>
+          <value>3 X CBU-87</value>
         </equals>
         <greater-than>
           <property>payload/weight[7]/count</property>
@@ -116,7 +116,7 @@
       <condition><and>
         <equals>
           <property>payload/weight[7]/selected</property>
-          <value>CBU-87</value>
+          <value>3 X CBU-87</value>
         </equals>
         <greater-than>
           <property>payload/weight[7]/count</property>
@@ -125,4 +125,4 @@
       </condition>
      </animation>
 
-</PropertyList> 
+</PropertyList>

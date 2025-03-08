@@ -50,7 +50,7 @@ Station =
         #
 # set listener to detect when stores changed and update
 		setlistener("payload/weight["~obj.index~"]/count", func(){
-						if (getprop("payload/weight["~obj.index~"]/selected") == "CBU-87") {
+						if (getprop("payload/weight["~obj.index~"]/selected") == "3 X CBU-87") {
 							setprop("payload/weight["~obj.index~"]/weight-lb", 934 * getprop("payload/weight["~obj.index~"]/count"));
 						}
 					},0,0);
@@ -73,7 +73,7 @@ Station =
                         prop.getParent().getNode("weight-lb").setValue(934);
 						elsif (v == "B61-12")
                         prop.getParent().getNode("weight-lb").setValue(775);
-                        elsif (v == "CBU-87")
+                        elsif (v == "3 X CBU-87")
                         prop.getParent().getNode("weight-lb").setValue(934 * getprop("payload/weight["~obj.index~"]/count"));
 						elsif (v == "LAU-68C")
                         prop.getParent().getNode("weight-lb").setValue(90 * 3);
@@ -145,7 +145,7 @@ Station =
 			me.bcode = 4;
             me.xbcode = 2;
 		}
-		elsif ( t == "CBU-87" )
+		elsif ( t == "3 X CBU-87" )
         {
 			me.bcode = 4;
             me.xbcode = 2;
@@ -540,7 +540,7 @@ var update_weapons_over_mp = func
                 cbu105_count = cbu105_count+1;
             elsif (S.get_type() == "B61-12")
                 b61count = b61count+1;
-            elsif (S.get_type() == "CBU-87")
+            elsif (S.get_type() == "3 X CBU-87")
                 cbu87_count = cbu87_count + getprop("payload/weight["~S.index~"]/count");
         }
         #print("count ",aim9_count, aim7_count, aim120c_count, aim120d_count, mk83_count, mk84_count, cbu105_count, cbu87_count, b61count, aim9x_count, aim9m_count);

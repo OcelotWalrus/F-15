@@ -12,8 +12,8 @@
     </offsets>
 
     <model>
-      <name>Station4_CBU87_left</name>
-      <path>Aircraft/F-15/Models/Stores/CBU-87/CBU-87.xml</path>
+      <name>Station1_CBU87_left</name>
+      <path>Aircraft/F-15/Models/Stores/3 X CBU-87/CBU-87.xml</path>
       <offsets>
         <x-m>-0.05</x-m>
         <y-m>-0.305</y-m>
@@ -24,8 +24,8 @@
     </model>
 
     <model>
-      <name>Station4_CBU87_center</name>
-      <path>Aircraft/F-15/Models/Stores/CBU-87/CBU-87.xml</path>
+      <name>Station1_CBU87_center</name>
+      <path>Aircraft/F-15/Models/Stores/3 X CBU-87/CBU-87.xml</path>
       <offsets>
         <x-m>-0.05</x-m>
         <y-m>0</y-m>
@@ -35,8 +35,8 @@
     </model>
 
     <model>
-      <name>Station4_CBU87_right</name>
-      <path>Aircraft/F-15/Models/Stores/CBU-87/CBU-87.xml</path>
+      <name>Station1_CBU87_right</name>
+      <path>Aircraft/F-15/Models/Stores/3 X CBU-87/CBU-87.xml</path>
       <offsets>
         <x-m>-0.05</x-m>
         <y-m>0.305</y-m>
@@ -48,7 +48,7 @@
 
     <animation>
         <type>rotate</type>
-        <object-name>Station4_CBU87_left</object-name>
+        <object-name>Station1_CBU87_left</object-name>
         <factor>0</factor>
         <offset-deg>-47</offset-deg>
         <center>
@@ -65,7 +65,7 @@
     
     <animation>
         <type>rotate</type>
-        <object-name>Station4_CBU87_right</object-name>
+        <object-name>Station1_CBU87_right</object-name>
         <factor>0</factor>
         <offset-deg>47</offset-deg>
         <center>
@@ -82,14 +82,14 @@
 
     <animation>
       <type>select</type>
-      <object-name>Station4_CBU87_left</object-name>
+      <object-name>Station1_CBU87_left</object-name>
       <condition><and>
         <equals>
-          <property>payload/weight[4]/selected</property>
-          <value>CBU-87</value>
+          <property>payload/weight[1]/selected</property>
+          <value>3 X CBU-87</value>
         </equals>
         <greater-than>
-          <property>payload/weight[4]/count</property>
+          <property>payload/weight[1]/count</property>
           <value>0</value>
         </greater-than></and>
       </condition>
@@ -97,14 +97,14 @@
      
      <animation>
       <type>select</type>
-      <object-name>Station4_CBU87_right</object-name>
+      <object-name>Station1_CBU87_right</object-name>
       <condition><and>
         <equals>
-          <property>payload/weight[4]/selected</property>
-          <value>CBU-87</value>
+          <property>payload/weight[1]/selected</property>
+          <value>3 X CBU-87</value>
         </equals>
         <greater-than>
-          <property>payload/weight[4]/count</property>
+          <property>payload/weight[1]/count</property>
           <value>1</value>
         </greater-than></and>
       </condition>
@@ -112,14 +112,14 @@
 
      <animation>
       <type>select</type>
-      <object-name>Station4_CBU87_center</object-name>
+      <object-name>Station1_CBU87_center</object-name>
       <condition><and>
         <equals>
-          <property>payload/weight[4]/selected</property>
-          <value>CBU-87</value>
+          <property>payload/weight[1]/selected</property>
+          <value>3 X CBU-87</value>
         </equals>
         <greater-than>
-          <property>payload/weight[4]/count</property>
+          <property>payload/weight[1]/count</property>
           <value>2</value>
         </greater-than></and>
       </condition>

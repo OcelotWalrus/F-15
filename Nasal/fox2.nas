@@ -207,7 +207,7 @@ var AIM = {
             m.type_lc = "cbu-105";
         else if (type == "B61-12")
             m.type_lc = "b61-12";
-        else if (type == "CBU-87")
+        else if (type == "3 X CBU-87")
             m.type_lc = "cbu-87";
         else if (type == "LAU-68C")
             m.type_lc = "lau-68";
@@ -2466,6 +2466,9 @@ var AIM = {
 
 		var explode_smoke_path = path_base~"explode-smoke-id-" ~ me.ID;
 		me.explode_smoke_prop = props.globals.initNode( explode_smoke_path, FALSE, "BOOL", TRUE);
+		
+		var deploy_id_path = path_base~"deploy-id-" ~ me.ID;
+		me.deploy_id_prop = props.globals.initNode( deploy_id_path, FALSE, "BOOL", TRUE);
 
 		var explode_sound_path = "payload/armament/flags/explode-sound-on-" ~ me.ID;;
 		me.explode_sound_prop = props.globals.initNode( explode_sound_path, FALSE, "BOOL", TRUE);
@@ -2631,7 +2634,32 @@ var AIM = {
         me.ccip_speed_north_fps = getprop("velocities/speed-north-fps");
 
         # Fix crap
-		type = string.lc(type);
+		if (type == "AIM-9L")
+            type = "aim-9";
+        elsif (type == "AIM-9X")
+            type = "aim-9x";
+        elsif (type == "AIM-9M")
+            type = "aim-9m";
+        else if (type == "AIM-7M")
+            type = "aim-7";
+        else if (type == "MK-82")
+            type = "mk-82";
+        else if (type == "MK-83")
+            type = "mk-83";
+        else if (type == "MK-84")
+            type = "mk-84";
+        else if (type == "CBU-105")
+            type = "cbu-105";
+        else if (type == "B61-12")
+            type = "b61-12";
+        else if (type == "3 X CBU-87")
+            type = "cbu-87";
+        else if (type == "LAU-68C")
+            type = "lau-68";
+        else if (type == "AIM-120C")
+            type = "aim-120c";
+        else if (type == "AIM-120D")
+            type = "aim-120d";
         me.eject_speed = getprop("payload/armament/"~type~"/ejector-speed-fps");
         me.rail = getprop("payload/armament/"~type~"/rail");
         me.weight_launch_lbm = getprop("payload/armament/"~type~"/weight-launch-lbs");

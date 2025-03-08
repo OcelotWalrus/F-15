@@ -473,7 +473,7 @@
             </equals>
         </condition>
     </animation>
-    
+
     <animation>
         <type>select</type>
         <nopreview/>
@@ -530,7 +530,7 @@
             </equals>
         </condition>
     </animation>
-    
+
     <animation>
         <type>select</type>
         <nopreview/>
@@ -653,7 +653,7 @@
             </equals>
         </condition>
     </animation>
-    
+
     <animation>
         <type>select</type>
         <nopreview/>
@@ -661,7 +661,7 @@
         <condition>
             <equals>
                 <property>payload/weight[1]/selected</property>
-                <value>CBU-87</value>
+                <value>3 X CBU-87</value>
             </equals>
         </condition>
     </animation>
@@ -672,7 +672,7 @@
         <condition>
             <equals>
                 <property>payload/weight[3]/selected</property>
-                <value>CBU-87</value>
+                <value>3 X CBU-87</value>
             </equals>
         </condition>
     </animation>
@@ -683,7 +683,7 @@
         <condition>
             <equals>
                 <property>payload/weight[4]/selected</property>
-                <value>CBU-87</value>
+                <value>3 X CBU-87</value>
             </equals>
         </condition>
     </animation>
@@ -694,7 +694,7 @@
         <condition>
             <equals>
                 <property>payload/weight[5]/selected</property>
-                <value>CBU-87</value>
+                <value>3 X CBU-87</value>
             </equals>
         </condition>
     </animation>
@@ -705,7 +705,7 @@
         <condition>
             <equals>
                 <property>payload/weight[9]/selected</property>
-                <value>CBU-87</value>
+                <value>3 X CBU-87</value>
             </equals>
         </condition>
     </animation>
@@ -716,7 +716,7 @@
         <condition>
             <equals>
                 <property>payload/weight[6]/selected</property>
-                <value>CBU-87</value>
+                <value>3 X CBU-87</value>
             </equals>
         </condition>
     </animation>
@@ -727,7 +727,7 @@
         <condition>
             <equals>
                 <property>payload/weight[7]/selected</property>
-                <value>CBU-87</value>
+                <value>3 X CBU-87</value>
             </equals>
         </condition>
     </animation>
