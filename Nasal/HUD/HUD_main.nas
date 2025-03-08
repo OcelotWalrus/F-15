@@ -359,9 +359,9 @@ obj.dlzY = 70;
                                                                      {
                                                                          obj.alpha = val.Alpha or 0;
                                                                          obj.mach = val.AirspeedIndicatorIndicatedMach or 0;
-                                                                         
+
                                                                          obj.window10.setText(sprintf("a  %d", obj.alpha));
-                                                                         
+
                                                                          if(val.ControlsGearBrakeParking)
                                                                            obj.window7.setText("BRAKES");
                                                                          else
@@ -394,6 +394,7 @@ obj.dlzY = 70;
                                                                       "ControlsArmamentWeaponSelector",
                                                                       "ArmamentRounds",
                                                                       "ArmamentAim9Count",
+                                                                      "ArmamentAim9XCount",
                                                                       "ArmamentAim120Count",
                                                                       "ArmamentAim120DCount",
                                                                       "ArmamentAim7Count",
@@ -437,8 +438,8 @@ obj.dlzY = 70;
                                                                                     obj.cross1.setVisible(0);
                                                                                  }
                                                                              } else if (w_s == 1) {
-                                                                                 obj.window2.setText(sprintf("S%2dL", val.ArmamentAim9Count));
-                                                                                 if (val.ArmamentAim9Count == 0) {
+                                                                                 obj.window2.setText(sprintf("S%2dL", val.ArmamentAim9Count + val.ArmamentAim9XCount));
+                                                                                 if (val.ArmamentAim9Count + val.ArmamentAim9XCount == 0) {
                                                                                     obj.cross1.setVisible(1);
                                                                                     obj.cross1.setText("------");
                                                                                  }
@@ -771,6 +772,7 @@ input = {
         ArmamentAim120Count                     : "sim/model/f15/systems/armament/aim120c/count",
         ArmamentAim7Count                       : "sim/model/f15/systems/armament/aim7/count",
         ArmamentAim9Count                       : "sim/model/f15/systems/armament/aim9/count",
+        ArmamentAim9XCount                       : "sim/model/f15/systems/armament/aim9x/count",
         ArmamentAim120DCount                    : "sim/model/f15/systems/armament/aim120d/count",
 		ArmamentCbu105Count                     : "sim/model/f15/systems/armament/cbu105/count",
 		ArmamentCbu87Count                      : "sim/model/f15/systems/armament/cbu87/count",

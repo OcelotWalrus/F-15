@@ -189,7 +189,30 @@ var AIM = {
 		var m = { parents : [AIM]};
 		# Args: p = Pylon.
 
-		m.type_lc = string.lc(type);
+        if (type == "AIM-9L")
+            m.type_lc = "aim-9";
+        elsif (type == "AIM-9X")
+            m.type_lc = "aim-9x";
+        else if (type == "AIM-7M")
+            m.type_lc = "aim-7";
+        else if (type == "MK-82")
+            m.type_lc = "mk-82";
+        else if (type == "MK-83")
+            m.type_lc = "mk-83";
+        else if (type == "MK-84")
+            m.type_lc = "mk-84";
+        else if (type == "CBU-105")
+            m.type_lc = "cbu-105";
+        else if (type == "B61-12")
+            m.type_lc = "b61-12";
+        else if (type == "CBU-87")
+            m.type_lc = "cbu-87";
+        else if (type == "LAU-68C")
+            m.type_lc = "lau-68";
+        else if (type == "AIM-120C")
+            m.type_lc = "aim-120c";
+        else if (type == "AIM-120D")
+            m.type_lc = "aim-120d";
 		m.type = type;
 
 		m.deleted = FALSE;

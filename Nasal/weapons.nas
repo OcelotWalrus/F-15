@@ -275,6 +275,8 @@ var missile_code_from_ident= func(mty)
 {
         if (mty == "AIM-9L")
             return "aim9";
+        elsif (mty == "AIM-9X")
+            return "aim9x";
         else if (mty == "AIM-7M")
             return "aim7";
         else if (mty == "MK-82")
@@ -306,7 +308,7 @@ var get_sel_missile_count = func()
         else if (WeaponSelector.getValue() == 1)
         {
             Current_missile = Current_srm;
-            return getprop("sim/model/f15/systems/armament/aim9/count");
+            return getprop("sim/model/f15/systems/armament/aim9/count") + getprop("sim/model/f15/systems/armament/aim9x/count");
         }
         else if (WeaponSelector.getValue() == 2)
         {
@@ -339,7 +341,7 @@ var update_sw_ready = func()
             }
             if (pylon >= 0)
             {
-                if (S.get_type() == "AIM-9L" or S.get_type() == "AIM-7M" or S.get_type() == "AIM-120C" or S.get_type() == "MK-83" or S.get_type() == "AIM-120D" or S.get_type() == "MK-84" or S.get_type() == "LAU-68C" or S.get_type() == "CBU-105" or S.get_type() == "CBU-87" or S.get_type() == "B61-12")
+                if (S.get_type() == "AIM-9L" or S.get_type() == "AIM-9X" or S.get_type() == "AIM-7M" or S.get_type() == "AIM-120C" or S.get_type() == "MK-83" or S.get_type() == "AIM-120D" or S.get_type() == "MK-84" or S.get_type() == "LAU-68C" or S.get_type() == "CBU-105" or S.get_type() == "CBU-87" or S.get_type() == "B61-12")
                 {
                     print(S.get_type()," new !! ", pylon, " sel_missile_count - 1 = ", sel_missile_count - 1);
                     if (WeaponSelector.getValue() == 1) {
@@ -387,14 +389,16 @@ var release_aim9 = func()
 	if (Current_missile != nil) {
         print("RELEASE MISSILE status: ", Current_missile.status);
 		if ( Current_missile.status == 1 ) {
-			var phrase = Current_missile.brevity~" at: " ~ Current_missile.Tgt.Callsign.getValue();
+			var current_pylon = "payload/weight["~Current_missile.ID~"]/selected";
+			var missile_code = missile_code_from_ident(current_pylon);
+			var fire_msg = getprop(sprintf("payload/armament/spd%d/fire-msg", missile_code));
+			var phrase = sprintf("spd%d at: spd%d", fire_msg, Current_missile.Tgt.Callsign.getValue());
 			if (getprop("sim/model/f15/systems/armament/mp-messaging")) {
 				armament.defeatSpamFilter(phrase);
 			} else {
 				setprop("/sim/messages/atc", phrase);
 			}
 			# Set the pylon empty:
-			var current_pylon = "payload/weight["~Current_missile.ID~"]/selected";
             print("Release ",current_pylon);
 			setprop(current_pylon,"none");
             print("currently ",getprop(current_pylon));
@@ -410,7 +414,7 @@ var release_aim9 = func()
 var release_bomb = func()
 {
 	if (Current_missile != nil) {
-	    if (Current_missile == Current_mk84 and getprop("payload/weight["~Current_missile.ID~"]/selected") != "none") {
+	    if (Current_missile == Current_mk84 and getprop("payload/weight["~Current_missile.ID~"]/selected") != "none" and getprop("sim/model/f15/systems/armament/mk83/count") + getprop("sim/model/f15/systems/armament/mk84/count") + getprop("sim/model/f15/systems/armament/cbu105/count") + getprop("sim/model/f15/systems/armament/cbu87/count") + getprop("sim/model/f15/systems/armament/b6112/count") > 0) {
 	        Current_missile.status = 1; # set status manually here for dumb bombs
 	    }
 	    if (getprop("payload/weight["~Current_missile.ID~"]/selected") == "CBU-87" and getprop("payload/weight["~Current_missile.ID~"]/count") < 1) {

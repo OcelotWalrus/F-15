@@ -880,6 +880,12 @@
                             <target-range-nm type="double">0</target-range-nm>
                             <sound-volume type="double">0.12</sound-volume>
                         </aim9>
+                        <aim9x>
+                            <count type="int">0</count>
+                            <nearest-target type="int">-1</nearest-target>
+                            <target-range-nm type="double">0</target-range-nm>
+                            <sound-volume type="double">0.12</sound-volume>
+                        </aim9x>
                         <aim120c>
                             <count type="int">0</count>
                             <nearest-target type="int">-1</nearest-target>
@@ -1442,6 +1448,10 @@
                 <lbs>196</lbs>
             </opt>
             <opt>
+                <name>AIM-9X</name>
+                <lbs>196</lbs>
+            </opt>
+            <opt>
                 <name>AIM-120C</name>
                 <lbs>335</lbs>
             </opt>
@@ -1503,6 +1513,10 @@
             </opt>
             <opt>
                 <name>AIM-9L</name>
+                <lbs>196</lbs>
+            </opt>
+            <opt>
+                <name>AIM-9X</name>
                 <lbs>196</lbs>
             </opt>
             <opt>
@@ -1702,6 +1716,10 @@
                 <lbs>196</lbs>
             </opt>
             <opt>
+                <name>AIM-9X</name>
+                <lbs>196</lbs>
+            </opt>
+            <opt>
                 <name>AIM-120C</name>
                 <lbs>335</lbs>
             </opt>
@@ -1763,6 +1781,10 @@
             </opt>
             <opt>
                 <name>AIM-9L</name>
+                <lbs>196</lbs>
+            </opt>
+            <opt>
+                <name>AIM-9X</name>
                 <lbs>196</lbs>
             </opt>
             <opt>
@@ -1834,6 +1856,7 @@
                 <long-name type="string">AIM-9M Sidewinder</long-name>
                 <vol-search type="double">0.25</vol-search>
                 <vol-track type="double">0.60</vol-track>
+                <vol-track-weak type="double">0.4</vol-track-weak> <!-- guess -->
                 <guidance type="string">heat</guidance>
                 <navigation type="string">OPN</navigation>
                 <all-aspect type="bool">true</all-aspect>
@@ -1894,6 +1917,7 @@
                 <long-name type="string">AIM-9X Sidewinder</long-name>
                 <vol-search type="double">0.25</vol-search>
                 <vol-track type="double">0.60</vol-track>
+                <vol-track-weak type="double">0.4</vol-track-weak> <!-- guess -->
                 <guidance type="string">heat</guidance>  <!-- Switched to inertial mid-flight while >70 OB -->
                 <navigation type="string">OPN</navigation>
                 <all-aspect type="bool">true</all-aspect>

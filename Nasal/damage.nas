@@ -35,9 +35,11 @@ var warhead_lbs = {
     "AIM-7M":                88.00,
     "RB-71":                88.00,
     "aim-9":                20.80,
+    "aim-9x":                20.80,
     "AIM9":                 20.80,
     "AIM-9L":                20.80,
     "AIM-9L":                20.80,
+    "AIM-9X":                20.80,
     "RB-24":                20.80,
     "RB-24J":               20.80,
     "RB-74":                20.80,
@@ -105,6 +107,7 @@ var fireMsgs = {
     # F15
     " AIM-7M at":       nil,
     " AIM-9L at":       nil,
+    " AIM-9X at":       nil,
     " AIM-120C at":     nil,
     " AIM-120D at":     nil,
 };
