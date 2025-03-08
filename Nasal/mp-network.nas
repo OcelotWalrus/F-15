@@ -103,6 +103,7 @@ var update_ext_load = func(sender, state)
 			elsif ( str == "011") { o = "AIM-120C" }
 			elsif ( str == "011") { o = "AIM-120D" }
 			elsif ( str == "100") { o = "MK-83" }
+			elsif ( str == "100") { o = "3 X MK-83" }
 			elsif ( str == "101") { o = "MK-84" }
 			elsif ( str == "1000") { o = "CBU-105" }
 			elsif ( str == "1001") { o = "3 X CBU-87" }

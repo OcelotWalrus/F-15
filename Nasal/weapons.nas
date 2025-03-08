@@ -293,6 +293,8 @@ var missile_code_from_ident= func(mty)
             return "b6112";
         else if (mty == "3 X CBU-87")
             return "cbu87";
+        else if (mty == "3 X MK-83")
+            return "mk83";
         else if (mty == "LAU-68C")
             return "lau68";
         else if (mty == "AIM-120C")
@@ -343,7 +345,7 @@ var update_sw_ready = func()
             }
             if (pylon >= 0)
             {
-                if (S.get_type() == "AIM-9L" or S.get_type() == "AIM-9X" or S.get_type() == "AIM-9M" or S.get_type() == "AIM-7M" or S.get_type() == "AIM-120C" or S.get_type() == "MK-83" or S.get_type() == "AIM-120D" or S.get_type() == "MK-84" or S.get_type() == "LAU-68C" or S.get_type() == "CBU-105" or S.get_type() == "3 X CBU-87" or S.get_type() == "B61-12")
+                if (S.get_type() == "AIM-9L" or S.get_type() == "AIM-9X" or S.get_type() == "AIM-9M" or S.get_type() == "AIM-7M" or S.get_type() == "AIM-120C" or S.get_type() == "MK-83" or S.get_type() == "AIM-120D" or S.get_type() == "MK-84" or S.get_type() == "LAU-68C" or S.get_type() == "CBU-105" or S.get_type() == "3 X CBU-87" or S.get_type() == "B61-12" or S.get_type() == "3 X MK-83" )
                 {
                     print(S.get_type()," new !! ", pylon, " sel_missile_count - 1 = ", sel_missile_count - 1);
                     if (WeaponSelector.getValue() == 1) {
@@ -353,7 +355,7 @@ var update_sw_ready = func()
                         armament.AIM.new(pylon, S.get_type(), S.get_type());
                         Current_mrm = armament.AIM.active[pylon];
                     } elsif (WeaponSelector.getValue() == 5) {
-                        if (S.get_type != "3 X CBU-87") {
+                        if (S.get_type != "3 X CBU-87" and S.get_type != "3 X MK-83") {
                             armament.AIM.new(pylon, S.get_type(), S.get_type());
                             Current_mk84 = armament.AIM.active[pylon];
                         } else {
@@ -416,10 +418,10 @@ var release_aim9 = func()
 var release_bomb = func()
 {
 	if (Current_missile != nil) {
-	    if (Current_missile == Current_mk84 and getprop("payload/weight["~Current_missile.ID~"]/selected") != "none" and getprop("sim/model/f15/systems/armament/mk83/count") + getprop("sim/model/f15/systems/armament/mk84/count") + getprop("sim/model/f15/systems/armament/cbu105/count") + getprop("sim/model/f15/systems/armament/cbu87/count") + getprop("sim/model/f15/systems/armament/b6112/count") > 0) {
+	    if (Current_missile == Current_mk84 and getprop("payload/weight["~Current_missile.ID~"]/selected") != "none" and getprop("sim/model/f15/systems/armament/mk83/count") + getprop("sim/model/f15/systems/armament/mk84/count") + getprop("sim/model/f15/systems/armament/cbu105/count") + getprop("sim/model/f15/systems/armament/cbu87/count") + getprop("sim/model/f15/systems/armament/b6112/count") > 0 and getprop("sim/model/f15/systems/armament/selected-arm") != "none") {
 	        Current_missile.status = 1; # set status manually here for dumb bombs
 	    }
-	    if (getprop("payload/weight["~Current_missile.ID~"]/selected") == "3 X CBU-87" and getprop("payload/weight["~Current_missile.ID~"]/count") < 1) {
+	    if ((getprop("payload/weight["~Current_missile.ID~"]/selected") == "3 X CBU-87" or getprop("payload/weight["~Current_missile.ID~"]/selected") == "3 X MK-83") and getprop("payload/weight["~Current_missile.ID~"]/count") < 1) {
 	        Current_missile.status = 0; # reset to à cuz there's no more ammo in the rack
 	    }
         print("RELEASE MISSILE status: ", Current_missile.status);
@@ -450,6 +452,8 @@ var release_bomb = func()
             missile_id = "b61-12";
         else if (getprop(current_pylon) == "3 X CBU-87")
             missile_id = "cbu-87";
+        else if (getprop(current_pylon) == "3 X MK-83")
+            missile_id = "mk-83";
         else if (getprop(current_pylon) == "LAU-68C")
             missile_id = "lau-68";
         else if (getprop(current_pylon) == "AIM-120C")
@@ -457,7 +461,7 @@ var release_bomb = func()
         else if (getprop(current_pylon) == "AIM-120D")
             missile_id = "aim-120d";
         print("Release ",current_pylon);
-        if (getprop(current_pylon) != "3 X CBU-87") {
+        if (getprop(current_pylon) != "3 X CBU-87" and getprop(current_pylon) != "3 X MK-83") {
     		setprop(current_pylon,"none");
         } else {
             code_id = missile_code_from_ident(getprop(current_pylon));

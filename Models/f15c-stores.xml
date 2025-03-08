@@ -731,6 +731,84 @@
             </equals>
         </condition>
     </animation>
+    
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>mk-83-l</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[1]/selected</property>
+                <value>3 X MK-83</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>mk-83-l1</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[3]/selected</property>
+                <value>3 X MK-83</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>mk-83-l2</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[4]/selected</property>
+                <value>3 X MK-83</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>mk-83-c</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[5]/selected</property>
+                <value>3 X MK-83</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>mk-83-r</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[9]/selected</property>
+                <value>3 X MK-83</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>mk-83-r1</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[6]/selected</property>
+                <value>3 X MK-83</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>mk-83-r2</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[7]/selected</property>
+                <value>3 X MK-83</value>
+            </equals>
+        </condition>
+    </animation>
 
     <animation>
         <type>select</type>

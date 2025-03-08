@@ -209,6 +209,8 @@ var AIM = {
             m.type_lc = "b61-12";
         else if (type == "3 X CBU-87")
             m.type_lc = "cbu-87";
+        else if (type == "3 X MK-83")
+            m.type_lc = "mk-83";
         else if (type == "LAU-68C")
             m.type_lc = "lau-68";
         else if (type == "AIM-120C")
@@ -2466,7 +2468,7 @@ var AIM = {
 
 		var explode_smoke_path = path_base~"explode-smoke-id-" ~ me.ID;
 		me.explode_smoke_prop = props.globals.initNode( explode_smoke_path, FALSE, "BOOL", TRUE);
-		
+
 		var deploy_id_path = path_base~"deploy-id-" ~ me.ID;
 		me.deploy_id_prop = props.globals.initNode( deploy_id_path, FALSE, "BOOL", TRUE);
 
@@ -2654,6 +2656,8 @@ var AIM = {
             type = "b61-12";
         else if (type == "3 X CBU-87")
             type = "cbu-87";
+        else if (type == "3 X MK-83")
+            type = "mk-83";
         else if (type == "LAU-68C")
             type = "lau-68";
         else if (type == "AIM-120C")

@@ -2316,6 +2316,72 @@
              <z-m>-0.82</z-m>
         </offsets>
     </model>
+    
+    <model>
+        <name>mk-83-l</name>
+        <path>Aircraft/F-15/Models/Stores/3 X MK-83/ter-9a-1.xml</path>
+        <offsets>
+             <x-m>2</x-m>
+             <y-m>-3.28</y-m>
+             <z-m>0.07</z-m>
+        </offsets>
+    </model>
+    <model>
+        <name>mk-83-l1</name>
+        <path>Aircraft/F-15/Models/Stores/3 X MK-83/ter-9a-3.xml</path>
+        <offsets>
+             <x-m>0</x-m>
+             <y-m>-1.25</y-m>
+             <z-m>-0.75</z-m>
+             <pitch-deg>1.5</pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <name>mk-83-l2</name>
+        <path>Aircraft/F-15/Models/Stores/3 X MK-83/ter-9a-4.xml</path>
+        <offsets>
+             <x-m>3.65</x-m>
+             <y-m>-1.25</y-m>
+             <z-m>-0.82</z-m>
+        </offsets>
+    </model>
+    <model>
+        <name>mk-83-c</name>
+        <path>Aircraft/F-15/Models/Stores/3 X MK-83/ter-9a-5.xml</path>
+        <offsets>
+             <x-m>1.2</x-m>
+             <y-m>0</y-m>
+             <z-m>-1.03</z-m>
+        </offsets>
+    </model>
+    <model>
+        <name>mk-83-r</name>
+        <path>Aircraft/F-15/Models/Stores/3 X MK-83/ter-9a-9.xml</path>
+        <offsets>
+             <x-m>2</x-m>
+             <y-m>3.28</y-m>
+             <z-m>0.07</z-m>
+        </offsets>
+    </model>
+    <model>
+        <name>mk-83-r1</name>
+        <path>Aircraft/F-15/Models/Stores/3 X MK-83/ter-9a-6.xml</path>
+        <offsets>
+             <x-m>0</x-m>
+             <y-m>1.25</y-m>
+             <z-m>-0.75</z-m>
+             <pitch-deg>1.5</pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <name>mk-83-r2</name>
+        <path>Aircraft/F-15/Models/Stores/3 X MK-83/ter-9a-7.xml</path>
+        <offsets>
+             <x-m>3.65</x-m>
+             <y-m>1.25</y-m>
+             <z-m>-0.82</z-m>
+        </offsets>
+    </model>
 
     <model>
         <name>lau68-l</name>
@@ -2598,6 +2664,77 @@
           <equals>
               <property>payload/weight[7]/selected</property>
               <value>3 X CBU-87</value>
+          </equals>
+      </condition>
+    </animation>
+    
+    <animation>
+      <type>select</type>
+      <object-name>mk-83-l</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[1]/selected</property>
+              <value>3 X MK-83</value>
+          </equals>
+      </condition>
+    </animation>
+    <animation>
+      <type>select</type>
+      <object-name>mk-83-l1</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[3]/selected</property>
+              <value>3 X MK-83</value>
+          </equals>
+      </condition>
+    </animation>
+    <animation>
+      <type>select</type>
+      <object-name>mk-83-l2</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[4]/selected</property>
+              <value>3 X MK-83</value>
+          </equals>
+      </condition>
+    </animation>
+    <animation>
+      <type>select</type>
+      <object-name>mk-83-c</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[5]/selected</property>
+              <value>3 X MK-83</value>
+          </equals>
+      </condition>
+    </animation>
+    <animation>
+      <type>select</type>
+      <object-name>mk-83-r</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[9]/selected</property>
+              <value>3 X MK-83</value>
+          </equals>
+      </condition>
+    </animation>
+    <animation>
+      <type>select</type>
+      <object-name>mk-83-r1</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[6]/selected</property>
+              <value>3 X MK-83</value>
+          </equals>
+      </condition>
+    </animation>
+    <animation>
+      <type>select</type>
+      <object-name>mk-83-r2</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[7]/selected</property>
+              <value>3 X MK-83</value>
           </equals>
       </condition>
     </animation>

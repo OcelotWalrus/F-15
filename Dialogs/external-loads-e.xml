@@ -1147,6 +1147,7 @@
                             <value>none</value>
                             <value>Droptank</value>
                             <value>MK-83</value>
+                            <value>3 X MK-83</value>
                             <value>MK-84</value>
                             <value>3 X CBU-87</value>
                             <value>CBU-105</value>
@@ -1160,6 +1161,9 @@
                                 if (getprop("payload/weight[1]/selected") == "3 X CBU-87") {
                                     setprop("payload/weight[1]/count", 3);
                                     #setprop("payload/weight[1]/weight-lb", 950*3);
+                                } elsif (getprop("payload/weight[1]/selected") == "3 X MK-83") {
+                                    setprop("payload/weight[1]/count", 3);
+                                    #setprop("payload/weight[1]/weight-lb", 1014*3);
                                 }
                                 </script>
                             </binding>
@@ -1214,6 +1218,7 @@
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <value>MK-83</value>
+                            <value>3 X MK-83</value>
                             <value>3 X CBU-87</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1224,6 +1229,9 @@
                                 if (getprop("payload/weight[3]/selected") == "3 X CBU-87") {
                                     setprop("payload/weight[3]/count", 3);
                                     setprop("payload/weight[3]/weight-lb", 950*3);
+                                } elsif (getprop("payload/weight[3]/selected") == "3 X MK-83") {
+                                    setprop("payload/weight[3]/count", 3);
+                                    #setprop("payload/weight[3]/weight-lb", 1014*3);
                                 }
                                 </script>
                             </binding>
@@ -1250,6 +1258,7 @@
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <value>MK-83</value>
+                            <value>3 X MK-83</value>
                             <value>3 X CBU-87</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1260,6 +1269,9 @@
                                 if (getprop("payload/weight[4]/selected") == "3 X CBU-87") {
                                     setprop("payload/weight[4]/count", 3);
                                     setprop("payload/weight[4]/weight-lb", 950*3);
+                                } elsif (getprop("payload/weight[4]/selected") == "3 X MK-83") {
+                                    setprop("payload/weight[4]/count", 3);
+                                    #setprop("payload/weight[4]/weight-lb", 1014*3);
                                 }
                                 </script>
                             </binding>
@@ -1284,6 +1296,7 @@
                             <value>none</value>
                             <value>Droptank</value>
                             <value>MK-83</value>
+                            <value>3 X MK-83</value>
                             <value>MK-84</value>
                             <value>3 X CBU-87</value>
                             <value>CBU-105</value>
@@ -1297,6 +1310,9 @@
                                 if (getprop("payload/weight[5]/selected") == "3 X CBU-87") {
                                     setprop("payload/weight[5]/count", 3);
                                     setprop("payload/weight[5]/weight-lb", 950*3);
+                                } elsif (getprop("payload/weight[5]/selected") == "3 X MK-83") {
+                                    setprop("payload/weight[5]/count", 3);
+                                    setprop("payload/weight[5]/weight-lb", 1014*3);
                                 }
                                 </script>
                             </binding>
@@ -1323,6 +1339,7 @@
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <value>MK-83</value>
+                            <value>3 X MK-83</value>
                             <value>3 X CBU-87</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1333,6 +1350,9 @@
                                 if (getprop("payload/weight[6]/selected") == "3 X CBU-87") {
                                     setprop("payload/weight[6]/count", 3);
                                     setprop("payload/weight[6]/weight-lb", 950*3);
+                                } elsif (getprop("payload/weight[6]/selected") == "3 X MK-83") {
+                                    setprop("payload/weight[6]/count", 3);
+                                    setprop("payload/weight[6]/weight-lb", 1014*3);
                                 }
                                 </script>
                             </binding>
@@ -1359,6 +1379,7 @@
                             <value>AIM-120C</value>
                             <value>AIM-120D</value>
                             <value>MK-83</value>
+                            <value>3 X MK-83</value>
                             <value>3 X CBU-87</value>
                             <binding>
                                 <command>dialog-apply</command>
@@ -1369,6 +1390,9 @@
                                 if (getprop("payload/weight[7]/selected") == "3 X CBU-87") {
                                     setprop("payload/weight[7]/count", 3);
                                     setprop("payload/weight[7]/weight-lb", 950*3);
+                                } elsif (getprop("payload/weight[7]/selected") == "3 X MK-83") {
+                                    setprop("payload/weight[7]/count", 3);
+                                    setprop("payload/weight[7]/weight-lb", 1014*3);
                                 }
                                 </script>
                             </binding>
@@ -1421,6 +1445,7 @@
                             <value>none</value>
                             <value>Droptank</value>
                             <value>MK-83</value>
+                            <value>3 X MK-83</value>
                             <value>MK-84</value>
                             <value>3 X CBU-87</value>
                             <value>CBU-105</value>
@@ -1434,6 +1459,9 @@
                                 if (getprop("payload/weight[9]/selected") == "3 X CBU-87") {
                                     setprop("payload/weight[9]/count", 3);
                                     setprop("payload/weight[9]/weight-lb", 950*3);
+                                } elsif (getprop("payload/weight[9]/selected") == "3 X MK-83") {
+                                    setprop("payload/weight[9]/count", 3);
+                                    setprop("payload/weight[9]/weight-lb", 1014*3);
                                 }
                                 </script>
                             </binding>

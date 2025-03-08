@@ -251,6 +251,16 @@ var MPCD_GroundStation =
 		                mode = "RDY";
 		        }
 		        else mode = "AG";
+			} elsif (na == "3 X MK-83")
+   		    {
+   		        na = "3xMK83";
+   		        if (weapon_mode == 5)
+   		        {
+   		            sel = getprop(sel_node);
+   		            if (sel and master_arm)
+   		                mode = "RDY";
+   		        }
+   		        else mode = "AG";
 			} elsif (na == "LAU-68C")
             {
                 na = "LAU68";

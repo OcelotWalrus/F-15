@@ -52,6 +52,8 @@ Station =
 		setlistener("payload/weight["~obj.index~"]/count", func(){
 						if (getprop("payload/weight["~obj.index~"]/selected") == "3 X CBU-87") {
 							setprop("payload/weight["~obj.index~"]/weight-lb", 934 * getprop("payload/weight["~obj.index~"]/count"));
+						} elsif (getprop("payload/weight["~obj.index~"]/selected") == "3 X MK-83") {
+							setprop("payload/weight["~obj.index~"]/weight-lb", 1014 * getprop("payload/weight["~obj.index~"]/count"));
 						}
 					},0,0);
         setlistener("payload/weight["~obj.index~"]/selected", func(prop){
@@ -75,6 +77,8 @@ Station =
                         prop.getParent().getNode("weight-lb").setValue(775);
                         elsif (v == "3 X CBU-87")
                         prop.getParent().getNode("weight-lb").setValue(934 * getprop("payload/weight["~obj.index~"]/count"));
+						elsif (v == "3 X MK-83")
+                        prop.getParent().getNode("weight-lb").setValue(1014 * getprop("payload/weight["~obj.index~"]/count"));
 						elsif (v == "LAU-68C")
                         prop.getParent().getNode("weight-lb").setValue(90 * 3);
                         elsif (v == "Droptank")
@@ -126,6 +130,11 @@ Station =
             me.xbcode = 6;
 		}
         elsif ( t == "MK-83" )
+        {
+			me.bcode = 4;
+            me.xbcode = 2;
+		}
+		elsif ( t == "3 X MK-83" )
         {
 			me.bcode = 4;
             me.xbcode = 2;
@@ -500,6 +509,7 @@ var update_weapons_over_mp = func
         var aim120d_count = 0;
         var mk84_count = 0;
         var mk83_count = 0;
+        var mk83x3_count = 0;
 		var cbu105_count = 0;
 		var cbu87_count = 0;
 		var b61count = 0;
@@ -542,13 +552,15 @@ var update_weapons_over_mp = func
                 b61count = b61count+1;
             elsif (S.get_type() == "3 X CBU-87")
                 cbu87_count = cbu87_count + getprop("payload/weight["~S.index~"]/count");
+			elsif (S.get_type() == "3 X MK-83")
+	            mk83x3_count = mk83x3_count + getprop("payload/weight["~S.index~"]/count");
         }
-        #print("count ",aim9_count, aim7_count, aim120c_count, aim120d_count, mk83_count, mk84_count, cbu105_count, cbu87_count, b61count, aim9x_count, aim9m_count);
+        #print("count ",aim9_count, aim7_count, aim120c_count, aim120d_count, mk83_count, mk84_count, cbu105_count, cbu87_count, b61count, aim9x_count, aim9m_count, mk83x3_count);
         setprop("sim/model/f15/systems/armament/aim9/count",aim9_count);
         setprop("sim/model/f15/systems/armament/aim7/count",aim7_count);
         setprop("sim/model/f15/systems/armament/aim120c/count",aim120c_count);
         setprop("sim/model/f15/systems/armament/aim120d/count",aim120d_count);
-        setprop("sim/model/f15/systems/armament/mk83/count",mk83_count);
+        setprop("sim/model/f15/systems/armament/mk83/count",mk83_count + mk83x3_count);
         setprop("sim/model/f15/systems/armament/mk84/count",mk84_count);
         setprop("sim/model/f15/systems/armament/cbu105/count",cbu105_count);
         setprop("sim/model/f15/systems/armament/cbu87/count",cbu87_count);
