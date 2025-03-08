@@ -12,7 +12,7 @@ For now, what's been done is:
 - The enhancement of the C variant cockpit (added simulation of chaff/flare release and low ammo lights, engine flame out oral warning + lights with a system)
 - The implementation of A/G unguided operations (CCIP) and racks as well
 - The addition of new A/A missiles: AIM-9M, AIM-9X (only EX variant), and the AIM-120D (only EX variant)
-- The addition of new A/G bombs: MK-83, MK-82, CBU-87, CBU-105 (only EX variant), and B61-12 (only EX variant)
+- The addition of new A/G bombs: MK-82, MK-83, MK-84, CBU-87, CBU-105 (only EX variant), and B61-12 (only EX variant)
 - The addition of misc weapons: LAU-68C (only EX variant)
 - The addition of more aerodynamic effects such as mach cone or strake and G vortex
 - The polishing of already-existing effects
