@@ -1067,7 +1067,7 @@
 							<label>S0 : </label>
 						</text>
 						<combo>
-                            <pref-width>100</pref-width>
+                            <pref-width>110</pref-width>
                             <property>payload/weight[0]/selected</property>
                             <live>true</live>
                             <value>none</value>
@@ -1093,7 +1093,7 @@
 							<label>S1 : </label>
 						</text>
 						<combo>
-                            <pref-width>100</pref-width>
+                            <pref-width>110</pref-width>
                             <property>payload/weight[1]/selected</property>
                             <live>true</live>
                             <value>none</value>
@@ -1118,7 +1118,7 @@
 							<label>S2 : </label>
 						</text>
 						<combo>
-                            <pref-width>100</pref-width>
+                            <pref-width>110</pref-width>
                             <property>payload/weight[2]/selected</property>
                             <live>true</live>
                             <value>none</value>
@@ -1144,7 +1144,7 @@
 							<label>S3 : </label>
 						</text>
 						<combo>
-                            <pref-width>100</pref-width>
+                            <pref-width>110</pref-width>
                             <property>payload/weight[3]/selected</property>
                             <live>true</live>
                             <value>none</value>
@@ -1169,7 +1169,7 @@
 							<label>S4 : </label>
 						</text>
 						<combo>
-                            <pref-width>100</pref-width>
+                            <pref-width>110</pref-width>
                             <property>payload/weight[4]/selected</property>
                             <live>true</live>
                             <value>none</value>
@@ -1194,7 +1194,7 @@
 							<label>S5 : </label>
 						</text>
 						<combo>
-                            <pref-width>100</pref-width>
+                            <pref-width>110</pref-width>
                             <property>payload/weight[5]/selected</property>
                             <live>true</live>
                             <value>none</value>
@@ -1219,7 +1219,7 @@
 							<label>S6 : </label>
 						</text>
 						<combo>
-                            <pref-width>100</pref-width>
+                            <pref-width>110</pref-width>
                             <property>payload/weight[6]/selected</property>
                             <live>true</live>
                             <value>none</value>
@@ -1244,7 +1244,7 @@
 							<label>S7 : </label>
 						</text>
 						<combo>
-                            <pref-width>100</pref-width>
+                            <pref-width>110</pref-width>
                             <property>payload/weight[7]/selected</property>
                             <live>true</live>
                             <value>none</value>
@@ -1269,7 +1269,7 @@
                             <label>S8 : </label>
                         </text>
 						<combo>
-                            <pref-width>100</pref-width>
+                            <pref-width>110</pref-width>
                             <property>payload/weight[8]/selected</property>
                             <live>true</live>
                             <value>none</value>
@@ -1295,7 +1295,7 @@
                             <label>S9 : </label>
                         </text>
 						<combo>
-                            <pref-width>100</pref-width>
+                            <pref-width>110</pref-width>
                             <property>payload/weight[9]/selected</property>
                             <live>true</live>
                             <value>none</value>
@@ -1320,7 +1320,7 @@
                             <label>S10 :</label>
                         </text>
 						<combo>
-                            <pref-width>100</pref-width>
+                            <pref-width>110</pref-width>
                             <property>payload/weight[10]/selected</property>
                             <live>true</live>
                             <value>none</value>

@@ -60,7 +60,7 @@ Station =
                         var v = prop.getValue();
                         obj.set_type(v);
                         if (v == "AIM-9L" or v == "AIM-9X" or v =="AIM-9M")
-                            prop.getParent().getNode("weight-lb").setValue(190);
+                            prop.getParent().getNode("weight-lb").setValue(196);
                         elsif (v == "AIM-7M")
                         prop.getParent().getNode("weight-lb").setValue(510);
                         elsif (v == "AIM-120C")
