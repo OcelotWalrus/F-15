@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+  
+<PropertyList> 
+
+    <path>Aircraft/F-15/Models/Stores/Racks/duorack.xml</path>
+
+    <model>
+      <name>Station1_AIM9X_left</name>
+      <path>Aircraft/F-15/Models/Stores/2 X AIM-9X/AIM-9X.xml</path>
+      <offsets>
+        <x-m>-0.0</x-m>
+        <y-m>-0.4</y-m>
+        <z-m>-0.09</z-m>
+        <pitch-deg>0</pitch-deg>
+        <roll-deg>45</roll-deg>
+      </offsets>
+    </model>
+
+    <model>
+      <name>Station1_AIM9X_right</name>
+      <path>Aircraft/F-15/Models/Stores/2 X AIM-9X/AIM-9X.xml</path>
+      <offsets>
+        <x-m>-0.0</x-m>
+        <y-m>0.4</y-m>
+        <z-m>-0.09</z-m>
+        <pitch-deg>0</pitch-deg>
+        <roll-deg>315</roll-deg>
+      </offsets>
+    </model>
+
+    <animation>
+      <type>select</type>
+      <object-name>Station1_AIM9X_left</object-name>
+      <condition><and>
+        <equals>
+          <property>payload/weight[1]/selected</property>
+          <value>2 X AIM-9X</value>
+        </equals>
+        <greater-than>
+          <property>payload/weight[1]/count</property>
+          <value>0</value>
+        </greater-than></and>
+      </condition>
+     </animation>
+
+     <animation>
+      <type>select</type>
+      <object-name>Station1_AIM9X_right</object-name>
+      <condition>
+        <and>
+        <equals>
+          <property>payload/weight[1]/selected</property>
+          <value>2 X AIM-9X</value>
+        </equals>
+        <greater-than>
+          <property>payload/weight[1]/count</property>
+          <value>1</value>
+        </greater-than>
+      </and>
+      </condition>
+     </animation>
+
+</PropertyList> 

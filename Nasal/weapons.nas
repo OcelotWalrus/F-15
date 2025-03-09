@@ -293,6 +293,8 @@ var missile_code_from_ident= func(mty)
             return "b6112";
         else if (mty == "3 X CBU-87")
             return "cbu87";
+        else if (mty == "2 X AIM-9X")
+            return "aim9x";
         else if (mty == "3 X MK-83")
             return "mk83";
         else if (mty == "LAU-68C")
@@ -345,7 +347,7 @@ var update_sw_ready = func()
             }
             if (pylon >= 0)
             {
-                if (S.get_type() == "AIM-9L" or S.get_type() == "AIM-9X" or S.get_type() == "AIM-9M" or S.get_type() == "AIM-7M" or S.get_type() == "AIM-120C" or S.get_type() == "MK-83" or S.get_type() == "AIM-120D" or S.get_type() == "MK-84" or S.get_type() == "LAU-68C" or S.get_type() == "CBU-105" or S.get_type() == "3 X CBU-87" or S.get_type() == "B61-12" or S.get_type() == "3 X MK-83" )
+                if (S.get_type() == "AIM-9L" or S.get_type() == "AIM-9X" or S.get_type() == "AIM-9M" or S.get_type() == "AIM-7M" or S.get_type() == "AIM-120C" or S.get_type() == "MK-83" or S.get_type() == "AIM-120D" or S.get_type() == "MK-84" or S.get_type() == "LAU-68C" or S.get_type() == "CBU-105" or S.get_type() == "3 X CBU-87" or S.get_type() == "B61-12" or S.get_type() == "3 X MK-83" or S.get_type() == "2 X AIM-9X")
                 {
                     print(S.get_type()," new !! ", pylon, " sel_missile_count - 1 = ", sel_missile_count - 1);
                     if (WeaponSelector.getValue() == 1) {
@@ -355,15 +357,18 @@ var update_sw_ready = func()
                         armament.AIM.new(pylon, S.get_type(), S.get_type());
                         Current_mrm = armament.AIM.active[pylon];
                     } elsif (WeaponSelector.getValue() == 5) {
-                        if (S.get_type != "3 X CBU-87" and S.get_type != "3 X MK-83") {
+                        if (S.get_type() != "3 X CBU-87" and S.get_type() != "3 X MK-83" and S.get_type() != "2 X AIM-9X") {
                             armament.AIM.new(pylon, S.get_type(), S.get_type());
                             Current_mk84 = armament.AIM.active[pylon];
                         } else {
-                            if (getprop("payload/weight["~Current_missile.ID~"]/count") < 1) {
+                            if (getprop("payload/weight["~pylon~"]/count") < 1) {
                                 print("Cannot select weapon: rack is empty");
-                            } else {
+                            } elsif (S.get_type() != "2 X AIM-9X") {
                                 armament.AIM.new(pylon, S.get_type(), S.get_type());
                                 Current_mk84 = armament.AIM.active[pylon];
+                            } else {
+                                armament.AIM.new(pylon, S.get_type(), S.get_type());
+                                Current_srm = armament.AIM.active[pylon];
                             }
                         }
                     }
@@ -403,8 +408,54 @@ var release_aim9 = func()
 				setprop("/sim/messages/atc", phrase);
 			}
 			# Set the pylon empty:
+            # or if it's a missile in a rack, remove one
+            # of the missiles in it
+            var current_pylon = "payload/weight["~Current_missile.ID~"]/selected";
+            var current_count = "payload/weight["~Current_missile.ID~"]/count";
+            var current_weight = "payload/weight["~Current_missile.ID~"]/weight-lb";
+            var missile_id = "";
+            if (getprop(current_pylon) == "AIM-9L")
+                missile_id = "aim-9";
+            elsif (getprop(current_pylon) == "AIM-9X")
+                missile_id = "aim-9x";
+            elsif (getprop(current_pylon) == "AIM-9M")
+                missile_id = "aim-9m";
+            else if (getprop(current_pylon) == "AIM-7M")
+                missile_id = "aim-7";
+            else if (getprop(current_pylon) == "MK-82")
+                missile_id = "mk-82";
+            else if (getprop(current_pylon) == "MK-83")
+                missile_id = "mk-83";
+            else if (getprop(current_pylon) == "MK-84")
+                missile_id = "mk-84";
+            else if (getprop(current_pylon) == "CBU-105")
+                missile_id = "cbu-105";
+            else if (getprop(current_pylon) == "B61-12")
+                missile_id = "b61-12";
+            else if (getprop(current_pylon) == "3 X CBU-87")
+                missile_id = "cbu-87";
+            else if (getprop(current_pylon) == "2 X AIM-9X")
+                missile_id = "aim-9x";
+            else if (getprop(current_pylon) == "3 X MK-83")
+                missile_id = "mk-83";
+            else if (getprop(current_pylon) == "LAU-68C")
+                missile_id = "lau-68";
+            else if (getprop(current_pylon) == "AIM-120C")
+                missile_id = "aim-120c";
+            else if (getprop(current_pylon) == "AIM-120D")
+                missile_id = "aim-120d";
             print("Release ",current_pylon);
-			setprop(current_pylon,"none");
+            if (getprop(current_pylon) != "2 X AIM-9X") {
+        		setprop(current_pylon,"none");
+            } else {
+                code_id = missile_code_from_ident(getprop(current_pylon));
+                setprop("sim/model/f15/systems/armament/"~code_id~"/count",getprop("sim/model/f15/systems/armament/"~code_id~"/count") - 1);
+                setprop(current_count, getprop(current_count) - 1);
+                setprop(current_weight, getprop(current_count) * getprop("payload/armament/"~missile_id~"/weight-launch-lbs"));
+                if (getprop(current_weight) == 0) {
+                    setprop(current_pylon,"none"); # remove the rack if no more missiles are loaded
+                }
+            }
             print("currently ",getprop(current_pylon));
 			armament_update();
             setprop("sim/model/f15/systems/armament/launch-light",0);
@@ -422,7 +473,7 @@ var release_bomb = func()
 	        Current_missile.status = 1; # set status manually here for dumb bombs
 	    }
 	    if ((getprop("payload/weight["~Current_missile.ID~"]/selected") == "3 X CBU-87" or getprop("payload/weight["~Current_missile.ID~"]/selected") == "3 X MK-83") and getprop("payload/weight["~Current_missile.ID~"]/count") < 1) {
-	        Current_missile.status = 0; # reset to à cuz there's no more ammo in the rack
+	        Current_missile.status = 0; # reset to 0 cuz there's no more ammo in the rack
 	    }
         print("RELEASE MISSILE status: ", Current_missile.status);
 		# Set the pylon empty
@@ -452,6 +503,8 @@ var release_bomb = func()
             missile_id = "b61-12";
         else if (getprop(current_pylon) == "3 X CBU-87")
             missile_id = "cbu-87";
+        else if (getprop(current_pylon) == "2 X AIM-9X")
+            missile_id = "aim-9x";
         else if (getprop(current_pylon) == "3 X MK-83")
             missile_id = "mk-83";
         else if (getprop(current_pylon) == "LAU-68C")

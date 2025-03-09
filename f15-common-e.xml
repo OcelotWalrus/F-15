@@ -1519,6 +1519,10 @@
                 <gals>600</gals>
             </opt>
             <opt>
+                <name>2 X AIM-9X</name>
+                <lbs>392</lbs>
+            </opt>
+            <opt>
                 <name>MK-83</name>
                 <lbs>1014</lbs>
             </opt>
@@ -1666,6 +1670,10 @@
                 <name>Droptank</name>
                 <lbs>271.0</lbs>
                 <gals>600</gals>
+            </opt>
+            <opt>
+                <name>2 X AIM-9X</name>
+                <lbs>392</lbs>
             </opt>
             <opt>
                 <name>MK-83</name>
@@ -1817,6 +1825,10 @@
                 <name>Droptank</name>
                 <lbs>271.0</lbs>
                 <gals>600</gals>
+            </opt>
+            <opt>
+                <name>2 X AIM-9X</name>
+                <lbs>392</lbs>
             </opt>
             <opt>
                 <name>MK-83</name>

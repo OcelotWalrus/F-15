@@ -54,6 +54,8 @@ Station =
 							setprop("payload/weight["~obj.index~"]/weight-lb", 934 * getprop("payload/weight["~obj.index~"]/count"));
 						} elsif (getprop("payload/weight["~obj.index~"]/selected") == "3 X MK-83") {
 							setprop("payload/weight["~obj.index~"]/weight-lb", 1014 * getprop("payload/weight["~obj.index~"]/count"));
+						} elsif (getprop("payload/weight["~obj.index~"]/selected") == "2 X AIM-9X") {
+							setprop("payload/weight["~obj.index~"]/weight-lb", 196 * getprop("payload/weight["~obj.index~"]/count"));
 						}
 					},0,0);
         setlistener("payload/weight["~obj.index~"]/selected", func(prop){
@@ -77,6 +79,8 @@ Station =
                         prop.getParent().getNode("weight-lb").setValue(775);
                         elsif (v == "3 X CBU-87")
                         prop.getParent().getNode("weight-lb").setValue(934 * getprop("payload/weight["~obj.index~"]/count"));
+						elsif (v == "2 X AIM-9X")
+                        prop.getParent().getNode("weight-lb").setValue(196 * getprop("payload/weight["~obj.index~"]/count"));
 						elsif (v == "3 X MK-83")
                         prop.getParent().getNode("weight-lb").setValue(1014 * getprop("payload/weight["~obj.index~"]/count"));
 						elsif (v == "LAU-68C")
@@ -105,6 +109,11 @@ Station =
             me.xbcode = 1;
 		}
 		elsif ( t == "AIM-9X" )
+        {
+			me.bcode = 1;
+            me.xbcode = 1;
+		}
+		elsif ( t == "2 X AIM-9X" )
         {
 			me.bcode = 1;
             me.xbcode = 1;
@@ -554,6 +563,8 @@ var update_weapons_over_mp = func
                 cbu87_count = cbu87_count + getprop("payload/weight["~S.index~"]/count");
 			elsif (S.get_type() == "3 X MK-83")
 	            mk83x3_count = mk83x3_count + getprop("payload/weight["~S.index~"]/count");
+			elsif (S.get_type() == "2 X AIM-9X")
+	            aim9x_count = aim9x_count + getprop("payload/weight["~S.index~"]/count");
         }
         #print("count ",aim9_count, aim7_count, aim120c_count, aim120d_count, mk83_count, mk84_count, cbu105_count, cbu87_count, b61count, aim9x_count, aim9m_count, mk83x3_count);
         setprop("sim/model/f15/systems/armament/aim9/count",aim9_count);

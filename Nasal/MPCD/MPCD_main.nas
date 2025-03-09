@@ -80,6 +80,17 @@ var MPCD_Station =
                 }
                 else mode = "SRM";
             }
+			elsif (na == "2 X AIM-9X")
+            {
+                na = "2x9X";
+                if (weapon_mode == 1)
+                {
+                    sel = getprop(sel_node);
+                    if (sel and master_arm)
+                        mode = "RDY";
+                }
+                else mode = "SRM";
+            }
 			elsif (na == "AIM-9M")
             {
                 na = "9M";

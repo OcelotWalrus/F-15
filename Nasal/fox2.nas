@@ -209,6 +209,8 @@ var AIM = {
             m.type_lc = "b61-12";
         else if (type == "3 X CBU-87")
             m.type_lc = "cbu-87";
+		else if (type == "2 X AIM-9X")
+	        m.type_lc = "aim-9x";
         else if (type == "3 X MK-83")
             m.type_lc = "mk-83";
         else if (type == "LAU-68C")
@@ -2656,6 +2658,8 @@ var AIM = {
             type = "b61-12";
         else if (type == "3 X CBU-87")
             type = "cbu-87";
+		else if (type == "2 X AIM-9X")
+	        type = "aim-9x";
         else if (type == "3 X MK-83")
             type = "mk-83";
         else if (type == "LAU-68C")

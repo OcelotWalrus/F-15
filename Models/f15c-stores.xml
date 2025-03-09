@@ -657,6 +657,40 @@
     <animation>
         <type>select</type>
         <nopreview/>
+        <object-name>2x-aim-9x-l</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[1]/selected</property>
+                <value>2 X AIM-9X</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>2x-aim-9x-c</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[5]/selected</property>
+                <value>2 X AIM-9X</value>
+            </equals>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <nopreview/>
+        <object-name>2x-aim-9x-r</object-name>
+        <condition>
+            <equals>
+                <property>payload/weight[9]/selected</property>
+                <value>2 X AIM-9X</value>
+            </equals>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <nopreview/>
         <object-name>cbu-87-l</object-name>
         <condition>
             <equals>

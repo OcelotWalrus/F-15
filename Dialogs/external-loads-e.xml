@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 
 <PropertyList>
-	<name>external_loads</name>
+	<name>external_loads_e</name>
 	<layout>vbox</layout>
 	<default-padding>1</default-padding>
 	<modal>false</modal>
-	<width>795</width>
+	<width>850</width>
 
 	<empty>
 		<pref-height>6</pref-height>
@@ -1023,6 +1023,39 @@
                     <binding>
                         <command>dialog-apply</command>
                     </binding>
+					<mod-up>
+                        <binding>
+                             <!-- gun ammos -->
+                            setprop("/ai/submodels/submodel[3]/count",0);
+                            setprop("sim/model/f15/systems/gun/rounds",0);
+                            <!-- flares and chaffs -->
+                            setprop("/ai/submodels/submodel[5]/count",0);
+                            setprop("/ai/submodels/submodel[6]/count",0);
+                            <!-- force to update the displays -->
+                            setprop("/ai/submodels/submodel[5]/reloaded",1);
+							setprop("payload/weight[1]/count", 0);
+							setprop("payload/weight[3]/count", 0);
+							setprop("payload/weight[4]/count", 0);
+							setprop("payload/weight[5]/count", 0);
+							setprop("payload/weight[6]/count", 0);
+							setprop("payload/weight[7]/count", 0);
+							setprop("payload/weight[9]/count", 0);
+                            if (getprop("payload/weight[1]/selected") == "LAU-68C") {
+                                setprop("/ai/submodels/submodel[7]/count",0);
+                                setprop("/ai/submodels/submodel[8]/count",0);
+                                setprop("/ai/submodels/submodel[9]/count",0);
+                            }
+                            if (getprop("payload/weight[9]/selected") == "LAU-68C") {
+                                setprop("/ai/submodels/submodel[10]/count",0);
+                                setprop("/ai/submodels/submodel[11]/count",0);
+                                setprop("/ai/submodels/submodel[12]/count",0);
+                            }
+                        </binding>
+						<binding>
+	                        <command>property-toggle</command>
+	                        <property>sim/model/f15/systems/external-loads/reload-demand</property>
+	                    </binding>
+                    </mod-up>
                 </combo>
             <group>
                 <!-- Ammunitions -->
@@ -1079,13 +1112,41 @@
                             setprop("/ai/submodels/submodel[6]/count",100);
                             <!-- force to update the displays -->
                             setprop("/ai/submodels/submodel[5]/reloaded",1);
-							setprop("payload/weight[1]/count", 3);
-							setprop("payload/weight[3]/count", 3);
-							setprop("payload/weight[4]/count", 3);
-							setprop("payload/weight[5]/count", 3);
-							setprop("payload/weight[6]/count", 3);
-							setprop("payload/weight[7]/count", 3);
-							setprop("payload/weight[9]/count", 3);
+							if (getprop("payload/weight[1]/selected") == "2 X AIM-9X")) {
+								setprop("payload/weight[1]/count", 2);
+							} else {
+								setprop("payload/weight[1]/count", 3);
+							}
+							if (getprop("payload/weight[3]/selected") == "2 X AIM-9X")) {
+								setprop("payload/weight[3]/count", 2);
+							} else {
+								setprop("payload/weight[3]/count", 3);
+							}
+							if (getprop("payload/weight[4]/selected") == "2 X AIM-9X")) {
+								setprop("payload/weight[4]/count", 2);
+							} else {
+								setprop("payload/weight[4]/count", 3);
+							}
+							if (getprop("payload/weight[5]/selected") == "2 X AIM-9X")) {
+								setprop("payload/weight[5]/count", 2);
+							} else {
+								setprop("payload/weight[5]/count", 3);
+							}
+							if (getprop("payload/weight[6]/selected") == "2 X AIM-9X")) {
+								setprop("payload/weight[6]/count", 2);
+							} else {
+								setprop("payload/weight[6]/count", 3);
+							}
+							if (getprop("payload/weight[6]/selected") == "2 X AIM-9X")) {
+								setprop("payload/weight[6]/count", 2);
+							} else {
+								setprop("payload/weight[6]/count", 3);
+							}
+							if (getprop("payload/weight[6]/selected") == "2 X AIM-9X")) {
+								setprop("payload/weight[6]/count", 2);
+							} else {
+								setprop("payload/weight[6]/count", 3);
+							}
                             if (getprop("payload/weight[1]/selected") == "LAU-68C") {
                                 setprop("/ai/submodels/submodel[7]/count",7);
                                 setprop("/ai/submodels/submodel[8]/count",7);
@@ -1123,6 +1184,9 @@
 						<text>
 							<label>Weight</label>
 						</text>
+						<text>
+							<label>Rack Count</label>
+						</text>
 					</group>
                     <empty>
 				        <pref-height>6</pref-height>
@@ -1155,6 +1219,24 @@
 						    <live>true</live>
 						    <format>%.1f lbs</format>
                         </text>
+						<slider>
+							<name>Weight 0 Count</name>
+							<property>payload/weight[0]/count</property>
+							<live>1</live>
+							<min>1</min>
+							<max>3</max>
+							<step>1</step>
+							<binding>
+								<command>dialog-apply</command>
+								<object-name>Weight 0 Count</object-name>
+							</binding>
+							<binding>
+								<command>nasal</command>
+								<script>
+									setprop("payload/weight[0]/count", 1)
+								</script>
+							</binding>
+						</slider>
 					</group>
 					<group>
 						<layout>hbox</layout>
@@ -1168,6 +1250,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>Droptank</value>
+                            <value>2 X AIM-9X</value>
                             <value>MK-83</value>
                             <value>3 X MK-83</value>
                             <value>MK-84</value>
@@ -1186,6 +1269,9 @@
                                 } elsif (getprop("payload/weight[1]/selected") == "3 X MK-83") {
                                     setprop("payload/weight[1]/count", 3);
                                     #setprop("payload/weight[1]/weight-lb", 1014*3);
+                                } elsif (getprop("payload/weight[1]/selected") == "2 X AIM-9X") {
+                                    setprop("payload/weight[1]/count", 2);
+                                    setprop("payload/weight[1]/weight-lb", 196*2);
                                 }
                                 </script>
                             </binding>
@@ -1196,6 +1282,28 @@
 						    <live>true</live>
 						    <format>%.1f lbs</format>
                         </text>
+						<slider>
+							<name>Weight 1 Count</name>
+							<property>payload/weight[1]/count</property>
+							<live>1</live>
+							<min>1</min>
+							<max>3</max>
+							<step>1</step>
+							<binding>
+								<command>dialog-apply</command>
+								<object-name>Weight 1 Count</object-name>
+							</binding>
+							<binding>
+								<command>nasal</command>
+								<script>
+									if (getprop("payload/weight[1]/selected") == "2 X AIM-9X" and getprop("payload/weight[1]/count") > 2) {
+										setprop("payload/weight[1]/count", 2)
+									} elsif (getprop("payload/weight[1]/selected") != "3 X CBU-87" and getprop("payload/weight[1]/selected") != "3 X MK-83" and getprop("payload/weight[1]/selected") != "2 X AIM-9X") {
+										setprop("payload/weight[1]/count", 1)
+									}
+								</script>
+							</binding>
+						</slider>
 					</group>
 					<group>
 						<layout>hbox</layout>
@@ -1224,6 +1332,24 @@
 						    <live>true</live>
 						    <format>%.1f lbs</format>
                         </text>
+						<slider>
+							<name>Weight 2 Count</name>
+							<property>payload/weight[2]/count</property>
+							<live>1</live>
+							<min>1</min>
+							<max>3</max>
+							<step>1</step>
+							<binding>
+								<command>dialog-apply</command>
+								<object-name>Weight 2 Count</object-name>
+							</binding>
+							<binding>
+								<command>nasal</command>
+								<script>
+									setprop("payload/weight[2]/count", 1)
+								</script>
+							</binding>
+						</slider>
 					</group>
 					<group>
 						<layout>hbox</layout>
@@ -1264,6 +1390,28 @@
 						    <live>true</live>
 						    <format>%.1f lbs</format>
                         </text>
+						<slider>
+							<name>Weight 3 Count</name>
+							<property>payload/weight[3]/count</property>
+							<live>1</live>
+							<min>1</min>
+							<max>3</max>
+							<step>1</step>
+							<binding>
+								<command>dialog-apply</command>
+								<object-name>Weight 3 Count</object-name>
+							</binding>
+							<binding>
+								<command>nasal</command>
+								<script>
+									if (getprop("payload/weight[3]/selected") == "2 X AIM-9X" and getprop("payload/weight[3]/count") > 2) {
+										setprop("payload/weight[3]/count", 2)
+									} elsif (getprop("payload/weight[3]/selected") != "3 X CBU-87" and getprop("payload/weight[3]/selected") != "3 X MK-83" and getprop("payload/weight[3]/selected") != "2 X AIM-9X") {
+										setprop("payload/weight[3]/count", 1)
+									}
+								</script>
+							</binding>
+						</slider>
 					</group>
 					<group>
 						<layout>hbox</layout>
@@ -1304,6 +1452,28 @@
 						    <live>true</live>
 						    <format>%.1f lbs</format>
                         </text>
+						<slider>
+							<name>Weight 4 Count</name>
+							<property>payload/weight[4]/count</property>
+							<live>1</live>
+							<min>1</min>
+							<max>3</max>
+							<step>1</step>
+							<binding>
+								<command>dialog-apply</command>
+								<object-name>Weight 4 Count</object-name>
+							</binding>
+							<binding>
+								<command>nasal</command>
+								<script>
+									if (getprop("payload/weight[4]/selected") == "2 X AIM-9X" and getprop("payload/weight[4]/count") > 2) {
+										setprop("payload/weight[4]/count", 2)
+									} elsif (getprop("payload/weight[4]/selected") != "3 X CBU-87" and getprop("payload/weight[4]/selected") != "3 X MK-83" and getprop("payload/weight[4]/selected") != "2 X AIM-9X") {
+										setprop("payload/weight[4]/count", 1)
+									}
+								</script>
+							</binding>
+						</slider>
 					</group>
 					<group>
 						<layout>hbox</layout>
@@ -1317,6 +1487,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>Droptank</value>
+                            <value>2 X AIM-9X</value>
                             <value>MK-83</value>
                             <value>3 X MK-83</value>
                             <value>MK-84</value>
@@ -1335,6 +1506,9 @@
                                 } elsif (getprop("payload/weight[5]/selected") == "3 X MK-83") {
                                     setprop("payload/weight[5]/count", 3);
                                     setprop("payload/weight[5]/weight-lb", 1014*3);
+                                } elsif (getprop("payload/weight[5]/selected") == "2 X AIM-9X") {
+                                    setprop("payload/weight[5]/count", 2);
+                                    setprop("payload/weight[5]/weight-lb", 196*2);
                                 }
                                 </script>
                             </binding>
@@ -1345,6 +1519,28 @@
 						    <live>true</live>
 						    <format>%.1f lbs</format>
                         </text>
+						<slider>
+							<name>Weight 5 Count</name>
+							<property>payload/weight[5]/count</property>
+							<live>1</live>
+							<min>1</min>
+							<max>3</max>
+							<step>1</step>
+							<binding>
+								<command>dialog-apply</command>
+								<object-name>Weight 5 Count</object-name>
+							</binding>
+							<binding>
+								<command>nasal</command>
+								<script>
+									if (getprop("payload/weight[5]/selected") == "2 X AIM-9X" and getprop("payload/weight[5]/count") > 2) {
+										setprop("payload/weight[5]/count", 2)
+									} elsif (getprop("payload/weight[5]/selected") != "3 X CBU-87" and getprop("payload/weight[5]/selected") != "3 X MK-83" and getprop("payload/weight[5]/selected") != "2 X AIM-9X") {
+										setprop("payload/weight[5]/count", 1)
+									}
+								</script>
+							</binding>
+						</slider>
 					</group>
 					<group>
 						<layout>hbox</layout>
@@ -1385,6 +1581,28 @@
 						    <live>true</live>
 						    <format>%.1f lbs</format>
                         </text>
+						<slider>
+							<name>Weight 6 Count</name>
+							<property>payload/weight[6]/count</property>
+							<live>1</live>
+							<min>1</min>
+							<max>3</max>
+							<step>1</step>
+							<binding>
+								<command>dialog-apply</command>
+								<object-name>Weight 6 Count</object-name>
+							</binding>
+							<binding>
+								<command>nasal</command>
+								<script>
+									if (getprop("payload/weight[6]/selected") == "2 X AIM-9X" and getprop("payload/weight[6]/count") > 2) {
+										setprop("payload/weight[6]/count", 2)
+									} elsif (getprop("payload/weight[6]/selected") != "3 X CBU-87" and getprop("payload/weight[6]/selected") != "3 X MK-83" and getprop("payload/weight[6]/selected") != "2 X AIM-9X") {
+										setprop("payload/weight[6]/count", 1)
+									}
+								</script>
+							</binding>
+						</slider>
 					</group>
 					<group>
 						<layout>hbox</layout>
@@ -1425,6 +1643,28 @@
 						    <live>true</live>
 						    <format>%.1f lbs</format>
                         </text>
+						<slider>
+							<name>Weight 7 Count</name>
+							<property>payload/weight[7]/count</property>
+							<live>1</live>
+							<min>1</min>
+							<max>3</max>
+							<step>1</step>
+							<binding>
+								<command>dialog-apply</command>
+								<object-name>Weight 7 Count</object-name>
+							</binding>
+							<binding>
+								<command>nasal</command>
+								<script>
+									if (getprop("payload/weight[7]/selected") == "2 X AIM-9X" and getprop("payload/weight[7]/count") > 2) {
+										setprop("payload/weight[7]/count", 2)
+									} elsif (getprop("payload/weight[7]/selected") != "3 X CBU-87" and getprop("payload/weight[7]/selected") != "3 X MK-83" and getprop("payload/weight[7]/selected") != "2 X AIM-9X") {
+										setprop("payload/weight[7]/count", 1)
+									}
+								</script>
+							</binding>
+						</slider>
 					</group>
                     <group>
                         <layout>hbox</layout>
@@ -1453,6 +1693,24 @@
 						    <live>true</live>
 						    <format>%.1f lbs</format>
                         </text>
+						<slider>
+							<name>Weight 8 Count</name>
+							<property>payload/weight[8]/count</property>
+							<live>1</live>
+							<min>1</min>
+							<max>3</max>
+							<step>1</step>
+							<binding>
+								<command>dialog-apply</command>
+								<object-name>Weight 8 Count</object-name>
+							</binding>
+							<binding>
+								<command>nasal</command>
+								<script>
+									setprop("payload/weight[8]/count", 1)
+								</script>
+							</binding>
+						</slider>
                     </group>
                     <group>
                         <layout>hbox</layout>
@@ -1466,6 +1724,7 @@
                             <live>true</live>
                             <value>none</value>
                             <value>Droptank</value>
+                            <value>2 X AIM-9X</value>
                             <value>MK-83</value>
                             <value>3 X MK-83</value>
                             <value>MK-84</value>
@@ -1484,6 +1743,9 @@
                                 } elsif (getprop("payload/weight[9]/selected") == "3 X MK-83") {
                                     setprop("payload/weight[9]/count", 3);
                                     setprop("payload/weight[9]/weight-lb", 1014*3);
+                                } elsif (getprop("payload/weight[9]/selected") == "2 X AIM-9X") {
+                                    setprop("payload/weight[9]/count", 2);
+                                    setprop("payload/weight[9]/weight-lb", 196*2);
                                 }
                                 </script>
                             </binding>
@@ -1494,6 +1756,28 @@
 						    <live>true</live>
 						    <format>%.1f lbs</format>
                         </text>
+						<slider>
+							<name>Weight 9 Count</name>
+							<property>payload/weight[9]/count</property>
+							<live>1</live>
+							<min>1</min>
+							<max>3</max>
+							<step>1</step>
+							<binding>
+								<command>dialog-apply</command>
+								<object-name>Weight 9 Count</object-name>
+							</binding>
+							<binding>
+								<command>nasal</command>
+								<script>
+									if (getprop("payload/weight[9]/selected") == "2 X AIM-9X" and getprop("payload/weight[9]/count") > 2) {
+										setprop("payload/weight[9]/count", 2)
+									} elsif (getprop("payload/weight[9]/selected") != "3 X CBU-87" and getprop("payload/weight[9]/selected") != "3 X MK-83" and getprop("payload/weight[9]/selected") != "2 X AIM-9X") {
+										setprop("payload/weight[9]/count", 1)
+									}
+								</script>
+							</binding>
+						</slider>
                     </group>
                     <group>
                         <layout>hbox</layout>
@@ -1522,6 +1806,24 @@
 						    <live>true</live>
 						    <format>%.1f lbs</format>
                         </text>
+						<slider>
+							<name>Weight 10 Count</name>
+							<property>payload/weight[10]/count</property>
+							<live>1</live>
+							<min>1</min>
+							<max>3</max>
+							<step>1</step>
+							<binding>
+								<command>dialog-apply</command>
+								<object-name>Weight 10 Count</object-name>
+							</binding>
+							<binding>
+								<command>nasal</command>
+								<script>
+									setprop("payload/weight[10]/count", 1)
+								</script>
+							</binding>
+						</slider>
                     </group>
 
                     <hrule/>

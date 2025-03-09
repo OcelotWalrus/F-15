@@ -2250,6 +2250,34 @@
              <z-m>0.3</z-m>
         </offsets>
     </model>
+    
+    <model>
+        <name>2x-aim-9x-l</name>
+        <path>Aircraft/F-15/Models/Stores/2 X AIM-9X/duorack-1.xml</path>
+        <offsets>
+             <x-m>2</x-m>
+             <y-m>-3.28</y-m>
+             <z-m>0.07</z-m>
+        </offsets>
+    </model>
+    <model>
+        <name>2x-aim-9x-c</name>
+        <path>Aircraft/F-15/Models/Stores/2 X AIM-9X/duorack-5.xml</path>
+        <offsets>
+             <x-m>1.2</x-m>
+             <y-m>0</y-m>
+             <z-m>-0.96</z-m>
+        </offsets>
+    </model>
+    <model>
+        <name>2x-aim-9x-r</name>
+        <path>Aircraft/F-15/Models/Stores/2 X AIM-9X/duorack-9.xml</path>
+        <offsets>
+             <x-m>2</x-m>
+             <y-m>3.28</y-m>
+             <z-m>0.07</z-m>
+        </offsets>
+    </model>
 
     <model>
         <name>cbu-87-l</name>
@@ -2593,6 +2621,37 @@
           <equals>
               <property>payload/weight[10]/selected</property>
               <value>CBU-105</value>
+          </equals>
+      </condition>
+    </animation>
+
+    <animation>
+      <type>select</type>
+      <object-name>2x-aim-9x-l</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[1]/selected</property>
+              <value>2 X AIM-9X</value>
+          </equals>
+      </condition>
+    </animation>
+    <animation>
+      <type>select</type>
+      <object-name>2x-aim-9x-c</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[5]/selected</property>
+              <value>2 X AIM-9X</value>
+          </equals>
+      </condition>
+    </animation>
+    <animation>
+      <type>select</type>
+      <object-name>2x-aim-9x-r</object-name>
+      <condition>
+          <equals>
+              <property>payload/weight[9]/selected</property>
+              <value>2 X AIM-9X</value>
           </equals>
       </condition>
     </animation>
