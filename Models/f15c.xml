@@ -3845,5 +3845,16 @@
            </and>
       </condition>
   </animation>
+  
+  <model>
+    <name>dragchute</name>
+    <path>Aircraft/F-15/Models/Effects/dragchute/dragchute.xml</path>
+ </model>
+ 
+ <animation>
+    <type>select</type>
+    <object-name>dragchute</object-name>
+      <condition><property>sim/model/f15/chute/enable</property></condition>
+  </animation>
 
 </PropertyList>

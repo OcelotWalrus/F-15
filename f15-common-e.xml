@@ -77,6 +77,11 @@
                 <catapult>
                     <cat-pos-porm type="int">0</cat-pos-porm>
                 </catapult>
+                <external_reactions>
+                    <chute>
+                        <magnitude type="double">0</magnitude>
+                    </chute>
+                </external_reactions>
             </systems>
         </jsbsim>
     </fdm>
@@ -190,10 +195,6 @@
                 <desc>Toggle Radar PULSE SRCH / TWS AUTO Mode</desc>
             </key>
             <key>
-                <name>Ctrl-y</name>
-                <desc>Cycle through bombs arming times</desc>
-            </key>
-            <key>
                 <name>e</name>
                 <desc>Fire guns / missiles</desc>
             </key>
@@ -216,6 +217,14 @@
             <key>
                 <name>S</name>
                 <desc>Toggle smoke generator</desc>
+            </key>
+            <key>
+                <name>Ctrl-y</name>
+                <desc>Deploy dragchute</desc>
+            </key>
+            <key>
+                <name>Ctrl-x</name>
+                <desc>Release dragchute</desc>
             </key>
             <line>JFS start: select JFS switch on engine panel; pull JFS lever and JFS will start providing there is enough pressure. 3 start attempts are possible.</line>
             <line>Engine start: Either start JFS or external air. Ensure both engines shutoff on engines panel. Start L engine then R engine.</line>
@@ -547,6 +556,14 @@
                 <type>float</type>
                 <property type="string">fdm/jsbsim/gear/gear-command-position-norm</property>
               </signal>
+              <signal>
+                <type>bool</type>
+                <property type="string">sim/model/f15/chute/enable</property>
+              </signal>
+              <signal>
+                <type>bool</type>
+                <property type="string">sim/model/f15/dragchute</property>
+              </signal>
             </config>
         </flight-recorder>
 
@@ -577,6 +594,14 @@
                 </default_exit>
             </map>
             <f15>
+                <dragchute type="float">1</dragchute>
+                <chute>
+                    <force type="double">2.0</force>
+                    <fold type="double">0.0</fold>
+                    <done type="bool">false</done>
+                    <enable type="bool">false</enable>
+                    <repack type="float">0</repack>
+                </chute>
                 <cft type="float">0</cft>
                 <controls>
                     <windshield-heat type="int">0</windshield-heat>
@@ -1152,6 +1177,9 @@
                 <string n="0" type="string"></string>
                 <string n="13" type="string"></string>
                 <string n="15" type="string"></string>
+
+                <bool n="0" type="bool" alias="sim/model/f15/chute/enable"/>
+                <bool n="1" type="bool" alias="/sim/model/f15/dragchute"/>
                 <!-- Emesary multiplayer bridge -->
                 <!--<string n="19" type="string"></string> -->
             </generic>
@@ -2659,15 +2687,6 @@
                 </binding>
             </key>
 
-            <key n="25">
-                <name>Ctrl-y</name>
-                <desc>Cycle through bombs arming times</desc>
-                <binding>
-                    <command>nasal</command>
-                    <script>aircraft.cycleArmingTimes();</script>
-                </binding>
-            </key>
-
             <key n="19">
                 <name>Ctrl-s</name>
                 <desc>Toggle Auto Throttle hold</desc>
@@ -3000,6 +3019,23 @@
                     <property>sim/model/f15/fx/smoke</property>
                 </binding>
             </key>
+
+            <key n="25">
+               <name>Ctrl-y</name>
+               <desc>Deploy chute</desc>
+               <binding>
+                   <command>nasal</command>
+                   <script>aircraft.chute();</script>
+               </binding>
+           </key>
+           <key n="24">
+              <name>Ctrl-x</name>
+              <desc>Release chute</desc>
+              <binding>
+                  <command>nasal</command>
+                  <script>aircraft.chute_release();</script>
+              </binding>
+          </key>
         </keyboard>
     </input>
 
@@ -3119,7 +3155,6 @@
             <file>Aircraft/F-15/Nasal/weapons.nas</file>
             <file>Aircraft/F-15/Nasal/ext_stores.nas</file>
             <file>Aircraft/F-15/Nasal/crash-and-stress.nas</file>
-            <file>Aircraft/F-15/Nasal/MissileView.nas</file>
         </aircraft>
         <environment>
             <file>Nasal/environment.nas</file>

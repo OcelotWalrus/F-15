@@ -25,6 +25,7 @@ For now, what's been done is:
 - Fixed liveries whose nose was bugged
 - Tweaked some missiles' data to fit more realistic scenarios (or not)
 - The addition of custom FlightGear AI scenarios for either strike, target interception or dogfight situations
+- Added a dragchute
 
 ---
 ORIGINAL TEXT

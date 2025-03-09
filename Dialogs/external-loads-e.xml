@@ -622,6 +622,28 @@
                     <script>aircraft.fixAirframe();aircraft.ct("rp");</script>
                 </binding>
             </button>
+			<button>
+                <legend>Repack Dragchute</legend>
+                <binding>
+                    <command>nasal</command>
+                    <script>
+						  if (!getprop("gear/gear[0]/wow")) {
+				            screen.log.write("This is only possible on ground.");
+				            return;
+				          }
+				          if (getprop("sim/model/f15/chute/done")) {
+				            setprop("sim/model/f15/chute/repack", 1);
+				            setprop("sim/model/f15/chute/done", 0);
+				            setprop("sim/model/f15/chute/enable", 0);
+				            setprop("sim/model/f15/chute/force", 2);
+				            setprop("sim/model/f15/chute/fold", 0);
+				            screen.log.write("Drag chute repacked.");
+				            setprop("sim/model/f15/chute/repack", 0);
+				            aircraft.chuteLoop.stop();
+				          }
+					</script>
+                </binding>
+            </button>
 
             <group>
                 <layout>hbox</layout>
