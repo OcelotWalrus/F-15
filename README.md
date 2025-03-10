@@ -26,6 +26,7 @@ For now, what's been done is:
 - Tweaked some missiles' data to fit more realistic scenarios (or not)
 - The addition of custom FlightGear AI scenarios for either strike, target interception or dogfight situations
 - Added a dragchute
+- Added more payload options, through custom rack count or new stores
 
 ---
 ORIGINAL TEXT
